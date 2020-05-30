@@ -4,6 +4,8 @@
 namespace App\Traits;
 
 
+use App\Http\Response;
+
 trait Helpers
 {
     /**
@@ -22,5 +24,10 @@ trait Helpers
         }
 
         return round($seconds, 2).'s';
+    }
+
+    protected function response()
+    {
+        return app(Response::class);
     }
 }

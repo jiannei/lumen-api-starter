@@ -29,6 +29,7 @@ Route::get('configs', 'ExampleController@configs');
 
 Route::post('register', 'UsersController@register');
 Route::get('users/{id}', 'UsersController@show');
+Route::get('users', 'UsersController@index');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');

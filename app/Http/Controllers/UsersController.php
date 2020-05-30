@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,18 +13,21 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['register']]);
+        $this->middleware('auth:api', ['except' => ['register', 'show', 'index']]);
+    }
+
+    public function index()
+    {
+        $resource = User::simplePaginate(15);
+
+        return $this->response()->success(new UserCollection($resource), '成功');
     }
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        return response()->json([
-            'data' => new UserResource($user),
-            'message' => 'Success',
-            'code' => 100001
-        ]);
+        return $this->response()->success(new UserResource($user), '成功');
     }
 
     public function register(Request $request)
@@ -41,6 +44,6 @@ class UsersController extends Controller
         $user->password = Hash::make($request->post('password'));
         $user->save();
 
-        return response()->json(['data' => $user, 'message' => 'Created', 'code' => 100001], 201);
+        return $this->response()->created(new UserResource($user));
     }
 }
