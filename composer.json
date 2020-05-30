@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.2.5",
+        "guzzlehttp/guzzle": "^6.5",
         "laravel/lumen-framework": "^7.0",
         "tymon/jwt-auth": "^1.0"
     },

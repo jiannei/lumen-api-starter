@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return app()->version();
+});
+
+Route::get('author', function () {
+    $response = Http::withOptions(['timeout' => 3])->get('https://api.github.com/users/Jiannei');
+    $response->throw();
+
+    return $response->json();
 });
 
 Route::get('configs', 'ExampleController@configs');
