@@ -60,6 +60,15 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('auth');
+$app->configure('broadcasting');
+$app->configure('cache');
+$app->configure('database');
+$app->configure('filesystems');
+$app->configure('logging');
+$app->configure('queue');
+$app->configure('services');
+$app->configure('views');
 
 /*
 |--------------------------------------------------------------------------

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ExampleController extends Controller
 {
     /**
@@ -14,5 +16,18 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function configs(Request $request)
+    {
+        return [
+            'app' => config('app'),
+            'auth' => config('auth'),
+            'broadcasting' => config('broadcasting'),
+            'cache' => config('cache'),
+            'database' => config('database'),
+            'filesystems' => config('filesystems'),
+            'logging' => config('logging'),
+            'queue' => config('queue'),
+            'services' => config('services'),
+        ];
+    }
 }
