@@ -35,7 +35,10 @@ return [
     */
 
     'guards' => [
-        'api' => ['driver' => 'api'],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',// 与下面的 providers 中的 users 是对应的
+        ],
     ],
 
     /*
@@ -56,7 +59,10 @@ return [
     */
 
     'providers' => [
-        //
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\User::class
+        ]
     ],
 
     /*

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,8 +13,17 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+Route::get('/', function () {
+    return app()->version();
 });
 
-$router->get('configs', 'ExampleController@configs');
+Route::get('configs', 'ExampleController@configs');
+
+Route::post('register', 'UsersController@register');
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login');
+    Route::delete('logout', 'AuthController@logout');
+    Route::put('refresh', 'AuthController@refresh');
+    Route::get('user', 'AuthController@me');
+});
