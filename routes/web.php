@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('configs', 'ExampleController@configs');
 
 Route::post('register', 'UsersController@register');
+Route::get('users/{id}', 'UsersController@show');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
