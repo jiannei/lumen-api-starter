@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
-class LoggerServiceProvider extends ServiceProvider
+class QueryLoggerServiceProvider extends ServiceProvider
 {
     use Helpers;
 
