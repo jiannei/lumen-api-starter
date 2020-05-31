@@ -50,7 +50,7 @@ trait Helpers
             return call_user_func(static::$responseBuilder, $request, $errors);
         }
 
-        return $this->response()->fail($errors, 'Validation error');
+        $this->response()->fail('Validation error', 422, $errors);
     }
 
     protected function response()
