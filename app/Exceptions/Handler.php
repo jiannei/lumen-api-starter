@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Traits\Helpers;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
@@ -11,6 +12,8 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    use Helpers;
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -50,5 +53,18 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+    }
+
+    protected function prepareJsonResponse($request, Throwable $e)
+    {
+        // 要求请求头 header 中包含 /json 或 +json，如：Accept:application/json
+        // 或者是 ajax 请求，header 中包含 X-Requested-With：XMLHttpRequest;
+        $this->response->fail(
+            'Service error',
+            $this->isHttpException($e) ? $e->getStatusCode() : 500,
+            $this->convertExceptionToArray($e),
+            $this->isHttpException($e) ? $e->getHeaders() : [],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+        );
     }
 }

@@ -13,7 +13,7 @@ class Response
         $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
     }
 
-    public function fail($message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null)
+    public function fail($message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], $options = 0)
     {
         $status = 'fail';
         if ($code >= 400 && $code <= 499) {
@@ -25,7 +25,7 @@ class Response
             'code' => $code,
             'message' => $message,// 错误描述
             'data' => (object) $data,// 错误详情
-        ], $code)->throwResponse();
+        ], $code, $header, $options)->throwResponse();
     }
 
     public function errorBadRequest($message = 'Bad Request')
@@ -55,25 +55,33 @@ class Response
 
     public function accepted($message = 'Accepted')
     {
-        return $this->success($message, HttpResponse::HTTP_ACCEPTED);
+        return $this->success([], $message, HttpResponse::HTTP_ACCEPTED);
     }
 
-    public function success($data, $message = '', $code = HttpResponse::HTTP_OK)
+    /**
+     * @param JsonResource|array $data
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
+     * @return \Illuminate\Http\JsonResponse|JsonResource
+     */
+    public function success($data, $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
-        if ($data instanceof JsonResource) {
-            $data->additional([
-                'status' => 'success',
-                'code' => $code,
-                'message' => $message
-            ]);
+        $additionalData = [
+            'status' => 'success',
+            'code' => $code,
+            'message' => $message
+        ];
 
-            return $data;
+        if ($data instanceof JsonResource) {
+            return $data->additional($additionalData);
         }
 
-        return response($data, $code);
+        return response()->json(array_merge($additionalData, ['data' => $data]), $code, $headers, $option);
     }
 
-    public function created($data, $message = 'Created', $location = null)
+    public function created(array $data = [], $message = 'Created', string $location = '')
     {
         $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
         if ($location) {
@@ -85,6 +93,6 @@ class Response
 
     public function noContent($message = 'No content')
     {
-        return $this->success($message, HttpResponse::HTTP_NO_CONTENT);
+        return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
     }
 }
