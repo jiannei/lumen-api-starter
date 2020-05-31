@@ -34,4 +34,4 @@ Route::get('users', 'UsersController@index');
 Route::post('auth/login', 'AuthController@login');
 Route::delete('auth/logout', 'AuthController@logout');
 Route::put('auth/refresh', 'AuthController@refresh');
-Route::get('auth/user', 'AuthController@me');
+Route::get('auth/user', 'AuthController@user');

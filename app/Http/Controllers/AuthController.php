@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $credentials = request(['name', 'email', 'password']);
         if (!$token = auth()->attempt($credentials)) {
-            return $this->response->errorUnauthorized();
+            $this->response->errorUnauthorized();
         }
 
         return $this->respondWithToken($token);

@@ -10,53 +10,52 @@ class Response
 {
     public function errorNotFound($message = 'Not Found')
     {
-        return $this->fail(null, $message, HttpResponse::HTTP_NOT_FOUND);
+        $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
     }
 
-    public function fail($data = null, $message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR)
+    public function fail($message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null)
     {
         $status = 'fail';
         if ($code >= 400 && $code <= 499) {
             $status = 'error';
         }
 
-        return response([
+        response()->json([
             'status' => $status,
             'code' => $code,
-            'message' => $message,
-            'data' => (object) $data,
-        ], $code);
+            'message' => $message,// 错误描述
+            'data' => (object) $data,// 错误详情
+        ], $code)->throwResponse();
     }
 
     public function errorBadRequest($message = 'Bad Request')
     {
-        return $this->fail(null, $message, HttpResponse::HTTP_BAD_REQUEST);
+        $this->fail($message, HttpResponse::HTTP_BAD_REQUEST);
     }
 
     public function errorForbidden($message = 'Forbidden')
     {
-        return $this->fail(null, $message, HttpResponse::HTTP_FORBIDDEN);
+        $this->fail($message, HttpResponse::HTTP_FORBIDDEN);
     }
 
     public function errorInternal($message = 'Internal Error')
     {
-        return $this->fail(null, $message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
+        $this->fail($message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
-
 
     public function errorUnauthorized($message = 'Unauthorized')
     {
-        return $this->fail(null, $message, HttpResponse::HTTP_UNAUTHORIZED);
+        $this->fail($message, HttpResponse::HTTP_UNAUTHORIZED);
     }
 
     public function errorMethodNotAllowed($message = 'Method Not Allowed')
     {
-        return $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
+        $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
     }
 
     public function accepted($message = 'Accepted')
     {
-        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
+        return $this->success($message, HttpResponse::HTTP_ACCEPTED);
     }
 
     public function success($data, $message = '', $code = HttpResponse::HTTP_OK)
@@ -86,6 +85,6 @@ class Response
 
     public function noContent($message = 'No content')
     {
-        return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
+        return $this->success($message, HttpResponse::HTTP_NO_CONTENT);
     }
 }
