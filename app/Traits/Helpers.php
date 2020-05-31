@@ -3,6 +3,9 @@
 
 namespace App\Traits;
 
+use App\Http\Response;
+use Illuminate\Http\Request;
+
 /**
  * Trait Helpers
  * @package App\Traits
@@ -41,8 +44,17 @@ trait Helpers
         return round($seconds, 2).'s';
     }
 
+    protected function buildFailedValidationResponse(Request $request, array $errors)
+    {
+        if (isset(static::$responseBuilder)) {
+            return call_user_func(static::$responseBuilder, $request, $errors);
+        }
+
+        return $this->response()->fail($errors, 'Validation error');
+    }
+
     protected function response()
     {
-        return app(\App\Http\Response::class);
+        return app(Response::class);
     }
 }
