@@ -60,7 +60,7 @@ class Response
         return $this->success(null, $message, FoundationResponse::HTTP_ACCEPTED);
     }
 
-    public function success($data, $message, $code = FoundationResponse::HTTP_OK)
+    public function success($data, $message = '', $code = FoundationResponse::HTTP_OK)
     {
         if ($data instanceof JsonResource) {
             $data->additional([
@@ -75,9 +75,14 @@ class Response
         return response($data, $code);
     }
 
-    public function created($data, $message = 'Created')
+    public function created($data, $message = 'Created', $location = null)
     {
-        return $this->success($data, $message, FoundationResponse::HTTP_CREATED);
+        $response = $this->success($data, $message, FoundationResponse::HTTP_CREATED);
+        if ($location) {
+            $response->header('Location', $location);
+        }
+
+        return $response;
     }
 
     public function noContent($message = 'No content')

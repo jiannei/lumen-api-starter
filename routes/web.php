@@ -25,15 +25,13 @@ Route::get('author', function () {
     return $response->json();
 });
 
-Route::get('configs', 'ExampleController@configs');
+Route::get('configurations', 'ExampleController@configurations');
 
-Route::post('register', 'UsersController@register');
+Route::post('users', 'UsersController@store');
 Route::get('users/{id}', 'UsersController@show');
 Route::get('users', 'UsersController@index');
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', 'AuthController@login');
-    Route::delete('logout', 'AuthController@logout');
-    Route::put('refresh', 'AuthController@refresh');
-    Route::get('user', 'AuthController@me');
-});
+Route::post('auth/login', 'AuthController@login');
+Route::delete('auth/logout', 'AuthController@logout');
+Route::put('auth/refresh', 'AuthController@refresh');
+Route::get('auth/user', 'AuthController@me');

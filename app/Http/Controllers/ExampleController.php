@@ -16,7 +16,7 @@ class ExampleController extends Controller
         //
     }
 
-    public function configs(Request $request)
+    public function configurations(Request $request)
     {
         return [
             'app' => config('app'),

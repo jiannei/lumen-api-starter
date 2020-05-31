@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['register', 'show', 'index']]);
+        $this->middleware('auth:api', ['except' => ['store', 'show', 'index']]);
     }
 
     public function index()
@@ -30,7 +30,7 @@ class UsersController extends Controller
         return $this->response()->success(new UserResource($user), '成功');
     }
 
-    public function register(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
