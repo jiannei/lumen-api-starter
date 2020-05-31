@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use Illuminate\Http\Request;
 
 class ExampleController extends Controller
@@ -29,5 +30,10 @@ class ExampleController extends Controller
             'queue' => config('queue'),
             'services' => config('services'),
         ]);
+    }
+
+    public function logs()
+    {
+        return $this->response->success(Log::all());
     }
 }
