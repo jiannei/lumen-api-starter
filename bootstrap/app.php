@@ -71,6 +71,7 @@ $app->configure('logging');
 $app->configure('queue');
 $app->configure('services');
 $app->configure('views');
+$app->configure('repository');
 
 /*
 |--------------------------------------------------------------------------
@@ -106,10 +107,23 @@ $app->routeMiddleware([
 |
 */
 
+/*
+* Application Service Providers...
+*/
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+
+/*
+ * Package Service Providers...
+ */
+$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+$app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
+
+/**
+ * Custom Service Providers
+ */
+$app->register(\App\Providers\RepositoryServiceProvider::class);
 $app->register(\App\Providers\QueryLoggerServiceProvider::class);
 
 /*

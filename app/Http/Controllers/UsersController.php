@@ -5,31 +5,43 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
-use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    public function __construct()
+    /**
+     * @var UserService
+     */
+    private $service;
+
+    public function __construct(UserService $service)
     {
+        $this->service = $service;
+
         $this->middleware('auth:api', ['except' => ['store', 'show', 'index']]);
     }
 
     public function index()
     {
-        $resource = User::simplePaginate(15);
+        $resource = $this->service->getUserList();
 
         return $this->response->success(new UserCollection($resource), '成功');
     }
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = $this->service->getUserById($id);
 
         return $this->response->success(new UserResource($user), '成功');
     }
 
+    /**
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Resources\Json\JsonResource
+     * @throws \Illuminate\Validation\ValidationException
+     * @throws \Throwable
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -38,11 +50,7 @@ class UsersController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = new User();
-        $user->name = $request->post('name');
-        $user->email = $request->post('email');
-        $user->password = Hash::make($request->post('password'));
-        $user->save();
+        $user = $this->service->register($request);
 
         return $this->response->created(new UserResource($user));
     }

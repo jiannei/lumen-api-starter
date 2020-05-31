@@ -55,11 +55,11 @@ class Response
 
     public function accepted($message = 'Accepted')
     {
-        return $this->success([], $message, HttpResponse::HTTP_ACCEPTED);
+        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
     }
 
     /**
-     * @param JsonResource|array $data
+     * @param  JsonResource|array  $data
      * @param  string  $message
      * @param  int  $code
      * @param  array  $headers
@@ -81,7 +81,13 @@ class Response
         return response()->json(array_merge($additionalData, ['data' => $data]), $code, $headers, $option);
     }
 
-    public function created(array $data = [], $message = 'Created', string $location = '')
+    /**
+     * @param  JsonResource|array  $data
+     * @param  string  $message
+     * @param  string  $location
+     * @return \Illuminate\Http\JsonResponse|JsonResource
+     */
+    public function created($data, $message = 'Created', string $location = '')
     {
         $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
         if ($location) {
