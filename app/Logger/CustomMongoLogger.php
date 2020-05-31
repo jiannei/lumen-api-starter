@@ -20,8 +20,6 @@ class CustomMongoLogger
      */
     public function __invoke(array $config)
     {
-        $logger = new Logger('mongo'); // 创建 Logger
-
         $uri = "mongodb://{$config['host']}:{$config['port']}";
         if ($config['separate'] === 'daily') {
             $collection = Carbon::now()->format('Ymd')."_log";
@@ -38,8 +36,9 @@ class CustomMongoLogger
             $config['database'],
             $collection
         );
-
         $handler->setLevel($config['level']);
+
+        $logger = new Logger('mongo'); // 创建 Logger
         $logger->pushHandler($handler); // 挂载 Handler
         $logger->pushProcessor(new WebProcessor(request()->server())); // 记录额外的请求信息
 
