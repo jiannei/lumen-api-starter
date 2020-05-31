@@ -32,7 +32,7 @@ Route::post('users', 'UsersController@store');
 Route::get('users/{id}', 'UsersController@show');
 Route::get('users', 'UsersController@index');
 
-Route::post('auth/login', 'AuthController@login');
-Route::delete('auth/logout', 'AuthController@logout');
-Route::put('auth/refresh', 'AuthController@refresh');
-Route::get('auth/user', 'AuthController@user');
+Route::post('authorization', 'AuthorizationController@store');
+Route::delete('authorization', 'AuthorizationController@destroy');
+Route::put('authorization', 'AuthorizationController@update');
+Route::get('authorization', 'AuthorizationController@show');

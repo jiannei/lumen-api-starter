@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class AuthorizationController extends Controller
 {
     /**
      * Create a new AuthController instance.
@@ -19,7 +19,7 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    public function login(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'email' => 'filled|email',
@@ -44,14 +44,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function user()
+    public function show()
     {
         $user = auth()->userOrFail();
 
         return $this->response->success(new UserResource($user));
     }
 
-    public function logout()
+    public function destroy()
     {
         auth()->logout();
 
