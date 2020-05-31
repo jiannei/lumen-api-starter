@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $credentials = request(['name', 'email', 'password']);
         if (!$token = auth()->attempt($credentials)) {
-            return $this->response()->errorUnauthorized();
+            return $this->response->errorUnauthorized();
         }
 
         return $this->respondWithToken($token);
@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     protected function respondWithToken($token)
     {
-        return $this->response()->created([
+        return $this->response->created([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
@@ -48,14 +48,14 @@ class AuthController extends Controller
     {
         $user = auth()->userOrFail();
 
-        return $this->response()->success(new UserResource($user));
+        return $this->response->success(new UserResource($user));
     }
 
     public function logout()
     {
         auth()->logout();
 
-        return $this->response()->noContent('Successfully logged out');
+        return $this->response->noContent('Successfully logged out');
     }
 
     public function refresh()

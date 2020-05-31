@@ -3,11 +3,26 @@
 
 namespace App\Traits;
 
-
-use App\Http\Response;
-
+/**
+ * Trait Helpers
+ * @package App\Traits
+ * @property \App\Http\Response $response
+ */
 trait Helpers
 {
+    public function __get($key)
+    {
+        $callable = [
+            'response',
+        ];
+
+        if (in_array($key, $callable) && method_exists($this, $key)) {
+            return $this->$key();
+        }
+
+        throw new \ErrorException('Undefined property '.get_class($this).'::'.$key);
+    }
+
     /**
      * Format duration.
      *
@@ -28,6 +43,6 @@ trait Helpers
 
     protected function response()
     {
-        return app(Response::class);
+        return app(\App\Http\Response::class);
     }
 }

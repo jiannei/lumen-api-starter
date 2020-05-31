@@ -18,7 +18,7 @@ class ExampleController extends Controller
 
     public function configurations(Request $request)
     {
-        return [
+        return $this->response->success([
             'app' => config('app'),
             'auth' => config('auth'),
             'broadcasting' => config('broadcasting'),
@@ -28,6 +28,6 @@ class ExampleController extends Controller
             'logging' => config('logging'),
             'queue' => config('queue'),
             'services' => config('services'),
-        ];
+        ]);
     }
 }

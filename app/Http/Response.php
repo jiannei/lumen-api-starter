@@ -3,18 +3,17 @@
 
 namespace App\Http;
 
-use App\Exceptions\HttpException;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Symfony\Component\HttpFoundation\Response as FoundationResponse;
+use  \Illuminate\Http\Response as HttpResponse;
 
 class Response
 {
     public function errorNotFound($message = 'Not Found')
     {
-        return $this->fail(null, $message, FoundationResponse::HTTP_NOT_FOUND);
+        return $this->fail(null, $message, HttpResponse::HTTP_NOT_FOUND);
     }
 
-    public function fail($data = null, $message = 'Service error', $code = FoundationResponse::HTTP_INTERNAL_SERVER_ERROR)
+    public function fail($data = null, $message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR)
     {
         $status = 'fail';
         if ($code >= 400 && $code <= 499) {
@@ -31,36 +30,36 @@ class Response
 
     public function errorBadRequest($message = 'Bad Request')
     {
-        return $this->fail(null, $message, FoundationResponse::HTTP_BAD_REQUEST);
+        return $this->fail(null, $message, HttpResponse::HTTP_BAD_REQUEST);
     }
 
     public function errorForbidden($message = 'Forbidden')
     {
-        return $this->fail(null, $message, FoundationResponse::HTTP_FORBIDDEN);
+        return $this->fail(null, $message, HttpResponse::HTTP_FORBIDDEN);
     }
 
     public function errorInternal($message = 'Internal Error')
     {
-        return $this->fail(null, $message, FoundationResponse::HTTP_INTERNAL_SERVER_ERROR);
+        return $this->fail(null, $message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
 
 
     public function errorUnauthorized($message = 'Unauthorized')
     {
-        return $this->fail(null, $message, FoundationResponse::HTTP_UNAUTHORIZED);
+        return $this->fail(null, $message, HttpResponse::HTTP_UNAUTHORIZED);
     }
 
     public function errorMethodNotAllowed($message = 'Method Not Allowed')
     {
-        return $this->error($message, FoundationResponse::HTTP_METHOD_NOT_ALLOWED);
+        return $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
     }
 
     public function accepted($message = 'Accepted')
     {
-        return $this->success(null, $message, FoundationResponse::HTTP_ACCEPTED);
+        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
     }
 
-    public function success($data, $message = '', $code = FoundationResponse::HTTP_OK)
+    public function success($data, $message = '', $code = HttpResponse::HTTP_OK)
     {
         if ($data instanceof JsonResource) {
             $data->additional([
@@ -77,7 +76,7 @@ class Response
 
     public function created($data, $message = 'Created', $location = null)
     {
-        $response = $this->success($data, $message, FoundationResponse::HTTP_CREATED);
+        $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
         if ($location) {
             $response->header('Location', $location);
         }
@@ -87,6 +86,6 @@ class Response
 
     public function noContent($message = 'No content')
     {
-        return $this->success(null, $message, FoundationResponse::HTTP_NO_CONTENT);
+        return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
     }
 }
