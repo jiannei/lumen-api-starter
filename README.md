@@ -10,20 +10,14 @@
 
 ## 概览
 
-- 最新版本的 Laravel 7 component 加持
-- RESTflu 规范的路由定义和 HTTP 响应结构
-- 合理有效地『Repository & Service』架构设计（😏）
-- 丰富的日志记录模式，
-
 ### 现已支持
 
-- Laravel 7 中新增的 HttpClient 客户端
-- Laravel Api Resource
-- 规范统一的响应结构
+- 适配 Laravel 7 中新增的 HttpClient 客户端
+- 使用 Laravel Api Resource
+- RESTflu 规范的路由定义和 HTTP 响应结构
 - Jwt-auth 方式授权
-- MongoDB 数据驱动
-- Repository 模式架构
-- 增加支持日志记录到 MongoDB
+- 支持日志记录到 MongoDB
+- 合理有效地『Repository & Service』架构设计（😏）
 
 ### 计划支持
 
@@ -35,8 +29,10 @@
 
 ## 规范的响应结构
 
+[RESTful 服务最佳实践](https://www.cnblogs.com/jaxu/p/7908111.html)
+
 > - code——包含一个整数类型的HTTP响应状态码。
->- status——包含文本："success"，"fail"或"error"。HTTP状态响应码在500-599之间为"fail"，在400-499之间为"error"，其它均为"success"（例如：响应状态码为1XX、2XX和3XX）。
+> - status——包含文本："success"，"fail"或"error"。HTTP状态响应码在500-599之间为"fail"，在400-499之间为"error"，其它均为"success"（例如：响应状态码为1XX、2XX和3XX）。
 > - message——当状态值为"fail"和"error"时有效，用于显示错误信息。参照国际化（il8n）标准，它可以包含信息号或者编码，可以只包含其中一个，或者同时包含并用分隔符隔开。
 > - data——包含响应的body。当状态值为"fail"或"error"时，data仅包含错误原因或异常名称。
 
@@ -60,9 +56,9 @@
 
 ### 使用
 
-在需要用到的地方使用 `\App\Traits\Helpers`对``\App\Http\Response`中封装的响应方法进行调用，通常是在 Controller 层中根据业务处理的结果进行响应，所以 `\App\Http\Controllers`基类中已经引入了 `Helpers`trait，可以直接在 Controller 中进行如下调用：
+在需要用到的地方使用 `\App\Traits\Helpers`对`\App\Http\Response`中封装的响应方法进行调用，通常是在 Controller 层中根据业务处理的结果进行响应，所以 `\App\Http\Controllers`基类中已经引入了 `Helpers`trait，可以直接在 Controller 中进行如下调用：
 
-```
+```php
 // 操作成功情况
 $this->response->success($data,$message);
 $this->response->created($data,$message);
@@ -83,7 +79,7 @@ $this->response->errorMethodNotAllowed();
 
 - 返回单条数据
 
-```
+```json
 {
     "data": {
         "nickname": "Jiannei",
@@ -97,7 +93,7 @@ $this->response->errorMethodNotAllowed();
 
 - 返回列表数据
 
-```
+```json
 {
     "data": [
         {
@@ -111,7 +107,7 @@ $this->response->errorMethodNotAllowed();
         {
             "nickname": "Turbo",
             "email": "123456789@foxmail.com"
-        },
+        }
         // ...
     ],
     "links": {
@@ -135,7 +131,7 @@ $this->response->errorMethodNotAllowed();
 
 ### 操作失败时的响应结构
 
-```
+```json
 {
     "status": "fail",
     "code": 500,
@@ -148,9 +144,9 @@ $this->response->errorMethodNotAllowed();
 
 整体格式与业务操作成功和业务操作失败时的一致，相比失败时，data 部分会增加额外的异常信息展示，方便项目开发阶段进行快速地问题定位。
 
-- 自定义实现了 ValidationException 的响应结构：
+- 自定义实现了 `ValidationException` 的响应结构：
 
-```
+```json
 {
     "status": "error",
     "code": 422,
@@ -166,11 +162,11 @@ $this->response->errorMethodNotAllowed();
 }
 ```
 
-- NotFoundException 异常捕获的响应结构
+- `NotFoundException` 异常捕获的响应结构
 
 关闭 debug 时：
 
-```
+```json
 {
     "status": "error",
     "code": 404,
@@ -181,9 +177,9 @@ $this->response->errorMethodNotAllowed();
 }
 ```
 
-开启了 debug 时：
+    开启 debug 时：
 
-```
+```json
 {
     "status": "error",
     "code": 404,
@@ -223,7 +219,7 @@ $this->response->errorMethodNotAllowed();
 
 - 其他类型异常捕获时的响应结构
 
-```
+```json
 {
     "status": "fail",
     "code": 500,
@@ -255,6 +251,11 @@ $this->response->errorMethodNotAllowed();
 
 **特别说明**：使用 Postman 等 Api 测试工具的使用需要添加 `X-Requested-With：XMLHttpRequest`或者`Accept:application/json`header 信息来表明是 Api 请求，否则在异常捕获到后返回的可能不是预期的 JSON 格式响应。
 
+## 丰富的日志模式支持
+
+- 支持记录日志（包括业务错误记录的日志和捕获的异常信息等）到 MongoDB，方便线上问题的排查
+— 记录到 MongoDB 的日志，支持以每日、每月以及每年按表进行拆分
+- 支持记录 sql 语句
 
 ## Repository & Service 模式架构
 
@@ -267,12 +268,6 @@ $this->response->errorMethodNotAllowed();
 * 命名规范：待补充
 * 使用规范：待补充
 
-## 丰富的日志模式支持
-
-- 支持记录日志（包括业务错误记录的日志和捕获的异常信息等）到 MongoDB，方便线上问题的排查
-— 记录到 MongoDB 的日志，支持以每日、每月以及每年按表进行拆分
-- 支持记录 sql 语句
-
 ## Packages
 
 - [guzzlehttp/guzzle](https://github.com/guzzle/guzzle)
@@ -283,7 +278,7 @@ $this->response->errorMethodNotAllowed();
 
 ## 其他
 
-依照惯例，如对您的日常工作有所帮助或启发，欢迎 `star + fork + follow`。
+依照惯例，如对您的日常工作有所帮助或启发，欢迎单击三连 `star + fork + follow`。
 
 如果有任何批评建议，通过邮箱（longjian.huang@foxmial.com）的方式（如果我每天坚持看邮件的话）可以联系到我。
 
@@ -291,6 +286,7 @@ $this->response->errorMethodNotAllowed();
 
 ## 参考
 
+* [RESTful API 最佳实践](https://learnku.com/articles/13797/restful-api-best-practice)
 * [RESTful 服务最佳实践](https://www.cnblogs.com/jaxu/p/7908111.html)
 * [DingoApi](https://github.com/dingo/api)
 
