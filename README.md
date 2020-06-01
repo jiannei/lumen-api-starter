@@ -2,7 +2,7 @@
 
 因近两年工作当中都是使用 Laravel 进行前后端分离模式开发，后端专注于编写 API 服务供前端调用，遇到过很多很多**规范性**和**扩展性**的问题，导致项目的**可读性**和**可维护性**都很差。翻阅了网上很多的API 开发规范文档，参考了不少大佬们总结的经验，决定尝试使用最新版本的 Lumen（当下最新版本是 Lumen 7.x)来构建一个**基础功能**完备，**规范统一**，能够**快速**应用于实际的 API 项目开发启动模板。同时，也希望通过**合理的**应用架构设计为中大型应用保驾护航。
 
-少许的扩展安装，遵循 Laravel 的思维进行设计，不多添一分一毫额外增加“负担”。
+少许的依赖安装，遵循 Laravel 的思维进行扩展，不额外增加“负担”。
 
 开箱即用，加速 Api 开发。
 
@@ -35,10 +35,10 @@
 
 ## 规范的响应结构
 
-> code——包含一个整数类型的HTTP响应状态码。
-> status——包含文本："success"，"fail"或"error"。HTTP状态响应码在500-599之间为"fail"，在400-499之间为"error"，其它均为"success"（例如：响应状态码为1XX、2XX和3XX）。
-> message——当状态值为"fail"和"error"时有效，用于显示错误信息。参照国际化（il8n）标准，它可以包含信息号或者编码，可以只包含其中一个，或者同时包含并用分隔符隔开。
-> data——包含响应的body。当状态值为"fail"或"error"时，data仅包含错误原因或异常名称。
+> - code——包含一个整数类型的HTTP响应状态码。
+>- status——包含文本："success"，"fail"或"error"。HTTP状态响应码在500-599之间为"fail"，在400-499之间为"error"，其它均为"success"（例如：响应状态码为1XX、2XX和3XX）。
+> - message——当状态值为"fail"和"error"时有效，用于显示错误信息。参照国际化（il8n）标准，它可以包含信息号或者编码，可以只包含其中一个，或者同时包含并用分隔符隔开。
+> - data——包含响应的body。当状态值为"fail"或"error"时，data仅包含错误原因或异常名称。
 
 整体响应结构设计参考如上，相对严格地遵守了 RESTful 设计准则，返回合理的 HTTP 状态码。
 
@@ -70,7 +70,7 @@ $this->response->accepted($message);
 $this->response->noContent($message);
 
 // 操作失败或异常情况
-$this->response->fali($message);
+$this->response->fail($message);
 $this->response->errorNotFound();
 $this->response->errorBadRequest();
 $this->response->errorForbidden();
@@ -105,12 +105,12 @@ $this->response->errorMethodNotAllowed();
             "email": "longjian.huang@foxmail.com"
         },
         {
-            "nickname": "Jiannei",
-            "email": "longjian.huang1@foxmail.com"
+            "nickname": "Qian",
+            "email": "1234567891@foxmail.com"
         },
         {
-            "nickname": "Liuqian",
-            "email": "longjian.huang2@foxmail.com"
+            "nickname": "Turbo",
+            "email": "123456789@foxmail.com"
         },
         // ...
     ],
