@@ -179,7 +179,7 @@ $this->response->errorMethodNotAllowed();
 }
 ```
 
-    开启 debug 时：
+开启 debug 时：
 
 ```json
 {
@@ -256,7 +256,7 @@ $this->response->errorMethodNotAllowed();
 ## 丰富的日志模式支持
 
 - 支持记录日志（包括业务错误记录的日志和捕获的异常信息等）到 MongoDB，方便线上问题的排查
-— 记录到 MongoDB 的日志，支持以每日、每月以及每年按表进行拆分
+- 记录到 MongoDB 的日志，支持以每日、每月以及每年按表进行拆分
 - 支持记录 sql 语句
 
 ## Repository & Service 模式架构
@@ -280,7 +280,7 @@ $this->response->errorMethodNotAllowed();
 
 ## 其他
 
-依照惯例，如对您的日常工作有所帮助或启发，欢迎单击三连 `star + fork + follow`。
+依照惯例，如对您的日常工作有所帮助或启发，欢迎三连 `star + fork + follow`。
 
 如果有任何批评建议，通过邮箱（longjian.huang@foxmial.com）的方式（如果我每天坚持看邮件的话）可以联系到我。
 
