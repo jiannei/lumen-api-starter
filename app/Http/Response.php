@@ -13,6 +13,14 @@ class Response
         $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
     }
 
+    /**
+     * @param  string  $message
+     * @param  int  $code
+     * @param  null  $data
+     * @param  array  $header
+     * @param  int  $options
+     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     */
     public function fail($message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], $options = 0)
     {
         $status = 'fail';

@@ -44,6 +44,13 @@ trait Helpers
         return round($seconds, 2).'s';
     }
 
+    /**
+     * Custom Failed Validation Response
+     *
+     * @param  Request  $request
+     * @param  array  $errors
+     * @return mixed
+     */
     protected function buildFailedValidationResponse(Request $request, array $errors)
     {
         if (isset(static::$responseBuilder)) {
@@ -53,6 +60,9 @@ trait Helpers
         $this->response()->fail('Validation error', 422, $errors);
     }
 
+    /**
+     * @return Response
+     */
     protected function response()
     {
         return app(Response::class);
