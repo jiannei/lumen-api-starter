@@ -21,12 +21,10 @@ class Response
      * @param  int  $options
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
-    public function fail($message = 'Service error', $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], $options = 0)
+    public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
-        $status = 'fail';
-        if ($code >= 400 && $code <= 499) {
-            $status = 'error';
-        }
+        $status = ($code >= 400 && $code <= 499) ? 'error' : 'fail';
+        $message = (!$message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'Service error';
 
         response()->json([
             'status' => $status,
@@ -67,15 +65,16 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array  $data
+     * @param  JsonResource|array|null  $data
      * @param  string  $message
      * @param  int  $code
      * @param  array  $headers
      * @param  int  $option
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
-    public function success($data, $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
+    public function success($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
+        $message = (!$message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'OK';
         $additionalData = [
             'status' => 'success',
             'code' => $code,
@@ -86,16 +85,16 @@ class Response
             return $data->additional($additionalData);
         }
 
-        return response()->json(array_merge($additionalData, ['data' => $data]), $code, $headers, $option);
+        return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
     }
 
     /**
-     * @param  JsonResource|array  $data
+     * @param  JsonResource|array|null  $data
      * @param  string  $message
      * @param  string  $location
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
-    public function created($data, $message = 'Created', string $location = '')
+    public function created($data = null, $message = 'Created', string $location = '')
     {
         $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
         if ($location) {
