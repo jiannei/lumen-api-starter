@@ -4,7 +4,10 @@
 namespace App\Http;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use  \Illuminate\Http\Response as HttpResponse;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Arr;
 
 class Response
 {
@@ -81,11 +84,33 @@ class Response
             'message' => $message
         ];
 
-        if ($data instanceof JsonResource) {
-            return $data->additional($additionalData);
+        if (!$data instanceof JsonResource) {
+            return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
         }
 
-        return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
+        if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
+            $paginated = $data->resource->toArray();
+            $data = [
+                'paginator' => $data->resolve(),
+                'links' => [
+                    'first' => $paginated['first_page_url'] ?? null,
+                    'last' => $paginated['last_page_url'] ?? null,
+                    'prev' => $paginated['prev_page_url'] ?? null,
+                    'next' => $paginated['next_page_url'] ?? null,
+                ],
+                "meta" => Arr::except($paginated, [
+                    'data',
+                    'first_page_url',
+                    'last_page_url',
+                    'prev_page_url',
+                    'next_page_url',
+                ])
+            ];
+
+            return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
+        }
+
+        return $data->additional($additionalData);
     }
 
     /**

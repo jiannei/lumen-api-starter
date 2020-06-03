@@ -63,6 +63,11 @@
 ```php
 // 操作成功情况
 $this->response->success($data,$message);
+$this->response->success(new  UserCollection($resource),  '成功');// 返回 API Resouce Collection
+$this->response->success(new  UserResource($user),  '成功');// 返回 API Resouce
+$user  =  ["name"=>"nickname","email"=>"longjian.huang@foxmail.com"];
+$this->response->success($user,  '成功');// 返回普通数组
+
 $this->response->created($data,$message);
 $this->response->accepted($message);
 $this->response->noContent($message);
@@ -93,7 +98,7 @@ $this->response->errorMethodNotAllowed();
 }
 ```
 
-- 返回列表数据
+- 返回全部数据
 
 ```json
 {
@@ -112,22 +117,49 @@ $this->response->errorMethodNotAllowed();
         }
         // ...
     ],
-    "links": {
-        "first": "http://lumen-api.test/users?page=1",
-        "last": null,
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "path": "http://lumen-api.test/users",
-        "per_page": 15,
-        "to": 13
-    },
     "status": "success",
     "code": 200,
     "message": "成功"
+}
+```
+
+- 返回分页数据
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": "OK",
+    "data": {
+        "paginator": [
+            {
+                "nickname": "Jiannei",
+                "email": "longjian.huang@foxmail.com"
+            },
+            {
+                "nickname": "Turbo",
+                "email": "123456789@foxmail.com"
+            },
+            {
+                "nickname": "Liuqian",
+                "email": "123456789@foxmail.com"
+            }
+          // ...
+        ],
+        "links": {
+            "first": "http://lumen-api.test/users?page=1",
+            "last": null,
+            "prev": null,
+            "next": null
+        },
+        "meta": {
+            "current_page": 1,
+            "from": 1,
+            "path": "http://lumen-api.test/users",
+            "per_page": 15,
+            "to": 13
+        }
+    }
 }
 ```
 
