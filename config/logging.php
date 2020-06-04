@@ -1,12 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 use App\Logger\CustomMongoLogger;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
@@ -100,7 +108,7 @@ return [
             'via' => CustomMongoLogger::class, // 当 `driver` 设置为 custom 时，使用 `via` 配置项所指向的工厂类创建 logger
 
             'level' => env('LOG_MONGODB_LEVEL', 'debug'), // 日志级别
-            'separate' => env('LOG_MONGODB_SEPARATE', false),// false,daily,monthly,yearly
+            'separate' => env('LOG_MONGODB_SEPARATE', false), // false,daily,monthly,yearly
 
             'host' => env('LOG_MONGODB_HOST', config('database.connections.mongodb.host')),
             'port' => env('LOG_MONGODB_PORT', config('database.connections.mongodb.port')),
@@ -117,5 +125,4 @@ return [
         // Unit: milliseconds
         'slower_than' => 0,
     ],
-
 ];

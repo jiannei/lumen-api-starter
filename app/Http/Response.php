@@ -1,11 +1,19 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Http;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use  \Illuminate\Http\Response as HttpResponse;
+use  Illuminate\Http\Response as HttpResponse;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Arr;
 
@@ -17,11 +25,12 @@ class Response
     }
 
     /**
-     * @param  string  $message
-     * @param  int  $code
-     * @param  null  $data
-     * @param  array  $header
-     * @param  int  $options
+     * @param string $message
+     * @param int    $code
+     * @param null   $data
+     * @param array  $header
+     * @param int    $options
+     *
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
@@ -32,8 +41,8 @@ class Response
         response()->json([
             'status' => $status,
             'code' => $code,
-            'message' => $message,// 错误描述
-            'data' => (object) $data,// 错误详情
+            'message' => $message, // 错误描述
+            'data' => (object) $data, // 错误详情
         ], $code, $header, $options)->throwResponse();
     }
 
@@ -68,11 +77,12 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param int                     $code
+     * @param array                   $headers
+     * @param int                     $option
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function success($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
@@ -81,7 +91,7 @@ class Response
         $additionalData = [
             'status' => 'success',
             'code' => $code,
-            'message' => $message
+            'message' => $message,
         ];
 
         if (!$data instanceof JsonResource) {
@@ -98,13 +108,13 @@ class Response
                     'prev' => $paginated['prev_page_url'] ?? null,
                     'next' => $paginated['next_page_url'] ?? null,
                 ],
-                "meta" => Arr::except($paginated, [
+                'meta' => Arr::except($paginated, [
                     'data',
                     'first_page_url',
                     'last_page_url',
                     'prev_page_url',
                     'next_page_url',
-                ])
+                ]),
             ];
 
             return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
@@ -114,9 +124,10 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  string  $location
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param string                  $location
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function created($data = null, $message = 'Created', string $location = '')

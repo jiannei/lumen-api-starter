@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Logger;
-
 
 use Carbon\Carbon;
 use MongoDB\Client;
@@ -15,18 +22,19 @@ class CustomMongoLogger
     /**
      * Create a custom Monolog instance.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \Monolog\Logger
      */
     public function __invoke(array $config)
     {
         $uri = "mongodb://{$config['host']}:{$config['port']}";
-        if ($config['separate'] === 'daily') {
-            $collection = Carbon::now()->format('Ymd')."_log";
-        } elseif ($config['separate'] === 'monthly') {
-            $collection = Carbon::now()->format('Ym')."_log";
-        } elseif ($config['separate'] === 'yearly') {
-            $collection = Carbon::now()->format('Y')."_log";
+        if ('daily' === $config['separate']) {
+            $collection = Carbon::now()->format('Ymd').'_log';
+        } elseif ('monthly' === $config['separate']) {
+            $collection = Carbon::now()->format('Ym').'_log';
+        } elseif ('yearly' === $config['separate']) {
+            $collection = Carbon::now()->format('Y').'_log';
         } else {
             $collection = 'logs';
         }

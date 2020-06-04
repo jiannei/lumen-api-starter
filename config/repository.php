@@ -1,13 +1,15 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| Prettus Repository Config
-|--------------------------------------------------------------------------
-|
-|
-*/
-return [
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
+return [
     /*
     |--------------------------------------------------------------------------
     | Repository Pagination Limit Default
@@ -15,7 +17,7 @@ return [
     |
     */
     'pagination' => [
-        'limit' => 15
+        'limit' => 15,
     ],
 
     /*
@@ -32,9 +34,9 @@ return [
     */
     'fractal' => [
         'params' => [
-            'include' => 'include'
+            'include' => 'include',
         ],
-        'serializer' => League\Fractal\Serializer\DataArraySerializer::class
+        'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
     ],
 
     /*
@@ -83,7 +85,6 @@ return [
           |
           */
         'clean' => [
-
             /*
               |--------------------------------------------------------------------------
               | Enable clear cache on repository changes
@@ -106,7 +107,7 @@ return [
                 'create' => true,
                 'update' => true,
                 'delete' => true,
-            ]
+            ],
         ],
 
         'params' => [
@@ -119,7 +120,7 @@ return [
             | Ex: http://prettus.local/?search=lorem&skipCache=true
             |
             */
-            'skipCache' => 'skipCache'
+            'skipCache' => 'skipCache',
         ],
 
         /*
@@ -139,8 +140,8 @@ return [
        */
         'allowed' => [
             'only' => null,
-            'except' => null
-        ]
+            'except' => null,
+        ],
     ],
 
     /*
@@ -169,7 +170,7 @@ return [
         */
         'acceptedConditions' => [
             '=',
-            'like'
+            'like',
         ],
         /*
         |--------------------------------------------------------------------------
@@ -217,8 +218,8 @@ return [
             'sortedBy' => 'sortedBy',
             'with' => 'with',
             'searchJoin' => 'searchJoin',
-            'withCount' => 'withCount'
-        ]
+            'withCount' => 'withCount',
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -240,6 +241,6 @@ return [
             'controllers' => 'Http/Controllers',
             'provider' => 'RepositoryServiceProvider',
             'criteria' => 'Criteria',
-        ]
-    ]
+        ],
+    ],
 ];

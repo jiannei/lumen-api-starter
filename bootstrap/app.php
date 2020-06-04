@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -89,7 +98,7 @@ $app->configure('repository');
 // ]);
 
 $app->middleware([
-    App\Http\Middleware\EtagMiddleware::class
+    App\Http\Middleware\EtagMiddleware::class,
 ]);
 
 $app->routeMiddleware([
@@ -120,7 +129,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 
-/**
+/*
  * Custom Service Providers
  */
 $app->register(\App\Providers\RepositoryServiceProvider::class);
