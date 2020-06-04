@@ -1,18 +1,25 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace App\Repositories\Eloquent;
 
-use Illuminate\Support\Facades\Hash;
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
 use App\Contracts\Repositories\UserRepository;
 use App\Models\User;
 use App\Validators\UserValidator;
+use Illuminate\Support\Facades\Hash;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class UserRepositoryEloquent.
- *
- * @package namespace App\Repositories\Eloquent;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
@@ -22,7 +29,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     ];
 
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return string
      */
@@ -32,7 +39,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
-     * Specify Validator class name
+     * Specify Validator class name.
      *
      * @return mixed
      */
@@ -42,7 +49,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria.
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
     public function boot()

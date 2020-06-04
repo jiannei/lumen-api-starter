@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -18,7 +27,7 @@ class EtagMiddleware
     public function handle(Request $request, Closure $next)
     {
         // If this was not a get or head request, just return
-        if (!$request->isMethod('get') && !$request->isMethod('head')) {
+        if (! $request->isMethod('get') && ! $request->isMethod('head')) {
             return $next($request);
         }
 
