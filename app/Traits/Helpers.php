@@ -15,6 +15,7 @@ use App\Http\Response;
 
 /**
  * Trait Helpers.
+ *
  * @property \App\Http\Response $response
  */
 trait Helpers
@@ -35,7 +36,7 @@ trait Helpers
     /**
      * Format duration.
      *
-     * @param  float  $seconds
+     * @param float $seconds
      *
      * @return string
      */

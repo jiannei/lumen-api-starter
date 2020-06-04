@@ -22,17 +22,18 @@ class CustomMongoLogger
     /**
      * Create a custom Monolog instance.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \Monolog\Logger
      */
     public function __invoke(array $config)
     {
         $uri = "mongodb://{$config['host']}:{$config['port']}";
-        if ($config['separate'] === 'daily') {
+        if ('daily' === $config['separate']) {
             $collection = Carbon::now()->format('Ymd').'_log';
-        } elseif ($config['separate'] === 'monthly') {
+        } elseif ('monthly' === $config['separate']) {
             $collection = Carbon::now()->format('Ym').'_log';
-        } elseif ($config['separate'] === 'yearly') {
+        } elseif ('yearly' === $config['separate']) {
             $collection = Carbon::now()->format('Y').'_log';
         } else {
             $collection = 'logs';

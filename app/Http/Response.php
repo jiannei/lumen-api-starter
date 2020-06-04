@@ -25,17 +25,18 @@ class Response
     }
 
     /**
-     * @param  string  $message
-     * @param  int  $code
-     * @param  null  $data
-     * @param  array  $header
-     * @param  int  $options
+     * @param string $message
+     * @param int    $code
+     * @param null   $data
+     * @param array  $header
+     * @param int    $options
+     *
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
         response()->json(
-            array_merge_recursive($this->withAdditional($message,$code), ['data' => (object)$data]),
+            array_merge_recursive($this->withAdditional($message, $code), ['data' => (object) $data]),
             $code,
             $header,
             $options
@@ -43,10 +44,11 @@ class Response
     }
 
     /**
-     * return custom additional data
+     * return custom additional data.
      *
-     * @param  string  $message
-     * @param  int  $code
+     * @param string $message
+     * @param int    $code
+     *
      * @return array
      */
     protected function withAdditional(string $message = '', $code = HttpResponse::HTTP_OK)
@@ -99,17 +101,18 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param int                     $code
+     * @param array                   $headers
+     * @param int                     $option
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function success($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
         if (!$data instanceof JsonResource) {
-            return response()->json(array_merge($this->withAdditional($message, $code), ['data' => $data ?: (object)$data]), $code, $headers, $option);
+            return response()->json(array_merge($this->withAdditional($message, $code), ['data' => $data ?: (object) $data]), $code, $headers, $option);
         }
 
         if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
@@ -120,13 +123,14 @@ class Response
     }
 
     /**
-     * Format paginated resource data
+     * Format paginated resource data.
      *
-     * @param  JsonResource  $resource
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param JsonResource $resource
+     * @param string       $message
+     * @param int          $code
+     * @param array        $headers
+     * @param int          $option
+     *
      * @return \Illuminate\Support\HigherOrderTapProxy|mixed
      */
     protected function formatPaginatedResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
@@ -174,9 +178,10 @@ class Response
     }
 
     /**
-     * Parse data from JsonResource
+     * Parse data from JsonResource.
      *
-     * @param  JsonResource  $data
+     * @param JsonResource $data
+     *
      * @return array
      */
     protected function parseDataFrom(JsonResource $data)
@@ -185,13 +190,14 @@ class Response
     }
 
     /**
-     * Format JsonResource Data
+     * Format JsonResource Data.
      *
-     * @param  JsonResource  $resource
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param JsonResource $resource
+     * @param string       $message
+     * @param int          $code
+     * @param array        $headers
+     * @param int          $option
+     *
      * @return \Illuminate\Support\HigherOrderTapProxy|mixed
      */
     protected function formatResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
@@ -209,9 +215,10 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  string  $location
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param string                  $location
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function created($data = null, $message = 'Created', string $location = '')

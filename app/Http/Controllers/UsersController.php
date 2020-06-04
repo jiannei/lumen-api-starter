@@ -45,8 +45,10 @@ class UsersController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Resources\Json\JsonResource
+     *
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Throwable
      */
