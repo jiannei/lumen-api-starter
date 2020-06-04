@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Providers;
-
 
 use App\Traits\Helpers;
 use Illuminate\Database\Events\QueryExecuted;
@@ -19,7 +26,7 @@ class QueryLoggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (!$this->app['config']->get('app.debug') && !$this->app['config']->get('logging.query.enabled', false)) {
+        if (! $this->app['config']->get('app.debug') && ! $this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 

@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Http\Controllers;
-
 
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
@@ -28,7 +35,7 @@ class AuthorizationController extends Controller
         ]);
 
         $credentials = request(['name', 'email', 'password']);
-        if (!$token = auth()->attempt($credentials)) {
+        if (! $token = auth()->attempt($credentials)) {
             $this->response->errorUnauthorized();
         }
 
@@ -40,7 +47,7 @@ class AuthorizationController extends Controller
         return $this->response->created([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
         ]);
     }
 
