@@ -15,7 +15,6 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
@@ -126,5 +125,4 @@ return [
         // Unit: milliseconds
         'slower_than' => 0,
     ],
-
 ];

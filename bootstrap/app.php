@@ -129,7 +129,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 
-/**
+/*
  * Custom Service Providers.
  */
 $app->register(\App\Providers\RepositoryServiceProvider::class);
