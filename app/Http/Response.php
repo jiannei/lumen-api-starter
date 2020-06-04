@@ -19,7 +19,7 @@ use Illuminate\Support\Arr;
 
 class Response
 {
-    public function errorNotFound($message = 'Not Found')
+    public function errorNotFound(string $message = '')
     {
         $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
     }
@@ -36,22 +36,72 @@ class Response
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
         response()->json(
-            array_merge_recursive($this->withAdditional($message, $code), ['data' => (object) $data]),
+            $this->formatData($data, $message, $code),
             $code,
             $header,
             $options
         )->throwResponse();
     }
 
+    public function errorBadRequest(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_BAD_REQUEST);
+    }
+
+    public function errorForbidden(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_FORBIDDEN);
+    }
+
+    public function errorInternal(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
+    }
+
+    public function errorUnauthorized(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_UNAUTHORIZED);
+    }
+
+    public function errorMethodNotAllowed(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
+    }
+
+    public function accepted(string $message = '')
+    {
+        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
+    }
+
     /**
-     * return custom additional data.
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param int                     $code
+     * @param array                   $headers
+     * @param int                     $option
      *
-     * @param string $message
-     * @param int    $code
-     *
+     * @return \Illuminate\Http\JsonResponse|JsonResource
+     */
+    public function success($data = null, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
+    {
+        if (!$data instanceof JsonResource) {
+            return response()->json($this->formatData($data, $message, $code), $code, $headers, $option);
+        }
+
+        if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
+            return $this->formatPaginatedResourceResponse(...func_get_args());
+        }
+
+        return $this->formatResourceResponse(...func_get_args());
+    }
+
+    /**
+     * @param  JsonResource|array|null  $data
+     * @param $message
+     * @param $code
      * @return array
      */
-    protected function withAdditional(string $message = '', $code = HttpResponse::HTTP_OK)
+    protected function formatData($data, $message, $code)
     {
         if ($code >= 400 && $code <= 499) {
             $status = 'error';
@@ -67,59 +117,8 @@ class Response
             'status' => $status,
             'code' => $code,
             'message' => $message,
+            'data' => $data ?: (object)$data,
         ];
-    }
-
-    public function errorBadRequest($message = 'Bad Request')
-    {
-        $this->fail($message, HttpResponse::HTTP_BAD_REQUEST);
-    }
-
-    public function errorForbidden($message = 'Forbidden')
-    {
-        $this->fail($message, HttpResponse::HTTP_FORBIDDEN);
-    }
-
-    public function errorInternal($message = 'Internal Error')
-    {
-        $this->fail($message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
-    }
-
-    public function errorUnauthorized($message = 'Unauthorized')
-    {
-        $this->fail($message, HttpResponse::HTTP_UNAUTHORIZED);
-    }
-
-    public function errorMethodNotAllowed($message = 'Method Not Allowed')
-    {
-        $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
-    }
-
-    public function accepted($message = 'Accepted')
-    {
-        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
-    }
-
-    /**
-     * @param JsonResource|array|null $data
-     * @param string                  $message
-     * @param int                     $code
-     * @param array                   $headers
-     * @param int                     $option
-     *
-     * @return \Illuminate\Http\JsonResponse|JsonResource
-     */
-    public function success($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
-    {
-        if (!$data instanceof JsonResource) {
-            return response()->json(array_merge($this->withAdditional($message, $code), ['data' => $data ?: (object) $data]), $code, $headers, $option);
-        }
-
-        if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
-            return $this->formatPaginatedResourceResponse(...func_get_args());
-        }
-
-        return $this->formatResourceResponse(...func_get_args());
     }
 
     /**
@@ -156,15 +155,11 @@ class Response
             ),
         ];
 
-        $wrappedData = array_merge_recursive(
-            [
-                'data' => array_merge_recursive(['pagination' => $this->parseDataFrom($resource)], $paginationInformation),
-            ],
-            $this->withAdditional($message, $code)
-        );
+
+        $data = array_merge_recursive(['pagination' => $this->parseDataFrom($resource)], $paginationInformation);
 
         return tap(
-            response()->json($wrappedData, $code, $headers, $option),
+            response()->json($this->formatData($data, $message, $code), $code, $headers, $option),
             function ($response) use ($resource) {
                 $response->original = $resource->resource->map(
                     function ($item) {
@@ -202,10 +197,8 @@ class Response
      */
     protected function formatResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
-        $wrappedData = array_merge_recursive(['data' => $this->parseDataFrom($resource)], $this->withAdditional($message, $code));
-
         return tap(
-            response()->json($wrappedData, $code, $headers, $option),
+            response()->json($this->formatData($this->parseDataFrom($resource),$message,$code), $code, $headers, $option),
             function ($response) use ($resource) {
                 $response->original = $resource->resource;
 
@@ -221,7 +214,7 @@ class Response
      *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
-    public function created($data = null, $message = 'Created', string $location = '')
+    public function created($data = null, string $message = '', string $location = '')
     {
         $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
         if ($location) {
@@ -231,7 +224,7 @@ class Response
         return $response;
     }
 
-    public function noContent($message = 'No content')
+    public function noContent(string $message = '')
     {
         return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
     }
