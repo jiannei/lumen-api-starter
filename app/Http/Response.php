@@ -25,17 +25,18 @@ class Response
     }
 
     /**
-     * @param  string  $message
-     * @param  int  $code
-     * @param  null  $data
-     * @param  array  $header
-     * @param  int  $options
+     * @param string $message
+     * @param int    $code
+     * @param null   $data
+     * @param array  $header
+     * @param int    $options
+     *
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
         $status = ($code >= 400 && $code <= 499) ? 'error' : 'fail';
-        $message = (! $message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'Service error';
+        $message = (!$message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'Service error';
 
         response()->json([
             'status' => $status,
@@ -76,23 +77,24 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param int                     $code
+     * @param array                   $headers
+     * @param int                     $option
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function success($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
-        $message = (! $message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'OK';
+        $message = (!$message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : 'OK';
         $additionalData = [
             'status' => 'success',
             'code' => $code,
             'message' => $message,
         ];
 
-        if (! $data instanceof JsonResource) {
+        if (!$data instanceof JsonResource) {
             return response()->json(array_merge($additionalData, ['data' => $data ?: (object) $data]), $code, $headers, $option);
         }
 
@@ -122,9 +124,10 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
-     * @param  string  $message
-     * @param  string  $location
+     * @param JsonResource|array|null $data
+     * @param string                  $message
+     * @param string                  $location
+     *
      * @return \Illuminate\Http\JsonResponse|JsonResource
      */
     public function created($data = null, $message = 'Created', string $location = '')

@@ -22,8 +22,9 @@ class Controller extends BaseController
     /**
      * Custom Failed Validation Response.
      *
-     * @param  Request  $request
-     * @param  array  $errors
+     * @param Request $request
+     * @param array   $errors
+     *
      * @return mixed
      */
     protected function buildFailedValidationResponse(Request $request, array $errors)

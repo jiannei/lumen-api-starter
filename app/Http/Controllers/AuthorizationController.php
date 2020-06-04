@@ -18,8 +18,6 @@ class AuthorizationController extends Controller
 {
     /**
      * Create a new AuthController instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -35,7 +33,7 @@ class AuthorizationController extends Controller
         ]);
 
         $credentials = request(['name', 'email', 'password']);
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             $this->response->errorUnauthorized();
         }
 

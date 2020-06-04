@@ -50,6 +50,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     /**
      * Boot up the repository, pushing criteria.
+     *
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
     public function boot()
@@ -59,7 +60,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     /**
      * @param $attributes
+     *
      * @return \App\Models\User
+     *
      * @throws \Throwable
      */
     public function add($attributes)
