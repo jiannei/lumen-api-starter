@@ -96,9 +96,10 @@ class Response
     }
 
     /**
-     * @param  JsonResource|array|null  $data
+     * @param JsonResource|array|null $data
      * @param $message
      * @param $code
+     *
      * @return array
      */
     protected function formatData($data, $message, $code)
@@ -117,7 +118,7 @@ class Response
             'status' => $status,
             'code' => $code,
             'message' => $message,
-            'data' => $data ?: (object)$data,
+            'data' => $data ?: (object) $data,
         ];
     }
 
@@ -154,7 +155,6 @@ class Response
                 ]
             ),
         ];
-
 
         $data = array_merge_recursive(['pagination' => $this->parseDataFrom($resource)], $paginationInformation);
 
@@ -198,7 +198,7 @@ class Response
     protected function formatResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
         return tap(
-            response()->json($this->formatData($this->parseDataFrom($resource),$message,$code), $code, $headers, $option),
+            response()->json($this->formatData($this->parseDataFrom($resource), $message, $code), $code, $headers, $option),
             function ($response) use ($resource) {
                 $response->original = $resource->resource;
 
