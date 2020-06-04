@@ -8,6 +8,8 @@
 
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
+![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
+
 [TOC]
 
 ## 概览
@@ -131,7 +133,7 @@ $this->response->errorMethodNotAllowed();
     "code": 200,
     "message": "OK",
     "data": {
-        "paginator": [
+        "pagination": [
             {
                 "nickname": "Jiannei",
                 "email": "longjian.huang@foxmail.com"
