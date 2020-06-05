@@ -133,35 +133,34 @@ $this->response->errorMethodNotAllowed();
 {
     "status": "success",
     "code": 200,
-    "message": "OK",
+    "message": "操作成功",
     "data": {
-        "pagination": [
+        "data": [
             {
                 "nickname": "Jiannei",
                 "email": "longjian.huang@foxmail.com"
             },
             {
                 "nickname": "Turbo",
-                "email": "123456789@foxmail.com"
+                "email": "123456789@qq.com"
             },
             {
-                "nickname": "Liuqian",
-                "email": "123456789@foxmail.com"
+                "nickname": "Qian",
+                "email": "987654321@qq.com"
             }
-          // ...
         ],
-        "links": {
-            "first": "http://lumen-api.test/users?page=1",
-            "last": null,
-            "prev": null,
-            "next": null
-        },
         "meta": {
-            "current_page": 1,
-            "from": 1,
-            "path": "http://lumen-api.test/users",
-            "per_page": 15,
-            "to": 13
+            "pagination": {
+                "total": 13,
+                "count": 3,
+                "per_page": 3,
+                "current_page": 1,
+                "total_pages": 5,
+                "links": {
+                    "previous": null,
+                    "next": "http://lumen-api.test/users?page=2"
+                }
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ class UserService
 
     public function getUsersByPage()
     {
-        return $this->repository->simplePaginate();
+        return $this->repository->paginate(3);
     }
 
     public function getUserById($id)
