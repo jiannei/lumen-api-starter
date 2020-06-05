@@ -15,7 +15,7 @@ use App\Constants\ResponseConstant;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use  Illuminate\Http\Response as HttpResponse;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Arr;
 
 class Response
@@ -89,7 +89,7 @@ class Response
             return $this->formatArrayResponse($data, $message, $code, $headers, $option);
         }
 
-        if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
+        if ($data instanceof ResourceCollection && ($data->resource instanceof AbstractPaginator)) {
             return $this->formatPaginatedResourceResponse(...func_get_args());
         }
 
@@ -156,25 +156,22 @@ class Response
         $paginated = $resource->resource->toArray();
 
         $paginationInformation = [
-            'links' => [
-                'first' => $paginated['first_page_url'] ?? null,
-                'last' => $paginated['last_page_url'] ?? null,
-                'prev' => $paginated['prev_page_url'] ?? null,
-                'next' => $paginated['next_page_url'] ?? null,
-            ],
-            'meta' => Arr::except(
-                $paginated,
-                [
-                    'data',
-                    'first_page_url',
-                    'last_page_url',
-                    'prev_page_url',
-                    'next_page_url',
-                ]
-            ),
+            'meta' => [
+                'pagination' => [
+                    'total' => $paginated['total'] ?? null,
+                    'count' => $paginated['to'] ?? null,
+                    'per_page' => $paginated['per_page'] ?? null,
+                    'current_page' => $paginated['current_page'] ?? null,
+                    'total_pages' => $paginated['last_page'] ?? null,
+                    'links' => [
+                        'previous' => $paginated['prev'] ?? null,
+                        'next' => $paginated['next_page_url'] ?? null,
+                    ],
+                ],
+            ]
         ];
 
-        $data = array_merge_recursive(['pagination' => $this->parseDataFrom($resource)], $paginationInformation);
+        $data = array_merge_recursive(['data' => $this->parseDataFrom($resource)], $paginationInformation);
 
         return tap(
             response()->json($this->formatData($data, $message, $code), $code, $headers, $option),
