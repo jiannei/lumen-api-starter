@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
         // 要求请求头 header 中包含 /json 或 +json，如：Accept:application/json
         // 或者是 ajax 请求，header 中包含 X-Requested-With：XMLHttpRequest;
         $this->response->fail(
-            'Service error',
+            '',
             $this->isHttpException($e) ? $e->getStatusCode() : 500,
             $this->convertExceptionToArray($e),
             $this->isHttpException($e) ? $e->getHeaders() : [],

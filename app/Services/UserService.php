@@ -28,7 +28,7 @@ class UserService
         $this->repository = $repository;
     }
 
-    public function getUserList()
+    public function getUsersByPage()
     {
         return $this->repository->simplePaginate();
     }

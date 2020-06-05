@@ -17,8 +17,9 @@
 ### 现已支持
 
 - 适配 Laravel 7 中新增的 HttpClient 客户端
-- 使用 Laravel Api Resource
 - RESTflu 规范的路由定义和 HTTP 响应结构
+    - 使用 Laravel Api Resource
+    - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
 - Jwt-auth 方式授权
 - 支持日志记录到 MongoDB
 - 合理有效地『Repository & Service』架构设计（😏）
@@ -48,7 +49,8 @@
 
 - data: 
     - 查询单条数据时直接返回对象结构，减少数据层级；
-    - 查询列表数据时返回数组结构；
+    - 查询全部数据时返回数组结构；
+    - 查询分页数据时返回对象结构
     - 创建或更新成功，返回修改后的数据；（也可以不返回数据直接返回空对象）
     - 删除成功时返回空对象
 - status:
@@ -285,7 +287,81 @@ $this->response->errorMethodNotAllowed();
 }
 ```
 
-**特别说明**：使用 Postman 等 Api 测试工具的使用需要添加 `X-Requested-With：XMLHttpRequest`或者`Accept:application/json`header 信息来表明是 Api 请求，否则在异常捕获到后返回的可能不是预期的 JSON 格式响应。
+
+### 根据实际业务场景定制的响应返回
+
+- 操作成功
+
+拿「登录成功返回用户信息」举个栗子：
+
+**第一种**：指定 message
+
+使用
+
+```php
+return $this->response->success($user,'注册成功');
+```
+
+返回
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": "注册成功",
+    "data": {
+        "nickname": "Jiannei",
+        "email": "longjian.huang@foxmail.com"
+  }
+}
+```
+
+**第二种**：message 参数为空，使用 ResponseConstant 中自定义的业务操作码，读取 `resources/lang/zh-CN/response.php`中的业务描述信息，也就说明支持多语言了
+
+```php
+return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS);
+```
+
+```json
+{
+    "status": "success",
+    "code": 200101,
+    "message": "注册成功",
+    "data": {
+        "nickname": "Jiannei",
+        "email": "longjian.huang@foxmail.com"
+    }
+}
+```
+
+**注意**：两种的返回数据有中的 code 不同，第二种返回的是自定义的操作码，具体定义规则可以查看 `app/Constants/ResponseConstant.php`
+
+- 操作失败
+
+直接抛出 `HttpException`，使用自定义的错误码就可以了，如此简单。
+
+使用
+
+```php
+ throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseConstant::SERVICE_LOGIN_ERROR);
+```
+
+返回
+
+```json
+{
+    "status": "fail",
+    "code": 500102,
+    "message": "登录失败",
+    "data": {
+        "message": ""
+    }
+}
+```
+
+### 特别说明
+
+使用 Postman 等 Api 测试工具的使用需要添加 `X-Requested-With：XMLHttpRequest`或者`Accept:application/json`header 信息来表明是 Api 请求，否则在异常捕获到后返回的可能不是预期的 JSON 格式响应。
 
 ## 丰富的日志模式支持
 

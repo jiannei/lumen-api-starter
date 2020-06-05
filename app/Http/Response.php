@@ -11,6 +11,7 @@
 
 namespace App\Http;
 
+use App\Constants\ResponseConstant;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use  Illuminate\Http\Response as HttpResponse;
@@ -85,7 +86,7 @@ class Response
     public function success($data = null, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
         if (!$data instanceof JsonResource) {
-            return response()->json($this->formatData($data, $message, $code), $code, $headers, $option);
+            return $this->formatArrayResponse($data, $message, $code, $headers, $option);
         }
 
         if ($data instanceof ResourceCollection && $data->resource instanceof Paginator) {
@@ -96,29 +97,45 @@ class Response
     }
 
     /**
+     * Format normal array data
+     *
+     * @param  array|null  $data
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function formatArrayResponse($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
+    {
+        return response()->json($this->formatData($data, $message, $code), $code, $headers, $option);
+    }
+
+    /**
      * @param JsonResource|array|null $data
      * @param $message
      * @param $code
      *
      * @return array
      */
-    protected function formatData($data, $message, $code)
+    protected function formatData($data, $message, &$code)
     {
-        if ($code >= 400 && $code <= 499) {
+        $originalCode = $code;
+        $code = (int)substr($code, 0, 3);// notice
+
+        if ($code >= 400 && $code <= 499) {// client error
             $status = 'error';
-        } elseif ($code >= 500 && $code <= 599) {
+        } elseif ($code >= 500 && $code <= 599) {// service error
             $status = 'fail';
         } else {
             $status = 'success';
         }
 
-        $message = (!$message && isset(HttpResponse::$statusTexts[$code])) ? HttpResponse::$statusTexts[$code] : $message;
-
         return [
             'status' => $status,
-            'code' => $code,
-            'message' => $message,
-            'data' => $data ?: (object) $data,
+            'code' => $originalCode,
+            'message' => $message ?: ResponseConstant::statusTexts($originalCode),
+            'data' => $data ?: (object)$data,
         ];
     }
 

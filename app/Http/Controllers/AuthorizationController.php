@@ -11,6 +11,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\ResponseConstant;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class AuthorizationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['store']]);
     }
 
     public function store(Request $request)
@@ -42,11 +43,15 @@ class AuthorizationController extends Controller
 
     protected function respondWithToken($token)
     {
-        return $this->response->created([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-        ]);
+        return $this->response->created(
+            [
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60,
+            ],
+            '',
+            ResponseConstant::SERVICE_LOGIN_SUCCESS
+        );
     }
 
     public function show()

@@ -32,16 +32,16 @@ class UsersController extends Controller
 
     public function index()
     {
-        $resource = $this->service->getUserList();
+        $resource = $this->service->getUsersByPage();
 
-        return $this->response->success(new UserCollection($resource), '成功');
+        return $this->response->success(new UserCollection($resource));
     }
 
     public function show($id)
     {
         $user = $this->service->getUserById($id);
 
-        return $this->response->success(new UserResource($user), '成功');
+        return $this->response->success(new UserResource($user));
     }
 
     /**
