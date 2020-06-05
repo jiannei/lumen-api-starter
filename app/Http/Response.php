@@ -168,7 +168,7 @@ class Response
                         'next' => $paginated['next_page_url'] ?? null,
                     ],
                 ],
-            ]
+            ],
         ];
 
         $data = array_merge_recursive(['data' => $this->parseDataFrom($resource)], $paginationInformation);
