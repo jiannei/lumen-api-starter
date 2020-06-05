@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 use App\Constants\ResponseConstant;
 
 return [
     // 成功
-    ResponseConstant::CUSTOM_HTTP_OK => '操作成功',// 自定义 HTTP 状态码返回消息
+    ResponseConstant::CUSTOM_HTTP_OK => '操作成功', // 自定义 HTTP 状态码返回消息
 
     // 业务操作成功
     ResponseConstant::SERVICE_REGISTER_SUCCESS => '注册成功',
