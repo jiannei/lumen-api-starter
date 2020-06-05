@@ -97,13 +97,14 @@ class Response
     }
 
     /**
-     * Format normal array data
+     * Format normal array data.
      *
-     * @param  array|null  $data
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $headers
-     * @param  int  $option
+     * @param array|null $data
+     * @param string     $message
+     * @param int        $code
+     * @param array      $headers
+     * @param int        $option
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     protected function formatArrayResponse($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
@@ -121,7 +122,7 @@ class Response
     protected function formatData($data, $message, &$code)
     {
         $originalCode = $code;
-        $code = (int)substr($code, 0, 3);// notice
+        $code = (int) substr($code, 0, 3); // notice
 
         if ($code >= 400 && $code <= 499) {// client error
             $status = 'error';
@@ -135,7 +136,7 @@ class Response
             'status' => $status,
             'code' => $originalCode,
             'message' => $message ?: ResponseConstant::statusTexts($originalCode),
-            'data' => $data ?: (object)$data,
+            'data' => $data ?: (object) $data,
         ];
     }
 
