@@ -12,6 +12,8 @@
 namespace App\Services;
 
 use App\Contracts\Repositories\UserRepository;
+use App\Repositories\Criteria\UserCriteria;
+use App\Repositories\Presenters\UserPresenter;
 use Illuminate\Http\Request;
 
 class UserService
@@ -28,25 +30,21 @@ class UserService
         $this->repository = $repository;
     }
 
-    public function getUsersByPage()
+    public function listPage(Request $request)
     {
-        return $this->repository->paginate(3);
+        $this->repository->pushCriteria(new UserCriteria($request));
+        $this->repository->setPresenter(UserPresenter::class);
+
+        return $this->repository->searchUsersByPage();
     }
 
-    public function getUserById($id)
+    public function profilePage($id)
     {
-        return $this->repository->find($id);
+       return $this->repository->searchUserBy($id);
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return \App\Models\User
-     *
-     * @throws \Throwable
-     */
     public function register(Request $request)
     {
-        return $this->repository->add($request->all());
+        return $this->repository->insertUser($request->all());
     }
 }

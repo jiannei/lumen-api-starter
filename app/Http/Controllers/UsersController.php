@@ -11,7 +11,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -21,37 +20,29 @@ class UsersController extends Controller
     /**
      * @var UserService
      */
-    private $service;
+    private $userService;
 
-    public function __construct(UserService $service)
+    public function __construct(UserService $userService)
     {
-        $this->service = $service;
+        $this->userService = $userService;
 
         $this->middleware('auth:api', ['except' => ['store', 'show', 'index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $resource = $this->service->getUsersByPage();
+        $users = $this->userService->listPage($request);
 
-        return $this->response->success(new UserCollection($resource));
+        return $this->response->success($users);
     }
 
     public function show($id)
     {
-        $user = $this->service->getUserById($id);
+        $user = $this->userService->profilePage($id);
 
-        return $this->response->success(new UserResource($user));
+        return $this->response->success($user);
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Resources\Json\JsonResource
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     * @throws \Throwable
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -60,7 +51,7 @@ class UsersController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = $this->service->register($request);
+        $user = $this->userService->register($request);
 
         return $this->response->created(new UserResource($user));
     }

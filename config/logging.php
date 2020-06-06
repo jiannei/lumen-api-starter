@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Logger\CustomMongoLogger;
+use App\Support\Logger\CustomMongoLogger;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;

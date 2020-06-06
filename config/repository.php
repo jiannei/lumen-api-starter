@@ -36,7 +36,7 @@ return [
         'params' => [
             'include' => 'include',
         ],
-        'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
+        'serializer' => \League\Fractal\Serializer\ArraySerializer::class,
     ],
 
     /*
@@ -232,15 +232,15 @@ return [
         'rootNamespace' => 'App\\',
         'stubsOverridePath' => app()->path(),
         'paths' => [
-            'models' => 'Models',
+            'models' => 'Repositories\\Models',
             'repositories' => 'Repositories\\Eloquent',
             'interfaces' => 'Contracts\\Repositories',
-            'transformers' => 'Transformers',
-            'presenters' => 'Presenters',
-            'validators' => 'Validators',
+            'transformers' => 'Repositories\\Transformers',
+            'presenters' => 'Repositories\\Presenters',
+            'validators' => 'Repositories\\Validators',
             'controllers' => 'Http/Controllers',
             'provider' => 'RepositoryServiceProvider',
-            'criteria' => 'Criteria',
+            'criteria' => 'Repositories\\Criteria',
         ],
     ],
 ];

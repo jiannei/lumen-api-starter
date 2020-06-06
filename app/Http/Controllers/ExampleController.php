@@ -11,7 +11,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Log;
+use App\Repositories\Models\Log;
 use Illuminate\Http\Request;
 
 class ExampleController extends Controller

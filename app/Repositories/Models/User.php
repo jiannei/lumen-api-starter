@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Models;
+namespace App\Repositories\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;

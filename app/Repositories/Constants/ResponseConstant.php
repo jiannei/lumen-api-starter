@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Constants;
+namespace App\Repositories\Constants;
 
 use Illuminate\Http\Response as HttpResponse;
 

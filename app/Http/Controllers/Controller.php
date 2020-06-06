@@ -11,7 +11,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\Helpers;
+use App\Support\Traits\Helpers;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 

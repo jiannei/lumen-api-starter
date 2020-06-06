@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Http;
+namespace App\Support;
 
-use App\Constants\ResponseConstant;
+use App\Repositories\Constants\ResponseConstant;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use  Illuminate\Http\Response as HttpResponse;

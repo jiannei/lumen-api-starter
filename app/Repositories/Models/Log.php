@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Models;
+namespace App\Repositories\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 

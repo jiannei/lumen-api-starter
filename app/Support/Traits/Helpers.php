@@ -9,14 +9,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Traits;
+namespace App\Support\Traits;
 
-use App\Http\Response;
+use App\Support\Response;
 
 /**
  * Trait Helpers.
  *
- * @property \App\Http\Response $response
+ * @property \App\Support\Response $response
  */
 trait Helpers
 {
@@ -31,24 +31,6 @@ trait Helpers
         }
 
         throw new \ErrorException('Undefined property '.get_class($this).'::'.$key);
-    }
-
-    /**
-     * Format duration.
-     *
-     * @param float $seconds
-     *
-     * @return string
-     */
-    protected function formatDuration(float $seconds)
-    {
-        if ($seconds < 0.001) {
-            return round($seconds * 1000000).'μs';
-        } elseif ($seconds < 1) {
-            return round($seconds * 1000, 2).'ms';
-        }
-
-        return round($seconds, 2).'s';
     }
 
     /**

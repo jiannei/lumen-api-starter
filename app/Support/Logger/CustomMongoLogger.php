@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Logger;
+namespace App\Support\Logger;
 
 use Carbon\Carbon;
 use MongoDB\Client;

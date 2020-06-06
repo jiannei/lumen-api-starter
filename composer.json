@@ -9,6 +9,7 @@
         "guzzlehttp/guzzle": "^6.5",
         "jenssegers/mongodb": "4.x",
         "laravel/lumen-framework": "^7.0",
+        "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.6",
         "tymon/jwt-auth": "^1.0"
     },
@@ -19,7 +20,7 @@
     },
     "autoload": {
         "files": [
-            "app/helpers.php"
+            "app/Support/helpers.php"
         ],
         "classmap": [
             "database/seeds",

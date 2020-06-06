@@ -11,8 +11,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Constants\ResponseConstant;
 use App\Http\Resources\UserResource;
+use App\Repositories\Constants\ResponseConstant;
 use Illuminate\Http\Request;
 
 class AuthorizationController extends Controller

@@ -9,7 +9,8 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Constants\ResponseConstant;
+
+use App\Repositories\Constants\ResponseConstant;
 
 return [
     // 成功

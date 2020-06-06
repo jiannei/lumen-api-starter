@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Validators;
+namespace App\Repositories\Validators;
 
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\LaravelValidator;
