@@ -12,7 +12,6 @@
 namespace App\Repositories\Eloquent;
 
 use App\Contracts\Repositories\UserRepository;
-
 use App\Repositories\Models\User;
 use App\Repositories\Validators\UserValidator;
 use Illuminate\Support\Facades\Hash;

@@ -40,7 +40,7 @@ class UserService
 
     public function profilePage($id)
     {
-       return $this->repository->searchUserBy($id);
+        return $this->repository->searchUserBy($id);
     }
 
     public function register(Request $request)
