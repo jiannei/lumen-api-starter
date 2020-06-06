@@ -14,6 +14,52 @@
 
 ## 概览
 
+### 目录结构一览
+
+```
+├── app
+│   ├── Console
+│   │   ├── Commands
+│   │   └── Kernel.php
+│   ├── Contracts               // 定义 interface
+│   │   └── Repositories
+│   ├── Events
+│   │   ├── Event.php
+│   │   └── ExampleEvent.php
+│   ├── Exceptions
+│   │   └── Handler.php
+│   ├── Http
+│   │   ├── Controllers         // 任务分发，返回响应
+│   │   ├── Middleware
+│   │   └── Resources           // Api Resource
+│   ├── Jobs
+│   │   ├── ExampleJob.php
+│   │   └── Job.php
+│   ├── Listeners
+│   │   └── ExampleListener.php
+│   ├── Providers
+│   │   ├── AppServiceProvider.php
+│   │   ├── AuthServiceProvider.php
+│   │   ├── EventServiceProvider.php
+│   │   ├── QueryLoggerServiceProvider.php
+│   │   └── RepositoryServiceProvider.php
+│   ├── Repositories
+│   │   ├── Constants       // 系统中的常量定义
+│   │   ├── Criteria        // 数据查询条件的组装拼接
+│   │   ├── Eloquent        // 处理数据维护（传说中的 Repository）
+│   │   ├── Models          // 定义数据实体，以及实体之间的关系（Laravel 原始的 Eloquent Model）
+│   │   ├── Presenters      // 数据显示前的处理，需要引入 transformer
+│   │   ├── Transformers    // 数据转换
+│   │   └── Validators      // 数据维护前的参数校验
+│   ├── Services            // 具体的需求处理逻辑
+│   │   └── UserService.php
+│   └── Support              // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
+│       ├── Logger           // 扩展 Lumen 的日志支持记录到 Mongodb
+│       ├── Response.php     // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
+│       ├── Traits           // class 中常用到的方法
+│       └── helpers.php      // 全局会用到的函数
+```
+
 ### 现已支持
 
 - 适配 Laravel 7 中新增的 HttpClient 客户端
@@ -370,52 +416,6 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 
 ## Repository & Service 模式架构
 
-### 目录结构一览
-
-```
-├── app
-│   ├── Console
-│   │   ├── Commands
-│   │   └── Kernel.php
-│   ├── Contracts               // 定义 interface
-│   │   └── Repositories
-│   ├── Events
-│   │   ├── Event.php
-│   │   └── ExampleEvent.php
-│   ├── Exceptions
-│   │   └── Handler.php
-│   ├── Http
-│   │   ├── Controllers         // 任务分发，返回响应
-│   │   ├── Middleware
-│   │   └── Resources           // Api Resource
-│   ├── Jobs
-│   │   ├── ExampleJob.php
-│   │   └── Job.php
-│   ├── Listeners
-│   │   └── ExampleListener.php
-│   ├── Providers
-│   │   ├── AppServiceProvider.php
-│   │   ├── AuthServiceProvider.php
-│   │   ├── EventServiceProvider.php
-│   │   ├── QueryLoggerServiceProvider.php
-│   │   └── RepositoryServiceProvider.php
-│   ├── Repositories
-│   │   ├── Constants       // 系统中的常量定义
-│   │   ├── Criteria        // 数据查询条件的组装拼接
-│   │   ├── Eloquent        // 处理数据维护（传说中的 Repository）
-│   │   ├── Models          // 定义数据实体，以及实体之间的关系（Laravel 原始的 Eloquent Model）
-│   │   ├── Presenters      // 数据显示前的处理，需要引入 transformer
-│   │   ├── Transformers    // 数据转换
-│   │   └── Validators      // 数据维护前的参数校验
-│   ├── Services            // 具体的需求处理逻辑
-│   │   └── UserService.php
-│   └── Support              // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能
-│       ├── Logger           // 扩展 Lumen 的日志支持记录到 Mongodb
-│       ├── Response.php     // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
-│       ├── Traits           // class 中常用到的方法
-│       └── helpers.php      // 全局会用到的函数
-```
-
 ### 职责说明
 
 **Controller 岗位职责**：
@@ -465,7 +465,8 @@ Repository => state、mutation、getter，具体的数据维护
 **Criteria**：[l5-repository criteria](https://github.com/andersao/l5-repository#example-the-criteria) 
 
 作用类似 Eloquent Model 中的 Scope 查询，把常用的查询提取出来，但是比 Scope 更强大。
-可以省去 Model 中大量的根据请求参数判断并拼接查询条件的代码，与此同时，能够做到将多种数据之间存在的**通用**筛选条件剥离出来，比如 `make:repository`创建生成的 Repository 中默认包含以下代码，就是给 Repository 默认配置了一个 RequestCriteria，就可以直接使用下面的方式来过滤数据，Criteria 难道不香吗，嗯？
+可以省去 Model 中大量的根据请求参数判断并拼接查询条件的代码，与此同时，能够做到将多种数据之间存在的**通用**筛选条件剥离出来。
+比如 `make:repository`创建生成的 Repository 中默认包含以下代码，就是给 Repository 默认配置了一个 RequestCriteria，就可以直接使用下面的方式来过滤数据，难道不香吗，嗯？
 
 ```php
 public function boot()
@@ -474,6 +475,7 @@ public function boot()
 }
 ```
 
+```
 http://prettus.local/users?search=age:17;email:john@gmail.com&searchJoin=and
 
 Filtering fields
@@ -512,6 +514,7 @@ http://prettus.local/users?filter=id;name&orderBy=id&sortedBy=desc
         "name": "John Doe"
     }
 ]
+```
 
 **Presenter**：[L5-repository presenters](https://github.com/andersao/l5-repository#presenters)
 
@@ -625,11 +628,12 @@ public function listPage(Request $request)
 
 ## Packages
 
-- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle)
-- [jenssegers/mongodb](https://github.com/jenssegers/laravel-mongodb)
-- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth)
-- [prettus/l5-repository](https://github.com/andersao/l5-repository)
-- [overtrue/laravel-query-logger](https://github.com/overtrue/laravel-query-logger)
+- [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) （可选，需要使用 Laravel 7 新增的 HttpClient 时安装）
+- [jenssegers/mongodb](https://github.com/jenssegers/laravel-mongodb) （可选，需要使用记录日志到 MongoDB 时安装）
+- [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth) （默认支持 JWT 授权）
+- [prettus/l5-repository](https://github.com/andersao/l5-repository) （默认使用 Repository 模式）
+- [overtrue/laravel-query-logger](https://github.com/overtrue/laravel-query-logger) （无需安装，考虑到后续对 SQL 记录进一步扩展，比如特定条件下才记录 SQL，原扩展包不支持，暂时是整合到了项目中）
+- [league/fractal](https://github.com/thephpleague/fractal) (可选，需要用到 transformer 时安装)
 
 ## 其他
 
