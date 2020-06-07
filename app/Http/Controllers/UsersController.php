@@ -31,14 +31,14 @@ class UsersController extends Controller
 
     public function index(Request $request)
     {
-        $users = $this->userService->listPage($request);
+        $users = $this->userService->handleList($request);
 
         return $this->response->success($users);
     }
 
     public function show($id)
     {
-        $user = $this->userService->profilePage($id);
+        $user = $this->userService->handleProfile($id);
 
         return $this->response->success($user);
     }
@@ -51,7 +51,7 @@ class UsersController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = $this->userService->register($request);
+        $user = $this->userService->handleRegistration($request);
 
         return $this->response->created(new UserResource($user));
     }

@@ -428,7 +428,7 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
     
 **Service 岗位职责**：
 
-1. 实现项目中的具体**功能**业务。所以 Service 中定义的方法名，应该是用来**描述功能或业务**的。比如`listPage`和`profilePage`，分别对应用户列表展示和用户详情页展示的需求。
+1. 实现项目中的具体**功能**业务。所以 Service 中定义的方法名，应该是用来**描述功能或业务**的。比如`handleList`和`handleProfile`，分别对应用户列表展示和用户详情页展示的需求。
 2. 处理 Controller 中传入的参数，进行**业务判断**
 3.（可选）根据业务需求配置相应的 Criteria 和 Presenter 后（不需要的可以不用配置，或者将通用的配置到 Repository 中）
 4. 调用 Repository 处理**数据的逻辑**

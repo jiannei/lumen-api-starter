@@ -30,7 +30,7 @@ class UserService
         $this->repository = $repository;
     }
 
-    public function listPage(Request $request)
+    public function handleList(Request $request)
     {
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
@@ -38,12 +38,12 @@ class UserService
         return $this->repository->searchUsersByPage();
     }
 
-    public function profilePage($id)
+    public function handleProfile($id)
     {
         return $this->repository->searchUserBy($id);
     }
 
-    public function register(Request $request)
+    public function handleRegistration(Request $request)
     {
         return $this->repository->insertUser($request->all());
     }
