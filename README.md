@@ -72,7 +72,7 @@
 
 ### 计划支持
 
-规划讨论中。（详细文档说明？Laravel 7 的对应实现版本？生成 API 文档？支持单元测试？支持国际化？）
+其他规划讨论中。（Laravel 7 的对应实现版本？生成 API 文档？支持单元测试？异步业务逻辑的拆分？消息队列、缓存的高效使用？swoole？）
 
 ## RESTful 方式的路由设计简单准则
 
@@ -416,6 +416,15 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 
 ## Repository & Service 模式架构
 
+在添加这部分描述的时候，联想到了 Vue 中的 Vuex，熟悉 Vuex 的同学可以类比一下。
+
+```
+Controller => dispatch，校验请求后分发业务处理
+Service => action，具体的业务实现
+Repository => state、mutation、getter，具体的数据维护
+```
+
+
 ### 职责说明
 
 **Controller 岗位职责**：
@@ -428,7 +437,7 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
     
 **Service 岗位职责**：
 
-1. 实现项目中的具体**功能**业务。所以 Service 中定义的方法名，应该是用来**描述功能或业务**的。比如`handleList`和`handleProfile`，分别对应用户列表展示和用户详情页展示的需求。
+1. 实现项目中的具体**功能**业务。所以 Service 中定义的方法名，应该是用来**描述功能或业务**的（动词+业务描述）。比如`handleListPageDisplay`和`handleProfilePageDisplay`，分别对应用户列表展示和用户详情页展示的需求。
 2. 处理 Controller 中传入的参数，进行**业务判断**
 3.（可选）根据业务需求配置相应的 Criteria 和 Presenter 后（不需要的可以不用配置，或者将通用的配置到 Repository 中）
 4. 调用 Repository 处理**数据的逻辑**
@@ -449,14 +458,6 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 ### Repository 模式中涉及到的一些名词理解
 
 完整的执行顺序：`Criteria -> Validator -> Presenter`
-
-在添加这部分描述的时候，联想到了 Vue 中的 Vuex，熟悉 Vuex 的同学可以类比一下。
-
-```
-Controller => dispatch，校验请求后分发业务处理
-Service => action，具体的业务实现
-Repository => state、mutation、getter，具体的数据维护
-```
 
 **Constants**:
 
@@ -623,7 +624,22 @@ public function listPage(Request $request)
 
 ### 规范
 
-* 命名规范：待补充
+* 命名规范：
+
+- controller：
+    - 类名：名词，复数形式，描述是对整个资源集合进行操作；当没有集合概念的时候。换句话说，当资源只有一个的情况下，使用单数资源名称也是可以的——即一个单一的资源。例如，如果有一个单一的总体配置资源，你可以使用一个单数名称来表示
+    - 方法名：动词+名词，体现资源操作。如，store\destroy
+
+- service:
+    - 类名：名词，单数。比如`UserService`、`EmailService`和`OrderService`
+    - 方法名：`动词+名词`，描述能够实现的业务需求。比如：`handleRegistration`表示实现用户注册功能。
+
+- repository
+    - 类名：名词，单数。`make:repository`命令可以直接生成。
+    - 方法名：动词+名词，描述数据的维护（CRUD）。   比如：`searchUsersByPage`
+    - 可能会出现的动词：createXXX（add）;searchXXX；queryXXX、findXXX、fetch（get）；updateXXX；deleteXXX（destroy）；组合形式：with\Join...，如 searchOrdersLeftJoinGodds
+    - 通常情况 Database、Cache、Redis、Carbon 操作只能出现在 repository
+
 * 使用规范：待补充
 
 ## Packages

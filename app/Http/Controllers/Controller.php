@@ -11,13 +11,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\Traits\Helpers;
+use App\Support\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use Helpers;
+    use ResponseTrait;
 
     /**
      * Custom Failed Validation Response.

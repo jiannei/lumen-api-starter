@@ -11,7 +11,7 @@
 
 namespace App\Exceptions;
 
-use App\Support\Traits\Helpers;
+use App\Support\Traits\ResponseTrait;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
@@ -21,7 +21,7 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    use Helpers;
+    use ResponseTrait;
 
     /**
      * A list of the exception types that should not be reported.
