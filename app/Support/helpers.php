@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-if (!function_exists('formatDuration')) {
+if (! function_exists('formatDuration')) {
     /**
      * Format duration.
      *

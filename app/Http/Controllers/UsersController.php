@@ -14,7 +14,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use App\Services\UserService;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class UsersController extends Controller
 {

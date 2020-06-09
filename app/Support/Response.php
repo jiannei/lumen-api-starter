@@ -85,7 +85,7 @@ class Response
      */
     public function success($data = null, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
-        if (!$data instanceof JsonResource) {
+        if (! $data instanceof JsonResource) {
             return $this->formatArrayResponse($data, $message, $code, $headers, $option);
         }
 
