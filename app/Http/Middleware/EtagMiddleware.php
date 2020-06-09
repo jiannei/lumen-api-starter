@@ -27,7 +27,7 @@ class EtagMiddleware
     public function handle(Request $request, Closure $next)
     {
         // If this was not a get or head request, just return
-        if (!$request->isMethod('get') && !$request->isMethod('head')) {
+        if (! $request->isMethod('get') && ! $request->isMethod('head')) {
             return $next($request);
         }
 
