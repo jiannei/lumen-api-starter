@@ -41,8 +41,8 @@ class ResponseConstant
     public static function statusTexts($code = null)
     {
         $statusTexts = HttpResponse::$statusTexts;
-        if (file_exists(resource_path("lang".DIRECTORY_SEPARATOR.config('app.locale').DIRECTORY_SEPARATOR."response.php"))) {
-            $statusTexts =  __('response') + HttpResponse::$statusTexts;
+        if (file_exists(resource_path('lang'.DIRECTORY_SEPARATOR.config('app.locale').DIRECTORY_SEPARATOR.'response.php'))) {
+            $statusTexts = __('response') + HttpResponse::$statusTexts;
         }
 
         if ($code) {
