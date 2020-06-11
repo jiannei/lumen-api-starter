@@ -12,27 +12,9 @@
 namespace App\Http\Controllers;
 
 use App\Support\Traits\ResponseTrait;
-use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
     use ResponseTrait;
-
-    /**
-     * Custom Failed Validation Response.
-     *
-     * @param Request $request
-     * @param array   $errors
-     *
-     * @return mixed
-     */
-    protected function buildFailedValidationResponse(Request $request, array $errors)
-    {
-        if (isset(static::$responseBuilder)) {
-            return call_user_func(static::$responseBuilder, $request, $errors);
-        }
-
-        $this->response->fail('Validation error', 422, $errors);
-    }
 }

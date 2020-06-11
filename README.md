@@ -388,7 +388,9 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 使用
 
 ```php
- throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseConstant::SERVICE_LOGIN_ERROR);
+abort(ResponseConstant::SERVICE_LOGIN_ERROR);
+// 等价于
+throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseConstant::SERVICE_LOGIN_ERROR);
 ```
 
 返回
