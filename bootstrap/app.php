@@ -98,6 +98,7 @@ $app->configure('repository');
 // ]);
 
 $app->middleware([
+    App\Http\Middleware\AcceptHeader::class,
     App\Http\Middleware\EtagMiddleware::class,
 ]);
 
@@ -134,6 +135,7 @@ $app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::cla
  */
 $app->register(\App\Providers\RepositoryServiceProvider::class);
 $app->register(\App\Providers\QueryLoggerServiceProvider::class);
+$app->register(\Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

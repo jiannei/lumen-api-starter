@@ -7,11 +7,13 @@
     "require": {
         "php": "^7.2.5",
         "guzzlehttp/guzzle": "^6.5",
+        "illuminate/redis": "^7.15",
         "jenssegers/mongodb": "4.x",
         "laravel/lumen-framework": "^7.0",
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.6",
-        "tymon/jwt-auth": "^1.0"
+        "tymon/jwt-auth": "^1.0",
+        "ext-json": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",
