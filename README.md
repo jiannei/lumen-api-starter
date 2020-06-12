@@ -657,7 +657,7 @@ public function listPage(Request $request)
 
 依照惯例，如对您的日常工作有所帮助或启发，欢迎三连 `star + fork + follow`。
 
-如果有任何批评建议，通过邮箱（longjian.huang@foxmial.com）的方式（如果我每天坚持看邮件的话）可以联系到我。
+如果有任何批评建议，通过邮箱（longjian.huang@foxmail.com）的方式（如果我每天坚持看邮件的话）可以联系到我。
 
 总之，欢迎各路英雄好汉。
 
