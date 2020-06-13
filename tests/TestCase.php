@@ -9,17 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
+namespace Tests;
+
 use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use Tests\Traits\CreatesApplication;
 
 abstract class TestCase extends BaseTestCase
 {
-    /**
-     * Creates the application.
-     *
-     * @return \Laravel\Lumen\Application
-     */
-    public function createApplication()
-    {
-        return require __DIR__.'/../bootstrap/app.php';
-    }
+    use CreatesApplication;
 }

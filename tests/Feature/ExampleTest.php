@@ -8,9 +8,14 @@
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
+namespace Tests\Feature;
+
+use Laravel\Lumen\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    //use DatabaseMigrations;
     /**
      * A basic test example.
      */

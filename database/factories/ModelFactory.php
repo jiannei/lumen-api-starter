@@ -9,7 +9,8 @@
  * with this source code in the file LICENSE.
  */
 
-use App\User;
+
+use App\Repositories\Models\User;
 use Faker\Generator as Faker;
 
 /*
@@ -26,6 +27,7 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'email' => $faker->safeEmail,
+        'password' => \Illuminate\Support\Facades\Hash::make('password'),
     ];
 });
