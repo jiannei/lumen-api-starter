@@ -28,5 +28,12 @@ jobs:
           coverage: none
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
-      - name: Execute tests
-        run: vendor/bin/phpunit --verbose
+      - name: Copy ENV Configuration for CI
+          run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
+      - name: Create DB and schemas
+          run: |
+            mkdir -p database
+            touch database/database.sqlite
+            php artisan migrate
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: vendor/bin/phpunit
