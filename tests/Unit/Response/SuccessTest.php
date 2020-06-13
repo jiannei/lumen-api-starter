@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tests\Unit\Response;
-
 
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
@@ -19,7 +26,7 @@ class SuccessTest extends TestCase
     public function testSuccess()
     {
         // 方式一：直接返回响应成功
-        $response = $this->response()->success();// 注意：这里必须使用 this->response() 函数方式调用，因为 MakesHttpRequests 中有 response 属性
+        $response = $this->response()->success(); // 注意：这里必须使用 this->response() 函数方式调用，因为 MakesHttpRequests 中有 response 属性
 
         $this->assertEquals(200, $response->status());
 
@@ -208,8 +215,8 @@ class SuccessTest extends TestCase
 
         $expectedJson = json_encode([
             'status' => 'success',
-            'code' => ResponseConstant::SERVICE_LOGIN_SUCCESS,// 返回自定义的业务码
-            'message' => ResponseConstant::statusTexts(ResponseConstant::SERVICE_LOGIN_SUCCESS),// 根据业务码取多语言的业务描述
+            'code' => ResponseConstant::SERVICE_LOGIN_SUCCESS, // 返回自定义的业务码
+            'message' => ResponseConstant::statusTexts(ResponseConstant::SERVICE_LOGIN_SUCCESS), // 根据业务码取多语言的业务描述
             'data' => (object) [],
         ]);
 

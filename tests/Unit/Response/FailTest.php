@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tests\Unit\Response;
-
 
 use App\Repositories\Constants\ResponseConstant;
 use App\Support\Traits\ResponseTrait;
@@ -31,7 +38,7 @@ class FailTest extends TestCase
             $expectedJson = json_encode([
                 'status' => 'fail',
                 'code' => 500,
-                'message' => ResponseConstant::statusTexts(500),// 这里应该是与 ResponseConstant 中 500 状态码对应的描述，如果没有定义则取 Symfony\Component\HttpFoundation\Response 中标准的定义
+                'message' => ResponseConstant::statusTexts(500), // 这里应该是与 ResponseConstant 中 500 状态码对应的描述，如果没有定义则取 Symfony\Component\HttpFoundation\Response 中标准的定义
                 'data' => (object) [],
             ]);
             $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -70,8 +77,8 @@ class FailTest extends TestCase
 
             $expectedJson = json_encode([
                 'status' => 'fail',
-                'code' => ResponseConstant::SERVICE_LOGIN_ERROR,// 预期返回指定的业务错误码
-                'message' => ResponseConstant::statusTexts(ResponseConstant::SERVICE_LOGIN_ERROR),// 预期根据业务码取相应的错误描述
+                'code' => ResponseConstant::SERVICE_LOGIN_ERROR, // 预期返回指定的业务错误码
+                'message' => ResponseConstant::statusTexts(ResponseConstant::SERVICE_LOGIN_ERROR), // 预期根据业务码取相应的错误描述
                 'data' => (object) [],
             ]);
             $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
