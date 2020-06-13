@@ -29,9 +29,9 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-suggest
       - name: Copy ENV Configuration for CI
-          run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
+        run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
       - name: Create DB and schemas
-          run: |
+        run: |
             mkdir -p database
             touch database/database.sqlite
             php artisan migrate
