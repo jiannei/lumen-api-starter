@@ -40,6 +40,7 @@
 │   ├── Providers
 │   │   ├── AppServiceProvider.php
 │   │   ├── AuthServiceProvider.php
+│   │   ├── CustomEloquentUserProvider.php
 │   │   ├── EventServiceProvider.php
 │   │   ├── QueryLoggerServiceProvider.php
 │   │   └── RepositoryServiceProvider.php
@@ -66,7 +67,7 @@
 - RESTflu 规范的路由定义和 HTTP 响应结构
     - 使用 Laravel Api Resource
     - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
-- Jwt-auth 方式授权
+- Jwt-auth 方式授权（支持将授权用户缓存到 redis，减少 user 表查询频次）
 - 支持日志记录到 MongoDB
 - 合理有效地『Repository & Service』架构设计（😏）
 
@@ -444,14 +445,16 @@ Repository => state、mutation、getter，具体的数据维护
 3.（可选）根据业务需求配置相应的 Criteria 和 Presenter 后（不需要的可以不用配置，或者将通用的配置到 Repository 中）
 4. 调用 Repository 处理**数据的逻辑**
 5. Service 可以不注入 Repository，或者只注入与处理当前业务**存在数据关联**的 Repository。比如，`EmailService`中或许就只有调用第三方 API 的逻辑，不需要更新维护系统中的数据，就不需要注入 Repository；`OrderService`中实现了订单出库逻辑后，还需要生成相应的财务结算单据，就需要注入 `OrderReposoitory`和`FinancialDocumentRepository`，财务单据中的原单号关联着订单号，存在着数据关联。
+6. Service 中不允许调用其他 Service，保持职责单一，如有需要，应该考虑 Controller 中调用
 
 **Repository 岗位职责**：
 
 1. 只负责**数据维护**的逻辑，数据怎么查询、更新、创建、删除，以及**相关联**的数据如何维护。所以 Repository 中定义的方法名，应该是用来描述**数据是以怎样的形式去维护的**。比如 `searchUsersByPage`、`searchUsersById`和`insertUser`。
 2. Repository 只绑定**一个** model，**只允许**维护与当前 Repository 绑定的 Model 数据，**最多允许**维护与绑定的 Model 存在关联关系的 Model。比如，订单 OrderRepository 中会涉及到更新订单商品 OrderGoodsRepository 的数据。
 3. Repository 中可以配置条件查询（Criteria）、数据校验（Validator）和数据转换显示（Presenter），通常是将通用的配置在 Repository，不通用的独立出相应文件。
-4.Repository 本质是在 Laravel ORM Model 中的一层封装，可以完全不用担心使用 Repository 等同于放弃了 ORM 灵活性。原先常用的 ORM 方法**并没有移除**，只是位置从 Controller 中换到了 Repository 而已。
+4. Repository 本质是在 Laravel ORM Model 中的一层封装，可以完全不用担心使用 Repository 等同于放弃了 ORM 灵活性。原先常用的 ORM 方法**并没有移除**，只是位置从 Controller 中换到了 Repository 而已。
 5. Repository 中的 `$this->model` 实际就是绑定的 Model 实例，所以就有了这样的写法`$this->model::all()`,与原先的 ORM 写法`User::all()`是完全等价的。
+6. Repository 中不允许引入其他 Repository
 
 **Model 岗位职责**：
 
