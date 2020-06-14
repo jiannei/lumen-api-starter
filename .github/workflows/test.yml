@@ -1,12 +1,21 @@
-name: CI
+name: Test
 on:
   push:
     branches:
       - master
 jobs:
   tests:
-    runs-on: ubuntu-latest
     name: Tests
+    strategy:
+      matrix:
+        php-version:
+          - "7.2"
+          - "7.3"
+          - "7.4"
+        operating-system: [ubuntu-latest]
+
+    runs-on: ${{ matrix.operating-system }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,13 +26,13 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-composer-
+            ${{ runner.os }}-php-${{ matrix.php-version }}-composer-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.3
+          php-version: ${{ matrix.php-version }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite,json,redis
           coverage: none
       - name: Install Composer dependencies

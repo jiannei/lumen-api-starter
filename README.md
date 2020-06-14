@@ -9,7 +9,7 @@
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
 ![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
-![CI](https://github.com/Jiannei/lumen-api-starter/workflows/CI/badge.svg?branch=master)
+![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
 
 [TOC]
 
