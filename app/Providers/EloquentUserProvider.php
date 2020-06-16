@@ -11,12 +11,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\EloquentUserProvider;
+use Illuminate\Auth\EloquentUserProvider as BaseEloquentUserProvider;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
-class CustomEloquentUserProvider extends EloquentUserProvider
+class EloquentUserProvider extends BaseEloquentUserProvider
 {
     /**
      * Retrieve a user by their unique identifier.

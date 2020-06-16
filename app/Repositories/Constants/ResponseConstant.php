@@ -12,6 +12,7 @@
 namespace App\Repositories\Constants;
 
 use Illuminate\Http\Response as HttpResponse;
+use Illuminate\Support\Facades\Lang;
 
 class ResponseConstant
 {
@@ -40,10 +41,7 @@ class ResponseConstant
 
     public static function statusTexts($code = null)
     {
-        $statusTexts = HttpResponse::$statusTexts;
-        if (file_exists(resource_path('lang'.DIRECTORY_SEPARATOR.config('app.locale').DIRECTORY_SEPARATOR.'response.php'))) {
-            $statusTexts = __('response') + HttpResponse::$statusTexts;
-        }
+        $statusTexts = Lang::has('response') ? (__('response') + HttpResponse::$statusTexts) : HttpResponse::$statusTexts;
 
         if ($code) {
             return isset($statusTexts[$code]) ? $statusTexts[$code] : '';

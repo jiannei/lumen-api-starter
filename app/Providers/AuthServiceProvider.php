@@ -39,7 +39,7 @@ class AuthServiceProvider extends ServiceProvider
         });*/
 
         $this->app['auth']->provider('custom', function ($app, array $config) {
-            return new CustomEloquentUserProvider($app['hash'], $config['model']);
+            return new EloquentUserProvider($app['hash'], $config['model']);
         });
     }
 }
