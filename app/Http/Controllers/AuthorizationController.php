@@ -68,7 +68,7 @@ class AuthorizationController extends Controller
         return $this->response->noContent('Successfully logged out');
     }
 
-    public function refresh()
+    public function update()
     {
         return $this->respondWithToken(auth()->refresh());
     }

@@ -1,0 +1,123 @@
+<?php
+/*
+ * This document has been generated with
+ * https://mlocati.github.io/php-cs-fixer-configurator/#version:2.16.3|configurator
+ * you can change this configuration by importing this file.
+ */
+
+$header = <<<'EOF'
+This file is part of Jiannei/sinan.
+(c) Jiannei <longjian.haung@foxmail.com>
+This source file is subject to the MIT license that is bundled
+with this source code in the file LICENSE.
+EOF;
+
+$finder = PhpCsFixer\Finder::create()
+	->exclude('vendor')
+    ->exclude('tests/Fixtures')
+    ->in(__DIR__)
+    ->append([__DIR__.'/php-cs-fixer']);
+
+$rules = [
+	'@PSR2' => true,
+    	// PHPDoc should contain `@param` for all params.
+    	'phpdoc_add_missing_param_annotation' => ['only_untyped'=>false],
+    	// Annotations in PHPDoc should be ordered so that `@param` annotations come first, then `@throws` annotations, then `@return` annotations.
+    	'phpdoc_order' => false,
+    	// Annotations in PHPDoc should be grouped together so that annotations of the same type immediately follow each other, and annotations of a different type are separated by a single blank line.
+        'phpdoc_separation' => false,
+        // There should not be a binary flag before strings.
+        'no_binary_string' => true,
+        // Replace control structure alternative syntax to use braces.
+        'no_alternative_syntax' => true,
+        // There should be no empty lines after class opening brace.
+        'no_blank_lines_after_class_opening' => true,
+        // There should not be blank lines between docblock and the documented element.
+        'no_blank_lines_after_phpdoc' => true,
+        // There must be a comment when fall-through is intentional in a non-empty case body.
+        'no_break_comment' => true,
+        // The closing `? >` tag MUST be omitted from files containing only PHP.
+        'no_closing_tag' => true,
+        // There should not be any empty comments.
+        'no_empty_comment' => true,
+        // There should not be empty PHPDoc blocks.
+        'no_empty_phpdoc' => true,
+        // Remove useless semicolon statements.
+        'no_empty_statement' => true,
+        // Removes extra blank lines and/or blank lines following configuration.
+        'no_extra_blank_lines' => true,
+        // Remove leading slashes in `use` clauses.
+        'no_leading_import_slash' => true,
+        // The namespace declaration line shouldn't contain leading whitespace.
+        'no_leading_namespace_whitespace' => true,
+        // Either language construct `print` or `echo` should be used.
+        'no_mixed_echo_print' => true,
+        // Operator `=>` should not be surrounded by multi-line whitespaces.
+        'no_multiline_whitespace_around_double_arrow' => true,
+        // Short cast `bool` using double exclamation mark should not be used.
+        'no_short_bool_cast' => true,
+        // Replace short-echo `<?=` with long format `<?php echo` syntax.
+        'no_short_echo_tag' => true,
+        // Single-line whitespace before closing semicolon are prohibited.
+        'no_singleline_whitespace_before_semicolons' => true,
+        // When making a method or function call, there MUST NOT be a space between the method or function name and the opening parenthesis.
+        'no_spaces_after_function_name' => true,
+        // There MUST NOT be spaces around offset braces.
+        'no_spaces_around_offset' => true,
+        // There MUST NOT be a space after the opening parenthesis. There MUST NOT be a space before the closing parenthesis.
+        'no_spaces_inside_parenthesis' => true,
+        // Replaces superfluous `elseif` with `if`.
+        'no_superfluous_elseif' => true,
+    	// PHP arrays should be declared using the configured syntax.ƒ
+    	'array_syntax' => ['syntax'=>'short'],
+    	// Binary operators should be surrounded by space as configured.
+    	'binary_operator_spaces' => true,
+    	// There MUST be one blank line after the namespace declaration.
+    	'blank_line_after_namespace' => true,
+    	// Ensure there is no code on the same line as the PHP open tag and it is followed by a blank line.
+    	'blank_line_after_opening_tag' => true,
+    	// An empty line feed must precede any configured statement.
+    	'blank_line_before_statement' => true,
+    	// The body of each structure MUST be enclosed by braces. Braces should be properly placed. Body of braces should be properly indented.
+    	'braces' => true,
+    	// A single space or none should be between cast and variable.
+    	'cast_spaces' => true,
+    	// Class, trait and interface elements must be separated with one blank line.
+    	'class_attributes_separation' => true,
+    	// Whitespace around the keywords of a class, trait or interfaces definition should be one space.
+    	'class_definition' => true,
+    	// Concatenation should be spaced according configuration.
+    	'concat_space' => true,
+    	// The PHP constants `true`, `false`, and `null` MUST be written using the correct casing.
+    	'constant_case' => true,
+    	// Equal sign in declare statement should be surrounded by spaces or not following configuration.
+    	'declare_equal_normalize' => ['space'=>'single'],
+    	// The keyword `elseif` should be used instead of `else if` so that all control keywords look like single words.
+    	'elseif' => true,
+    	// PHP code MUST use only UTF-8 without BOM (remove BOM).
+    	'encoding' => true,
+    	// Each line of multi-line DocComments must have an asterisk [PSR-5] and must be aligned with the first one.
+    	'align_multiline_comment' => true,
+    	// Each element of an array must be indented exactly once.
+    	'array_indentation' => true,
+    	// Using `isset($var) &&` multiple times should be done in one call.
+    	'combine_consecutive_issets' => true,
+    	// Calling `unset` on multiple items should be done in one call.
+    	'combine_consecutive_unsets' => true,
+    	// Remove extra spaces in a nullable typehint.
+    	'compact_nullable_typehint' => true,
+    	// Escape implicit backslashes in strings and heredocs to ease the understanding of which are special chars interpreted by PHP and which not.
+    	'escape_implicit_backslashes' => true,
+    	// Converts backtick operators to `shell_exec` calls.
+    	'backtick_to_shell_exec' => true,
+    	// Orders the elements of classes/interfaces/traits.
+    	'ordered_class_elements' => ['sortAlgorithm'=>'alpha'],
+    	'header_comment' => ['header' => $header],
+];
+
+$config = PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules($rules)
+    ->setFinder($finder);
+
+return $config;
