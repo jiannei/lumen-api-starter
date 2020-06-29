@@ -25,7 +25,7 @@ final class EnumRequest
     {
         return function (array $transformations, bool $strict): void {
             foreach ($transformations as $key => $enumClass) {
-                if (!$this->request->has($key)) {
+                if (! $this->request->has($key)) {
                     continue;
                 }
 

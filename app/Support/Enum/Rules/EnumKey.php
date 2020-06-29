@@ -43,7 +43,7 @@ class EnumKey implements Rule
         $this->enumClass = $enumClass;
         $this->strict = $strict;
 
-        if (!class_exists($this->enumClass)) {
+        if (! class_exists($this->enumClass)) {
             throw new InvalidArgumentException("Cannot validate against the enum, the class {$this->enumClass} doesn't exist.");
         }
     }

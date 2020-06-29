@@ -42,7 +42,7 @@ class ResponseCodeEnum extends Enum implements LocalizedEnumContract
     const SERVICE_LOGIN_ERROR = 500102;
 
     /**
-     * Get the description for an enum value
+     * Get the description for an enum value.
      *
      * @param  mixed  $value
      * @return string
@@ -61,7 +61,7 @@ class ResponseCodeEnum extends Enum implements LocalizedEnumContract
     protected static function getConstants(): array
     {
         $calledClass = get_called_class();
-        if (!array_key_exists($calledClass, static::$cache)) {
+        if (! array_key_exists($calledClass, static::$cache)) {
             $reflect = new ReflectionClass($calledClass);
             static::$cache[$calledClass] = array_merge(self::getHttpConstants(), $reflect->getConstants());
         }
