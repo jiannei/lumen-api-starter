@@ -8,6 +8,8 @@
 
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
+社区讨论传送：[是时候使用 Lumen 7 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+
 ![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
 ![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
 
@@ -22,17 +24,20 @@
 │   ├── Console
 │   │   ├── Commands
 │   │   └── Kernel.php
-│   ├── Contracts               // 定义 interface
+│   ├── Contracts                                // 定义 interface
+│   │   ├── Enums
 │   │   └── Repositories
 │   ├── Events
 │   │   ├── Event.php
 │   │   └── ExampleEvent.php
-│   ├── Exceptions
-│   │   └── Handler.php
+│   ├── Exceptions                              // 异常处理
+│   │   ├── Handler.php
+│   │   ├── InvalidEnumKeyException.php
+│   │   └── InvalidEnumValueException.php
 │   ├── Http
-│   │   ├── Controllers         // 任务分发，返回响应
+│   │   ├── Controllers                         // Controller 任务分发，返回响应
 │   │   ├── Middleware
-│   │   └── Resources           // Api Resource
+│   │   └── Resources                           // Api Resource 数据转换
 │   ├── Jobs
 │   │   ├── ExampleJob.php
 │   │   └── Job.php
@@ -41,25 +46,27 @@
 │   ├── Providers
 │   │   ├── AppServiceProvider.php
 │   │   ├── AuthServiceProvider.php
-│   │   ├── CustomEloquentUserProvider.php
+│   │   ├── EloquentUserProvider.php
+│   │   ├── EnumServiceProvider.php
 │   │   ├── EventServiceProvider.php
 │   │   ├── QueryLoggerServiceProvider.php
 │   │   └── RepositoryServiceProvider.php
 │   ├── Repositories
-│   │   ├── Constants       // 系统中的常量定义
-│   │   ├── Criteria        // 数据查询条件的组装拼接
-│   │   ├── Eloquent        // 处理数据维护（传说中的 Repository）
-│   │   ├── Models          // 定义数据实体，以及实体之间的关系（Laravel 原始的 Eloquent Model）
-│   │   ├── Presenters      // 数据显示前的处理，需要引入 transformer
-│   │   ├── Transformers    // 数据转换
-│   │   └── Validators      // 数据维护前的参数校验
-│   ├── Services            // 具体的需求处理逻辑
-│   │   └── UserService.php
-│   └── Support              // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
-│       ├── Logger           // 扩展 Lumen 的日志支持记录到 Mongodb
-│       ├── Response.php     // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
-│       ├── Traits           // class 中常用到的方法
-│       └── helpers.php      // 全局会用到的函数
+│   │   ├── Criteria                            // 数据查询条件的组装拼接
+│   │   ├── Eloquent                            // 处理无关业务的数据维护逻辑（传说中的 Repository）
+│   │   ├── Enums                               // 系统中的枚举/常量定义
+│   │   ├── Models                              // 定义数据实体，以及实体之间的关系（Laravel 原始的 Eloquent Model）
+│   │   ├── Presenters                          // 数据显示前的处理，需要引入 transformer（配合 Repository 使用）
+│   │   ├── Transformers                        // 数据转换
+│   │   └── Validators                          // 数据维护前的参数校验（配合 Repository 使用）
+│   ├── Services
+│   │   └── UserService.php                     // 具体的业务需求处理逻辑
+│   └── Support                                 // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
+│       ├── Enum                                // 扩展常量/枚举的定义和使用
+│       ├── Logger                              // 扩展 Lumen 的日志支持记录到 Mongodb
+│       ├── Response.php                        // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
+│       ├── Traits                              // class 中常用到的方法
+│       └── helpers.php                         // 全局会用到的函数
 ```
 
 ### 现已支持
@@ -595,14 +602,14 @@ namespace App\Repositories\Presenters;
 
 
 use App\Repositories\Transformers\UserTransformer;
-use Prettus\Repository\Presenter\FractalPresenter;
+use League\Fractal\TransformerAbstract;use Prettus\Repository\Presenter\FractalPresenter;
 
 class UserPresenter extends FractalPresenter
 {
     /**
      * Prepare data to present
      *
-     * @return \League\Fractal\TransformerAbstract
+     * @return TransformerAbstract
      */
     public function getTransformer()
     {
@@ -654,7 +661,6 @@ public function listPage(Request $request)
 - [jenssegers/mongodb](https://github.com/jenssegers/laravel-mongodb) （可选，需要使用记录日志到 MongoDB 时安装）
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth) （默认支持 JWT 授权）
 - [prettus/l5-repository](https://github.com/andersao/l5-repository) （默认使用 Repository 模式）
-- [overtrue/laravel-query-logger](https://github.com/overtrue/laravel-query-logger) （无需安装，考虑到后续对 SQL 记录进一步扩展，比如特定条件下才记录 SQL，原扩展包不支持，暂时是整合到了项目中）
 - [league/fractal](https://github.com/thephpleague/fractal) (可选，需要用到 transformer 时安装)
 
 ## 其他
@@ -670,7 +676,9 @@ public function listPage(Request $request)
 * [RESTful API 最佳实践](https://learnku.com/articles/13797/restful-api-best-practice)
 * [RESTful 服务最佳实践](https://www.cnblogs.com/jaxu/p/7908111.html)
 * [DingoApi](https://github.com/dingo/api)
-
+* [overtrue/laravel-query-logger](https://github.com/overtrue/laravel-query-logger)
+* [BenSampo/laravel-enum](https://github.com/BenSampo/laravel-enum)
+* [spatie/laravel-enum](https://github.com/spatie/laravel-enum)
 
 ## License
 

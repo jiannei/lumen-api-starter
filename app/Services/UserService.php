@@ -13,6 +13,7 @@ namespace App\Services;
 
 use App\Contracts\Repositories\UserRepository;
 use App\Repositories\Criteria\UserCriteria;
+use App\Repositories\Eloquent\UserRepositoryEloquent;
 use App\Repositories\Presenters\UserPresenter;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class UserService
     /**
      * UserService constructor.
      *
-     * @param \App\Repositories\Eloquent\UserRepositoryEloquent $repository
+     * @param  UserRepositoryEloquent  $repository
      */
     public function __construct(UserRepository $repository)
     {
@@ -40,6 +41,8 @@ class UserService
 
     public function handleProfile($id)
     {
+        $this->repository->setPresenter(UserPresenter::class);
+
         return $this->repository->searchUserBy($id);
     }
 

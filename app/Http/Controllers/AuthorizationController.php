@@ -12,7 +12,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
-use App\Repositories\Constants\ResponseConstant;
+use App\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Request;
 
 class AuthorizationController extends Controller
@@ -25,33 +25,11 @@ class AuthorizationController extends Controller
         $this->middleware('auth:api', ['except' => ['store']]);
     }
 
-    public function store(Request $request)
+    public function destroy()
     {
-        $this->validate($request, [
-            'email' => 'filled|email',
-            'name' => 'required_without:email',
-            'password' => 'required',
-        ]);
+        auth()->logout();
 
-        $credentials = request(['name', 'email', 'password']);
-        if (! $token = auth()->attempt($credentials)) {
-            $this->response->errorUnauthorized();
-        }
-
-        return $this->respondWithToken($token);
-    }
-
-    protected function respondWithToken($token)
-    {
-        return $this->response->created(
-            [
-                'access_token' => $token,
-                'token_type' => 'bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60,
-            ],
-            '',
-            ResponseConstant::SERVICE_LOGIN_SUCCESS
-        );
+        return $this->response->noContent('Successfully logged out');
     }
 
     public function show()
@@ -61,15 +39,37 @@ class AuthorizationController extends Controller
         return $this->response->success(new UserResource($user));
     }
 
-    public function destroy()
+    public function store(Request $request)
     {
-        auth()->logout();
+        $this->validate($request, [
+            'email' => 'filled|email',
+            'name' => 'required_without:email',
+            'password' => 'required',
+        ]);
 
-        return $this->response->noContent('Successfully logged out');
+        $credentials = request(['name', 'email', 'password']);
+        if (!$token = auth()->attempt($credentials)) {
+            $this->response->errorUnauthorized();
+        }
+
+        return $this->respondWithToken($token);
     }
 
     public function update()
     {
         return $this->respondWithToken(auth()->refresh());
+    }
+
+    protected function respondWithToken($token)
+    {
+        return $this->response->success(
+            [
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60,
+            ],
+            '',
+            ResponseCodeEnum::SERVICE_LOGIN_SUCCESS
+        );
     }
 }

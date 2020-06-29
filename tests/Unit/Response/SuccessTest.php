@@ -13,7 +13,7 @@ namespace Tests\Unit\Response;
 
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
-use App\Repositories\Constants\ResponseConstant;
+use App\Repositories\Enums\ResponseCodeEnum;
 use App\Repositories\Models\User;
 use App\Support\Traits\ResponseTrait;
 use Laravel\Lumen\Testing\DatabaseMigrations;
@@ -33,7 +33,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 200,
-            'message' => ResponseConstant::statusTexts(200),
+            'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => (object) [],
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -49,7 +49,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 201,
-            'message' => ResponseConstant::statusTexts(201),
+            'message' => ResponseCodeEnum::fromValue(201)->description,
             'data' => (object) [],
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -65,7 +65,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 202,
-            'message' => ResponseConstant::statusTexts(202),
+            'message' => ResponseCodeEnum::fromValue(202)->description,
             'data' => (object) [],
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -81,7 +81,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 204,
-            'message' => ResponseConstant::statusTexts(204),
+            'message' => ResponseCodeEnum::fromValue(204)->description,
             'data' => (object) [],
         ]);
 
@@ -102,7 +102,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 200,
-            'message' => ResponseConstant::statusTexts(200),
+            'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -118,7 +118,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 200,
-            'message' => ResponseConstant::statusTexts(200),
+            'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => [
                 'nickname' => $user->name,
                 'email' => $user->email,
@@ -144,7 +144,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 200,
-            'message' => ResponseConstant::statusTexts(200),
+            'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -186,7 +186,7 @@ class SuccessTest extends TestCase
         $expectedJson = json_encode([
             'status' => 'success',
             'code' => 200,
-            'message' => ResponseConstant::statusTexts(200),
+            'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
         ]);
 
@@ -211,12 +211,12 @@ class SuccessTest extends TestCase
     public function testSuccessWithCustomMessageAndCode()
     {
         // 方式十：根据预定义的「业务码」和「对应的描述信息」返回
-        $response = $this->response()->success(null, '', ResponseConstant::SERVICE_LOGIN_SUCCESS);
+        $response = $this->response()->success(null, '', ResponseCodeEnum::SERVICE_LOGIN_SUCCESS);
 
         $expectedJson = json_encode([
             'status' => 'success',
-            'code' => ResponseConstant::SERVICE_LOGIN_SUCCESS, // 返回自定义的业务码
-            'message' => ResponseConstant::statusTexts(ResponseConstant::SERVICE_LOGIN_SUCCESS), // 根据业务码取多语言的业务描述
+            'code' => ResponseCodeEnum::SERVICE_LOGIN_SUCCESS, // 返回自定义的业务码
+            'message' => ResponseCodeEnum::fromValue(ResponseCodeEnum::SERVICE_LOGIN_SUCCESS)->description, // 根据业务码取多语言的业务描述
             'data' => (object) [],
         ]);
 

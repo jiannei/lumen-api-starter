@@ -9,6 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
+use App\Providers\EnumServiceProvider;
+use App\Providers\QueryLoggerServiceProvider;
+use App\Providers\RepositoryServiceProvider;
+use Illuminate\Redis\RedisServiceProvider;
+use Prettus\Repository\Providers\LumenRepositoryServiceProvider;
+use Tymon\JWTAuth\Providers\LumenServiceProvider;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -81,6 +88,7 @@ $app->configure('queue');
 $app->configure('services');
 $app->configure('views');
 $app->configure('repository');
+$app->configure('enum');
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +112,7 @@ $app->middleware([
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'enum' => App\Http\Middleware\TransformEnums::class,
 ]);
 
 /*
@@ -127,15 +136,16 @@ $app->register(App\Providers\AuthServiceProvider::class);
 /*
  * Package Service Providers...
  */
-$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-$app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
+$app->register(LumenServiceProvider::class);
+$app->register(LumenRepositoryServiceProvider::class);
 
 /*
  * Custom Service Providers.
  */
-$app->register(\App\Providers\RepositoryServiceProvider::class);
-$app->register(\App\Providers\QueryLoggerServiceProvider::class);
-$app->register(\Illuminate\Redis\RedisServiceProvider::class);
+$app->register(RepositoryServiceProvider::class);
+$app->register(QueryLoggerServiceProvider::class);
+$app->register(RedisServiceProvider::class);
+$app->register(EnumServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

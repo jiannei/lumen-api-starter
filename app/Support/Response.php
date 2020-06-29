@@ -11,40 +11,35 @@
 
 namespace App\Support;
 
-use App\Repositories\Constants\ResponseConstant;
+use App\Exceptions\InvalidEnumValueException;
+use App\Repositories\Enums\ResponseCodeEnum;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use  Illuminate\Http\Response as HttpResponse;
+use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Arr;
+use Illuminate\Support\HigherOrderTapProxy;
 
 class Response
 {
-    public function errorNotFound(string $message = '')
+    public function accepted(string $message = '')
     {
-        $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
+        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
     }
 
-    /**
-     * @param string $message
-     * @param int    $code
-     * @param null   $data
-     * @param array  $header
-     * @param int    $options
-     *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
-     */
-    public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
+    public function created($data = null, string $message = '', string $location = '')
     {
-        response()->json(
-            $this->formatData($data, $message, $code),
-            $code,
-            $header,
-            $options
-        )->throwResponse();
+        $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
+        if ($location) {
+            $response->header('Location', $location);
+        }
+
+        return $response;
     }
 
-    public function errorBadRequest(string $message = '')
+    public function errorBadRequest(?string $message = '')
     {
         $this->fail($message, HttpResponse::HTTP_BAD_REQUEST);
     }
@@ -59,29 +54,53 @@ class Response
         $this->fail($message, HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
 
-    public function errorUnauthorized(string $message = '')
-    {
-        $this->fail($message, HttpResponse::HTTP_UNAUTHORIZED);
-    }
-
     public function errorMethodNotAllowed(string $message = '')
     {
         $this->fail($message, HttpResponse::HTTP_METHOD_NOT_ALLOWED);
     }
 
-    public function accepted(string $message = '')
+    public function errorNotFound(string $message = '')
     {
-        return $this->success(null, $message, HttpResponse::HTTP_ACCEPTED);
+        $this->fail($message, HttpResponse::HTTP_NOT_FOUND);
+    }
+
+    public function errorUnauthorized(string $message = '')
+    {
+        $this->fail($message, HttpResponse::HTTP_UNAUTHORIZED);
     }
 
     /**
-     * @param JsonResource|array|null $data
-     * @param string                  $message
-     * @param int                     $code
-     * @param array                   $headers
-     * @param int                     $option
+     * @param  string  $message
+     * @param  int  $code
+     * @param  null  $data
+     * @param  array  $header
+     * @param  int  $options
      *
-     * @return \Illuminate\Http\JsonResponse|JsonResource
+     * @throws HttpResponseException
+     */
+    public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
+    {
+        response()->json(
+            $this->formatData($data, $message, $code),
+            $code,
+            $header,
+            $options
+        )->throwResponse();
+    }
+
+    public function noContent(string $message = '')
+    {
+        return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @param  JsonResource|array|null  $data
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
+     *
+     * @return JsonResponse|JsonResource
      */
     public function success($data = null, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
@@ -99,13 +118,13 @@ class Response
     /**
      * Format normal array data.
      *
-     * @param array|null $data
-     * @param string     $message
-     * @param int        $code
-     * @param array      $headers
-     * @param int        $option
+     * @param  array|null  $data
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     protected function formatArrayResponse($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
@@ -113,11 +132,12 @@ class Response
     }
 
     /**
-     * @param JsonResource|array|null $data
+     * @param  JsonResource|array|null  $data
      * @param $message
      * @param $code
      *
      * @return array
+     * @throws InvalidEnumValueException
      */
     protected function formatData($data, $message, &$code)
     {
@@ -135,7 +155,7 @@ class Response
         return [
             'status' => $status,
             'code' => $originalCode,
-            'message' => $message ?: ResponseConstant::statusTexts($originalCode),
+            'message' => $message ?: ResponseCodeEnum::fromValue($originalCode)->description,
             'data' => $data ?: (object) $data,
         ];
     }
@@ -143,13 +163,14 @@ class Response
     /**
      * Format paginated resource data.
      *
-     * @param JsonResource $resource
-     * @param string       $message
-     * @param int          $code
-     * @param array        $headers
-     * @param int          $option
+     * @param  JsonResource  $resource
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
      *
-     * @return \Illuminate\Support\HigherOrderTapProxy|mixed
+     * @return HigherOrderTapProxy|mixed
+     * @throws InvalidEnumValueException
      */
     protected function formatPaginatedResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
@@ -188,27 +209,15 @@ class Response
     }
 
     /**
-     * Parse data from JsonResource.
-     *
-     * @param JsonResource $data
-     *
-     * @return array
-     */
-    protected function parseDataFrom(JsonResource $data)
-    {
-        return array_merge_recursive($data->resolve(request()), $data->with(request()), $data->additional);
-    }
-
-    /**
      * Format JsonResource Data.
      *
-     * @param JsonResource $resource
-     * @param string       $message
-     * @param int          $code
-     * @param array        $headers
-     * @param int          $option
+     * @param  JsonResource  $resource
+     * @param  string  $message
+     * @param  int  $code
+     * @param  array  $headers
+     * @param  int  $option
      *
-     * @return \Illuminate\Support\HigherOrderTapProxy|mixed
+     * @return HigherOrderTapProxy|mixed
      */
     protected function formatResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
@@ -223,24 +232,14 @@ class Response
     }
 
     /**
-     * @param JsonResource|array|null $data
-     * @param string                  $message
-     * @param string                  $location
+     * Parse data from JsonResource.
      *
-     * @return \Illuminate\Http\JsonResponse|JsonResource
+     * @param  JsonResource  $data
+     *
+     * @return array
      */
-    public function created($data = null, string $message = '', string $location = '')
+    protected function parseDataFrom(JsonResource $data)
     {
-        $response = $this->success($data, $message, HttpResponse::HTTP_CREATED);
-        if ($location) {
-            $response->header('Location', $location);
-        }
-
-        return $response;
-    }
-
-    public function noContent(string $message = '')
-    {
-        return $this->success(null, $message, HttpResponse::HTTP_NO_CONTENT);
+        return array_merge_recursive($data->resolve(request()), $data->with(request()), $data->additional);
     }
 }
