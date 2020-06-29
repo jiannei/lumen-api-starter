@@ -44,7 +44,7 @@ class EnumValue implements Rule
         $this->enumClass = $enumClass;
         $this->strict = $strict;
 
-        if (!class_exists($this->enumClass)) {
+        if (! class_exists($this->enumClass)) {
             throw new InvalidArgumentException("Cannot validate against the enum, the class {$this->enumClass} doesn't exist.");
         }
     }
@@ -82,7 +82,7 @@ class EnumValue implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (is_subclass_of($this->enumClass, FlaggedEnum::class) && (is_integer($value) || ctype_digit($value))) {
+        if (is_subclass_of($this->enumClass, FlaggedEnum::class) && (is_int($value) || ctype_digit($value))) {
             // Unset all possible flag values
             foreach ($this->enumClass::getValues() as $enumValue) {
                 $value &= ~$enumValue;

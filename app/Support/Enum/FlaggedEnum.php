@@ -159,7 +159,7 @@ abstract class FlaggedEnum extends Enum
     public function hasFlags(array $flags): bool
     {
         foreach ($flags as $flag) {
-            if (!static::hasFlag($flag)) {
+            if (! static::hasFlag($flag)) {
                 return false;
             }
         }
@@ -187,7 +187,7 @@ abstract class FlaggedEnum extends Enum
     public function notHasFlags(array $flags): bool
     {
         foreach ($flags as $flag) {
-            if (!static::notHasFlag($flag)) {
+            if (! static::notHasFlag($flag)) {
                 return false;
             }
         }
@@ -204,7 +204,7 @@ abstract class FlaggedEnum extends Enum
      */
     public function notHasFlag($flag): bool
     {
-        return !$this->hasFlag($flag);
+        return ! $this->hasFlag($flag);
     }
 
     /**

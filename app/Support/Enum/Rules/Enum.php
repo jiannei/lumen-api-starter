@@ -36,7 +36,7 @@ class Enum implements Rule
     {
         $this->enumClass = $enum;
 
-        if (!class_exists($this->enumClass)) {
+        if (! class_exists($this->enumClass)) {
             throw new InvalidArgumentException("Cannot validate against the enum, the class {$this->enumClass} doesn't exist.");
         }
     }
