@@ -22,10 +22,10 @@ class EnumKeyTest extends TestCase
     public function testValidationPasses()
     {
         // 根据常量的名称（key）来判断是否合法：是否存在某个常量名称
-        $passes1 = (new EnumKey(UserTypeEnum::class))->passes('', 'ADMINISTRATOR');// strict 默认为 true，校验名称大小写
-        $fails = (new EnumKey(StringValuesEnum::class))->passes('', 'Administrator');// strict 默认为 true，校验名称大小写
-        $passes2 = (new EnumKey(StringValuesEnum::class))->passes('', 'ADMINISTRATOR');// strict 默认为 true，不校验名称大小写
-        $passes3 = (new EnumKey(StringValuesEnum::class, false))->passes('', 'administrator');// strict 默认为 false，不校验名称大小写
+        $passes1 = (new EnumKey(UserTypeEnum::class))->passes('', 'ADMINISTRATOR'); // strict 默认为 true，校验名称大小写
+        $fails = (new EnumKey(StringValuesEnum::class))->passes('', 'Administrator'); // strict 默认为 true，校验名称大小写
+        $passes2 = (new EnumKey(StringValuesEnum::class))->passes('', 'ADMINISTRATOR'); // strict 默认为 true，不校验名称大小写
+        $passes3 = (new EnumKey(StringValuesEnum::class, false))->passes('', 'administrator'); // strict 默认为 false，不校验名称大小写
 
         $this->assertTrue($passes1);
         $this->assertFalse($fails);

@@ -101,12 +101,12 @@ class EnumNativeCastTest extends TestCase
 
         $reflection = new ReflectionProperty(User::class, 'attributes');
         $reflection->setAccessible(true);
-        $reflection->setValue($model, ['user_type_custom' => 'type-3']);// 常规转换此处是 3
+        $reflection->setValue($model, ['user_type_custom' => 'type-3']); // 常规转换此处是 3
 
-        $this->assertInstanceOf(UserTypeCustomCastEnum::class, $model->user_type_custom);// type-3 => UserTypeCustomCastEnum
+        $this->assertInstanceOf(UserTypeCustomCastEnum::class, $model->user_type_custom); // type-3 => UserTypeCustomCastEnum
         $this->assertEquals(UserTypeCustomCastEnum::SUPER_ADMINISTRATOR(), $model->user_type_custom);
 
-        $model->user_type_custom = UserTypeCustomCastEnum::ADMINISTRATOR();// 常规转换此处 user_type_custom 的值为 0
+        $model->user_type_custom = UserTypeCustomCastEnum::ADMINISTRATOR(); // 常规转换此处 user_type_custom 的值为 0
 
         $this->assertSame('type-0', $reflection->getValue($model)['user_type_custom']);
     }

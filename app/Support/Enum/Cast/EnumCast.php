@@ -16,7 +16,7 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class EnumCast implements CastsAttributes
 {
-    /**@var string */
+    /** @var string */
     protected $enumClass;
 
     public function __construct(string $enumClass)
@@ -46,7 +46,7 @@ class EnumCast implements CastsAttributes
     }
 
     /**
-     * Retrieve the value that can be casted into Enum
+     * Retrieve the value that can be casted into Enum.
      *
      * @param  mixed  $value
      *
