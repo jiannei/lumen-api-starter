@@ -21,25 +21,25 @@ class FlaggedEnumTest extends TestCase
         // 实例化 Flagged 常量对象的几种方式
 
         // 方式一：new
-        $powers1 = new SuperPowersEnum([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]);// 传入包含「常量值」的数组
+        $powers1 = new SuperPowersEnum([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]); // 传入包含「常量值」的数组
         $this->assertInstanceOf(SuperPowersEnum::class, $powers1);
 
-        $powers2 = new SuperPowersEnum(SuperPowersEnum::STRENGTH);// 传入单个「常量值」
+        $powers2 = new SuperPowersEnum(SuperPowersEnum::STRENGTH); // 传入单个「常量值」
         $this->assertInstanceOf(SuperPowersEnum::class, $powers2);
 
         // 方式二：fromValue
-        $powers3 = SuperPowersEnum::fromValue([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]);// 传入包含「常量值」的数组
+        $powers3 = SuperPowersEnum::fromValue([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]); // 传入包含「常量值」的数组
         $this->assertInstanceOf(SuperPowersEnum::class, $powers3);
 
-        $powers4 = SuperPowersEnum::fromValue(SuperPowersEnum::FLIGHT);// 传入单个「常量值」
+        $powers4 = SuperPowersEnum::fromValue(SuperPowersEnum::FLIGHT); // 传入单个「常量值」
         $this->assertInstanceOf(SuperPowersEnum::class, $powers4);
 
         // 方式三：flags
-        $powers5 = SuperPowersEnum::flags([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]);// 传入包含「常量值」的数组
+        $powers5 = SuperPowersEnum::flags([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT, SuperPowersEnum::LASER_VISION]); // 传入包含「常量值」的数组
         $this->assertInstanceOf(SuperPowersEnum::class, $powers5);
 
         // 方式四：fromKey
-        $powers6 = SuperPowersEnum::fromKey('immortality', false);// 传入单个「常量名称」
+        $powers6 = SuperPowersEnum::fromKey('immortality', false); // 传入单个「常量名称」
         $this->assertInstanceOf(SuperPowersEnum::class, $powers6);
 
         // 方式五：magic

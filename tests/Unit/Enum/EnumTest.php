@@ -105,8 +105,8 @@ class EnumTest extends TestCase
         $administrator4 = UserTypeEnum::ADMINISTRATOR();
 
         // 方式五：make，尝试根据「常量的值」或「常量的名称」实例化对象常量，实例失败时返回原先传入的值
-        $administrator5 = UserTypeEnum::make(0);// 此处尝试根据「常量的值」实例化
-        $administrator6 = UserTypeEnum::make('ADMINISTRATOR');// 此处尝试根据「常量的名称」实例化
+        $administrator5 = UserTypeEnum::make(0); // 此处尝试根据「常量的值」实例化
+        $administrator6 = UserTypeEnum::make('ADMINISTRATOR'); // 此处尝试根据「常量的名称」实例化
 
         $this->assertInstanceOf(UserTypeEnum::class, $administrator1);
         $this->assertInstanceOf(UserTypeEnum::class, $administrator2);
@@ -129,22 +129,22 @@ class EnumTest extends TestCase
 
         // 3. 尝试用不存在的值来实例化常量对象
         $enum = UserTypeEnum::make(-1);
-        $this->assertEquals(-1, $enum);// 不存在时返回传入的值
+        $this->assertEquals(-1, $enum); // 不存在时返回传入的值
 
         $enum = UserTypeEnum::make(null);
-        $this->assertEquals(null, $enum);// 不存在时返回传入的值
+        $this->assertEquals(null, $enum); // 不存在时返回传入的值
 
         // 4. 不区分传入值的类型、大小写等
-        $administrator3 = UserTypeEnum::make('0');// strict 默认为 true，会校验传入值的类型
+        $administrator3 = UserTypeEnum::make('0'); // strict 默认为 true，会校验传入值的类型
         $this->assertNotInstanceOf(UserTypeEnum::class, $administrator3);
 
-        $administrator4 = UserTypeEnum::make('0', false);// strict 设置为 false，不校验传入值的类型
+        $administrator4 = UserTypeEnum::make('0', false); // strict 设置为 false，不校验传入值的类型
         $this->assertInstanceOf(UserTypeEnum::class, $administrator4);
 
-        $administrator5 = UserTypeEnum::make('administrator');// strict 默认为 true，会校验传入值的大小写
+        $administrator5 = UserTypeEnum::make('administrator'); // strict 默认为 true，会校验传入值的大小写
         $this->assertNotInstanceOf(UserTypeEnum::class, $administrator5);
 
-        $administrator4 = UserTypeEnum::make('administrator', false);// strict 设置为 false，不校验传入值的大小写
+        $administrator4 = UserTypeEnum::make('administrator', false); // strict 设置为 false，不校验传入值的大小写
         $this->assertInstanceOf(UserTypeEnum::class, $administrator4);
     }
 

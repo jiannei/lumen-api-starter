@@ -11,7 +11,6 @@
 
 namespace Tests\Unit\Enum;
 
-
 use App\Repositories\Enums\ExampleEnum;
 use Tests\TestCase;
 
