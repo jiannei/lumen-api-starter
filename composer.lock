@@ -575,25 +575,25 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
-            "name": "illuminate/auth",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/auth.git",
-                "reference": "10b2ed169d5e38b62fb3d7d7c4ba35e12ef3ace8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/auth/zipball/10b2ed169d5e38b62fb3d7d7c4ba35e12ef3ace8",
-                "reference": "10b2ed169d5e38b62fb3d7d7c4ba35e12ef3ace8",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+          "name": "illuminate/auth",
+          "version": "v7.19.0",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/auth.git",
+            "reference": "aef766aa6c094c68db2164d88133fc64dfe85ed3"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/auth/zipball/aef766aa6c094c68db2164d88133fc64dfe85ed3",
+            "reference": "aef766aa6c094c68db2164d88133fc64dfe85ed3",
+            "shasum": "",
+            "mirrors": [
+              {
+                "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                "preferred": true
+              }
+            ]
+          },
             "require": {
                 "illuminate/contracts": "^7.0",
                 "illuminate/http": "^7.0",
@@ -629,28 +629,28 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-01T14:49:22+00:00"
+          "time": "2020-06-18T15:50:56+00:00"
         },
-        {
-            "name": "illuminate/broadcasting",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/broadcasting.git",
-                "reference": "9f04cffe6a0676327bd7f9e79940285b15a31087"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/broadcasting/zipball/9f04cffe6a0676327bd7f9e79940285b15a31087",
-                "reference": "9f04cffe6a0676327bd7f9e79940285b15a31087",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/broadcasting",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/broadcasting.git",
+          "reference": "9d00720f6c381824250dbca538b629877bfb2cd3"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/broadcasting/zipball/9d00720f6c381824250dbca538b629877bfb2cd3",
+          "reference": "9d00720f6c381824250dbca538b629877bfb2cd3",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-json": "*",
                 "illuminate/bus": "^7.0",
@@ -686,21 +686,21 @@
             ],
             "description": "The Illuminate Broadcasting package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-01T14:49:22+00:00"
+        "time": "2020-07-07T14:06:58+00:00"
         },
-        {
-            "name": "illuminate/bus",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/bus.git",
-                "reference": "189204f93889677bfc4aec2a3d2c7aa94c76c240"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/189204f93889677bfc4aec2a3d2c7aa94c76c240",
-                "reference": "189204f93889677bfc4aec2a3d2c7aa94c76c240",
-                "shasum": "",
+      {
+        "name": "illuminate/bus",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/bus.git",
+          "reference": "189204f93889677bfc4aec2a3d2c7aa94c76c240"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/bus/zipball/189204f93889677bfc4aec2a3d2c7aa94c76c240",
+          "reference": "189204f93889677bfc4aec2a3d2c7aa94c76c240",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -742,26 +742,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-06-02T17:09:46+00:00"
         },
-        {
-            "name": "illuminate/cache",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/cache.git",
-                "reference": "107906faad4c45ed31aa0bf36f1b877862d25092"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/cache/zipball/107906faad4c45ed31aa0bf36f1b877862d25092",
-                "reference": "107906faad4c45ed31aa0bf36f1b877862d25092",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/cache",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/cache.git",
+          "reference": "be44a7f9c53b586407710ce900c791c94b749552"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/cache/zipball/be44a7f9c53b586407710ce900c791c94b749552",
+          "reference": "be44a7f9c53b586407710ce900c791c94b749552",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "illuminate/contracts": "^7.0",
                 "illuminate/support": "^7.0",
@@ -797,21 +797,21 @@
             ],
             "description": "The Illuminate Cache package.",
             "homepage": "https://laravel.com",
-            "time": "2020-05-18T19:54:47+00:00"
+        "time": "2020-07-02T19:01:00+00:00"
         },
-        {
-            "name": "illuminate/config",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/config.git",
-                "reference": "d1e898de7a0cefe9ce2c94dede6679839e6a7b39"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/config/zipball/d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
-                "reference": "d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
-                "shasum": "",
+      {
+        "name": "illuminate/config",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/config.git",
+          "reference": "d1e898de7a0cefe9ce2c94dede6679839e6a7b39"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/config/zipball/d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
+          "reference": "d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -849,26 +849,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-01-07T13:49:44+00:00"
         },
-        {
-            "name": "illuminate/console",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/console.git",
-                "reference": "b6586e349d668c50b8fd3d1253067ca44785d1b0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/b6586e349d668c50b8fd3d1253067ca44785d1b0",
-                "reference": "b6586e349d668c50b8fd3d1253067ca44785d1b0",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/console",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/console.git",
+          "reference": "12b52d7fd87719a3cabf3f269c14c0c496e78a1a"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/console/zipball/12b52d7fd87719a3cabf3f269c14c0c496e78a1a",
+          "reference": "12b52d7fd87719a3cabf3f269c14c0c496e78a1a",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "illuminate/contracts": "^7.0",
                 "illuminate/support": "^7.0",
@@ -907,21 +907,21 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-02T22:33:52+00:00"
+        "time": "2020-07-03T23:22:01+00:00"
         },
-        {
-            "name": "illuminate/container",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/container.git",
-                "reference": "aaf1612f558d856975746cd3d0da4f230035ef55"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/aaf1612f558d856975746cd3d0da4f230035ef55",
-                "reference": "aaf1612f558d856975746cd3d0da4f230035ef55",
-                "shasum": "",
+      {
+        "name": "illuminate/container",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/container.git",
+          "reference": "aaf1612f558d856975746cd3d0da4f230035ef55"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/container/zipball/aaf1612f558d856975746cd3d0da4f230035ef55",
+          "reference": "aaf1612f558d856975746cd3d0da4f230035ef55",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -962,19 +962,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-06-11T14:29:51+00:00"
         },
-        {
-            "name": "illuminate/contracts",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "42792e136e3a77312fb89df29373d6221a1f794e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/42792e136e3a77312fb89df29373d6221a1f794e",
-                "reference": "42792e136e3a77312fb89df29373d6221a1f794e",
-                "shasum": "",
+      {
+        "name": "illuminate/contracts",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/contracts.git",
+          "reference": "42792e136e3a77312fb89df29373d6221a1f794e"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/contracts/zipball/42792e136e3a77312fb89df29373d6221a1f794e",
+          "reference": "42792e136e3a77312fb89df29373d6221a1f794e",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1012,26 +1012,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-05-13T20:55:30+00:00"
         },
-        {
-            "name": "illuminate/database",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/database.git",
-                "reference": "c5cdd38622c3eb4cd8ba7a33678487bfb653e83c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/c5cdd38622c3eb4cd8ba7a33678487bfb653e83c",
-                "reference": "c5cdd38622c3eb4cd8ba7a33678487bfb653e83c",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/database",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/database.git",
+          "reference": "5e8d2faa450236c159ab641e51a2dd9f2d082d54"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/database/zipball/5e8d2faa450236c159ab641e51a2dd9f2d082d54",
+          "reference": "5e8d2faa450236c159ab641e51a2dd9f2d082d54",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-json": "*",
                 "illuminate/container": "^7.0",
@@ -1078,21 +1078,21 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-06-11T15:21:11+00:00"
+        "time": "2020-07-07T14:06:58+00:00"
         },
-        {
-            "name": "illuminate/encryption",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/encryption.git",
-                "reference": "acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/encryption/zipball/acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
-                "reference": "acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
-                "shasum": "",
+      {
+        "name": "illuminate/encryption",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/encryption.git",
+          "reference": "acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/encryption/zipball/acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
+          "reference": "acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1133,26 +1133,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-04-24T09:01:47+00:00"
         },
-        {
-            "name": "illuminate/events",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/events.git",
-                "reference": "723bcb4d31b84b6372cfa7007ef491497422cf24"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/723bcb4d31b84b6372cfa7007ef491497422cf24",
-                "reference": "723bcb4d31b84b6372cfa7007ef491497422cf24",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/events",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/events.git",
+          "reference": "14b21444c04c3052cffbd76e0862b23fdae5fc19"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/events/zipball/14b21444c04c3052cffbd76e0862b23fdae5fc19",
+          "reference": "14b21444c04c3052cffbd76e0862b23fdae5fc19",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "illuminate/container": "^7.0",
                 "illuminate/contracts": "^7.0",
@@ -1182,28 +1182,28 @@
             ],
             "description": "The Illuminate Events package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-16T14:30:08+00:00"
+        "time": "2020-06-18T15:37:01+00:00"
         },
-        {
-            "name": "illuminate/filesystem",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "9ab0b617e80d01a09fefcf596e5b355370e13175"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/9ab0b617e80d01a09fefcf596e5b355370e13175",
-                "reference": "9ab0b617e80d01a09fefcf596e5b355370e13175",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/filesystem",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/filesystem.git",
+          "reference": "5439630dab45cc8cb73c2669ead9252bae9e9db1"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/filesystem/zipball/5439630dab45cc8cb73c2669ead9252bae9e9db1",
+          "reference": "5439630dab45cc8cb73c2669ead9252bae9e9db1",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "illuminate/contracts": "^7.0",
                 "illuminate/support": "^7.0",
@@ -1243,21 +1243,21 @@
             ],
             "description": "The Illuminate Filesystem package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-14T09:08:06+00:00"
+        "time": "2020-06-24T18:16:33+00:00"
         },
-        {
-            "name": "illuminate/hashing",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/hashing.git",
-                "reference": "21aeeb27e608b8026c510688b8624ccaad7cf499"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/hashing/zipball/21aeeb27e608b8026c510688b8624ccaad7cf499",
-                "reference": "21aeeb27e608b8026c510688b8624ccaad7cf499",
-                "shasum": "",
+      {
+        "name": "illuminate/hashing",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/hashing.git",
+          "reference": "21aeeb27e608b8026c510688b8624ccaad7cf499"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/hashing/zipball/21aeeb27e608b8026c510688b8624ccaad7cf499",
+          "reference": "21aeeb27e608b8026c510688b8624ccaad7cf499",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1295,26 +1295,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-01-07T13:49:44+00:00"
         },
-        {
-            "name": "illuminate/http",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/http.git",
-                "reference": "906d9e11f350f0d6ec917bcd8ba4066f96d10af7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/http/zipball/906d9e11f350f0d6ec917bcd8ba4066f96d10af7",
-                "reference": "906d9e11f350f0d6ec917bcd8ba4066f96d10af7",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/http",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/http.git",
+          "reference": "5e5d901880edd452c844198ccd34cee536466f26"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/http/zipball/5e5d901880edd452c844198ccd34cee536466f26",
+          "reference": "5e5d901880edd452c844198ccd34cee536466f26",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-json": "*",
                 "illuminate/session": "^7.0",
@@ -1351,21 +1351,21 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-09T15:44:28+00:00"
+        "time": "2020-07-03T16:24:41+00:00"
         },
-        {
-            "name": "illuminate/log",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/log.git",
-                "reference": "b72561ef12ed433425b07d56d22af59ed4b2f99d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/log/zipball/b72561ef12ed433425b07d56d22af59ed4b2f99d",
-                "reference": "b72561ef12ed433425b07d56d22af59ed4b2f99d",
-                "shasum": "",
+      {
+        "name": "illuminate/log",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/log.git",
+          "reference": "b72561ef12ed433425b07d56d22af59ed4b2f99d"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/log/zipball/b72561ef12ed433425b07d56d22af59ed4b2f99d",
+          "reference": "b72561ef12ed433425b07d56d22af59ed4b2f99d",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1404,19 +1404,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-03-08T16:13:06+00:00"
         },
-        {
-            "name": "illuminate/pagination",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/pagination.git",
-                "reference": "58d6613e19d0923a85a228289de1736452285e1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pagination/zipball/58d6613e19d0923a85a228289de1736452285e1b",
-                "reference": "58d6613e19d0923a85a228289de1736452285e1b",
-                "shasum": "",
+      {
+        "name": "illuminate/pagination",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/pagination.git",
+          "reference": "58d6613e19d0923a85a228289de1736452285e1b"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/pagination/zipball/58d6613e19d0923a85a228289de1736452285e1b",
+          "reference": "58d6613e19d0923a85a228289de1736452285e1b",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1455,19 +1455,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-05-29T13:40:26+00:00"
         },
-        {
-            "name": "illuminate/pipeline",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/pipeline.git",
-                "reference": "1a7ef33dec9cbb73757f0654ae48d997944a4d3f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pipeline/zipball/1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
-                "reference": "1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
-                "shasum": "",
+      {
+        "name": "illuminate/pipeline",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/pipeline.git",
+          "reference": "1a7ef33dec9cbb73757f0654ae48d997944a4d3f"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/pipeline/zipball/1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
+          "reference": "1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1505,19 +1505,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-02-25T14:26:37+00:00"
         },
-        {
-            "name": "illuminate/queue",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/queue.git",
-                "reference": "de150712f516a036419ddcd7e3918d4c16886158"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/queue/zipball/de150712f516a036419ddcd7e3918d4c16886158",
-                "reference": "de150712f516a036419ddcd7e3918d4c16886158",
-                "shasum": "",
+      {
+        "name": "illuminate/queue",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/queue.git",
+          "reference": "de150712f516a036419ddcd7e3918d4c16886158"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/queue/zipball/de150712f516a036419ddcd7e3918d4c16886158",
+          "reference": "de150712f516a036419ddcd7e3918d4c16886158",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1571,19 +1571,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-05-29T09:44:42+00:00"
         },
-        {
-            "name": "illuminate/redis",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/redis.git",
-                "reference": "d02f8cc49071c627e5450281f3bc84f346f090dd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/redis/zipball/d02f8cc49071c627e5450281f3bc84f346f090dd",
-                "reference": "d02f8cc49071c627e5450281f3bc84f346f090dd",
-                "shasum": "",
+      {
+        "name": "illuminate/redis",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/redis.git",
+          "reference": "d02f8cc49071c627e5450281f3bc84f346f090dd"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/redis/zipball/d02f8cc49071c627e5450281f3bc84f346f090dd",
+          "reference": "d02f8cc49071c627e5450281f3bc84f346f090dd",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1625,19 +1625,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-05-29T09:44:42+00:00"
         },
-        {
-            "name": "illuminate/session",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/session.git",
-                "reference": "f18c8772d76928e54f65fdb8cbc90b723b9e1e7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/session/zipball/f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
-                "reference": "f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
-                "shasum": "",
+      {
+        "name": "illuminate/session",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/session.git",
+          "reference": "f18c8772d76928e54f65fdb8cbc90b723b9e1e7e"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/session/zipball/f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
+          "reference": "f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1682,26 +1682,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-06-15T14:06:36+00:00"
         },
-        {
-            "name": "illuminate/support",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/support.git",
-                "reference": "dee189db0aff526393b350d3bfb33d0cc32861c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/dee189db0aff526393b350d3bfb33d0cc32861c3",
-                "reference": "dee189db0aff526393b350d3bfb33d0cc32861c3",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/support",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/support.git",
+          "reference": "cea67c53207fd71231e4d0c1e096107c4059036e"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/support/zipball/cea67c53207fd71231e4d0c1e096107c4059036e",
+          "reference": "cea67c53207fd71231e4d0c1e096107c4059036e",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "doctrine/inflector": "^1.4|^2.0",
                 "ext-json": "*",
@@ -1748,21 +1748,21 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-11T14:29:51+00:00"
+        "time": "2020-07-07T13:48:08+00:00"
         },
-        {
-            "name": "illuminate/testing",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/testing.git",
-                "reference": "444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/testing/zipball/444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
-                "reference": "444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
-                "shasum": "",
+      {
+        "name": "illuminate/testing",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/testing.git",
+          "reference": "444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/testing/zipball/444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
+          "reference": "444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1808,19 +1808,19 @@
             "homepage": "https://laravel.com",
             "time": "2020-05-29T09:44:42+00:00"
         },
-        {
-            "name": "illuminate/translation",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/translation.git",
-                "reference": "74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/translation/zipball/74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
-                "reference": "74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
-                "shasum": "",
+      {
+        "name": "illuminate/translation",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/translation.git",
+          "reference": "74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/translation/zipball/74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
+          "reference": "74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
+          "shasum": "",
                 "mirrors": [
                     {
                         "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
@@ -1860,26 +1860,26 @@
             "homepage": "https://laravel.com",
             "time": "2020-04-15T20:57:47+00:00"
         },
-        {
-            "name": "illuminate/validation",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/validation.git",
-                "reference": "5d41eb5cba79c691a34b745213626c91cfda5b1c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/validation/zipball/5d41eb5cba79c691a34b745213626c91cfda5b1c",
-                "reference": "5d41eb5cba79c691a34b745213626c91cfda5b1c",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/validation",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/validation.git",
+          "reference": "11b0f01983105b4430d78f7ef381d998e86fbecb"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/validation/zipball/11b0f01983105b4430d78f7ef381d998e86fbecb",
+          "reference": "11b0f01983105b4430d78f7ef381d998e86fbecb",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "egulias/email-validator": "^2.1.10",
                 "ext-json": "*",
@@ -1917,28 +1917,28 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "https://laravel.com",
-            "time": "2020-05-29T13:44:16+00:00"
+        "time": "2020-07-02T19:01:00+00:00"
         },
-        {
-            "name": "illuminate/view",
-            "version": "v7.16.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/view.git",
-                "reference": "092b7a37a3d7fd3b509a0b35f3dfe40a69a67d32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/092b7a37a3d7fd3b509a0b35f3dfe40a69a67d32",
-                "reference": "092b7a37a3d7fd3b509a0b35f3dfe40a69a67d32",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "illuminate/view",
+        "version": "v7.19.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/illuminate/view.git",
+          "reference": "1e6c34eb001e453ea5cd12c338b07ddff152141e"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/illuminate/view/zipball/1e6c34eb001e453ea5cd12c338b07ddff152141e",
+          "reference": "1e6c34eb001e453ea5cd12c338b07ddff152141e",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-json": "*",
                 "illuminate/container": "^7.0",
@@ -1971,7 +1971,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "https://laravel.com",
-            "time": "2020-05-26T22:18:03+00:00"
+        "time": "2020-06-29T15:29:16+00:00"
         },
         {
             "name": "jenssegers/mongodb",
@@ -2058,26 +2058,26 @@
             ],
             "time": "2020-03-10T19:41:49+00:00"
         },
-        {
-            "name": "laravel/lumen-framework",
-            "version": "v7.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "799df9a93b207189530d8765583826080cfceafe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/799df9a93b207189530d8765583826080cfceafe",
-                "reference": "799df9a93b207189530d8765583826080cfceafe",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "laravel/lumen-framework",
+        "version": "v7.2.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/laravel/lumen-framework.git",
+          "reference": "5205e9965a61339a2cedbf3795fbed70446f15a3"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/5205e9965a61339a2cedbf3795fbed70446f15a3",
+          "reference": "5205e9965a61339a2cedbf3795fbed70446f15a3",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "dragonmantank/cron-expression": "^2.0",
                 "illuminate/auth": "^7.0",
@@ -2153,7 +2153,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2020-06-16T19:09:59+00:00"
+        "time": "2020-06-23T15:40:08+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -2296,26 +2296,26 @@
             ],
             "time": "2020-01-24T23:17:29+00:00"
         },
-        {
-            "name": "mongodb/mongodb",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "dc43ba25fb593d6a2988e6a535b6f5386eda5b15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/dc43ba25fb593d6a2988e6a535b6f5386eda5b15",
-                "reference": "dc43ba25fb593d6a2988e6a535b6f5386eda5b15",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "mongodb/mongodb",
+        "version": "1.6.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/mongodb/mongo-php-library.git",
+          "reference": "4bb040c620ab95c487d05d5ff50cbc92fa68e920"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/4bb040c620ab95c487d05d5ff50cbc92fa68e920",
+          "reference": "4bb040c620ab95c487d05d5ff50cbc92fa68e920",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-hash": "*",
                 "ext-json": "*",
@@ -2368,7 +2368,7 @@
                 "mongodb",
                 "persistence"
             ],
-            "time": "2020-02-04T18:16:35+00:00"
+        "time": "2020-07-03T11:35:00+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2536,26 +2536,26 @@
             ],
             "time": "2016-12-05T07:27:31+00:00"
         },
-        {
-            "name": "nesbot/carbon",
-            "version": "2.35.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4b9bd835261ef23d36397a46a76b496a458305e5",
-                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "nesbot/carbon",
+        "version": "2.36.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/briannesbitt/Carbon.git",
+          "reference": "ee7378a36cc62952100e718bcc58be4c7210e55f"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ee7378a36cc62952100e718bcc58be4c7210e55f",
+          "reference": "ee7378a36cc62952100e718bcc58be4c7210e55f",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
@@ -2563,28 +2563,34 @@
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
-                "doctrine/orm": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
-                "kylekatarnls/multi-tester": "^1.1",
-                "phpmd/phpmd": "^2.8",
-                "phpstan/phpstan": "^0.11",
-                "phpunit/phpunit": "^7.5 || ^8.0",
-                "squizlabs/php_codesniffer": "^3.4"
+              "doctrine/orm": "^2.7",
+              "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+              "kylekatarnls/multi-tester": "^2.0",
+              "phpmd/phpmd": "^2.8",
+              "phpstan/extension-installer": "^1.0",
+              "phpstan/phpstan": "^0.12.30",
+              "phpunit/phpunit": "^7.5 || ^8.0",
+              "squizlabs/php_codesniffer": "^3.4"
             },
             "bin": [
                 "bin/carbon"
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev",
-                    "dev-3.x": "3.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Carbon\\Laravel\\ServiceProvider"
-                    ]
-                }
+              "branch-alias": {
+                "dev-master": "2.x-dev",
+                "dev-3.x": "3.x-dev"
+              },
+              "laravel": {
+                "providers": [
+                  "Carbon\\Laravel\\ServiceProvider"
+                ]
+              },
+              "phpstan": {
+                "includes": [
+                  "extension.neon"
+                ]
+              }
             },
             "autoload": {
                 "psr-4": {
@@ -2623,7 +2629,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-24T18:27:52+00:00"
+        "time": "2020-07-04T12:29:56+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -3511,34 +3517,38 @@
             ],
             "time": "2020-06-15T12:59:21+00:00"
         },
-        {
-            "name": "symfony/deprecation-contracts",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
-                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "symfony/deprecation-contracts",
+        "version": "v2.1.3",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/symfony/deprecation-contracts.git",
+          "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5e20b83385a77593259c9f8beb2c43cd03b2ac14",
+          "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "php": ">=7.1"
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
+              "branch-alias": {
+                "dev-master": "2.1-dev"
+              },
+              "thanks": {
+                "name": "symfony/contracts",
+                "url": "https://github.com/symfony/contracts"
+              }
             },
             "autoload": {
                 "files": [
@@ -3575,7 +3585,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-27T08:34:37+00:00"
+        "time": "2020-06-06T08:49:21+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -3746,26 +3756,26 @@
             ],
             "time": "2020-05-20T17:43:50+00:00"
         },
-        {
-            "name": "symfony/event-dispatcher-contracts",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "405952c4e90941a17e52ef7489a2bd94870bb290"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/405952c4e90941a17e52ef7489a2bd94870bb290",
-                "reference": "405952c4e90941a17e52ef7489a2bd94870bb290",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "symfony/event-dispatcher-contracts",
+        "version": "v2.1.3",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/symfony/event-dispatcher-contracts.git",
+          "reference": "f6f613d74cfc5a623fc36294d3451eb7fa5a042b"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/f6f613d74cfc5a623fc36294d3451eb7fa5a042b",
+          "reference": "f6f613d74cfc5a623fc36294d3451eb7fa5a042b",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "php": ">=7.2.5",
                 "psr/event-dispatcher": "^1"
@@ -3775,9 +3785,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
+              "branch-alias": {
+                "dev-master": "2.1-dev"
+              },
+              "thanks": {
+                "name": "symfony/contracts",
+                "url": "https://github.com/symfony/contracts"
+              }
             },
             "autoload": {
                 "psr-4": {
@@ -3822,7 +3836,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+        "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/finder",
@@ -5067,26 +5081,26 @@
             ],
             "time": "2020-05-30T20:35:19+00:00"
         },
-        {
-            "name": "symfony/service-contracts",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "66a8f0957a3ca54e4f724e49028ab19d75a8918b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/66a8f0957a3ca54e4f724e49028ab19d75a8918b",
-                "reference": "66a8f0957a3ca54e4f724e49028ab19d75a8918b",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "symfony/service-contracts",
+        "version": "v2.1.3",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/symfony/service-contracts.git",
+          "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/symfony/service-contracts/zipball/58c7475e5457c5492c26cc740cc0ad7464be9442",
+          "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "php": ">=7.2.5",
                 "psr/container": "^1.0"
@@ -5096,9 +5110,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
+              "branch-alias": {
+                "dev-master": "2.1-dev"
+              },
+              "thanks": {
+                "name": "symfony/contracts",
+                "url": "https://github.com/symfony/contracts"
+              }
             },
             "autoload": {
                 "psr-4": {
@@ -5143,7 +5161,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+        "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/string",
@@ -5334,26 +5352,26 @@
             ],
             "time": "2020-05-30T20:35:19+00:00"
         },
-        {
-            "name": "symfony/translation-contracts",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "e5ca07c8f817f865f618aa072c2fe8e0e637340e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/e5ca07c8f817f865f618aa072c2fe8e0e637340e",
-                "reference": "e5ca07c8f817f865f618aa072c2fe8e0e637340e",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "symfony/translation-contracts",
+        "version": "v2.1.3",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/symfony/translation-contracts.git",
+          "reference": "616a9773c853097607cf9dd6577d5b143ffdcd63"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/616a9773c853097607cf9dd6577d5b143ffdcd63",
+          "reference": "616a9773c853097607cf9dd6577d5b143ffdcd63",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
                 "php": ">=7.2.5"
             },
@@ -5362,9 +5380,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
+              "branch-alias": {
+                "dev-master": "2.1-dev"
+              },
+              "thanks": {
+                "name": "symfony/contracts",
+                "url": "https://github.com/symfony/contracts"
+              }
             },
             "autoload": {
                 "psr-4": {
@@ -5409,7 +5431,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+        "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -6007,28 +6029,28 @@
             ],
             "time": "2020-05-19T14:25:16+00:00"
         },
-        {
-            "name": "myclabs/deep-copy",
-            "version": "1.9.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "myclabs/deep-copy",
+        "version": "1.10.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/myclabs/DeepCopy.git",
+          "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+          "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "php": "^7.1"
+              "php": "^7.1 || ^8.0"
             },
             "replace": {
                 "myclabs/deep-copy": "self.version"
@@ -6049,18 +6071,24 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+              "MIT"
             ],
-            "description": "Create deep copies (clones) of your objects",
-            "keywords": [
-                "clone",
-                "copy",
-                "duplicate",
-                "object",
-                "object graph"
-            ],
-            "time": "2020-01-17T21:11:47+00:00"
-        },
+        "description": "Create deep copies (clones) of your objects",
+        "keywords": [
+          "clone",
+          "copy",
+          "duplicate",
+          "object",
+          "object graph"
+        ],
+        "funding": [
+          {
+            "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
+            "type": "tidelift"
+          }
+        ],
+        "time": "2020-06-29T13:22:24+00:00"
+      },
         {
             "name": "phar-io/manifest",
             "version": "1.0.3",
@@ -6175,33 +6203,33 @@
             "description": "Library for handling version information and constraints",
             "time": "2018-07-08T19:19:57+00:00"
         },
-        {
-            "name": "phpdocumentor/reflection-common",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "phpdocumentor/reflection-common",
+        "version": "2.2.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
+          "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+          "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "php": ">=7.1"
+              "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                  "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -6228,7 +6256,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2020-04-27T09:25:28+00:00"
+        "time": "2020-06-27T09:03:43+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -6289,33 +6317,32 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "time": "2020-02-22T12:28:44+00:00"
         },
-        {
-            "name": "phpdocumentor/type-resolver",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "phpdocumentor/type-resolver",
+        "version": "1.3.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/phpDocumentor/TypeResolver.git",
+          "reference": "e878a14a65245fbe78f8080eba03b47c3b705651"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e878a14a65245fbe78f8080eba03b47c3b705651",
+          "reference": "e878a14a65245fbe78f8080eba03b47c3b705651",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "php": "^7.2",
-                "phpdocumentor/reflection-common": "^2.0"
+              "php": "^7.2 || ^8.0",
+              "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "^7.2",
-                "mockery/mockery": "~1"
+              "ext-tokenizer": "*"
             },
             "type": "library",
             "extra": {
@@ -6339,43 +6366,43 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-06-19T20:22:09+00:00"
+        "time": "2020-06-27T10:12:23+00:00"
         },
-        {
-            "name": "phpspec/prophecy",
-            "version": "v1.10.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "451c3cd1418cf640de218914901e51b064abb093"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/451c3cd1418cf640de218914901e51b064abb093",
-                "reference": "451c3cd1418cf640de218914901e51b064abb093",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "phpspec/prophecy",
+        "version": "1.11.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/phpspec/prophecy.git",
+          "reference": "8ff0384cd5d87e038297e79d85c99e4b2dcf0e61"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8ff0384cd5d87e038297e79d85c99e4b2dcf0e61",
+          "reference": "8ff0384cd5d87e038297e79d85c99e4b2dcf0e61",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "doctrine/instantiator": "^1.0.2",
-                "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
-                "sebastian/comparator": "^1.2.3|^2.0|^3.0|^4.0",
-                "sebastian/recursion-context": "^1.0|^2.0|^3.0|^4.0"
+              "doctrine/instantiator": "^1.2",
+              "php": "^7.2",
+              "phpdocumentor/reflection-docblock": "^5.0",
+              "sebastian/comparator": "^3.0 || ^4.0",
+              "sebastian/recursion-context": "^3.0 || ^4.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "^2.5 || ^3.2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5 || ^7.1"
+              "phpspec/phpspec": "^6.0",
+              "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.x-dev"
+                  "dev-master": "1.11.x-dev"
                 }
             },
             "autoload": {
@@ -6408,7 +6435,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2020-03-05T15:02:03+00:00"
+        "time": "2020-07-07T16:07:38+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

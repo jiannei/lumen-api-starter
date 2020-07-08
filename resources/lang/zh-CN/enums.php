@@ -9,6 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
+use App\Repositories\Enums\ExampleEnum;
 use App\Repositories\Enums\ResponseCodeEnum;
 
 return [
@@ -39,5 +40,11 @@ return [
         // 业务操作失败：授权业务
         ResponseCodeEnum::SERVICE_REGISTER_ERROR => '注册失败',
         ResponseCodeEnum::SERVICE_LOGIN_ERROR => '登录失败',
+    ],
+
+    // example
+    ExampleEnum::class => [
+        ExampleEnum::ADMINISTRATOR => '管理员',
+        ExampleEnum::SUPER_ADMINISTRATOR => '超级管理员',
     ],
 ];

@@ -76,6 +76,7 @@
     - 使用 Laravel Api Resource
     - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
 - Jwt-auth 方式授权（支持将授权用户缓存到 redis，减少 user 表查询频次）
+- 更为便捷地使用枚举/常量
 - 支持日志记录到 MongoDB
 - 合理有效地『Repository & Service』架构设计（😏）
 
@@ -85,7 +86,7 @@
 
 ## RESTful 方式的路由设计简单准则
 
-待补充。
+[一篇 RESTful API 路由设计的最佳实践](https://learnku.com/articles/45526)
 
 ## 规范的响应结构
 

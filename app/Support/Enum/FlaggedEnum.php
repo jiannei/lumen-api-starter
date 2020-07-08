@@ -27,7 +27,7 @@ abstract class FlaggedEnum extends Enum
     /**
      * Construct a FlaggedEnum instance.
      *
-     * @param  int[]|Enum[]  $flags
+     * @param  int[]|Enum[]|mixed  $flags
      * @return void
      */
     public function __construct($flags)
@@ -66,7 +66,6 @@ abstract class FlaggedEnum extends Enum
      *
      * @param  int[]|Enum[]  $flags
      * @return FlaggedEnum
-     * @throws InvalidEnumValueException
      */
     public static function flags(array $flags): self
     {
@@ -93,7 +92,6 @@ abstract class FlaggedEnum extends Enum
      *
      * @param  int|Enum  $flag
      * @return self
-     * @throws InvalidEnumValueException
      */
     public function addFlag($flag): self
     {
@@ -116,7 +114,6 @@ abstract class FlaggedEnum extends Enum
      * Return the flags as an array of instances.
      *
      * @return Enum[]
-     * @throws InvalidEnumValueException
      */
     public function getFlags(): array
     {
@@ -137,7 +134,6 @@ abstract class FlaggedEnum extends Enum
      *
      * @param  int|Enum  $flag
      * @return bool
-     * @throws InvalidEnumValueException
      */
     public function hasFlag($flag): bool
     {
@@ -154,7 +150,6 @@ abstract class FlaggedEnum extends Enum
      *
      * @param  int[]|Enum[]  $flags
      * @return bool
-     * @throws InvalidEnumValueException
      */
     public function hasFlags(array $flags): bool
     {
@@ -227,7 +222,6 @@ abstract class FlaggedEnum extends Enum
      *
      * @param  int|Enum  $flag
      * @return self
-     * @throws InvalidEnumValueException
      */
     public function removeFlag($flag): self
     {

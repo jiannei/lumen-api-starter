@@ -29,7 +29,7 @@ class AuthorizationController extends Controller
     {
         auth()->logout();
 
-        return $this->response->noContent('Successfully logged out');
+        return $this->response->noContent();
     }
 
     public function show()

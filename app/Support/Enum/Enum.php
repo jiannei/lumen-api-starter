@@ -15,12 +15,15 @@ use App\Contracts\Enums\EnumContract;
 use App\Contracts\Enums\LocalizedEnumContract;
 use App\Exceptions\InvalidEnumKeyException;
 use App\Exceptions\InvalidEnumValueException;
+use App\Support\Enum\Cast\EnumCast;
+use Illuminate\Contracts\Database\Eloquent\Castable;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use ReflectionClass;
 
-abstract class Enum implements EnumContract
+abstract class Enum implements EnumContract, Castable
 {
     use Macroable {
         __callStatic as macroCallStatic;
@@ -34,7 +37,7 @@ abstract class Enum implements EnumContract
 
     public function __construct($enumValue, bool $strict = true)
     {
-        if (! static::hasValue($enumValue, $strict)) {
+        if (!static::hasValue($enumValue, $strict)) {
             throw new InvalidEnumValueException($enumValue, $this);
         }
 
@@ -63,7 +66,7 @@ abstract class Enum implements EnumContract
     {
         $calledClass = static::class;
 
-        if (! array_key_exists($calledClass, static::$cache)) {
+        if (!array_key_exists($calledClass, static::$cache)) {
             $reflect = new ReflectionClass($calledClass);
             static::$cache[$calledClass] = $reflect->getConstants();
         }
@@ -124,10 +127,6 @@ abstract class Enum implements EnumContract
             return $enumValue;
         }
 
-        if (! static::hasValue($enumValue, $strict)) {
-            throw new InvalidEnumValueException($enumValue, static::class);
-        }
-
         return new static($enumValue, $strict);
     }
 
@@ -182,7 +181,7 @@ abstract class Enum implements EnumContract
         return $enumKeyOrValue;
     }
 
-    public static function hasKey(string $key, bool $strict = true): bool
+    public static function hasKey($key, bool $strict = true): bool
     {
         $validKeys = static::getKeys();
         if ($strict) {
@@ -194,7 +193,7 @@ abstract class Enum implements EnumContract
 
     public static function fromKey(string $key, bool $strict = true): self
     {
-        if (! static::hasKey($key, $strict)) {
+        if (!static::hasKey($key, $strict)) {
             throw new InvalidEnumKeyException($key, static::class);
         }
 
@@ -207,6 +206,21 @@ abstract class Enum implements EnumContract
     public static function getValue(string $key)
     {
         return static::getConstants()[$key];
+    }
+
+    public static function parseDatabase($value)
+    {
+        return $value;
+    }
+
+    public static function serializeDatabase($value)
+    {
+        return $value;
+    }
+
+    public static function castUsing(): CastsAttributes
+    {
+        return new EnumCast(static::class);
     }
 
     public static function toSelectArray(): array
@@ -249,7 +263,7 @@ abstract class Enum implements EnumContract
         return (string) $this->value;
     }
 
-    public function isAny(array $values): bool
+    public function in(array $values): bool
     {
         foreach ($values as $value) {
             if ($this->is($value)) {
@@ -267,5 +281,10 @@ abstract class Enum implements EnumContract
         }
 
         return $this->value === $enumValue;
+    }
+
+    public function isNot($enumValue): bool
+    {
+        return !$this->is($enumValue);
     }
 }
