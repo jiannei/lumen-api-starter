@@ -36,6 +36,8 @@ Route::get('author', function () {
 
 Route::get('configurations', 'ExampleController@configurations');
 Route::get('logs', 'ExampleController@logs');
+Route::get('enums', 'ExampleController@enums');
+Route::post('enums', 'ExampleController@enums');
 
 Route::post('users', 'UsersController@store');
 Route::get('users/{id}', 'UsersController@show');

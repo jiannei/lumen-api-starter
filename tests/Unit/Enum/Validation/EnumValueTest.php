@@ -30,7 +30,7 @@ class EnumValueTest extends TestCase
         $this->assertTrue($passes2);
     }
 
-    public function test_validation_fails()
+    public function testValidationFails()
     {
         // 传入不存在的常量值
         $fails1 = (new EnumValue(UserTypeEnum::class))->passes('', 7);

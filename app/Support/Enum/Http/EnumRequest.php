@@ -25,20 +25,17 @@ final class EnumRequest
     {
         return function (array $transformations, bool $strict): void {
             foreach ($transformations as $key => $enumClass) {
-                if (! $this->request->has($key)) {
+                if (!$this->has($key)) {
                     continue;
                 }
 
-                $requestKey = $this->request->get($key);
-                $enumKeyOrValue = is_numeric($requestKey) ? (int) $requestKey : $requestKey;
+                $requestKey = $this->input($key);
+                $enumKeyOrValue = (is_numeric($requestKey) && !$strict) ? (int) $requestKey : $requestKey;
 
-                $this->request->set(
-                    $key,
-                    forward_static_call(
-                        [$enumClass, 'make'],
-                        $enumKeyOrValue,
-                        $strict
-                    )
+                $this[$key] = forward_static_call(
+                    [$enumClass, 'make'],
+                    $enumKeyOrValue,
+                    $strict
                 );
             }
         };

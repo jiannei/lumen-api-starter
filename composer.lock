@@ -594,16 +594,16 @@
               }
             ]
           },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/http": "^7.0",
-                "illuminate/queue": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5"
-            },
-            "suggest": {
-                "illuminate/console": "Required to use the auth:clear-resets command (^7.0).",
-                "illuminate/queue": "Required to fire login / logout events (^7.0).",
+          "require": {
+            "illuminate/contracts": "^7.0",
+            "illuminate/http": "^7.0",
+            "illuminate/queue": "^7.0",
+            "illuminate/support": "^7.0",
+            "php": "^7.2.5"
+          },
+          "suggest": {
+            "illuminate/console": "Required to use the auth:clear-resets command (^7.0).",
+            "illuminate/queue": "Required to fire login / logout events (^7.0).",
                 "illuminate/session": "Required to use the session based guard (^7.0)."
             },
             "type": "library",
@@ -621,14 +621,14 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Auth package.",
-            "homepage": "https://laravel.com",
+          "authors": [
+            {
+              "name": "Taylor Otwell",
+              "email": "taylor@laravel.com"
+            }
+          ],
+          "description": "The Illuminate Auth package.",
+          "homepage": "https://laravel.com",
           "time": "2020-06-18T15:50:56+00:00"
         },
       {
@@ -651,16 +651,16 @@
             }
           ]
         },
-            "require": {
-                "ext-json": "*",
-                "illuminate/bus": "^7.0",
-                "illuminate/contracts": "^7.0",
-                "illuminate/queue": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5",
-                "psr/log": "^1.0"
-            },
-            "suggest": {
+        "require": {
+          "ext-json": "*",
+          "illuminate/bus": "^7.0",
+          "illuminate/contracts": "^7.0",
+          "illuminate/queue": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5",
+          "psr/log": "^1.0"
+        },
+        "suggest": {
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^4.0)."
             },
             "type": "library",
@@ -678,16 +678,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Broadcasting package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Broadcasting package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-07T14:06:58+00:00"
-        },
+      },
       {
         "name": "illuminate/bus",
         "version": "v7.19.0",
@@ -701,16 +701,16 @@
           "url": "https://api.github.com/repos/illuminate/bus/zipball/189204f93889677bfc4aec2a3d2c7aa94c76c240",
           "reference": "189204f93889677bfc4aec2a3d2c7aa94c76c240",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/pipeline": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/pipeline": "^7.0",
                 "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
@@ -732,16 +732,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Bus package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-06-02T17:09:46+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Bus package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-06-02T17:09:46+00:00"
+      },
       {
         "name": "illuminate/cache",
         "version": "v7.19.0",
@@ -762,16 +762,16 @@
             }
           ]
         },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5"
-            },
-            "suggest": {
-                "ext-memcached": "Required to use the memcache cache driver.",
-                "illuminate/database": "Required to use the database cache driver (^7.0).",
-                "illuminate/filesystem": "Required to use the file cache driver (^7.0).",
-                "illuminate/redis": "Required to use the redis cache driver (^7.0).",
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5"
+        },
+        "suggest": {
+          "ext-memcached": "Required to use the memcache cache driver.",
+          "illuminate/database": "Required to use the database cache driver (^7.0).",
+          "illuminate/filesystem": "Required to use the file cache driver (^7.0).",
+          "illuminate/redis": "Required to use the redis cache driver (^7.0).",
                 "symfony/cache": "Required to PSR-6 cache bridge (^5.0)."
             },
             "type": "library",
@@ -789,16 +789,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Cache package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Cache package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-02T19:01:00+00:00"
-        },
+      },
       {
         "name": "illuminate/config",
         "version": "v7.19.0",
@@ -812,16 +812,16 @@
           "url": "https://api.github.com/repos/illuminate/config/zipball/d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
           "reference": "d1e898de7a0cefe9ce2c94dede6679839e6a7b39",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
             "type": "library",
@@ -839,16 +839,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Config package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-01-07T13:49:44+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Config package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-01-07T13:49:44+00:00"
+      },
       {
         "name": "illuminate/console",
         "version": "v7.19.0",
@@ -869,16 +869,16 @@
             }
           ]
         },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5",
-                "symfony/console": "^5.0",
-                "symfony/process": "^5.0"
-            },
-            "suggest": {
-                "dragonmantank/cron-expression": "Required to use scheduler (^2.0).",
-                "guzzlehttp/guzzle": "Required to use the ping methods on schedules (^6.3.1|^7.0).",
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5",
+          "symfony/console": "^5.0",
+          "symfony/process": "^5.0"
+        },
+        "suggest": {
+          "dragonmantank/cron-expression": "Required to use scheduler (^2.0).",
+          "guzzlehttp/guzzle": "Required to use the ping methods on schedules (^6.3.1|^7.0).",
                 "illuminate/bus": "Required to use the scheduled job dispatcher (^7.0).",
                 "illuminate/container": "Required to use the scheduler (^7.0).",
                 "illuminate/filesystem": "Required to use the generator command (^7.0).",
@@ -899,16 +899,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Console package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Console package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-03T23:22:01+00:00"
-        },
+      },
       {
         "name": "illuminate/container",
         "version": "v7.19.0",
@@ -922,16 +922,16 @@
           "url": "https://api.github.com/repos/illuminate/container/zipball/aaf1612f558d856975746cd3d0da4f230035ef55",
           "reference": "aaf1612f558d856975746cd3d0da4f230035ef55",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "php": "^7.2.5",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "php": "^7.2.5",
                 "psr/container": "^1.0"
             },
             "provide": {
@@ -952,16 +952,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Container package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-06-11T14:29:51+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Container package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-06-11T14:29:51+00:00"
+      },
       {
         "name": "illuminate/contracts",
         "version": "v7.19.0",
@@ -975,16 +975,16 @@
           "url": "https://api.github.com/repos/illuminate/contracts/zipball/42792e136e3a77312fb89df29373d6221a1f794e",
           "reference": "42792e136e3a77312fb89df29373d6221a1f794e",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "php": "^7.2.5",
-                "psr/container": "^1.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "php": "^7.2.5",
+          "psr/container": "^1.0",
                 "psr/simple-cache": "^1.0"
             },
             "type": "library",
@@ -1002,16 +1002,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Contracts package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-05-13T20:55:30+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Contracts package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-05-13T20:55:30+00:00"
+      },
       {
         "name": "illuminate/database",
         "version": "v7.19.0",
@@ -1032,16 +1032,16 @@
             }
           ]
         },
-            "require": {
-                "ext-json": "*",
-                "illuminate/container": "^7.0",
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5",
-                "symfony/console": "^5.0"
-            },
-            "suggest": {
-                "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.6).",
+        "require": {
+          "ext-json": "*",
+          "illuminate/container": "^7.0",
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5",
+          "symfony/console": "^5.0"
+        },
+        "suggest": {
+          "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.6).",
                 "fzaninotto/faker": "Required to use the eloquent factory builder (^1.9.1).",
                 "illuminate/console": "Required to use the database commands (^7.0).",
                 "illuminate/events": "Required to use the observers with Eloquent (^7.0).",
@@ -1070,16 +1070,16 @@
                     "email": "taylor@laravel.com"
                 }
             ],
-            "description": "The Illuminate Database package.",
-            "homepage": "https://laravel.com",
-            "keywords": [
-                "database",
-                "laravel",
-                "orm",
-                "sql"
-            ],
+        "description": "The Illuminate Database package.",
+        "homepage": "https://laravel.com",
+        "keywords": [
+          "database",
+          "laravel",
+          "orm",
+          "sql"
+        ],
         "time": "2020-07-07T14:06:58+00:00"
-        },
+      },
       {
         "name": "illuminate/encryption",
         "version": "v7.19.0",
@@ -1093,16 +1093,16 @@
           "url": "https://api.github.com/repos/illuminate/encryption/zipball/acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
           "reference": "acf3f9f52a9abcb46e9c50911bb8f1c37d10edcb",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "ext-json": "*",
+          "ext-mbstring": "*",
                 "ext-openssl": "*",
                 "illuminate/contracts": "^7.0",
                 "illuminate/support": "^7.0",
@@ -1123,16 +1123,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Encryption package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-04-24T09:01:47+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Encryption package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-04-24T09:01:47+00:00"
+      },
       {
         "name": "illuminate/events",
         "version": "v7.19.0",
@@ -1153,16 +1153,16 @@
             }
           ]
         },
-            "require": {
-                "illuminate/container": "^7.0",
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.x-dev"
+        "require": {
+          "illuminate/container": "^7.0",
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5"
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "7.x-dev"
                 }
             },
             "autoload": {
@@ -1174,16 +1174,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Events package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Events package.",
+        "homepage": "https://laravel.com",
         "time": "2020-06-18T15:37:01+00:00"
-        },
+      },
       {
         "name": "illuminate/filesystem",
         "version": "v7.19.0",
@@ -1204,16 +1204,16 @@
             }
           ]
         },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5",
-                "symfony/finder": "^5.0"
-            },
-            "suggest": {
-                "ext-ftp": "Required to use the Flysystem FTP driver.",
-                "illuminate/http": "Required for handling uploaded files (^7.0).",
-                "league/flysystem": "Required to use the Flysystem local and FTP drivers (^1.0.34).",
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5",
+          "symfony/finder": "^5.0"
+        },
+        "suggest": {
+          "ext-ftp": "Required to use the Flysystem FTP driver.",
+          "illuminate/http": "Required for handling uploaded files (^7.0).",
+          "league/flysystem": "Required to use the Flysystem local and FTP drivers (^1.0.34).",
                 "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (^1.0).",
                 "league/flysystem-cached-adapter": "Required to use the Flysystem cache (^1.0).",
                 "league/flysystem-sftp": "Required to use the Flysystem SFTP driver (^1.0).",
@@ -1235,16 +1235,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Filesystem package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Filesystem package.",
+        "homepage": "https://laravel.com",
         "time": "2020-06-24T18:16:33+00:00"
-        },
+      },
       {
         "name": "illuminate/hashing",
         "version": "v7.19.0",
@@ -1258,16 +1258,16 @@
           "url": "https://api.github.com/repos/illuminate/hashing/zipball/21aeeb27e608b8026c510688b8624ccaad7cf499",
           "reference": "21aeeb27e608b8026c510688b8624ccaad7cf499",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
             "type": "library",
@@ -1285,16 +1285,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Hashing package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-01-07T13:49:44+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Hashing package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-01-07T13:49:44+00:00"
+      },
       {
         "name": "illuminate/http",
         "version": "v7.19.0",
@@ -1315,16 +1315,16 @@
             }
           ]
         },
-            "require": {
-                "ext-json": "*",
-                "illuminate/session": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5",
-                "symfony/http-foundation": "^5.0",
-                "symfony/http-kernel": "^5.0",
-                "symfony/mime": "^5.0"
-            },
-            "suggest": {
+        "require": {
+          "ext-json": "*",
+          "illuminate/session": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5",
+          "symfony/http-foundation": "^5.0",
+          "symfony/http-kernel": "^5.0",
+          "symfony/mime": "^5.0"
+        },
+        "suggest": {
                 "ext-gd": "Required to use Illuminate\\Http\\Testing\\FileFactory::image().",
                 "guzzlehttp/guzzle": "Required to use the HTTP Client (^6.3.1|^7.0)."
             },
@@ -1343,16 +1343,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Http package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Http package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-03T16:24:41+00:00"
-        },
+      },
       {
         "name": "illuminate/log",
         "version": "v7.19.0",
@@ -1366,16 +1366,16 @@
           "url": "https://api.github.com/repos/illuminate/log/zipball/b72561ef12ed433425b07d56d22af59ed4b2f99d",
           "reference": "b72561ef12ed433425b07d56d22af59ed4b2f99d",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "monolog/monolog": "^2.0",
                 "php": "^7.2.5"
             },
@@ -1394,16 +1394,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Log package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-03-08T16:13:06+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Log package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-03-08T16:13:06+00:00"
+      },
       {
         "name": "illuminate/pagination",
         "version": "v7.19.0",
@@ -1417,16 +1417,16 @@
           "url": "https://api.github.com/repos/illuminate/pagination/zipball/58d6613e19d0923a85a228289de1736452285e1b",
           "reference": "58d6613e19d0923a85a228289de1736452285e1b",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/contracts": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "ext-json": "*",
+          "illuminate/contracts": "^7.0",
                 "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
@@ -1445,16 +1445,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Pagination package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-05-29T13:40:26+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Pagination package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-05-29T13:40:26+00:00"
+      },
       {
         "name": "illuminate/pipeline",
         "version": "v7.19.0",
@@ -1468,16 +1468,16 @@
           "url": "https://api.github.com/repos/illuminate/pipeline/zipball/1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
           "reference": "1a7ef33dec9cbb73757f0654ae48d997944a4d3f",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
             "type": "library",
@@ -1495,16 +1495,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Pipeline package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-02-25T14:26:37+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Pipeline package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-02-25T14:26:37+00:00"
+      },
       {
         "name": "illuminate/queue",
         "version": "v7.19.0",
@@ -1518,16 +1518,16 @@
           "url": "https://api.github.com/repos/illuminate/queue/zipball/de150712f516a036419ddcd7e3918d4c16886158",
           "reference": "de150712f516a036419ddcd7e3918d4c16886158",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/console": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "ext-json": "*",
+          "illuminate/console": "^7.0",
                 "illuminate/container": "^7.0",
                 "illuminate/contracts": "^7.0",
                 "illuminate/database": "^7.0",
@@ -1561,16 +1561,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Queue package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-05-29T09:44:42+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Queue package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-05-29T09:44:42+00:00"
+      },
       {
         "name": "illuminate/redis",
         "version": "v7.19.0",
@@ -1584,16 +1584,16 @@
           "url": "https://api.github.com/repos/illuminate/redis/zipball/d02f8cc49071c627e5450281f3bc84f346f090dd",
           "reference": "d02f8cc49071c627e5450281f3bc84f346f090dd",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "php": "^7.2.5"
             },
             "suggest": {
@@ -1615,16 +1615,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Redis package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-05-29T09:44:42+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Redis package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-05-29T09:44:42+00:00"
+      },
       {
         "name": "illuminate/session",
         "version": "v7.19.0",
@@ -1638,16 +1638,16 @@
           "url": "https://api.github.com/repos/illuminate/session/zipball/f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
           "reference": "f18c8772d76928e54f65fdb8cbc90b723b9e1e7e",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/contracts": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "ext-json": "*",
+          "illuminate/contracts": "^7.0",
                 "illuminate/filesystem": "^7.0",
                 "illuminate/support": "^7.0",
                 "php": "^7.2.5",
@@ -1672,16 +1672,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Session package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-06-15T14:06:36+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Session package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-06-15T14:06:36+00:00"
+      },
       {
         "name": "illuminate/support",
         "version": "v7.19.0",
@@ -1702,16 +1702,16 @@
             }
           ]
         },
-            "require": {
-                "doctrine/inflector": "^1.4|^2.0",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "illuminate/contracts": "^7.0",
-                "nesbot/carbon": "^2.17",
-                "php": "^7.2.5",
-                "voku/portable-ascii": "^1.4.8"
-            },
-            "conflict": {
+        "require": {
+          "doctrine/inflector": "^1.4|^2.0",
+          "ext-json": "*",
+          "ext-mbstring": "*",
+          "illuminate/contracts": "^7.0",
+          "nesbot/carbon": "^2.17",
+          "php": "^7.2.5",
+          "voku/portable-ascii": "^1.4.8"
+        },
+        "conflict": {
                 "tightenco/collect": "<5.5.33"
             },
             "suggest": {
@@ -1740,16 +1740,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Support package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Support package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-07T13:48:08+00:00"
-        },
+      },
       {
         "name": "illuminate/testing",
         "version": "v7.19.0",
@@ -1763,16 +1763,16 @@
           "url": "https://api.github.com/repos/illuminate/testing/zipball/444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
           "reference": "444fd70a3c56e5daeee1e3b4c8bf9bf8fa28b2c5",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
                 "php": "^7.2.5",
                 "symfony/polyfill-php73": "^1.17"
             },
@@ -1798,16 +1798,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Testing package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-05-29T09:44:42+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Testing package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-05-29T09:44:42+00:00"
+      },
       {
         "name": "illuminate/translation",
         "version": "v7.19.0",
@@ -1821,16 +1821,16 @@
           "url": "https://api.github.com/repos/illuminate/translation/zipball/74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
           "reference": "74c6c0c15efc2a3e1a7e8b893dcbe68007467ea6",
           "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/contracts": "^7.0",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
+        "require": {
+          "ext-json": "*",
+          "illuminate/contracts": "^7.0",
                 "illuminate/filesystem": "^7.0",
                 "illuminate/support": "^7.0",
                 "php": "^7.2.5"
@@ -1850,16 +1850,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Translation package.",
-            "homepage": "https://laravel.com",
-            "time": "2020-04-15T20:57:47+00:00"
-        },
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Translation package.",
+        "homepage": "https://laravel.com",
+        "time": "2020-04-15T20:57:47+00:00"
+      },
       {
         "name": "illuminate/validation",
         "version": "v7.19.0",
@@ -1880,16 +1880,16 @@
             }
           ]
         },
-            "require": {
-                "egulias/email-validator": "^2.1.10",
-                "ext-json": "*",
-                "illuminate/container": "^7.0",
-                "illuminate/contracts": "^7.0",
-                "illuminate/support": "^7.0",
-                "illuminate/translation": "^7.0",
-                "php": "^7.2.5",
-                "symfony/http-foundation": "^5.0",
-                "symfony/mime": "^5.0"
+        "require": {
+          "egulias/email-validator": "^2.1.10",
+          "ext-json": "*",
+          "illuminate/container": "^7.0",
+          "illuminate/contracts": "^7.0",
+          "illuminate/support": "^7.0",
+          "illuminate/translation": "^7.0",
+          "php": "^7.2.5",
+          "symfony/http-foundation": "^5.0",
+          "symfony/mime": "^5.0"
             },
             "suggest": {
                 "illuminate/database": "Required to use the database presence verifier (^7.0)."
@@ -1909,16 +1909,16 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Validation package.",
-            "homepage": "https://laravel.com",
+        "authors": [
+          {
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
+          }
+        ],
+        "description": "The Illuminate Validation package.",
+        "homepage": "https://laravel.com",
         "time": "2020-07-02T19:01:00+00:00"
-        },
+      },
       {
         "name": "illuminate/view",
         "version": "v7.19.0",
@@ -1939,16 +1939,16 @@
             }
           ]
         },
-            "require": {
-                "ext-json": "*",
-                "illuminate/container": "^7.0",
-                "illuminate/contracts": "^7.0",
-                "illuminate/events": "^7.0",
-                "illuminate/filesystem": "^7.0",
-                "illuminate/support": "^7.0",
-                "php": "^7.2.5"
-            },
-            "type": "library",
+        "require": {
+          "ext-json": "*",
+          "illuminate/container": "^7.0",
+          "illuminate/contracts": "^7.0",
+          "illuminate/events": "^7.0",
+          "illuminate/filesystem": "^7.0",
+          "illuminate/support": "^7.0",
+          "php": "^7.2.5"
+        },
+        "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "7.x-dev"
@@ -2048,15 +2048,15 @@
             ],
             "funding": [
                 {
-                    "url": "https://github.com/jenssegers",
-                    "type": "github"
+                  "url": "https://github.com/jenssegers",
+                  "type": "github"
                 },
-                {
-                    "url": "https://opencollective.com/laravel-mongodb",
-                    "type": "open_collective"
-                }
+              {
+                "url": "https://opencollective.com/laravel-mongodb",
+                "type": "open_collective"
+              }
             ],
-            "time": "2020-03-10T19:41:49+00:00"
+          "time": "2020-03-10T19:41:49+00:00"
         },
       {
         "name": "laravel/lumen-framework",
@@ -2078,16 +2078,16 @@
             }
           ]
         },
-            "require": {
-                "dragonmantank/cron-expression": "^2.0",
-                "illuminate/auth": "^7.0",
-                "illuminate/broadcasting": "^7.0",
-                "illuminate/bus": "^7.0",
-                "illuminate/cache": "^7.0",
-                "illuminate/config": "^7.0",
-                "illuminate/console": "^7.0",
-                "illuminate/container": "^7.0",
-                "illuminate/contracts": "^7.0",
+        "require": {
+          "dragonmantank/cron-expression": "^2.0",
+          "illuminate/auth": "^7.0",
+          "illuminate/broadcasting": "^7.0",
+          "illuminate/bus": "^7.0",
+          "illuminate/cache": "^7.0",
+          "illuminate/config": "^7.0",
+          "illuminate/console": "^7.0",
+          "illuminate/container": "^7.0",
+          "illuminate/contracts": "^7.0",
                 "illuminate/database": "^7.0",
                 "illuminate/encryption": "^7.0",
                 "illuminate/events": "^7.0",
@@ -2286,15 +2286,15 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Handle the output of complex data structures ready for API output.",
-            "homepage": "http://fractal.thephpleague.com/",
-            "keywords": [
-                "api",
-                "json",
-                "league",
-                "rest"
-            ],
-            "time": "2020-01-24T23:17:29+00:00"
+          "description": "Handle the output of complex data structures ready for API output.",
+          "homepage": "http://fractal.thephpleague.com/",
+          "keywords": [
+            "api",
+            "json",
+            "league",
+            "rest"
+          ],
+          "time": "2020-01-24T23:17:29+00:00"
         },
       {
         "name": "mongodb/mongodb",
@@ -2316,16 +2316,16 @@
             }
           ]
         },
-            "require": {
-                "ext-hash": "*",
-                "ext-json": "*",
-                "ext-mongodb": "^1.7",
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6.4 || ^8.3",
-                "sebastian/comparator": "^1.0 || ^2.0 || ^3.0",
-                "squizlabs/php_codesniffer": "^3.4",
+        "require": {
+          "ext-hash": "*",
+          "ext-json": "*",
+          "ext-mongodb": "^1.7",
+          "php": "^5.6 || ^7.0"
+        },
+        "require-dev": {
+          "phpunit/phpunit": "^5.7.27 || ^6.4 || ^8.3",
+          "sebastian/comparator": "^1.0 || ^2.0 || ^3.0",
+          "squizlabs/php_codesniffer": "^3.4",
                 "symfony/phpunit-bridge": "^4.4@dev"
             },
             "type": "library",
@@ -2526,15 +2526,15 @@
                 }
             ],
             "description": "JSON Object Signing and Encryption library for PHP.",
-            "keywords": [
-                "JSON Web Signature",
-                "JSON Web Token",
-                "JWS",
-                "json",
-                "jwt",
-                "token"
-            ],
-            "time": "2016-12-05T07:27:31+00:00"
+          "keywords": [
+            "JSON Web Signature",
+            "JSON Web Token",
+            "JWS",
+            "json",
+            "jwt",
+            "token"
+          ],
+          "time": "2016-12-05T07:27:31+00:00"
         },
       {
         "name": "nesbot/carbon",
@@ -2556,22 +2556,22 @@
             }
           ]
         },
-            "require": {
-                "ext-json": "*",
-                "php": "^7.1.8 || ^8.0",
-                "symfony/polyfill-mbstring": "^1.0",
-                "symfony/translation": "^3.4 || ^4.0 || ^5.0"
-            },
-            "require-dev": {
-              "doctrine/orm": "^2.7",
-              "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
-              "kylekatarnls/multi-tester": "^2.0",
-              "phpmd/phpmd": "^2.8",
-              "phpstan/extension-installer": "^1.0",
-              "phpstan/phpstan": "^0.12.30",
-              "phpunit/phpunit": "^7.5 || ^8.0",
-              "squizlabs/php_codesniffer": "^3.4"
-            },
+        "require": {
+          "ext-json": "*",
+          "php": "^7.1.8 || ^8.0",
+          "symfony/polyfill-mbstring": "^1.0",
+          "symfony/translation": "^3.4 || ^4.0 || ^5.0"
+        },
+        "require-dev": {
+          "doctrine/orm": "^2.7",
+          "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+          "kylekatarnls/multi-tester": "^2.0",
+          "phpmd/phpmd": "^2.8",
+          "phpstan/extension-installer": "^1.0",
+          "phpstan/phpstan": "^0.12.30",
+          "phpunit/phpunit": "^7.5 || ^8.0",
+          "squizlabs/php_codesniffer": "^3.4"
+        },
             "bin": [
                 "bin/carbon"
             ],
@@ -3507,15 +3507,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2020-06-15T12:59:21+00:00"
+          "time": "2020-06-15T12:59:21+00:00"
         },
       {
         "name": "symfony/deprecation-contracts",
@@ -3537,19 +3537,19 @@
             }
           ]
         },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "extra": {
-              "branch-alias": {
-                "dev-master": "2.1-dev"
-              },
-              "thanks": {
-                "name": "symfony/contracts",
-                "url": "https://github.com/symfony/contracts"
-              }
-            },
+        "require": {
+          "php": ">=7.1"
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "2.1-dev"
+          },
+          "thanks": {
+            "name": "symfony/contracts",
+            "url": "https://github.com/symfony/contracts"
+          }
+        },
             "autoload": {
                 "files": [
                     "function.php"
@@ -3746,15 +3746,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+          "time": "2020-05-20T17:43:50+00:00"
         },
       {
         "name": "symfony/event-dispatcher-contracts",
@@ -3776,23 +3776,23 @@
             }
           ]
         },
-            "require": {
-                "php": ">=7.2.5",
-                "psr/event-dispatcher": "^1"
-            },
-            "suggest": {
-                "symfony/event-dispatcher-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-              "branch-alias": {
-                "dev-master": "2.1-dev"
-              },
-              "thanks": {
-                "name": "symfony/contracts",
-                "url": "https://github.com/symfony/contracts"
-              }
-            },
+        "require": {
+          "php": ">=7.2.5",
+          "psr/event-dispatcher": "^1"
+        },
+        "suggest": {
+          "symfony/event-dispatcher-implementation": ""
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "2.1-dev"
+          },
+          "thanks": {
+            "name": "symfony/contracts",
+            "url": "https://github.com/symfony/contracts"
+          }
+        },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Contracts\\EventDispatcher\\": ""
@@ -5071,15 +5071,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2020-05-30T20:35:19+00:00"
+          "time": "2020-05-30T20:35:19+00:00"
         },
       {
         "name": "symfony/service-contracts",
@@ -5101,23 +5101,23 @@
             }
           ]
         },
-            "require": {
-                "php": ">=7.2.5",
-                "psr/container": "^1.0"
-            },
-            "suggest": {
-                "symfony/service-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-              "branch-alias": {
-                "dev-master": "2.1-dev"
-              },
-              "thanks": {
-                "name": "symfony/contracts",
-                "url": "https://github.com/symfony/contracts"
-              }
-            },
+        "require": {
+          "php": ">=7.2.5",
+          "psr/container": "^1.0"
+        },
+        "suggest": {
+          "symfony/service-implementation": ""
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "2.1-dev"
+          },
+          "thanks": {
+            "name": "symfony/contracts",
+            "url": "https://github.com/symfony/contracts"
+          }
+        },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Contracts\\Service\\": ""
@@ -5342,15 +5342,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2020-05-30T20:35:19+00:00"
+          "time": "2020-05-30T20:35:19+00:00"
         },
       {
         "name": "symfony/translation-contracts",
@@ -5372,22 +5372,22 @@
             }
           ]
         },
-            "require": {
-                "php": ">=7.2.5"
-            },
-            "suggest": {
-                "symfony/translation-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-              "branch-alias": {
-                "dev-master": "2.1-dev"
-              },
-              "thanks": {
-                "name": "symfony/contracts",
-                "url": "https://github.com/symfony/contracts"
-              }
-            },
+        "require": {
+          "php": ">=7.2.5"
+        },
+        "suggest": {
+          "symfony/translation-implementation": ""
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "2.1-dev"
+          },
+          "thanks": {
+            "name": "symfony/contracts",
+            "url": "https://github.com/symfony/contracts"
+          }
+        },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Contracts\\Translation\\": ""
@@ -5901,28 +5901,28 @@
             ],
             "time": "2019-12-12T13:22:17+00:00"
         },
-        {
-            "name": "hamcrest/hamcrest-php",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hamcrest/hamcrest-php.git",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/776503d3a8e85d4f9a1148614f95b7a608b046ad",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "hamcrest/hamcrest-php",
+        "version": "v2.0.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/hamcrest/hamcrest-php.git",
+          "reference": "8c3d0a3f6af734494ad8f6fbbee0ba92422859f3"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/8c3d0a3f6af734494ad8f6fbbee0ba92422859f3",
+          "reference": "8c3d0a3f6af734494ad8f6fbbee0ba92422859f3",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "php": "^5.3|^7.0"
+              "php": "^5.3|^7.0|^8.0"
             },
             "replace": {
                 "cordoval/hamcrest-php": "*",
@@ -5930,14 +5930,13 @@
                 "kodova/hamcrest-php": "*"
             },
             "require-dev": {
-                "phpunit/php-file-iterator": "1.3.3",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "^1.0"
+              "phpunit/php-file-iterator": "^1.4 || ^2.0",
+              "phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                  "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -5947,44 +5946,44 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+              "BSD-3-Clause"
             ],
             "description": "This is the PHP port of Hamcrest Matchers",
             "keywords": [
                 "test"
             ],
-            "time": "2016-01-20T08:20:44+00:00"
+        "time": "2020-07-09T08:09:16+00:00"
         },
-        {
-            "name": "mockery/mockery",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mockery/mockery.git",
-                "reference": "6c6a7c533469873deacf998237e7649fc6b36223"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/6c6a7c533469873deacf998237e7649fc6b36223",
-                "reference": "6c6a7c533469873deacf998237e7649fc6b36223",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "mockery/mockery",
+        "version": "1.4.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/mockery/mockery.git",
+          "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/mockery/mockery/zipball/1404386ca3410b04fe58b9517e85d702ab33b2c6",
+          "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "hamcrest/hamcrest-php": "~2.0",
-                "lib-pcre": ">=7.0",
-                "php": "^7.3.0"
+              "hamcrest/hamcrest-php": "^2.0.1",
+              "lib-pcre": ">=7.0",
+              "php": "^7.3 || ^8.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0.0 || ^9.0.0"
+              "phpunit/phpunit": "^8.5 || ^9.0"
             },
             "type": "library",
             "extra": {
@@ -6019,16 +6018,16 @@
                 "BDD",
                 "TDD",
                 "library",
-                "mock",
-                "mock objects",
-                "mockery",
-                "stub",
-                "test",
-                "test double",
-                "testing"
+              "mock",
+              "mock objects",
+              "mockery",
+              "stub",
+              "test",
+              "test double",
+              "testing"
             ],
-            "time": "2020-05-19T14:25:16+00:00"
-        },
+        "time": "2020-07-09T08:31:54+00:00"
+      },
       {
         "name": "myclabs/deep-copy",
         "version": "1.10.1",
@@ -6049,30 +6048,30 @@
             }
           ]
         },
-            "require": {
-              "php": "^7.1 || ^8.0"
-            },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
-            },
-            "require-dev": {
-                "doctrine/collections": "^1.0",
-                "doctrine/common": "^2.6",
-                "phpunit/phpunit": "^7.1"
+        "require": {
+          "php": "^7.1 || ^8.0"
+        },
+        "replace": {
+          "myclabs/deep-copy": "self.version"
+        },
+        "require-dev": {
+          "doctrine/collections": "^1.0",
+          "doctrine/common": "^2.6",
+          "phpunit/phpunit": "^7.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
+                  "DeepCopy\\": "src/DeepCopy/"
                 },
-                "files": [
-                    "src/DeepCopy/deep_copy.php"
-                ]
+              "files": [
+                "src/DeepCopy/deep_copy.php"
+              ]
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-              "MIT"
-            ],
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+          "MIT"
+        ],
         "description": "Create deep copies (clones) of your objects",
         "keywords": [
           "clone",
@@ -6089,16 +6088,16 @@
         ],
         "time": "2020-06-29T13:22:24+00:00"
       },
-        {
-            "name": "phar-io/manifest",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phar-io/manifest.git",
-                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4"
-            },
-            "dist": {
-                "type": "zip",
+      {
+        "name": "phar-io/manifest",
+        "version": "1.0.3",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/phar-io/manifest.git",
+          "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4"
+        },
+        "dist": {
+          "type": "zip",
                 "url": "https://api.github.com/repos/phar-io/manifest/zipball/7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
                 "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
                 "shasum": "",
@@ -6194,14 +6193,14 @@
                     "email": "sebastian@phpeople.de",
                     "role": "Developer"
                 },
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
-                }
+              {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de",
+                "role": "Developer"
+              }
             ],
-            "description": "Library for handling version information and constraints",
-            "time": "2018-07-08T19:19:57+00:00"
+          "description": "Library for handling version information and constraints",
+          "time": "2018-07-08T19:19:57+00:00"
         },
       {
         "name": "phpdocumentor/reflection-common",
@@ -6223,16 +6222,16 @@
             }
           ]
         },
-            "require": {
-              "php": "^7.2 || ^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                  "dev-2.x": "2.x-dev"
-                }
-            },
-            "autoload": {
+        "require": {
+          "php": "^7.2 || ^8.0"
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
+            "dev-2.x": "2.x-dev"
+          }
+        },
+        "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": "src/"
                 }
@@ -6307,15 +6306,15 @@
             "authors": [
                 {
                     "name": "Mike van Riel",
-                    "email": "me@mikevanriel.com"
+                  "email": "me@mikevanriel.com"
                 },
-                {
-                    "name": "Jaap van Otterdijk",
-                    "email": "account@ijaap.nl"
-                }
+              {
+                "name": "Jaap van Otterdijk",
+                "email": "account@ijaap.nl"
+              }
             ],
-            "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-22T12:28:44+00:00"
+          "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+          "time": "2020-02-22T12:28:44+00:00"
         },
       {
         "name": "phpdocumentor/type-resolver",
@@ -6337,16 +6336,16 @@
             }
           ]
         },
-            "require": {
-              "php": "^7.2 || ^8.0",
-              "phpdocumentor/reflection-common": "^2.0"
-            },
-            "require-dev": {
-              "ext-tokenizer": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
+        "require": {
+          "php": "^7.2 || ^8.0",
+          "phpdocumentor/reflection-common": "^2.0"
+        },
+        "require-dev": {
+          "ext-tokenizer": "*"
+        },
+        "type": "library",
+        "extra": {
+          "branch-alias": {
                     "dev-1.x": "1.x-dev"
                 }
             },
@@ -6359,27 +6358,27 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Mike van Riel",
-                    "email": "me@mikevanriel.com"
-                }
-            ],
-            "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+        "authors": [
+          {
+            "name": "Mike van Riel",
+            "email": "me@mikevanriel.com"
+          }
+        ],
+        "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
         "time": "2020-06-27T10:12:23+00:00"
-        },
+      },
       {
         "name": "phpspec/prophecy",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "source": {
           "type": "git",
           "url": "https://github.com/phpspec/prophecy.git",
-          "reference": "8ff0384cd5d87e038297e79d85c99e4b2dcf0e61"
+          "reference": "b20034be5efcdab4fb60ca3a29cba2949aead160"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8ff0384cd5d87e038297e79d85c99e4b2dcf0e61",
-          "reference": "8ff0384cd5d87e038297e79d85c99e4b2dcf0e61",
+          "url": "https://api.github.com/repos/phpspec/prophecy/zipball/b20034be5efcdab4fb60ca3a29cba2949aead160",
+          "reference": "b20034be5efcdab4fb60ca3a29cba2949aead160",
           "shasum": "",
           "mirrors": [
             {
@@ -6388,17 +6387,17 @@
             }
           ]
         },
-            "require": {
-              "doctrine/instantiator": "^1.2",
-              "php": "^7.2",
-              "phpdocumentor/reflection-docblock": "^5.0",
-              "sebastian/comparator": "^3.0 || ^4.0",
-              "sebastian/recursion-context": "^3.0 || ^4.0"
-            },
-            "require-dev": {
-              "phpspec/phpspec": "^6.0",
-              "phpunit/phpunit": "^8.0"
-            },
+        "require": {
+          "doctrine/instantiator": "^1.2",
+          "php": "^7.2",
+          "phpdocumentor/reflection-docblock": "^5.0",
+          "sebastian/comparator": "^3.0 || ^4.0",
+          "sebastian/recursion-context": "^3.0 || ^4.0"
+        },
+        "require-dev": {
+          "phpspec/phpspec": "^6.0",
+          "phpunit/phpunit": "^8.0"
+        },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -6435,7 +6434,7 @@
                 "spy",
                 "stub"
             ],
-        "time": "2020-07-07T16:07:38+00:00"
+        "time": "2020-07-08T12:44:21+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -7551,29 +7550,29 @@
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2019-06-13T22:48:21+00:00"
         },
-        {
-            "name": "webmozart/assert",
-            "version": "1.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
-                "reference": "9dc4f203e36f2b486149058bade43c851dd97451"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/9dc4f203e36f2b486149058bade43c851dd97451",
-                "reference": "9dc4f203e36f2b486149058bade43c851dd97451",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
+      {
+        "name": "webmozart/assert",
+        "version": "1.9.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/webmozart/assert.git",
+          "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+          "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
+          "shasum": "",
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+              "preferred": true
+            }
+          ]
+        },
             "require": {
-                "php": "^5.3.3 || ^7.0",
-                "symfony/polyfill-ctype": "^1.8"
+              "php": "^5.3.3 || ^7.0 || ^8.0",
+              "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
                 "phpstan/phpstan": "<0.12.20",
@@ -7604,7 +7603,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2020-06-16T10:16:42+00:00"
+        "time": "2020-07-08T17:02:28+00:00"
         }
     ],
     "aliases": [],
