@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tests\Unit\Enum;
-
 
 use App\Http\Middleware\TransformEnums;
 use Illuminate\Http\Request;
@@ -59,7 +66,7 @@ class EnumMiddlewareTest extends TestCase
 
         // 根据枚举名称来转换
         $request = $this->createRequest([
-            'user_type' => 'moderator',// strict 为 true 时，这里必须和枚举名称大小写一样
+            'user_type' => 'moderator', // strict 为 true 时，这里必须和枚举名称大小写一样
         ]);
 
         $middleware = new TransformEnums([
@@ -69,7 +76,7 @@ class EnumMiddlewareTest extends TestCase
         $middleware->handle($request, function (Request $request) {
             $this->assertInstanceOf(UserTypeEnum::class, $request->input('user_type'));
             $this->assertEquals('MODERATOR', $request['user_type']->key);
-        }, false);// 设置 strict 为 false
+        }, false); // 设置 strict 为 false
     }
 
     public function testCanTransformARequestParameterToEnumByValueWithoutStrictTypeChecking()
@@ -78,7 +85,7 @@ class EnumMiddlewareTest extends TestCase
 
         // 根据枚举值来转换
         $request = $this->createRequest([
-            'user_type' => '1',// strict 为 true 时，这里必须和枚举名值类型一样
+            'user_type' => '1', // strict 为 true 时，这里必须和枚举名值类型一样
         ]);
 
         $middleware = new TransformEnums([
@@ -88,7 +95,7 @@ class EnumMiddlewareTest extends TestCase
         $middleware->handle($request, function (Request $request) {
             $this->assertInstanceOf(UserTypeEnum::class, $request->input('user_type'));
             $this->assertEquals('MODERATOR', $request['user_type']->key);
-        }, false);// 设置 strict 为 false
+        }, false); // 设置 strict 为 false
     }
 
     protected function setUp(): void
