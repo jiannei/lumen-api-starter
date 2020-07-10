@@ -40,10 +40,10 @@ class EnumRequestTest extends TestCase
 
         // 在 /config/enum.php 的 transformations 中定义参数和枚举对象的对应关系
         // user_type => UserTypeEnum::class
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], true);
+        $request->transformEnums(['user_type' => UserTypeEnum::class], true);
 
         // 通过转换成枚举实例，就可以直接使用枚举实例中的属性和方法
-        $userType = $request->input('user_type');// UserTypeEnum::class
+        $userType = $request->input('user_type'); // UserTypeEnum::class
 
         $this->assertInstanceOf(UserTypeEnum::class, $userType);
         $this->assertEquals(UserTypeEnum::getKey(UserTypeEnum::SUBSCRIBER), $userType->key);
@@ -62,10 +62,10 @@ class EnumRequestTest extends TestCase
         ]);
 
         // user_type => UserTypeEnum::class
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], true);
+        $request->transformEnums(['user_type' => UserTypeEnum::class], true);
 
         // 通过转换成枚举实例，就可以直接使用枚举实例中的属性和方法
-        $userType = $request->input('user_type');// UserTypeEnum::class
+        $userType = $request->input('user_type'); // UserTypeEnum::class
 
         $this->assertInstanceOf(UserTypeEnum::class, $userType);
         $this->assertEquals('SUBSCRIBER', $userType->key);
@@ -74,26 +74,26 @@ class EnumRequestTest extends TestCase
     public function testAnExceptionIsThrownIfAnNonExistingEnumValueIsPassed()
     {
         $request = $this->createRequest([
-            'user_type' => '2',// 字符串类型的 2
+            'user_type' => '2', // 字符串类型的 2
         ]);
 
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], true);// strict 为 true
+        $request->transformEnums(['user_type' => UserTypeEnum::class], true); // strict 为 true
 
         $userType = $request->input('user_type');
 
         $this->assertNotInstanceOf(UserTypeEnum::class, $userType);
-        $this->assertEquals('2', $userType);// 转换失败，返回字符串原始值 '2'
+        $this->assertEquals('2', $userType); // 转换失败，返回字符串原始值 '2'
     }
 
     public function testCanTransformARequestGetParameterToEnumByKeyWithoutStrictTypeChecking()
     {
         $request = $this->createRequest([
-            'user_type' => 'subscriber',// 或者 Subscriber，不区分大小写
+            'user_type' => 'subscriber', // 或者 Subscriber，不区分大小写
         ]);
 
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], false); // 设置 strict 为 false，不严格校验参数值的小写或类型
+        $request->transformEnums(['user_type' => UserTypeEnum::class], false); // 设置 strict 为 false，不严格校验参数值的小写或类型
 
-        $userType = $request->input('user_type');// 转换成功，UserTypeEnum::class
+        $userType = $request->input('user_type'); // 转换成功，UserTypeEnum::class
 
         $this->assertInstanceOf(UserTypeEnum::class, $userType);
         $this->assertEquals('SUBSCRIBER', $userType->key);
@@ -106,9 +106,9 @@ class EnumRequestTest extends TestCase
         ]);
 
         // user_type => UserTypeEnum::class
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], false); // 设置 strict 为 false，不严格校验参数值的小写或类型
+        $request->transformEnums(['user_type' => UserTypeEnum::class], false); // 设置 strict 为 false，不严格校验参数值的小写或类型
 
-        $userType = $request->input('user_type');// 转换成功，UserTypeEnum::class
+        $userType = $request->input('user_type'); // 转换成功，UserTypeEnum::class
 
         $this->assertInstanceOf(UserTypeEnum::class, $userType);
         $this->assertEquals('SUBSCRIBER', $userType->key);
@@ -121,11 +121,11 @@ class EnumRequestTest extends TestCase
         $request = $this->createRequest(
             [],
             Request::METHOD_POST,
-            ['user_type' => 'SUBSCRIBER',]
+            ['user_type' => 'SUBSCRIBER']
         );
 
         // user_type => UserTypeEnum::class
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], true);
+        $request->transformEnums(['user_type' => UserTypeEnum::class], true);
 
         $this->assertInstanceOf(UserTypeEnum::class, $request->input('user_type'));
         $this->assertEquals('SUBSCRIBER', $request->input('user_type')->key);
@@ -138,11 +138,11 @@ class EnumRequestTest extends TestCase
         $request = $this->createRequest(
             [],
             Request::METHOD_POST,
-            ['user_type' => 1,]
+            ['user_type' => 1]
         );
 
         // user_type => UserTypeEnum::class
-        $request->transformEnums(['user_type' => UserTypeEnum::class,], true);
+        $request->transformEnums(['user_type' => UserTypeEnum::class], true);
 
         $this->assertInstanceOf(UserTypeEnum::class, $request->input('user_type'));
         $this->assertEquals('MODERATOR', $request->input('user_type')->key);
