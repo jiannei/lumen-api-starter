@@ -81,6 +81,10 @@ class EnumKey implements Rule
      */
     public function passes($attribute, $value)
     {
+        if (is_subclass_of($value, \App\Support\Enum\Enum::class)) {
+            $value = $value->key;
+        }
+
         return $this->enumClass::hasKey($value, $this->strict);
     }
 }

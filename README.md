@@ -130,7 +130,7 @@ $this->response->success($user,  '成功');// 返回普通数组
 
 $this->response->created($data,$message);
 $this->response->accepted($message);
-$this->response->noContent($message);
+$this->response->noContent();
 
 // 操作失败或异常情况
 $this->response->fail($message);

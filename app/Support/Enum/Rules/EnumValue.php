@@ -92,6 +92,10 @@ class EnumValue implements Rule
             return $value === 0;
         }
 
+        if (is_subclass_of($value, \App\Support\Enum\Enum::class)) {
+            $value = $value->value;
+        }
+
         return $this->enumClass::hasValue($value, $this->strict);
     }
 }
