@@ -5,3 +5,4 @@ Homestead.yaml
 .env
 .phpunit.result.cache
 .php_cs.cache
+composer.lock
