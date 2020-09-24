@@ -416,6 +416,22 @@ throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseConstant
 }
 ```
 
+### 自动生成 Api 文档
+
+文档基于[apiDoc - Inline Documentation for RESTful web APIs](https://apidocjs.com/)，依赖npm工具。
+
+安装
+```
+npm install apidoc -g  //检测安装是否成功 apidoc -h
+```
+
+在项目根目录下，终端运行
+```
+apidoc -i app/Http/Controllers/ -o public/apidoc/
+```
+
+生成的文件路劲在public/apidoc/下，浏览器访问：your domain/apidoc
+
 ### 特别说明
 
 使用 Postman 等 Api 测试工具的使用需要添加 `X-Requested-With：XMLHttpRequest`或者`Accept:application/json`header 信息来表明是 Api 请求，否则在异常捕获到后返回的可能不是预期的 JSON 格式响应。
