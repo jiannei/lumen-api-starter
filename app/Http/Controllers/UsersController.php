@@ -49,7 +49,6 @@ class UsersController extends Controller
      * {"status":"success","code":200,"message":"\u64cd\u4f5c\u6210\u529f","data":{"data":[{"nickname":"chunpat","email":"398949389@qq.com"},{"nickname":"chunpat1","email":"3989493891@qq.com"},{"nickname":"chunpat2","email":"3989493892@qq.com"}],"meta":{"pagination":{"total":4,"count":3,"per_page":3,"current_page":1,"total_pages":2,"links":{"next":"http:\/\/127.0.0.1:9898\/users?page=2"}}}}}
      *
      * @apiUse            FailResponse
-     *
      */
     public function index(Request $request)
     {
@@ -75,7 +74,6 @@ class UsersController extends Controller
      * @apiSuccessExample Success-Response:
      * {"status":"success","code":200,"message":"\u64cd\u4f5c\u6210\u529f","data":{"nickname":"chunpat","email":"398949389@qq.com"}}
      * @apiUse            FailResponse
-     *
      */
     public function show($id)
     {
