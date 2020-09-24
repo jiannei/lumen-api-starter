@@ -14,6 +14,7 @@ namespace App\Exceptions;
 use App\Support\Traits\ResponseTrait;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -68,6 +69,10 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof ValidatorException) {
             $this->response->fail('Validation error', 422, $exception->getMessageBag());
+        }
+
+        if ($exception instanceof AuthenticationException) {
+            $this->response->fail($exception->getMessage(), Response::HTTP_UNAUTHORIZED);
         }
 
         return parent::render($request, $exception);

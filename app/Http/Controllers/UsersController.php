@@ -99,8 +99,6 @@ class UsersController extends Controller
      * @apiSuccess {String} nickname   昵称
      * @apiSuccess {String} email   邮箱
      *
-     * @apiUse BaseResponse
-     *
      * @apiSuccessExample Success-Response:
      * {"status":"success","code":201,"message":"Created","data":{"nickname":"chunpat4","email":"3989493894@qq.com"}}
      * @apiUse            FailResponse
