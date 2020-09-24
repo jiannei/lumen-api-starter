@@ -51,11 +51,10 @@ class Controller extends BaseController
      * @apiDefine          AuthorizationHeader
      * @apiHeader          {String} authorization Authorization value.
      * @apiHeaderExample {json} Header-Example:
-     *     {
+     * {
      *       "authorization": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6OTg5OFwvYXBpXC92MVwvYXV0aG9yaXphdGlvbiIsImlhdCI6MTYwMDkxMjM2MiwiZXhwIjoxNjAwOTE2MDU1LCJuYmYiOjE2MDA5MTI0NTUsImp0aSI6ImJFcHY3WFdFUjR0Q3lMWm0iLCJzdWIiOjEsInBydiI6IjcxMTA3ZWU2YWM4ZWRlYmEwYzgxZDUwNTJlNzI3NjU1ZDE3YzZiMTEifQ.L9uIlqX7HjKpl27EPzuV7paZ_bDSNh4dqfCD1CHrVew"
-     *     }
+     * }
      */
-
 
     /**
      * @api               {get} description 接口基本返回字段

@@ -5,6 +5,5 @@ Homestead.yaml
 .env
 .phpunit.result.cache
 .php_cs.cache
-
 package-lock.json
 node_modules
