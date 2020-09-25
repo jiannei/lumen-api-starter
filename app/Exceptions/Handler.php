@@ -14,7 +14,6 @@ namespace App\Exceptions;
 use App\Support\Traits\ResponseTrait;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
