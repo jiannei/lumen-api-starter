@@ -71,10 +71,6 @@ class Handler extends ExceptionHandler
             $this->response->fail('Validation error', 422, $exception->getMessageBag());
         }
 
-        if ($exception instanceof AuthenticationException) {
-            $this->response->fail($exception->getMessage(), Response::HTTP_UNAUTHORIZED);
-        }
-
         return parent::render($request, $exception);
     }
 }
