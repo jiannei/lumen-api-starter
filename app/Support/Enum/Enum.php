@@ -17,7 +17,6 @@ use App\Exceptions\InvalidEnumKeyException;
 use App\Exceptions\InvalidEnumValueException;
 use App\Support\Enum\Cast\EnumCast;
 use Illuminate\Contracts\Database\Eloquent\Castable;
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
@@ -218,7 +217,7 @@ abstract class Enum implements EnumContract, Castable
         return $value;
     }
 
-    public static function castUsing(): CastsAttributes
+    public static function castUsing(array $arguments)
     {
         return new EnumCast(static::class);
     }
