@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          tools: pecl
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite,json,redis,mongodb
+          coverage: none
       - name: Validate composer.json and composer.lock
         run: composer validate
       - name: Cache Composer packages
@@ -23,13 +30,7 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 7.3
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite,json,redis
-          coverage: none
+        run: composer install --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
       - name: Copy ENV Configuration for CI
         run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
       - name: Create DB and schemas
