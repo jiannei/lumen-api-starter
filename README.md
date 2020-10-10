@@ -1,14 +1,14 @@
 # Lumen Api Starter Designed With ❤️
 
-翻阅了网上很多的API 开发规范文档，参考了不少大佬们总结的经验，决定尝试使用最新版本的 Lumen（当下最新版本是 Lumen 7.x)来构建一个**基础功能**完备，**规范统一**，能够**快速**应用于实际的 API 项目开发启动模板。同时，也希望通过**合理的**应用架构设计为中大型应用保驾护航。
+翻阅了网上很多的API 开发规范文档，参考了不少大佬们总结的经验，决定尝试使用最新版本的 Lumen（当下最新版本是 Lumen 8.x)来构建一个**基础功能**完备，**规范统一**，能够**快速**应用于实际的 API 项目开发启动模板。同时，也希望通过**合理的**应用架构设计为中大型应用保驾护航。
 
-少许的依赖安装，遵循 Laravel 的思维进行扩展，不额外增加“负担”。
+少许的依赖安装，遵循 Laravel 的思维进行扩展，不额外增加「负担」。
 
 开箱即用，加速 Api 开发。
 
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
-社区讨论传送：[是时候使用 Lumen 7 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+社区讨论传送：[是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
 
 ![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
 ![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
@@ -24,13 +24,13 @@
 │   ├── Console
 │   │   ├── Commands
 │   │   └── Kernel.php
-│   ├── Contracts                                // 定义 interface
+│   ├── Contracts                                       // 定义 interface
 │   │   ├── Enums
 │   │   └── Repositories
 │   ├── Events
 │   │   ├── Event.php
 │   │   └── ExampleEvent.php
-│   ├── Exceptions                              // 异常处理
+│   ├── Exceptions                                     // 异常处理
 │   │   ├── Handler.php
 │   │   ├── InvalidEnumKeyException.php
 │   │   └── InvalidEnumValueException.php
@@ -61,28 +61,28 @@
 │   │   └── Validators                          // 数据维护前的参数校验（配合 Repository 使用）
 │   ├── Services
 │   │   └── UserService.php                     // 具体的业务需求处理逻辑
-│   └── Support                                 // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
-│       ├── Enum                                // 扩展常量/枚举的定义和使用
-│       ├── Logger                              // 扩展 Lumen 的日志支持记录到 Mongodb
-│       ├── Response.php                        // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
-│       ├── Traits                              // class 中常用到的方法
-│       └── helpers.php                         // 全局会用到的函数
+│   └── Support                                       // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
+│       ├── Enum                                      // 扩展常量/枚举的定义和使用
+│       ├── Logger                                    // 扩展 Lumen 的日志支持记录到 Mongodb
+│       ├── Response.php                              // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
+│       ├── Traits                                    // class 中常用到的方法
+│       └── helpers.php                               // 全局会用到的函数
 ```
 
 ### 现已支持
 
-- 适配 Laravel 7 中新增的 HttpClient 客户端
-- RESTflu 规范的路由定义和 HTTP 响应结构
+- 适配 Laravel 7 中新增的 HttpClient 客户端（已升级到 Laravel 8）
+- RESTful 规范的路由定义和 HTTP 响应结构
     - 使用 Laravel Api Resource
     - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
 - Jwt-auth 方式授权（支持将授权用户缓存到 redis，减少 user 表查询频次）
 - 更为便捷地使用枚举/常量
 - 支持日志记录到 MongoDB
-- 合理有效地『Repository & Service』架构设计（😏）
+- 合理有效地『Repository & Service』架构设计 😏
 
 ### 计划支持
 
-其他规划讨论中。（Laravel 7 的对应实现版本？生成 API 文档？支持单元测试？异步业务逻辑的拆分？消息队列、缓存的高效使用？swoole？）
+其他规划讨论中...
 
 ## RESTful 方式的路由设计简单准则
 
@@ -371,10 +371,10 @@ return $this->response->success($user,'注册成功');
 }
 ```
 
-**第二种**：message 参数为空，使用 ResponseConstant 中自定义的业务操作码，读取 `resources/lang/zh-CN/response.php`中的业务描述信息，也就说明支持多语言了
+**第二种**：message 参数为空，使用 ResponseCodeEnum 中自定义的业务操作码，读取 `resources/lang/zh-CN/response.php`中的业务描述信息，也就说明支持多语言了
 
 ```php
-return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS);
+return $this->response->success($user,'',ResponseCodeEnum::SERVICE_LOGIN_SUCCESS);
 ```
 
 ```json
@@ -389,7 +389,7 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 }
 ```
 
-**注意**：两种的返回数据有中的 code 不同，第二种返回的是自定义的操作码，具体定义规则可以查看 `app/Constants/ResponseConstant.php`
+**注意**：两种的返回数据有中的 code 不同，第二种返回的是自定义的操作码，具体定义规则可以查看 `app/Repositories/Enums/ResponseCodeEnum.php`
 
 - 操作失败
 
@@ -398,9 +398,9 @@ return $this->response->success($user,'',ResponseConstant::SERVICE_LOGIN_SUCCESS
 使用
 
 ```php
-abort(ResponseConstant::SERVICE_LOGIN_ERROR);
+abort(ResponseCodeEnum::SERVICE_LOGIN_ERROR);
 // 等价于
-throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseConstant::SERVICE_LOGIN_ERROR);
+throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseCodeEnum::SERVICE_LOGIN_ERROR);
 ```
 
 返回
@@ -435,7 +435,6 @@ Controller => dispatch，校验请求后分发业务处理
 Service => action，具体的业务实现
 Repository => state、mutation、getter，具体的数据维护
 ```
-
 
 ### 职责说明
 
@@ -481,7 +480,7 @@ Repository => state、mutation、getter，具体的数据维护
 
 作用类似 Eloquent Model 中的 Scope 查询，把常用的查询提取出来，但是比 Scope 更强大。
 可以省去 Model 中大量的根据请求参数判断并拼接查询条件的代码，与此同时，能够做到将多种数据之间存在的**通用**筛选条件剥离出来。
-比如 `make:repository`创建生成的 Repository 中默认包含以下代码，就是给 Repository 默认配置了一个 RequestCriteria，就可以直接使用下面的方式来过滤数据，难道不香吗，嗯？
+比如 `make:repository`创建生成的 Repository 中默认包含以下代码，就是给 Repository 默认配置了一个 RequestCriteria，就可以直接使用下面的方式来过滤数据，是不是非常方便？！
 
 ```php
 public function boot()
@@ -661,6 +660,7 @@ public function listPage(Request $request)
 - [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) （可选，需要使用 Laravel 7 新增的 HttpClient 时安装）
 - [jenssegers/mongodb](https://github.com/jenssegers/laravel-mongodb) （可选，需要使用记录日志到 MongoDB 时安装）
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth) （默认支持 JWT 授权）
+- [illuminate/redis](https://github.com/illuminate/redis) （默认使用 Redis 来缓存）
 - [prettus/l5-repository](https://github.com/andersao/l5-repository) （默认使用 Repository 模式）
 - [league/fractal](https://github.com/thephpleague/fractal) (可选，需要用到 transformer 时安装)
 
