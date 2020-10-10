@@ -11,30 +11,31 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Get Composer Cache Directory
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+      - name: Cache Composer packages
         id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-composer-
+            ${{ runner.os }}-php-
+      - name: Install dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --prefer-dist --no-progress --no-suggest
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 7.3
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite,json,redis
           coverage: none
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction --no-suggest
       - name: Copy ENV Configuration for CI
         run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
       - name: Create DB and schemas
         run: |
-            mkdir -p database
-            touch database/database.sqlite
-            php artisan migrate
+          mkdir -p database
+          touch database/database.sqlite
+          php artisan migrate
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: vendor/bin/phpunit
