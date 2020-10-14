@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Repositories\Enums;
-
 
 use App\Support\Enum\Enum;
 
@@ -12,9 +19,9 @@ class CacheEnum extends Enum
     const AUTHORIZATION_USER = 'authorization:user';
 
     /**
-     * 根据生成缓存时的 index
+     * 根据生成缓存时的 index.
      *
-     * @param  string|Enum|integer  $cacheEnumKeyOrValue  缓存常量的 key 值或 value 值
+     * @param  string|Enum|int  $cacheEnumKeyOrValue  缓存常量的 key 值或 value 值
      * @param  string|null  $identifier  integer|string 缓存区分
      * @return string
      */
