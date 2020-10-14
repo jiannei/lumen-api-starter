@@ -11,8 +11,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\Enums\CacheEnum;
 use Illuminate\Auth\EloquentUserProvider as BaseEloquentUserProvider;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
@@ -26,8 +28,9 @@ class EloquentUserProvider extends BaseEloquentUserProvider
      */
     public function retrieveById($identifier)
     {
-        if (Cache::tags(['authorization', 'user'])->has($identifier)) {
-            return Cache::tags(['authorization', 'user'])->get($identifier);
+        $cacheKey = CacheEnum::buildKey(CacheEnum::AUTHORIZATION_USER, $identifier);
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
         }
 
         $model = $this->createModel();
@@ -38,12 +41,11 @@ class EloquentUserProvider extends BaseEloquentUserProvider
             ->first();
 
         $exp = auth('api')->payload()->get('exp');
-        $now = \Illuminate\Support\Carbon::now();
 
-        Cache::tags(['authorization', 'user'])->put(
-            $user->$identifierName,
+        Cache::put(
+            $cacheKey,
             $user,
-            $now->diffInSeconds(\Illuminate\Support\Carbon::createFromTimestamp($exp))
+            Carbon::now()->diffInSeconds(Carbon::createFromTimestamp($exp))
         );
 
         return $user;
