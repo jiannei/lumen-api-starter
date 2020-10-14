@@ -42,7 +42,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
 
     /**
-     * 兼容 Laravel 8 的 Factory
+     * 兼容 Laravel 8 的 Factory.
      *
      * @return UserFactory
      */
