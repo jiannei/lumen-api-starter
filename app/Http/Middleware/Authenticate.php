@@ -11,6 +11,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Repositories\Enums\ResponseCodeEnum;
 use Closure;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Factory as Auth;
@@ -49,7 +50,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            throw new AuthorizationException();
+            abort(ResponseCodeEnum::HTTP_UNAUTHORIZED);
         }
 
         return $next($request);

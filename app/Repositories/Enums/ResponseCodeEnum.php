@@ -21,6 +21,7 @@ class ResponseCodeEnum extends Enum implements LocalizedEnumContract
 {
     // 定制/覆盖 HTTP 协议状态码
     const HTTP_OK = 200;
+    const HTTP_UNAUTHORIZED = 401;
 
     // 业务操作正确码：1xx、2xx、3xx 开头，后拼接 3 位
     // 200 + 001 => 200001，也就是有 001 ~ 999 个编号可以用来表示业务成功的情况，当然你可以根据实际需求继续增加位数，但必须要求是 200 开头

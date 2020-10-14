@@ -26,7 +26,7 @@ class UsersController extends Controller
     {
         $this->userService = $userService;
 
-        $this->middleware('auth:api', ['except' => ['store', 'show', 'index']]);
+        $this->middleware('auth:api', ['except' => ['store', 'show',]]);
     }
 
     public function index(Request $request)

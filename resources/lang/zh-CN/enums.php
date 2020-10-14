@@ -23,6 +23,7 @@ return [
     ResponseCodeEnum::class => [
         // 成功
         ResponseCodeEnum::HTTP_OK => '操作成功', // 自定义 HTTP 状态码返回消息
+        ResponseCodeEnum::HTTP_UNAUTHORIZED => '授权失败',
 
         // 业务操作成功
         ResponseCodeEnum::SERVICE_REGISTER_SUCCESS => '注册成功',
