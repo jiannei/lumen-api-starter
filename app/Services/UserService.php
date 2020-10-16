@@ -36,7 +36,7 @@ class UserService
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchUsersByPage();
+        return $this->repository->searchPage();
     }
 
     public function handleProfile($id)

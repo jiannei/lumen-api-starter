@@ -11,17 +11,19 @@
 
 namespace App\Repositories\Models;
 
+use App\Repositories\Enums\RoleEnum;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Lumen\Auth\Authorizable;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
-    use Authenticatable, Authorizable, HasFactory;
+    use Authenticatable, Authorizable, HasFactory, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -69,5 +71,19 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->hasRole(RoleEnum::SUPER_ADMIN()->name);
+    }
+
+    public function isOwnerOf(\Illuminate\Database\Eloquent\Model $model, string $key = 'user_id'): bool
+    {
+        if ($model instanceof User) {
+            return $this->id === $model->id;
+        }
+
+        return $this->id === $model->$key;
     }
 }

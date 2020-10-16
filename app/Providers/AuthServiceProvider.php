@@ -11,6 +11,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Enums\PermissionEnum;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -37,6 +39,8 @@ class AuthServiceProvider extends ServiceProvider
                 return User::where('api_token', $request->input('api_token'))->first();
             }
         });*/
+
+        Gate::before(PermissionEnum::gateBeforeCallback());
 
         $this->app['auth']->provider('custom', function ($app, array $config) {
             return new EloquentUserProvider($app['hash'], $config['model']);

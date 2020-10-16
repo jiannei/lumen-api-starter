@@ -11,6 +11,7 @@
 
 namespace App\Repositories\Transformers;
 
+use App\Repositories\Enums\PermissionEnum;
 use App\Repositories\Models\User;
 use League\Fractal\TransformerAbstract;
 
@@ -18,9 +19,20 @@ class UserTransformer extends TransformerAbstract
 {
     public function transform(User $user)
     {
-        return [
+        $data = [
             'nickname' => $user->name,
             'email' => $user->email,
         ];
+
+        if (!$this->checkColumnPermission()) {
+            $data['email'] = '**** ****';
+        }
+
+        return $data;
+    }
+
+    protected function checkColumnPermission()
+    {
+        return auth('api')->user()->can(PermissionEnum::DATA_USERS_COLUMN_EMAIL());
     }
 }

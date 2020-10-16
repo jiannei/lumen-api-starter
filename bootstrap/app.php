@@ -89,6 +89,10 @@ $app->configure('services');
 $app->configure('views');
 $app->configure('repository');
 $app->configure('enum');
+$app->configure('permission');
+
+
+$app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +117,8 @@ $app->middleware([
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
     'enum' => App\Http\Middleware\TransformEnums::class,
+    'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role' => Spatie\Permission\Middlewares\RoleMiddleware::class,
 ]);
 
 /*
@@ -138,6 +144,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
  */
 $app->register(LumenServiceProvider::class);
 $app->register(LumenRepositoryServiceProvider::class);
+$app->register(Spatie\Permission\PermissionServiceProvider::class);
 
 /*
  * Custom Service Providers.

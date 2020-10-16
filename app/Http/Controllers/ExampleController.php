@@ -53,4 +53,29 @@ class ExampleController extends Controller
 
         $this->response->fail('transform enum fail');
     }
+
+    public function syncRoles(Request $request)
+    {
+        $this->validate($request, [
+            'roles' => 'required|array'
+        ]);
+
+        $roles = $request->input('roles');
+
+        $request->user()->syncRoles($roles);
+
+        return $this->response->success($roles, '角色更新成功');
+    }
+
+    public function syncPermissions(Request $request)
+    {
+        $this->validate($request, [
+            'permissions' => 'required|array'
+        ]);
+
+        $permissions = $request->input('permissions');
+        $request->user()->syncPermissions($permissions);
+
+        return $this->response->success($permissions, '权限更新成功');
+    }
 }

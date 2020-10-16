@@ -13,6 +13,7 @@
         "laravel/lumen-framework": "^8.0",
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.7",
+        "spatie/laravel-permission": "^3.17",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

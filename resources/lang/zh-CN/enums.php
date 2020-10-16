@@ -10,7 +10,9 @@
  */
 
 use App\Repositories\Enums\ExampleEnum;
+use App\Repositories\Enums\PermissionEnum;
 use App\Repositories\Enums\ResponseCodeEnum;
+use App\Repositories\Enums\RoleEnum;
 
 return [
     'validations' => [
@@ -48,4 +50,31 @@ return [
         ExampleEnum::ADMINISTRATOR => '管理员',
         ExampleEnum::SUPER_ADMINISTRATOR => '超级管理员',
     ],
+
+    // 角色
+    RoleEnum::class => [
+        RoleEnum::SUPER_ADMIN => '超级管理员',
+        RoleEnum::GUEST => '游客',
+        RoleEnum::ADMIN => '管理员',
+    ],
+
+    // 权限
+    PermissionEnum::class => [
+        PermissionEnum::SYSTEM_ACTIVITY_LOG_CLEAN => '清理活动日志',
+        PermissionEnum::SYSTEM_CACHE_CLEAR => '清理缓存',
+
+        PermissionEnum::ROUTE_USERS => '用户管理',
+        PermissionEnum::ROUTE_USERS_CREATE => '创建用户',
+        PermissionEnum::ROUTE_USERS_DELETE => '删除用户',
+        PermissionEnum::ROUTE_USERS_UPDATE => '更新用户资料',
+        PermissionEnum::ROUTE_USERS_VIEW => '查询用户资料',
+        PermissionEnum::ROUTE_USERS_VIEW_ANY => '查询用户列表',
+
+        PermissionEnum::ROUTE_POSTS => ' 文章管理',
+        PermissionEnum::ROUTE_POSTS_CREATE => '发布文章',
+        PermissionEnum::ROUTE_POSTS_DELETE => '删除文章',
+        PermissionEnum::ROUTE_POSTS_UPDATE => '更新文章',
+        PermissionEnum::ROUTE_POSTS_VIEW => '查看文章',
+        PermissionEnum::ROUTE_POSTS_VIEW_ANY => '查询文章列表',
+    ]
 ];

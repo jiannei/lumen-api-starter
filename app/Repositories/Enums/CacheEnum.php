@@ -25,7 +25,7 @@ class CacheEnum extends Enum
      * @param  string|null  $identifier  integer|string 缓存区分
      * @return string
      */
-    public static function buildKey($cacheEnumKeyOrValue, ?string $identifier = null)
+    public static function makeKey($cacheEnumKeyOrValue, ?string $identifier = null)
     {
         $key = (string) self::make($cacheEnumKeyOrValue);
 
