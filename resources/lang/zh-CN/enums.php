@@ -76,5 +76,5 @@ return [
         PermissionEnum::ROUTE_POSTS_UPDATE => '更新文章',
         PermissionEnum::ROUTE_POSTS_VIEW => '查看文章',
         PermissionEnum::ROUTE_POSTS_VIEW_ANY => '查询文章列表',
-    ]
+    ],
 ];

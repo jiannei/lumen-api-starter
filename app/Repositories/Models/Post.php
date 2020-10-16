@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace App\Repositories\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,8 +17,6 @@ use Prettus\Repository\Traits\TransformableTrait;
 
 /**
  * Class Post.
- *
- * @package namespace App\Repositories\Models;
  */
 class Post extends Model implements Transformable
 {
@@ -21,7 +28,7 @@ class Post extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'title', 'body', 'published', 'user_id'
+        'title', 'body', 'published', 'user_id',
     ];
 
     protected $casts = [
@@ -35,6 +42,6 @@ class Post extends Model implements Transformable
 
     public function author()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

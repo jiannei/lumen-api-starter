@@ -19,7 +19,7 @@ use League\Fractal\TransformerAbstract;
 class PostTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
-        'author'
+        'author',
     ];
 
     public function transform(Post $post)
@@ -27,8 +27,8 @@ class PostTransformer extends TransformerAbstract
         return [
             'id' => $post->id,
             'title' => $post->title,
-            'body' => $this->checkColumnPermission() ? $post->body : Str::limit($post->body, 120),// 没有文章详情查看权限时，返回截取的部分内容
-            'published' => $post->published
+            'body' => $this->checkColumnPermission() ? $post->body : Str::limit($post->body, 120), // 没有文章详情查看权限时，返回截取的部分内容
+            'published' => $post->published,
         ];
     }
 

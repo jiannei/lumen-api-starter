@@ -91,7 +91,6 @@ $app->configure('repository');
 $app->configure('enum');
 $app->configure('permission');
 
-
 $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 /*

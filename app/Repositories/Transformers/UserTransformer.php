@@ -24,7 +24,7 @@ class UserTransformer extends TransformerAbstract
             'email' => $user->email,
         ];
 
-        if (!$this->checkColumnPermission()) {
+        if (! $this->checkColumnPermission()) {
             $data['email'] = '**** ****';
         }
 
