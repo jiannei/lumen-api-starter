@@ -33,6 +33,6 @@ class UserTransformer extends TransformerAbstract
 
     protected function checkColumnPermission()
     {
-        return auth('api')->user()->can(PermissionEnum::DATA_USERS_COLUMN_EMAIL());
+        return auth('api')->user()->can(PermissionEnum::DATA_USERS_COLUMN_EMAIL()->name);
     }
 }
