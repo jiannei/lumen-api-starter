@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Repositories\Enums;
-
 
 use App\Contracts\Enums\LocalizedEnumContract;
 use App\Support\Enum\Enum;
@@ -61,7 +68,7 @@ class PermissionEnum extends Enum implements LocalizedEnumContract
     }
 
     /**
-     * 根据常量定义构建权限
+     * 根据常量定义构建权限.
      *
      * @return array
      */
@@ -80,7 +87,7 @@ class PermissionEnum extends Enum implements LocalizedEnumContract
     }
 
     /**
-     * 前置-授权拦截检查
+     * 前置-授权拦截检查.
      *
      * @return Closure
      */

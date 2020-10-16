@@ -34,7 +34,6 @@ Route::get('author', function () {
     return $response->json();
 });
 
-
 // 测试路由
 Route::group(['prefix' => 'test'], function () {
     Route::get('configurations', 'ExampleController@configurations');

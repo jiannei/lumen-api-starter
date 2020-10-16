@@ -57,7 +57,7 @@ class ExampleController extends Controller
     public function syncRoles(Request $request)
     {
         $this->validate($request, [
-            'roles' => 'required|array'
+            'roles' => 'required|array',
         ]);
 
         $roles = $request->input('roles');
@@ -70,7 +70,7 @@ class ExampleController extends Controller
     public function syncPermissions(Request $request)
     {
         $this->validate($request, [
-            'permissions' => 'required|array'
+            'permissions' => 'required|array',
         ]);
 
         $permissions = $request->input('permissions');
