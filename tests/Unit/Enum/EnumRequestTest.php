@@ -43,7 +43,7 @@ class EnumRequestTest extends TestCase
 
         // 比如，客户端发起了一个 request，参数中包含 user_type = 'MODERATOR'，我们希望可以在 Controller 中的方法中更为便捷的操作这个枚举
         // GET 方式：request 参数中包含 user_type
-        $this->call('GET','test/enums',['user_type' => 'SUBSCRIBER']);
+        $this->call('GET', 'test/enums', ['user_type' => 'SUBSCRIBER']);
         $request = $this->app['request'];
 
         // 在 /config/enum.php 的 transformations 中定义参数和枚举对象的对应关系
@@ -65,7 +65,7 @@ class EnumRequestTest extends TestCase
         // 根据「枚举的值」进行转换
 
         // GET 方式：request 参数中包含 user_type
-        $this->call('GET','test/enums',['user_type' => 2]);
+        $this->call('GET', 'test/enums', ['user_type' => 2]);
         $request = $this->app['request'];
 
         // user_type => UserTypeEnum::class
@@ -80,7 +80,7 @@ class EnumRequestTest extends TestCase
 
     public function testAnExceptionIsThrownIfAnNonExistingEnumValueIsPassed()
     {
-        $this->call('GET','test/enums',['user_type' => '2']); // 字符串类型的 2
+        $this->call('GET', 'test/enums', ['user_type' => '2']); // 字符串类型的 2
         $request = $this->app['request'];
 
         $request->transformEnums(['user_type' => UserTypeEnum::class], true); // strict 为 true
@@ -93,9 +93,8 @@ class EnumRequestTest extends TestCase
 
     public function testCanTransformARequestGetParameterToEnumByKeyWithoutStrictTypeChecking()
     {
-        $this->call('GET','test/enums',['user_type' => 'subscriber']);  // 或者 Subscriber，不区分大小写
+        $this->call('GET', 'test/enums', ['user_type' => 'subscriber']);  // 或者 Subscriber，不区分大小写
         $request = $this->app['request'];
-
 
         $request->transformEnums(['user_type' => UserTypeEnum::class], false); // 设置 strict 为 false，不严格校验参数值的小写或类型
 
@@ -107,7 +106,7 @@ class EnumRequestTest extends TestCase
 
     public function testCanTransformARequestGetParameterToEnumByValueWithoutStrictTypeChecking()
     {
-        $this->call('GET','test/enums',['user_type' => '2']);
+        $this->call('GET', 'test/enums', ['user_type' => '2']);
         $request = $this->app['request'];
 
         // user_type => UserTypeEnum::class
@@ -123,7 +122,7 @@ class EnumRequestTest extends TestCase
     {
         // 根据「枚举的名称」进行转换
         // POST 方式：request 参数中包含 user_type
-        $this->call('POST','test/enums',['user_type' => 'SUBSCRIBER']);
+        $this->call('POST', 'test/enums', ['user_type' => 'SUBSCRIBER']);
         $request = $this->app['request'];
 
         // user_type => UserTypeEnum::class
@@ -137,7 +136,7 @@ class EnumRequestTest extends TestCase
     {
         // 根据「枚举的值」进行转换
         // POST 方式：request 参数中包含 user_type
-        $this->call('POST','test/enums',['user_type' => 1]);
+        $this->call('POST', 'test/enums', ['user_type' => 1]);
         $request = $this->app['request'];
 
         // user_type => UserTypeEnum::class
