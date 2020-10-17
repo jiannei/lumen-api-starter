@@ -25,18 +25,20 @@ final class EnumRequest
     {
         return function (array $transformations, bool $strict): void {
             foreach ($transformations as $key => $enumClass) {
-                if (! $this->has($key)) {
+                if (! $this->offsetExists($key)) {
                     continue;
                 }
 
-                $requestKey = $this->input($key);
+                $requestKey = $this->offsetGet($key);
                 $enumKeyOrValue = (is_numeric($requestKey) && ! $strict) ? (int) $requestKey : $requestKey;
 
-                $this[$key] = forward_static_call(
+                $transformedKey = forward_static_call(
                     [$enumClass, 'make'],
                     $enumKeyOrValue,
                     $strict
                 );
+
+                $this->offsetSet($key, $transformedKey);
             }
         };
     }
