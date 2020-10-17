@@ -39,7 +39,7 @@ Route::group(['prefix' => 'test'], function () {
     Route::get('configurations', 'ExampleController@configurations');
     Route::get('logs', 'ExampleController@logs');
     Route::get('enums', 'ExampleController@enums');
-    Route::get('enums/{user_type}', 'ExampleController@enums');// 这里的 user_type 名称必须和 enum.php 中 transformations 项配置的 参数名 保持一致
+    Route::get('enums/{user_type}', 'ExampleController@enums'); // 这里的 user_type 名称必须和 enum.php 中 transformations 项配置的 参数名 保持一致
     Route::post('enums', 'ExampleController@enums');
     Route::put('roles', 'ExampleController@syncRoles');
     Route::put('permissions', 'ExampleController@syncPermissions');
