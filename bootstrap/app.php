@@ -10,7 +10,7 @@
  */
 
 use App\Providers\EnumServiceProvider;
-use App\Providers\QueryLoggerServiceProvider;
+use App\Providers\LoggerServiceProvider;
 use App\Providers\RepositoryServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
 use Prettus\Repository\Providers\LumenRepositoryServiceProvider;
@@ -109,6 +109,7 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 // ]);
 
 $app->middleware([
+    App\Http\Middleware\RequestTimeMiddleware::class,
     App\Http\Middleware\AcceptHeader::class,
     App\Http\Middleware\EtagMiddleware::class,
 ]);
@@ -149,7 +150,7 @@ $app->register(Spatie\Permission\PermissionServiceProvider::class);
  * Custom Service Providers.
  */
 $app->register(RepositoryServiceProvider::class);
-$app->register(QueryLoggerServiceProvider::class);
+$app->register(LoggerServiceProvider::class);
 $app->register(RedisServiceProvider::class);
 $app->register(EnumServiceProvider::class);
 

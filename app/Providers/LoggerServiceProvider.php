@@ -11,19 +11,23 @@
 
 namespace App\Providers;
 
+use App\Jobs\LogJob;
+use App\Repositories\Enums\LogEnum;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Monolog\Processor\WebProcessor;
 
-class QueryLoggerServiceProvider extends ServiceProvider
+class LoggerServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
     public function boot()
     {
-        if (! $this->app['config']->get('app.debug') && ! $this->app['config']->get('logging.query.enabled', false)) {
+        request()->server->set('UNIQUE_ID', Str::uuid()->toString());
+
+        $this->app['log']->pushProcessor(new WebProcessor(request()->server()));
+
+        if (!$this->app['config']->get('app.debug') && !$this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 
@@ -42,7 +46,14 @@ class QueryLoggerServiceProvider extends ServiceProvider
             if (count($bindings) > 0) {
                 $realSql = vsprintf($sqlWithPlaceholders, array_map([$pdo, 'quote'], $bindings));
             }
-            Log::debug(sprintf('[%s] [%s] %s | %s: %s', $query->connection->getDatabaseName(), $duration, $realSql, request()->method(), request()->getRequestUri()));
+
+            $context = [
+                'database' => $query->connection->getDatabaseName(),
+                'duration' => $duration,
+                'sql' => $realSql,
+            ];
+
+            dispatch(new LogJob(LogEnum::LOG_SQL, $context));
         });
     }
 }

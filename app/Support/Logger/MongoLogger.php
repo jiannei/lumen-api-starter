@@ -15,14 +15,13 @@ use Carbon\Carbon;
 use MongoDB\Client;
 use Monolog\Handler\MongoDBHandler;
 use Monolog\Logger;
-use Monolog\Processor\WebProcessor;
 
-class CustomMongoLogger
+class MongoLogger
 {
     /**
      * Create a custom Monolog instance.
      *
-     * @param array $config
+     * @param  array  $config
      *
      * @return \Monolog\Logger
      */
@@ -48,7 +47,6 @@ class CustomMongoLogger
 
         $logger = new Logger('mongo'); // 创建 Logger
         $logger->pushHandler($handler); // 挂载 Handler
-        $logger->pushProcessor(new WebProcessor(request()->server())); // 记录额外的请求信息
 
         return $logger;
     }

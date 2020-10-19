@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-if (! function_exists('formatDuration')) {
+if (!function_exists('formatDuration')) {
     /**
      * Format duration.
      *
-     * @param float $seconds
+     * @param  float  $seconds
      *
      * @return string
      */
@@ -26,5 +26,19 @@ if (! function_exists('formatDuration')) {
         }
 
         return round($seconds, 2).'s';
+    }
+}
+
+if (!function_exists('log')) {
+    /**
+     * Log a debug message to the logs.
+     *
+     * @param  string  $message
+     * @param  array  $context
+     * @return \Laravel\Lumen\Bus\PendingDispatch|mixed
+     */
+    function log(string $message, array $context = [])
+    {
+        return dispatch(new \App\Jobs\LogJob($message, $context));
     }
 }
