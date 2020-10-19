@@ -27,7 +27,7 @@ class LoggerServiceProvider extends ServiceProvider
 
         $this->app['log']->pushProcessor(new WebProcessor(request()->server()));
 
-        if (!$this->app['config']->get('app.debug') && !$this->app['config']->get('logging.query.enabled', false)) {
+        if (! $this->app['config']->get('app.debug') && ! $this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 
