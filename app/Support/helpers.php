@@ -29,7 +29,7 @@ if (! function_exists('formatDuration')) {
     }
 }
 
-if (! function_exists('log')) {
+if (!function_exists('logger')) {
     /**
      * Log a debug message to the logs.
      *
@@ -37,8 +37,8 @@ if (! function_exists('log')) {
      * @param  array  $context
      * @return \Laravel\Lumen\Bus\PendingDispatch|mixed
      */
-    function log(string $message, array $context = [])
+    function logger(string $message, array $context = [])
     {
-        return dispatch(new \App\Jobs\LogJob($message, $context));
+        return dispatch(new \App\Jobs\LogJob($message, $context,request()->server()));
     }
 }

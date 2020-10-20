@@ -11,21 +11,25 @@
 
 namespace App\Jobs;
 
-use Illuminate\Support\Facades\Log;
+use Monolog\Processor\WebProcessor;
 
 class LogJob extends Job
 {
     private $context;
     private $message;
+    private $serverData;
 
-    public function __construct(string $message, array $context)
+    public function __construct(string $message, array $context = null, array $serverData = null)
     {
         $this->message = $message;
         $this->context = $context;
+        $this->serverData = $serverData;
     }
 
     public function handle()
     {
-        Log::debug($this->message, $this->context);
+        $logger = clone app('log')->getLogger();
+        $logger->pushProcessor(new WebProcessor($this->serverData));
+        $logger->debug($this->message, $this->context);
     }
 }

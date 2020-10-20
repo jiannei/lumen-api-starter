@@ -16,18 +16,12 @@ use App\Repositories\Enums\LogEnum;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Monolog\Processor\WebProcessor;
 
 class LoggerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        request()->server->set('UNIQUE_ID', Str::uuid()->toString());
-
-        $this->app['log']->pushProcessor(new WebProcessor(request()->server()));
-
-        if (! $this->app['config']->get('app.debug') && ! $this->app['config']->get('logging.query.enabled', false)) {
+        if (!$this->app['config']->get('app.debug') && !$this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 
@@ -53,7 +47,7 @@ class LoggerServiceProvider extends ServiceProvider
                 'sql' => $realSql,
             ];
 
-            dispatch(new LogJob(LogEnum::LOG_SQL, $context));
+            dispatch(new LogJob(LogEnum::LOG_SQL, $context, request()->server()));
         });
     }
 }

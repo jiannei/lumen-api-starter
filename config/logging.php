@@ -107,6 +107,7 @@ return [
             'driver' => 'custom', // 此处必须为 `custom`
             'via' => MongoLogger::class, // 当 `driver` 设置为 custom 时，使用 `via` 配置项所指向的工厂类创建 logger
 
+            'channel' => env('LOG_MONGODB_CHANNEL', 'mongo'),
             'level' => env('LOG_MONGODB_LEVEL', 'debug'), // 日志级别
             'separate' => env('LOG_MONGODB_SEPARATE', false), // false,daily,monthly,yearly
 

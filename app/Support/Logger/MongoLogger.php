@@ -45,7 +45,7 @@ class MongoLogger
         );
         $handler->setLevel($config['level']);
 
-        $logger = new Logger('mongo'); // 创建 Logger
+        $logger = new Logger($config['channel']); // 创建 Logger
         $logger->pushHandler($handler); // 挂载 Handler
 
         return $logger;

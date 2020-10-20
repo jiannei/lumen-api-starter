@@ -15,12 +15,15 @@ use App\Jobs\LogJob;
 use App\Repositories\Enums\LogEnum;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class RequestTimeMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+        $request->server->set('UNIQUE_ID', Str::uuid()->toString());
+
         return $next($request);
     }
 
@@ -36,6 +39,6 @@ class RequestTimeMiddleware
             'duration' => formatDuration($end - $start),
         ];
 
-        dispatch(new LogJob(LogEnum::LOG_REQUEST_TIME, $context));
+        dispatch(new LogJob(LogEnum::LOG_REQUEST_TIME, $context, $request->server()));
     }
 }
