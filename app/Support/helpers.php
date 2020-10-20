@@ -29,7 +29,7 @@ if (! function_exists('formatDuration')) {
     }
 }
 
-if (!function_exists('logger')) {
+if (! function_exists('logger')) {
     /**
      * Log a debug message to the logs.
      *
@@ -39,6 +39,6 @@ if (!function_exists('logger')) {
      */
     function logger(string $message, array $context = [])
     {
-        return dispatch(new \App\Jobs\LogJob($message, $context,request()->server()));
+        return dispatch(new \App\Jobs\LogJob($message, $context, request()->server()));
     }
 }
