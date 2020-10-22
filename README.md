@@ -9,6 +9,7 @@
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
 社区讨论传送：[是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+
 Lumen学习交流群：1105120693（QQ）
 
 ![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
