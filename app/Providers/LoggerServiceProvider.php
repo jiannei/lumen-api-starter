@@ -21,7 +21,7 @@ class LoggerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        if (!$this->app['config']->get('app.debug') && !$this->app['config']->get('logging.query.enabled', false)) {
+        if (! $this->app['config']->get('app.debug') && ! $this->app['config']->get('logging.query.enabled', false)) {
             return;
         }
 
