@@ -9,6 +9,7 @@
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
 社区讨论传送：[是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+Lumen学习交流群：1105120693（QQ）
 
 ![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
 ![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
@@ -16,6 +17,26 @@
 [TOC]
 
 ## 概览
+
+### 现已支持
+
+- 适配 Laravel 7 中新增的 HttpClient 客户端（已升级到 Laravel 8）
+- RESTful 规范的路由定义和 HTTP 响应结构
+    - 使用 Laravel Api Resource
+    - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
+- Jwt-auth 方式授权（支持将授权用户缓存到 redis，减少 user 表查询频次）
+- 更为便捷地使用枚举/常量：方便地对枚举进行判断校验；请求中包含枚举参数可以自动转换为对应枚举实例
+- 支持日志记录到 MongoDB：
+    - 异步队列记录日志，包括所有请求日志、SQL 日志、异常日志、业务日志’；
+    - 每次请求关联了 UNIQUE_ID，可以通过 UNIQUE_ID 查询出单次请求产生的全部日志
+    - 请求日志包含单次请求执行时间记录
+    - 支持以每日、每月以及每年按表进行拆分
+- 使用 laravel-permission 管理权限：支持根据定义好的 PermissionEnum 生成权限（包含权限校验案例）
+- 合理有效地『Repository & Service』架构设计 😏
+
+### 计划支持
+
+其他规划讨论中...
 
 ### 目录结构一览
 
@@ -69,21 +90,6 @@
 │       └── helpers.php                               // 全局会用到的函数
 ```
 
-### 现已支持
-
-- 适配 Laravel 7 中新增的 HttpClient 客户端（已升级到 Laravel 8）
-- RESTful 规范的路由定义和 HTTP 响应结构
-    - 使用 Laravel Api Resource
-    - 支持自定义**业务操作应码**以及**业务操作描述**（多语言支持，根据配置中的 APP_LOCAL 配置返回）
-- Jwt-auth 方式授权（支持将授权用户缓存到 redis，减少 user 表查询频次）
-- 更为便捷地使用枚举/常量
-- 支持日志记录到 MongoDB
-- 合理有效地『Repository & Service』架构设计 😏
-
-### 计划支持
-
-其他规划讨论中...
-
 ## RESTful 方式的路由设计简单准则
 
 [一篇 RESTful API 路由设计的最佳实践](https://learnku.com/articles/45526)
@@ -118,7 +124,9 @@
 
 ### 使用
 
-在需要用到的地方使用 `\App\Traits\Helpers`对`\App\Http\Response`中封装的响应方法进行调用，通常是在 Controller 层中根据业务处理的结果进行响应，所以 `\App\Http\Controllers`基类中已经引入了 `Helpers`trait，可以直接在 Controller 中进行如下调用：
+在需要用到的地方使用 `use App\Support\Traits\ResponseTrait;`对其中封装的响应方法进行调用。
+
+通常是在 Controller 层中根据业务处理的结果进行响应，所以 `\App\Http\Controllers`基类中已经引入了 `use App\Support\Traits\ResponseTrait;`，可以直接在 Controller 中进行如下调用：
 
 ```php
 // 操作成功情况
@@ -420,12 +428,6 @@ throw new \Symfony\Component\HttpKernel\Exception\HttpException(ResponseCodeEnum
 
 使用 Postman 等 Api 测试工具的使用需要添加 `X-Requested-With：XMLHttpRequest`或者`Accept:application/json`header 信息来表明是 Api 请求，否则在异常捕获到后返回的可能不是预期的 JSON 格式响应。
 
-## 丰富的日志模式支持
-
-- 支持记录日志（包括业务错误记录的日志和捕获的异常信息等）到 MongoDB，方便线上问题的排查
-- 记录到 MongoDB 的日志，支持以每日、每月以及每年按表进行拆分
-- 支持记录 sql 语句
-
 ## Repository & Service 模式架构
 
 在添加这部分描述的时候，联想到了 Vue 中的 Vuex，熟悉 Vuex 的同学可以类比一下。
@@ -489,7 +491,7 @@ public function boot()
 }
 ```
 
-```
+```php
 http://prettus.local/users?search=age:17;email:john@gmail.com&searchJoin=and
 
 Filtering fields
@@ -661,6 +663,7 @@ public function listPage(Request $request)
 - [jenssegers/mongodb](https://github.com/jenssegers/laravel-mongodb) （可选，需要使用记录日志到 MongoDB 时安装）
 - [tymon/jwt-auth](https://github.com/tymondesigns/jwt-auth) （默认支持 JWT 授权）
 - [illuminate/redis](https://github.com/illuminate/redis) （默认使用 Redis 来缓存）
+- [spatie/laravel-permission](https://github.com/spatie/laravel-permission) （使用这个包来管理分配用户权限）
 - [prettus/l5-repository](https://github.com/andersao/l5-repository) （默认使用 Repository 模式）
 - [league/fractal](https://github.com/thephpleague/fractal) (可选，需要用到 transformer 时安装)
 
