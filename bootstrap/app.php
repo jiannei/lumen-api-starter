@@ -109,7 +109,7 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 // ]);
 
 $app->middleware([
-    App\Http\Middleware\RequestTimeMiddleware::class,
+    App\Http\Middleware\RequestLog::class,
     App\Http\Middleware\AcceptHeader::class,
     App\Http\Middleware\EtagMiddleware::class,
 ]);

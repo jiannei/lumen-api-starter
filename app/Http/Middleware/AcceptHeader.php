@@ -17,7 +17,9 @@ class AcceptHeader
 {
     public function handle($request, Closure $next)
     {
-        $request->headers->set('Accept', 'application/json');
+        if (app()->environment('production')) {
+            $request->headers->set('Accept', 'application/json');
+        }
 
         return $next($request);
     }

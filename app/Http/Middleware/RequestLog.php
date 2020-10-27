@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
-class RequestTimeMiddleware
+class RequestLog
 {
     public function handle(Request $request, Closure $next)
     {
