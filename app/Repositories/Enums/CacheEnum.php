@@ -12,23 +12,67 @@
 namespace App\Repositories\Enums;
 
 use App\Support\Enum\Enum;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class CacheEnum extends Enum
 {
-    // 定义缓存时用到的 key 值；以冒号区分层级
-    const AUTHORIZATION_USER = 'authorization:user';
+    // 定义缓存的 key 和 ttl（过期时间）：
+    // key => 过期时间计算方法
+    const AUTHORIZATION_USER = 'authorizationUser';
+
+    public $ttl;
 
     /**
-     * 根据定义的枚举生成缓存的 key.
+     * 生成缓存枚举实例
      *
-     * @param  string|Enum|int  $cacheEnumKeyOrValue  缓存常量的 key 值或 value 值
-     * @param  string|null  $identifier  integer|string 缓存区分
-     * @return string
+     * @param  string|Enum|integer  $enumKeyOrValue  缓存常量的 key 值或 value 值
+     * @param  string|integer|null  $identifier  缓存区分标识
+     * @param  mixed  $options  用于缓存时间计算
+     * @return CacheEnum
      */
-    public static function makeKey($cacheEnumKeyOrValue, ?string $identifier = null)
+    public static function makeCache($enumKeyOrValue, ?string $identifier = null, $options = null): CacheEnum
     {
-        $key = (string) self::make($cacheEnumKeyOrValue);
+        $cacheEnum = self::make($enumKeyOrValue);
+        if (!$cacheEnum instanceof CacheEnum || !method_exists($cacheEnum, $cacheEnum->value)) {
+            abort(ResponseCodeEnum::SYSTEM_CACHE_CONFIG_ERROR);
+        }
+
+        $cacheEnum->key = self::makeKey($cacheEnum->key, $identifier);
+        $cacheEnum->ttl = forward_static_call([$cacheEnum, $cacheEnum->value], $options);
+
+        return $cacheEnum;
+    }
+
+    public static function makeKey(string $enumKey, ?string $identifier = null): string
+    {
+        $key = Str::lower(str_replace('_', ':', $enumKey));
 
         return is_null($identifier) ? $key : $key.':'.$identifier;
+    }
+
+    /**
+     * 根据缓存的 key 解析出枚举的 key
+     * example: authorization:user:1 => AUTHORIZATION_USER
+     *
+     * @param  string  $key
+     * @return string
+     */
+    public static function parseEnumKey(string $key): string
+    {
+        $segments = explode('_', Str::upper(str_replace(':', '_', $key)));
+
+        if (is_numeric(last($segments))) {
+            array_pop($segments);
+        }
+
+        return join('_', $segments);
+    }
+
+    private static function authorizationUser($options)
+    {
+        $exp = auth('api')->payload()->get('exp');// token 剩余有效时间
+
+        return Carbon::now()->diffInSeconds(Carbon::createFromTimestamp($exp));
     }
 }

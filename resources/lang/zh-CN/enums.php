@@ -39,6 +39,9 @@ return [
         // 服务端错误
         ResponseCodeEnum::SYSTEM_ERROR => '服务器错误',
         ResponseCodeEnum::SYSTEM_UNAVAILABLE => '服务器正在维护，暂不可用',
+        ResponseCodeEnum::SYSTEM_CACHE_CONFIG_ERROR => '缓存配置错误',
+        ResponseCodeEnum::SYSTEM_CACHE_MISSED_ERROR => '缓存未命中',
+        ResponseCodeEnum::SYSTEM_CONFIG_ERROR => '系统配置错误',
 
         // 业务操作失败：授权业务
         ResponseCodeEnum::SERVICE_REGISTER_ERROR => '注册失败',
