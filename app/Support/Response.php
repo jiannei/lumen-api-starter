@@ -80,8 +80,8 @@ class Response
      */
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
-        response()->json(
-            $this->formatData($data, $message, $code),
+        $this->response(
+            $this->formatData(null, $message, $code,$data),
             $code,
             $header,
             $options
@@ -101,6 +101,7 @@ class Response
      * @param  int  $option
      *
      * @return JsonResponse|JsonResource
+     * @throws InvalidEnumValueException
      */
     public function success($data = null, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
@@ -128,22 +129,20 @@ class Response
      */
     protected function formatArrayResponse($data, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
-        return response()->json($this->formatData($data, $message, $code), $code, $headers, $option);
+        return $this->response($this->formatData($data, $message, $code), $code, $headers, $option);
     }
 
     /**
      * @param  JsonResource|array|null  $data
      * @param $message
      * @param $code
-     *
+     * @param  null  $errors
      * @return array
-     * @throws InvalidEnumValueException
      */
-    protected function formatData($data, $message, &$code)
+    protected function formatData($data, $message, &$code,$errors = null)
     {
         $originalCode = $code;
         $code = (int) substr($code, 0, 3); // notice
-
         if ($code >= 400 && $code <= 499) {// client error
             $status = 'error';
         } elseif ($code >= 500 && $code <= 599) {// service error
@@ -157,6 +156,7 @@ class Response
             'code' => $originalCode,
             'message' => $message ?: ResponseCodeEnum::fromValue($originalCode)->description,
             'data' => $data ?: (object) $data,
+            'error' =>  $errors ?: []
         ];
     }
 
@@ -185,7 +185,7 @@ class Response
                     'current_page' => $paginated['current_page'] ?? null,
                     'total_pages' => $paginated['last_page'] ?? null,
                     'links' => [
-                        'previous' => $paginated['prev'] ?? null,
+                        'previous' => $paginated['prev_page_url'] ?? null,
                         'next' => $paginated['next_page_url'] ?? null,
                     ],
                 ],
@@ -195,7 +195,7 @@ class Response
         $data = array_merge_recursive(['data' => $this->parseDataFrom($resource)], $paginationInformation);
 
         return tap(
-            response()->json($this->formatData($data, $message, $code), $code, $headers, $option),
+            $this->response($this->formatData($data, $message, $code), $code, $headers, $option),
             function ($response) use ($resource) {
                 $response->original = $resource->resource->map(
                     function ($item) {
@@ -222,7 +222,7 @@ class Response
     protected function formatResourceResponse($resource, string $message = '', $code = HttpResponse::HTTP_OK, array $headers = [], $option = 0)
     {
         return tap(
-            response()->json($this->formatData($this->parseDataFrom($resource), $message, $code), $code, $headers, $option),
+            $this->response($this->formatData($this->parseDataFrom($resource), $message, $code), $code, $headers, $option),
             function ($response) use ($resource) {
                 $response->original = $resource->resource;
 
@@ -241,5 +241,19 @@ class Response
     protected function parseDataFrom(JsonResource $data)
     {
         return array_merge_recursive($data->resolve(request()), $data->with(request()), $data->additional);
+    }
+
+    /**
+     * Return a new JSON response from the application.
+     *
+     * @param  mixed  $data
+     * @param  int  $status
+     * @param  array  $headers
+     * @param  int  $options
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function response($data = [], $status = HttpResponse::HTTP_OK, array $headers = [], $options = 0)
+    {
+        return response()->json($data, $status, $headers, $options);
     }
 }
