@@ -81,7 +81,7 @@ class Response
     public function fail(string $message = '', int $code = HttpResponse::HTTP_INTERNAL_SERVER_ERROR, $data = null, array $header = [], int $options = 0)
     {
         $this->response(
-            $this->formatData(null, $message, $code,$data),
+            $this->formatData(null, $message, $code, $data),
             $code,
             $header,
             $options
@@ -139,7 +139,7 @@ class Response
      * @param  null  $errors
      * @return array
      */
-    protected function formatData($data, $message, &$code,$errors = null)
+    protected function formatData($data, $message, &$code, $errors = null)
     {
         $originalCode = $code;
         $code = (int) substr($code, 0, 3); // notice
@@ -156,7 +156,7 @@ class Response
             'code' => $originalCode,
             'message' => $message ?: ResponseCodeEnum::fromValue($originalCode)->description,
             'data' => $data ?: (object) $data,
-            'error' =>  $errors ?: []
+            'error' =>  $errors ?: [],
         ];
     }
 
