@@ -42,6 +42,7 @@ class FailTest extends TestCase
                 // 这里应该是与 ResponseCodeEnum 中 500 状态码对应的描述，如果没有定义则取 Symfony\Component\HttpFoundation\Response
                 // 中标准的定义
                 'data' => (object) [],
+                'error' => [],
             ]);
             $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
         }
@@ -62,6 +63,7 @@ class FailTest extends TestCase
                 'code' => 500,
                 'message' => '操作失败',
                 'data' => (object) [],
+                'error' => [],
             ]);
             $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
         }
@@ -82,6 +84,7 @@ class FailTest extends TestCase
                 'code' => ResponseCodeEnum::SERVICE_LOGIN_ERROR, // 预期返回指定的业务错误码
                 'message' => ResponseCodeEnum::fromValue(ResponseCodeEnum::SERVICE_LOGIN_ERROR)->description, // 预期根据业务码取相应的错误描述
                 'data' => (object) [],
+                'error' => [],
             ]);
             $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
         }
@@ -95,7 +98,7 @@ class FailTest extends TestCase
         } catch (HttpException $httpException) {
             try {
                 $this->response()->fail(
-                    '',
+                    $httpException->getMessage(),
                     $this->isHttpException($httpException) ? $httpException->getStatusCode() : 500,
                     $this->convertExceptionToArray($httpException),
                     $this->isHttpException($httpException) ? $httpException->getHeaders() : [],
@@ -109,7 +112,8 @@ class FailTest extends TestCase
                     'status' => 'fail',
                     'code' => ResponseCodeEnum::SYSTEM_ERROR,
                     'message' => ResponseCodeEnum::fromValue(ResponseCodeEnum::SYSTEM_ERROR)->description,
-                    'data' => $this->convertExceptionToArray($httpException),
+                    'data' =>  (object) [],
+                    'error' => $this->convertExceptionToArray($httpException),
                 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
                 $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());

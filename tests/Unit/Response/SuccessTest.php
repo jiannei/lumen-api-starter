@@ -35,6 +35,7 @@ class SuccessTest extends TestCase
             'code' => 200,
             'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => (object) [],
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -51,6 +52,7 @@ class SuccessTest extends TestCase
             'code' => 201,
             'message' => ResponseCodeEnum::fromValue(201)->description,
             'data' => (object) [],
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -67,6 +69,7 @@ class SuccessTest extends TestCase
             'code' => 202,
             'message' => ResponseCodeEnum::fromValue(202)->description,
             'data' => (object) [],
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -83,6 +86,7 @@ class SuccessTest extends TestCase
             'code' => 204,
             'message' => ResponseCodeEnum::fromValue(204)->description,
             'data' => (object) [],
+            'error' => []
         ]);
 
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -104,6 +108,7 @@ class SuccessTest extends TestCase
             'code' => 200,
             'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -123,6 +128,7 @@ class SuccessTest extends TestCase
                 'nickname' => $user->name,
                 'email' => $user->email,
             ],
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -146,6 +152,7 @@ class SuccessTest extends TestCase
             'code' => 200,
             'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
+            'error' => []
         ]);
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
     }
@@ -177,7 +184,7 @@ class SuccessTest extends TestCase
                     'current_page' => $paginated['current_page'] ?? null,
                     'total_pages' => $paginated['last_page'] ?? null,
                     'links' => [
-                        'previous' => $paginated['prev'] ?? null,
+                        'previous' => $paginated['prev_page_url'] ?? null,
                         'next' => $paginated['next_page_url'] ?? null,
                     ],
                 ],
@@ -188,6 +195,7 @@ class SuccessTest extends TestCase
             'code' => 200,
             'message' => ResponseCodeEnum::fromValue(200)->description,
             'data' => $data,
+            'error' => []
         ]);
 
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -203,6 +211,7 @@ class SuccessTest extends TestCase
             'code' => 200,
             'message' => '成功',
             'data' => (object) [],
+            'error' => []
         ]);
 
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
@@ -218,6 +227,7 @@ class SuccessTest extends TestCase
             'code' => ResponseCodeEnum::SERVICE_LOGIN_SUCCESS, // 返回自定义的业务码
             'message' => ResponseCodeEnum::fromValue(ResponseCodeEnum::SERVICE_LOGIN_SUCCESS)->description, // 根据业务码取多语言的业务描述
             'data' => (object) [],
+            'error' => []
         ]);
 
         $this->assertJsonStringEqualsJsonString($expectedJson, $response->getContent());
