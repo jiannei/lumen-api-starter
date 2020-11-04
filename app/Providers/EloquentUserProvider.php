@@ -28,7 +28,8 @@ class EloquentUserProvider extends BaseEloquentUserProvider
     public function retrieveById($identifier)
     {
         $cache = CacheEnum::makeCache(CacheEnum::AUTHORIZATION_USER, $identifier);
-        return Cache::remember($cache->key,$cache->ttl, function () use ($identifier){
+
+        return Cache::remember($cache->key, $cache->ttl, function () use ($identifier) {
             $model = $this->createModel();
 
             return $this->newModelQuery($model)
