@@ -23,6 +23,7 @@ class ExampleController extends Controller
     public function __construct()
     {
         $this->middleware('enum:false');
+        $this->middleware('throttle:10,1', ['only' => ['configurations']]);
     }
 
     public function configurations(Request $request)

@@ -119,6 +119,7 @@ $app->routeMiddleware([
     'enum' => App\Http\Middleware\TransformEnums::class,
     'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
     'role' => Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'throttle' => App\Http\Middleware\ThrottleRequests::class
 ]);
 
 /*
