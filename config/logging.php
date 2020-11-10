@@ -126,4 +126,8 @@ return [
         // Unit: milliseconds
         'slower_than' => 0,
     ],
+
+    'request' => [
+        'enabled' => env('LOG_REQUEST', false),
+    ],
 ];
