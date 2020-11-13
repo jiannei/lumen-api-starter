@@ -52,7 +52,7 @@ class ExampleController extends Controller
             return $this->response->success($request->input('user_type'));
         }
 
-        $this->response->fail('transform enum fail');
+        $this->response->fail('枚举转换失败！');
     }
 
     public function syncRoles(Request $request)
