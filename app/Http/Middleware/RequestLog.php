@@ -30,4 +30,3 @@ class RequestLog
         event(new RequestHandledEvent($request, $response));
     }
 }
-
