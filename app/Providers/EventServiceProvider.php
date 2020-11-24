@@ -29,10 +29,10 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ExampleListener::class,
         ],
         RequestArrivedEvent::class => [
-            RequestArrivedListener::class
+            RequestArrivedListener::class,
         ],
         RequestHandledEvent::class => [
-            RequestHandledListener::class
-        ]
+            RequestHandledListener::class,
+        ],
     ];
 }
