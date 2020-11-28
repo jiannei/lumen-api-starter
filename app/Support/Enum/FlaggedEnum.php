@@ -11,7 +11,6 @@
 
 namespace App\Support\Enum;
 
-
 use App\Support\Enum\Exceptions\InvalidEnumValueException;
 
 abstract class FlaggedEnum extends Enum

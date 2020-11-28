@@ -46,7 +46,7 @@ class ServiceProvider extends IlluminateServiceProvider
                 'sql' => $realSql,
             ];
 
-            logger(LogEnum::SQL,$context);
+            logger(LogEnum::SQL, $context);
         });
     }
 }

@@ -11,7 +11,7 @@
 
 use App\Support\Logger\Jobs\LogJob;
 
-if (!function_exists('logger')) {
+if (! function_exists('logger')) {
     /**
      * Log a debug message to the logs.
      *
@@ -25,7 +25,7 @@ if (!function_exists('logger')) {
     }
 }
 
-if (!function_exists('formatDuration')) {
+if (! function_exists('formatDuration')) {
     /**
      * Format duration.
      *
