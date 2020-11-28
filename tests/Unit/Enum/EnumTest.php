@@ -11,8 +11,8 @@
 
 namespace Tests\Unit\Enum;
 
-use App\Repositories\Enums\ResponseCodeEnum;
 use App\Support\Enum\Enum;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Tests\TestCase;
 use Tests\Unit\Enum\Enums\StringValuesEnum;
 use Tests\Unit\Enum\Enums\UserTypeEnum;

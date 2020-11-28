@@ -9,12 +9,18 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Jobs;
+namespace App\Support\Logger\Jobs;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 use Monolog\Processor\WebProcessor;
 
-class LogJob extends Job
+class LogJob implements ShouldQueue
 {
+    use InteractsWithQueue;
+    use Queueable;
+
     private $context;
     private $message;
     private $serverData;

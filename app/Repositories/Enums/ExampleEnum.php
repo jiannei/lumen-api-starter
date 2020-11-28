@@ -11,7 +11,7 @@
 
 namespace App\Repositories\Enums;
 
-use App\Contracts\Enums\LocalizedEnumContract;
+use App\Support\Enum\Contracts\LocalizedEnumContract;
 use App\Support\Enum\Enum;
 
 class ExampleEnum extends Enum implements LocalizedEnumContract

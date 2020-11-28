@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Providers;
+namespace App\Support\Enum\Providers;
 
 use App\Support\Enum\Http\EnumRequest;
 use App\Support\Enum\Rules\Enum;
@@ -18,9 +18,9 @@ use App\Support\Enum\Rules\EnumValue;
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
-class EnumServiceProvider extends ServiceProvider
+class ServiceProvider extends IlluminateServiceProvider
 {
     public function boot()
     {

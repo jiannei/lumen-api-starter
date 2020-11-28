@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Listeners;
+namespace App\Support\Logger\Listeners;
 
-use App\Events\RequestArrivedEvent;
+use App\Support\Logger\Events\RequestArrivedEvent;
 use Illuminate\Support\Str;
 
 class RequestArrivedListener

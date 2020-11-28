@@ -10,7 +10,7 @@
  */
 
 use App\Repositories\Enums\ExampleEnum;
-use App\Repositories\Enums\ResponseCodeEnum;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 
 return [
     // example

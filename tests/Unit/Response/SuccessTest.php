@@ -13,9 +13,9 @@ namespace Tests\Unit\Response;
 
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
-use App\Repositories\Enums\ResponseCodeEnum;
 use App\Repositories\Models\User;
-use App\Support\Traits\ResponseTrait;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
+use App\Support\Response\ResponseTrait;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Tests\TestCase;
 

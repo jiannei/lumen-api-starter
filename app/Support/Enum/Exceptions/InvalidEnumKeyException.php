@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Exceptions;
+namespace App\Support\Enum\Exceptions;
 
 use App\Support\Enum\Enum;
 use Exception;

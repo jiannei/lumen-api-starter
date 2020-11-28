@@ -11,7 +11,7 @@
 
 namespace Tests\Unit\Enum;
 
-use App\Exceptions\InvalidEnumValueException;
+use App\Support\Enum\Exceptions\InvalidEnumValueException;
 use ReflectionProperty;
 use Tests\TestCase;
 use Tests\Unit\Enum\Enums\UserTypeCustomCastEnum;

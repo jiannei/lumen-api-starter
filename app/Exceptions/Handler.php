@@ -11,7 +11,7 @@
 
 namespace App\Exceptions;
 
-use App\Support\Traits\ResponseTrait;
+use App\Support\Response\ResponseTrait;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Http\Middleware;
+namespace App\Support\Logger\Http\Middleware;
 
-use App\Events\RequestArrivedEvent;
-use App\Events\RequestHandledEvent;
+use App\Support\Logger\Events\RequestArrivedEvent;
+use App\Support\Logger\Events\RequestHandledEvent;
 use Closure;
 use Illuminate\Http\Request;
 

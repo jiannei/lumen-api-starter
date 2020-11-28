@@ -9,16 +9,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Support\Traits;
+namespace App\Support\Response;
 
-use App\Support\Response;
 use Illuminate\Http\Request;
 use Throwable;
 
 /**
  * Trait Helpers.
  *
- * @property \App\Support\Response $response
+ * @property Response $response
  */
 trait ResponseTrait
 {

@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Http\Middleware;
+namespace App\Support\Response\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

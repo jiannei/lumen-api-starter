@@ -12,6 +12,7 @@
 namespace App\Repositories\Enums;
 
 use App\Support\Enum\Enum;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -31,10 +32,10 @@ class CacheEnum extends Enum
      * @param  mixed  $options  用于缓存时间计算
      * @return CacheEnum
      */
-    public static function makeCache($enumKeyOrValue, ?string $identifier = null, $options = null): CacheEnum
+    public static function makeCache($enumKeyOrValue, $identifier = null, $options = null): CacheEnum
     {
         $cacheEnum = self::make($enumKeyOrValue);
-        if (! $cacheEnum instanceof CacheEnum || ! method_exists($cacheEnum, $cacheEnum->value)) {
+        if (! $cacheEnum instanceof self || ! method_exists($cacheEnum, $cacheEnum->value)) {
             abort(ResponseCodeEnum::SYSTEM_CACHE_CONFIG_ERROR);
         }
 
@@ -66,7 +67,7 @@ class CacheEnum extends Enum
             array_pop($segments);
         }
 
-        return join('_', $segments);
+        return implode('_', $segments);
     }
 
     private static function authorizationUser($options)

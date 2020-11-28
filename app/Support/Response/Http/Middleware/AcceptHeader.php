@@ -9,18 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Http\Middleware;
+namespace App\Support\Response\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 
-class TransformEnums
+class AcceptHeader
 {
-    public function handle(Request $request, Closure $next, $strict = true)
+    public function handle($request, Closure $next)
     {
-        $strict = (bool) json_decode(strtolower($strict));
-
-        $request->transformEnums(config('enum.transformations'), $strict);
+        if (app()->environment('production')) {
+            $request->headers->set('Accept', 'application/json');
+        }
 
         return $next($request);
     }

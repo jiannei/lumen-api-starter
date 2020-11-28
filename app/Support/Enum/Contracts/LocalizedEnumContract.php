@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Contracts\Enums;
+namespace App\Support\Enum\Contracts;
 
 interface LocalizedEnumContract
 {

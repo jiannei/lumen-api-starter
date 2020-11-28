@@ -11,10 +11,10 @@
 
 namespace App\Providers;
 
-use App\Events\RequestArrivedEvent;
-use App\Events\RequestHandledEvent;
-use App\Listeners\RequestArrivedListener;
-use App\Listeners\RequestHandledListener;
+use App\Support\Logger\Events\RequestArrivedEvent;
+use App\Support\Logger\Events\RequestHandledEvent;
+use App\Support\Logger\Listeners\RequestArrivedListener;
+use App\Support\Logger\Listeners\RequestHandledListener;
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

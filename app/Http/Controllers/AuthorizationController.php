@@ -12,7 +12,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
-use App\Repositories\Enums\ResponseCodeEnum;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Request;
 
 class AuthorizationController extends Controller

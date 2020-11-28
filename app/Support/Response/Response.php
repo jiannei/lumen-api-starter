@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Support;
+namespace App\Support\Response;
 
-use App\Exceptions\InvalidEnumValueException;
-use App\Repositories\Enums\ResponseCodeEnum;
+use App\Support\Enum\Exceptions\InvalidEnumValueException;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -139,7 +139,7 @@ class Response
      * @param  null  $errors
      * @return array
      */
-    protected function formatData($data, $message, &$code, $errors = null)
+    protected function formatData($data, $message, &$code, $errors = null): array
     {
         $originalCode = $code;
         $code = (int) substr($code, 0, 3); // notice

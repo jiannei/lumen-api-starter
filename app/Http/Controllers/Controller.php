@@ -11,7 +11,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\Traits\ResponseTrait;
+use App\Support\Response\ResponseTrait;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController

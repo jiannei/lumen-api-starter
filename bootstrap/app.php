@@ -9,8 +9,6 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Providers\EnumServiceProvider;
-use App\Providers\LoggerServiceProvider;
 use App\Providers\RepositoryServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
 use Prettus\Repository\Providers\LumenRepositoryServiceProvider;
@@ -109,17 +107,17 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 // ]);
 
 $app->middleware([
-    App\Http\Middleware\RequestLog::class,
-    App\Http\Middleware\AcceptHeader::class,
-    App\Http\Middleware\EtagMiddleware::class,
+    App\Support\Logger\Http\Middleware\RequestLog::class,
+    App\Support\Response\Http\Middleware\AcceptHeader::class,
+    App\Support\Response\Http\Middleware\EtagMiddleware::class,
 ]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
-    'enum' => App\Http\Middleware\TransformEnums::class,
+    'enum' => App\Support\Enum\Http\Middleware\TransformEnums::class,
     'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
     'role' => Spatie\Permission\Middlewares\RoleMiddleware::class,
-    'throttle' => App\Http\Middleware\ThrottleRequests::class,
+    'throttle' => App\Support\Response\Http\Middleware\ThrottleRequests::class,
 ]);
 
 /*
@@ -144,6 +142,7 @@ $app->register(App\Providers\EventServiceProvider::class);
  * Package Service Providers...
  */
 $app->register(LumenServiceProvider::class);
+$app->register(RedisServiceProvider::class);
 $app->register(LumenRepositoryServiceProvider::class);
 $app->register(Spatie\Permission\PermissionServiceProvider::class);
 
@@ -151,9 +150,8 @@ $app->register(Spatie\Permission\PermissionServiceProvider::class);
  * Custom Service Providers.
  */
 $app->register(RepositoryServiceProvider::class);
-$app->register(LoggerServiceProvider::class);
-$app->register(RedisServiceProvider::class);
-$app->register(EnumServiceProvider::class);
+$app->register(App\Support\Logger\Providers\ServiceProvider::class);
+$app->register(App\Support\Enum\Providers\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

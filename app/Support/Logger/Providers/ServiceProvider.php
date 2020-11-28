@@ -9,15 +9,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Providers;
+namespace App\Support\Logger\Providers;
 
-use App\Jobs\LogJob;
-use App\Repositories\Enums\LogEnum;
+use App\Support\Logger\Repositories\Enums\LogEnum;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
-class LoggerServiceProvider extends ServiceProvider
+class ServiceProvider extends IlluminateServiceProvider
 {
     public function boot()
     {
@@ -47,7 +46,7 @@ class LoggerServiceProvider extends ServiceProvider
                 'sql' => $realSql,
             ];
 
-            dispatch(new LogJob(LogEnum::LOG_SQL, $context, request()->server()));
+            logger(LogEnum::SQL,$context);
         });
     }
 }

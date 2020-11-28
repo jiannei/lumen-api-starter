@@ -215,7 +215,7 @@ class FlaggedEnumTest extends TestCase
 
     public function testCanInstantiateAFlaggedEnumFromAValueWhichHasMultipleFlagsSet()
     {
-        $powers = new SuperPowersEnum([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT]);
+        $powers = new SuperPowersEnum([SuperPowersEnum::STRENGTH, SuperPowersEnum::FLIGHT,SuperPowersEnum::LASER_VISION]);
 
         $this->assertEquals($powers, SuperPowersEnum::fromValue($powers->value));
     }

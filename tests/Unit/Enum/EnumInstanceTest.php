@@ -11,8 +11,8 @@
 
 namespace Tests\Unit\Enum;
 
-use App\Exceptions\InvalidEnumKeyException;
-use App\Exceptions\InvalidEnumValueException;
+use App\Support\Enum\Exceptions\InvalidEnumKeyException;
+use App\Support\Enum\Exceptions\InvalidEnumValueException;
 use Tests\TestCase;
 use Tests\Unit\Enum\Enums\UserTypeEnum;
 

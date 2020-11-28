@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Repositories\Enums;
+namespace App\Support\Response\Repositories\Enums;
 
-use App\Contracts\Enums\LocalizedEnumContract;
+use App\Support\Enum\Contracts\LocalizedEnumContract;
 use App\Support\Enum\Enum;
 use Illuminate\Http\Response as HttpResponse;
 use ReflectionClass;
@@ -64,7 +64,7 @@ class ResponseCodeEnum extends Enum implements LocalizedEnumContract
      */
     protected static function getConstants(): array
     {
-        $calledClass = get_called_class();
+        $calledClass = static::class;
         if (! array_key_exists($calledClass, static::$cache)) {
             $reflect = new ReflectionClass($calledClass);
             static::$cache[$calledClass] = array_merge(self::getHttpConstants(), $reflect->getConstants());

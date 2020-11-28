@@ -11,8 +11,8 @@
 
 use App\Repositories\Enums\ExampleEnum;
 use App\Repositories\Enums\PermissionEnum;
-use App\Repositories\Enums\ResponseCodeEnum;
 use App\Repositories\Enums\RoleEnum;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 
 return [
     'validations' => [

@@ -11,7 +11,8 @@
 
 namespace App\Support\Enum;
 
-use App\Exceptions\InvalidEnumValueException;
+
+use App\Support\Enum\Exceptions\InvalidEnumValueException;
 
 abstract class FlaggedEnum extends Enum
 {
@@ -32,9 +33,6 @@ abstract class FlaggedEnum extends Enum
      */
     public function __construct($flags)
     {
-        $this->key = null;
-        $this->description = null;
-
         if (is_array($flags)) {
             $this->setFlags($flags);
         } else {
@@ -44,6 +42,9 @@ abstract class FlaggedEnum extends Enum
                 $this->value = $flags;
             }
         }
+
+        $this->key = static::getKey($this->value);
+        $this->description = static::getDescription($this->value);
     }
 
     /**

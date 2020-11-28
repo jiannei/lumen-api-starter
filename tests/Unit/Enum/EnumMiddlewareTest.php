@@ -11,7 +11,7 @@
 
 namespace Tests\Unit\Enum;
 
-use App\Http\Middleware\TransformEnums;
+use App\Support\Enum\Http\Middleware\TransformEnums;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Tests\TestCase;

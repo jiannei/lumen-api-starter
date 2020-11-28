@@ -9,10 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Listeners;
+namespace App\Support\Logger\Listeners;
 
-use App\Events\RequestHandledEvent;
-use App\Repositories\Enums\LogEnum;
+use App\Support\Logger\Events\RequestHandledEvent;
+use App\Support\Logger\Repositories\Enums\LogEnum;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class RequestHandledListener
@@ -33,7 +33,7 @@ class RequestHandledListener
                 'duration' => formatDuration($end - $start),
             ];
 
-            logger(LogEnum::LOG_REQUEST_TIME, $context);
+            logger(LogEnum::REQUEST_TIME, $context);
         }
     }
 }

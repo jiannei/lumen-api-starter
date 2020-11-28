@@ -11,8 +11,8 @@
 
 namespace Tests\Unit\Response;
 
-use App\Repositories\Enums\ResponseCodeEnum;
-use App\Support\Traits\ResponseTrait;
+use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
+use App\Support\Response\ResponseTrait;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Arr;
 use Symfony\Component\HttpKernel\Exception\HttpException;

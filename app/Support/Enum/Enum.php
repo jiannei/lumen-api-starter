@@ -11,11 +11,11 @@
 
 namespace App\Support\Enum;
 
-use App\Contracts\Enums\EnumContract;
-use App\Contracts\Enums\LocalizedEnumContract;
-use App\Exceptions\InvalidEnumKeyException;
-use App\Exceptions\InvalidEnumValueException;
 use App\Support\Enum\Cast\EnumCast;
+use App\Support\Enum\Contracts\EnumContract;
+use App\Support\Enum\Contracts\LocalizedEnumContract;
+use App\Support\Enum\Exceptions\InvalidEnumKeyException;
+use App\Support\Enum\Exceptions\InvalidEnumValueException;
 use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;

@@ -9,9 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Events;
+namespace App\Support\Logger\Events;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 class RequestArrivedEvent extends Event
 {
