@@ -11,7 +11,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
+use App\Repositories\Enums\ResponseCodeEnum;
 use Closure;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Factory as Auth;

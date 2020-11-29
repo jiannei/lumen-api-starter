@@ -9,15 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Support\Response\Repositories\Enums;
+namespace App\Repositories\Enums;
 
-use Illuminate\Http\Response as HttpResponse;
-use Jiannei\Enum\Laravel\Contracts\LocalizedEnumContract;
-use Jiannei\Enum\Laravel\Enum;
-use ReflectionClass;
-use ReflectionException;
+use Jiannei\Response\Laravel\Repositories\Enums\ResponseCodeEnum as BaseResponseCodeEnum;
 
-class ResponseCodeEnum extends Enum implements LocalizedEnumContract
+class ResponseCodeEnum extends BaseResponseCodeEnum
 {
     // 定制/覆盖 HTTP 协议状态码
     const HTTP_OK = 200;
@@ -44,39 +40,4 @@ class ResponseCodeEnum extends Enum implements LocalizedEnumContract
     // 业务操作错误码（外部服务或内部服务调用...）
     const SERVICE_REGISTER_ERROR = 500101;
     const SERVICE_LOGIN_ERROR = 500102;
-
-    /**
-     * Get the description for an enum value.
-     *
-     * @param  mixed  $value
-     * @return string
-     */
-    public static function getDescription($value): string
-    {
-        return static::getLocalizedDescription($value) ?? HttpResponse::$statusTexts[$value];
-    }
-
-    /**
-     * Get all of the constants defined on the class.
-     *
-     * @return array
-     * @throws ReflectionException
-     */
-    protected static function getConstants(): array
-    {
-        $calledClass = static::class;
-        if (! array_key_exists($calledClass, static::$cache)) {
-            $reflect = new ReflectionClass($calledClass);
-            static::$cache[$calledClass] = array_merge(self::getHttpConstants(), $reflect->getConstants());
-        }
-
-        return static::$cache[$calledClass];
-    }
-
-    protected static function getHttpConstants(): array
-    {
-        $reflect = new ReflectionClass(HttpResponse::class);
-
-        return $reflect->getConstants();
-    }
 }

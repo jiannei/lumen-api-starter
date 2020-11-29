@@ -11,7 +11,6 @@
 
 namespace App\Exceptions;
 
-use App\Support\Response\ResponseTrait;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -19,8 +18,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Jiannei\Response\Laravel\ResponseTrait;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
-use Prettus\Validator\Exceptions\ValidatorException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
@@ -66,10 +65,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof ValidatorException) {
-            $this->response->fail('Validation error', 422, $exception->getMessageBag());
-        }
-
         return parent::render($request, $exception);
     }
 }

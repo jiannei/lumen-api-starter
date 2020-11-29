@@ -9,7 +9,8 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
+
+use App\Repositories\Enums\ResponseCodeEnum;
 
 return [
     ResponseCodeEnum::class => [

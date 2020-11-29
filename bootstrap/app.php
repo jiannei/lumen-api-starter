@@ -9,11 +9,6 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Providers\RepositoryServiceProvider;
-use Illuminate\Redis\RedisServiceProvider;
-use Prettus\Repository\Providers\LumenRepositoryServiceProvider;
-use Tymon\JWTAuth\Providers\LumenServiceProvider;
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -88,6 +83,7 @@ $app->configure('views');
 $app->configure('repository');
 $app->configure('enum');
 $app->configure('permission');
+$app->configure('response');
 
 $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
@@ -108,16 +104,15 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 $app->middleware([
     App\Support\Logger\Http\Middleware\RequestLog::class,
-    App\Support\Response\Http\Middleware\AcceptHeader::class,
-    App\Support\Response\Http\Middleware\EtagMiddleware::class,
+    \Jiannei\Response\Laravel\Http\Middleware\EtagMiddleware::class,
 ]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
-    'enum' => Jiannei\Enum\Laravel\Http\Middleware\TransformEnums::class,
-    'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
-    'role' => Spatie\Permission\Middlewares\RoleMiddleware::class,
-    'throttle' => App\Support\Response\Http\Middleware\ThrottleRequests::class,
+    'enum' => \Jiannei\Enum\Laravel\Http\Middleware\TransformEnums::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'throttle' => \Jiannei\Response\Laravel\Http\Middleware\ThrottleRequests::class,
 ]);
 
 /*
@@ -141,17 +136,18 @@ $app->register(App\Providers\EventServiceProvider::class);
 /*
  * Package Service Providers...
  */
-$app->register(LumenServiceProvider::class);
-$app->register(RedisServiceProvider::class);
-$app->register(LumenRepositoryServiceProvider::class);
-$app->register(Spatie\Permission\PermissionServiceProvider::class);
+$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+$app->register(\Illuminate\Redis\RedisServiceProvider::class);
+$app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
+$app->register(\Spatie\Permission\PermissionServiceProvider::class);
+$app->register(\Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
+$app->register(\Jiannei\Response\Laravel\Providers\ServiceProvider::class);
 
 /*
  * Custom Service Providers.
  */
-$app->register(RepositoryServiceProvider::class);
+$app->register(App\Providers\RepositoryServiceProvider::class);
 $app->register(App\Support\Logger\Providers\ServiceProvider::class);
-$app->register(Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

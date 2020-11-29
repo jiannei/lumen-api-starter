@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e442cbbf9892a64d4723c11a07f26d3",
+    "content-hash": "924b1b8021009298e3bae570ddb54924",
     "packages": [
         {
             "name": "brick/math",
@@ -2647,6 +2647,65 @@
                 "source": "https://github.com/Jiannei/laravel-enum/tree/1.0.0"
             },
             "time": "2020-11-29T09:19:49+00:00"
+        },
+        {
+            "name": "jiannei/laravel-response",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jiannei/laravel-response.git",
+                "reference": "7025a821db523a34a767dfeef7b55ea9ed1d4a4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/7025a821db523a34a767dfeef7b55ea9ed1d4a4b",
+                "reference": "7025a821db523a34a767dfeef7b55ea9ed1d4a4b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "jiannei/laravel-enum": "^1.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "laravel/legacy-factories": "^1.0.4",
+                "orchestra/testbench": "^6.4",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jiannei\\Enum\\Laravel\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jiannei\\Response\\Laravel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jiannei",
+                    "email": "longjian.huang@foxmail.com"
+                }
+            ],
+            "description": "Laravel api response data format.",
+            "support": {
+                "issues": "https://github.com/Jiannei/laravel-response/issues",
+                "source": "https://github.com/Jiannei/laravel-response/tree/1.0.0"
+            },
+            "time": "2020-11-29T14:40:02+00:00"
         },
         {
             "name": "laravel/lumen-framework",
