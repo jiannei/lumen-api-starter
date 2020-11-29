@@ -11,10 +11,10 @@
 
 namespace App\Repositories\Enums;
 
-use App\Support\Enum\Contracts\LocalizedEnumContract;
-use App\Support\Enum\Enum;
 use Closure;
 use Illuminate\Support\Str;
+use Jiannei\Enum\Laravel\Contracts\LocalizedEnumContract;
+use Jiannei\Enum\Laravel\Enum;
 
 class PermissionEnum extends Enum implements LocalizedEnumContract
 {

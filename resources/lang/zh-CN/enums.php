@@ -9,7 +9,6 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Repositories\Enums\ExampleEnum;
 use App\Repositories\Enums\PermissionEnum;
 use App\Repositories\Enums\RoleEnum;
 use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
@@ -46,12 +45,6 @@ return [
         // 业务操作失败：授权业务
         ResponseCodeEnum::SERVICE_REGISTER_ERROR => '注册失败',
         ResponseCodeEnum::SERVICE_LOGIN_ERROR => '登录失败',
-    ],
-
-    // example
-    ExampleEnum::class => [
-        ExampleEnum::ADMINISTRATOR => '管理员',
-        ExampleEnum::SUPER_ADMINISTRATOR => '超级管理员',
     ],
 
     // 角色

@@ -114,7 +114,7 @@ $app->middleware([
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
-    'enum' => App\Support\Enum\Http\Middleware\TransformEnums::class,
+    'enum' => Jiannei\Enum\Laravel\Http\Middleware\TransformEnums::class,
     'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
     'role' => Spatie\Permission\Middlewares\RoleMiddleware::class,
     'throttle' => App\Support\Response\Http\Middleware\ThrottleRequests::class,
@@ -151,7 +151,7 @@ $app->register(Spatie\Permission\PermissionServiceProvider::class);
  */
 $app->register(RepositoryServiceProvider::class);
 $app->register(App\Support\Logger\Providers\ServiceProvider::class);
-$app->register(App\Support\Enum\Providers\ServiceProvider::class);
+$app->register(Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

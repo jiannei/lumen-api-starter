@@ -11,7 +11,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Enums\ExampleEnum;
 use App\Repositories\Models\Log;
 use Illuminate\Http\Request;
 
@@ -44,15 +43,6 @@ class ExampleController extends Controller
     public function logs()
     {
         return $this->response->success(Log::all());
-    }
-
-    public function enums(Request $request)
-    {
-        if ($request->has('user_type') && $request->input('user_type') instanceof ExampleEnum) {
-            return $this->response->success($request->input('user_type'));
-        }
-
-        $this->response->fail('transform enum fail');
     }
 
     public function syncRoles(Request $request)

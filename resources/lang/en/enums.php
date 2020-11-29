@@ -9,16 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Repositories\Enums\ExampleEnum;
 use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 
 return [
-    // example
-    ExampleEnum::class => [
-        ExampleEnum::ADMINISTRATOR => 'Administrator',
-        ExampleEnum::SUPER_ADMINISTRATOR => 'Super administrator',
-    ],
-
     ResponseCodeEnum::class => [
         // 成功
         ResponseCodeEnum::HTTP_OK => 'Success.', // 自定义 HTTP 状态码返回消息

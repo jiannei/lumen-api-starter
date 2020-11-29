@@ -11,9 +11,9 @@
 
 namespace App\Support\Response\Repositories\Enums;
 
-use App\Support\Enum\Contracts\LocalizedEnumContract;
-use App\Support\Enum\Enum;
 use Illuminate\Http\Response as HttpResponse;
+use Jiannei\Enum\Laravel\Contracts\LocalizedEnumContract;
+use Jiannei\Enum\Laravel\Enum;
 use ReflectionClass;
 use ReflectionException;
 

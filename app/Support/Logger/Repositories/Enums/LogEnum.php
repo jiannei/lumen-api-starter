@@ -11,7 +11,7 @@
 
 namespace App\Support\Logger\Repositories\Enums;
 
-use App\Support\Enum\Enum;
+use Jiannei\Enum\Laravel\Enum;
 
 class LogEnum extends Enum
 {

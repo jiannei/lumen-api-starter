@@ -11,10 +11,10 @@
 
 namespace App\Repositories\Enums;
 
-use App\Support\Enum\Enum;
 use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Jiannei\Enum\Laravel\Enum;
 
 class CacheEnum extends Enum
 {

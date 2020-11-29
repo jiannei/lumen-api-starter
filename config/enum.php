@@ -9,8 +9,6 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Repositories\Enums\ExampleEnum;
-
 return [
     'localization' => [
         'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),
@@ -19,7 +17,5 @@ return [
     // 你可以将请求参数中用到的枚举定义在下面，通过中间件，将会被自动转换成枚举类
     'transformations' => [
         // 参数名 => 对应的枚举类
-        // 举个栗子
-        'user_type' => ExampleEnum::class,
     ],
 ];

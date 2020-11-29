@@ -11,7 +11,6 @@
 
 namespace App\Support\Response;
 
-use App\Support\Enum\Exceptions\InvalidEnumValueException;
 use App\Support\Response\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
@@ -21,6 +20,7 @@ use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\HigherOrderTapProxy;
+use Jiannei\Enum\Laravel\Exceptions\InvalidEnumValueException;
 
 class Response
 {

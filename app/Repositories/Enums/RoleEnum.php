@@ -11,9 +11,9 @@
 
 namespace App\Repositories\Enums;
 
-use App\Support\Enum\Contracts\LocalizedEnumContract;
-use App\Support\Enum\FlaggedEnum;
 use Illuminate\Support\Str;
+use Jiannei\Enum\Laravel\Contracts\LocalizedEnumContract;
+use Jiannei\Enum\Laravel\FlaggedEnum;
 
 class RoleEnum extends FlaggedEnum implements LocalizedEnumContract
 {
