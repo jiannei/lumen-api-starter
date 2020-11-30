@@ -103,7 +103,7 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 // ]);
 
 $app->middleware([
-    App\Support\Logger\Http\Middleware\RequestLog::class,
+    \Jiannei\Logger\Laravel\Http\Middleware\RequestLog::class,
     \Jiannei\Response\Laravel\Http\Middleware\EtagMiddleware::class,
 ]);
 
@@ -142,12 +142,12 @@ $app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::cla
 $app->register(\Spatie\Permission\PermissionServiceProvider::class);
 $app->register(\Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
 $app->register(\Jiannei\Response\Laravel\Providers\ServiceProvider::class);
+$app->register(\Jiannei\Logger\Laravel\Providers\ServiceProvider::class);
 
 /*
  * Custom Service Providers.
  */
 $app->register(App\Providers\RepositoryServiceProvider::class);
-$app->register(App\Support\Logger\Providers\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

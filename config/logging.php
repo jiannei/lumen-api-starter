@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Support\Logger\MongoLogger;
+use Jiannei\Logger\Laravel\MongoLogger;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;

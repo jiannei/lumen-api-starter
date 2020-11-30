@@ -11,10 +11,6 @@
 
 namespace App\Providers;
 
-use App\Support\Logger\Events\RequestArrivedEvent;
-use App\Support\Logger\Events\RequestHandledEvent;
-use App\Support\Logger\Listeners\RequestArrivedListener;
-use App\Support\Logger\Listeners\RequestHandledListener;
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -27,12 +23,6 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \App\Events\ExampleEvent::class => [
             \App\Listeners\ExampleListener::class,
-        ],
-        RequestArrivedEvent::class => [
-            RequestArrivedListener::class,
-        ],
-        RequestHandledEvent::class => [
-            RequestHandledListener::class,
         ],
     ];
 }
