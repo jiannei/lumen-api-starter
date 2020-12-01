@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brick/math",
-            "version": "0.8.17",
+            "version": "0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "e6f8e7d04346a95be89580f8c2c22d6c3fa65556"
+                "reference": "283a40c901101e66de7061bd359252c013dcc43c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/e6f8e7d04346a95be89580f8c2c22d6c3fa65556",
-                "reference": "e6f8e7d04346a95be89580f8c2c22d6c3fa65556",
+                "url": "https://api.github.com/repos/brick/math/zipball/283a40c901101e66de7061bd359252c013dcc43c",
+                "reference": "283a40c901101e66de7061bd359252c013dcc43c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -58,7 +58,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/v0.8"
+                "source": "https://github.com/brick/math/tree/master"
             },
             "funding": [
                 {
@@ -66,7 +66,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-18T23:41:20+00:00"
+            "time": "2020-08-18T23:57:15+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -2597,12 +2597,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jiannei/laravel-enum.git",
-                "reference": "b5884e63f2fd83cf2eb28bd8c440fe744638c6cc"
+                "reference": "a4a6ee3a34263709095ed521787b9ffba0e2ba98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-enum/zipball/b5884e63f2fd83cf2eb28bd8c440fe744638c6cc",
-                "reference": "b5884e63f2fd83cf2eb28bd8c440fe744638c6cc",
+                "url": "https://api.github.com/repos/Jiannei/laravel-enum/zipball/a4a6ee3a34263709095ed521787b9ffba0e2ba98",
+                "reference": "a4a6ee3a34263709095ed521787b9ffba0e2ba98",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2646,7 +2646,7 @@
                 "issues": "https://github.com/Jiannei/laravel-enum/issues",
                 "source": "https://github.com/Jiannei/laravel-enum/tree/1.0.0"
             },
-            "time": "2020-11-29T09:19:49+00:00"
+            "time": "2020-11-30T01:08:15+00:00"
         },
         {
             "name": "jiannei/laravel-logger",
@@ -2716,12 +2716,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jiannei/laravel-response.git",
-                "reference": "7025a821db523a34a767dfeef7b55ea9ed1d4a4b"
+                "reference": "e5ac642eea25bb020a19e415bd98c41ad2ff69e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/7025a821db523a34a767dfeef7b55ea9ed1d4a4b",
-                "reference": "7025a821db523a34a767dfeef7b55ea9ed1d4a4b",
+                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/e5ac642eea25bb020a19e415bd98c41ad2ff69e2",
+                "reference": "e5ac642eea25bb020a19e415bd98c41ad2ff69e2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2731,6 +2731,7 @@
                 ]
             },
             "require": {
+                "ext-json": "*",
                 "jiannei/laravel-enum": "^1.0"
             },
             "require-dev": {
@@ -2767,7 +2768,7 @@
                 "issues": "https://github.com/Jiannei/laravel-response/issues",
                 "source": "https://github.com/Jiannei/laravel-response/tree/1.0.0"
             },
-            "time": "2020-11-29T14:40:02+00:00"
+            "time": "2020-12-01T06:12:49+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -4181,16 +4182,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "988dbefc7878d0a35f12afb4df1f7dd0bd153c43"
+                "reference": "cd4032040a750077205918c86049aa0f43d22947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/988dbefc7878d0a35f12afb4df1f7dd0bd153c43",
-                "reference": "988dbefc7878d0a35f12afb4df1f7dd0bd153c43",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/cd4032040a750077205918c86049aa0f43d22947",
+                "reference": "cd4032040a750077205918c86049aa0f43d22947",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4200,7 +4201,7 @@
                 ]
             },
             "require": {
-                "brick/math": "^0.8",
+                "brick/math": "^0.8 || ^0.9",
                 "ext-json": "*",
                 "php": "^7.2 || ^8",
                 "ramsey/collection": "^1.0",
@@ -4275,7 +4276,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-28T16:51:01+00:00"
+            "time": "2020-08-18T17:17:46+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -7295,16 +7296,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "c6bb6825def89e0a32220f88337f8ceaf1975fa0"
+                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/c6bb6825def89e0a32220f88337f8ceaf1975fa0",
-                "reference": "c6bb6825def89e0a32220f88337f8ceaf1975fa0",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7346,9 +7347,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/master"
+                "source": "https://github.com/phar-io/version/tree/3.0.3"
             },
-            "time": "2020-06-27T14:39:04+00:00"
+            "time": "2020-11-30T09:21:21+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -7949,16 +7950,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.4.3",
+            "version": "9.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab"
+                "reference": "6535e637961f0829832621dc1b7308c2d24a799e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
-                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6535e637961f0829832621dc1b7308c2d24a799e",
+                "reference": "6535e637961f0829832621dc1b7308c2d24a799e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8042,7 +8043,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.4"
             },
             "funding": [
                 {
@@ -8054,7 +8055,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-10T12:53:30+00:00"
+            "time": "2020-12-01T04:58:47+00:00"
         },
         {
             "name": "sebastian/cli-parser",
