@@ -33,9 +33,6 @@ $app = new Laravel\Lumen\Application(
 );
 
 $app->withFacades();
-
-$app->register(Jenssegers\Mongodb\MongodbServiceProvider::class);
-
 $app->withEloquent();
 
 /*
@@ -104,7 +101,7 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 $app->middleware([
     \Jiannei\Logger\Laravel\Http\Middleware\RequestLog::class,
-    \Jiannei\Response\Laravel\Http\Middleware\EtagMiddleware::class,
+    \Jiannei\Response\Laravel\Http\Middleware\Etag::class,
 ]);
 
 $app->routeMiddleware([
