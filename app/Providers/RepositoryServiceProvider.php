@@ -11,17 +11,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Prettus\Repository\Providers\LumenRepositoryServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends LumenRepositoryServiceProvider
 {
-    /**
-     * Register services.
-     */
-    public function register()
-    {
-    }
-
     /**
      * Bootstrap services.
      */

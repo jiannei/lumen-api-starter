@@ -104,7 +104,7 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 $app->middleware([
     \Jiannei\Logger\Laravel\Http\Middleware\RequestLog::class,
-    \Jiannei\Response\Laravel\Http\Middleware\EtagMiddleware::class,
+    \Jiannei\Response\Laravel\Http\Middleware\Etag::class,
 ]);
 
 $app->routeMiddleware([
@@ -138,7 +138,6 @@ $app->register(App\Providers\EventServiceProvider::class);
  */
 $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\Illuminate\Redis\RedisServiceProvider::class);
-$app->register(\Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 $app->register(\Spatie\Permission\PermissionServiceProvider::class);
 $app->register(\Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
 $app->register(\Jiannei\Response\Laravel\Providers\ServiceProvider::class);
