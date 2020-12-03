@@ -38,7 +38,7 @@ class Handler extends ExceptionHandler
         HttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
-        HttpResponseException::class
+        HttpResponseException::class,
     ];
 
     /**
