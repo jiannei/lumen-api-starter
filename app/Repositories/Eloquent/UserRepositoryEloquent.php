@@ -60,7 +60,12 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     public function searchPage()
     {
-        return $this->paginate(10);
+        return $this->paginate(5);
+    }
+
+    public function searchSimplePage()
+    {
+        return $this->simplePaginate(5);
     }
 
     public function searchUserBy($id)

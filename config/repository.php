@@ -36,7 +36,7 @@ return [
         'params' => [
             'include' => 'include',
         ],
-        'serializer' => \League\Fractal\Serializer\ArraySerializer::class,
+        'serializer' => App\Support\Serializers\ArraySerializer::class,
     ],
 
     /*

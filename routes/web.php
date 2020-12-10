@@ -46,11 +46,8 @@ Route::group(['prefix' => 'test'], function () {
 
 // 用户管理
 Route::post('users', 'UsersController@store');
-
-Route::group(['middleware' => ['auth:api']], function () {
-    Route::get('users/{id}', 'UsersController@show');
-    Route::get('users', 'UsersController@index');
-});
+Route::get('users/{id}', 'UsersController@show');
+Route::get('users', 'UsersController@index');
 
 // 授权管理
 Route::post('authorization', 'AuthorizationController@store');

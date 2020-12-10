@@ -39,6 +39,14 @@ class UserService
         return $this->repository->searchPage();
     }
 
+    public function handleSimpleList(Request $request)
+    {
+        $this->repository->pushCriteria(new UserCriteria($request));
+        $this->repository->setPresenter(UserPresenter::class);
+
+        return $this->repository->searchSimplePage();
+    }
+
     public function handleProfile($id)
     {
         $this->repository->setPresenter(UserPresenter::class);

@@ -33,9 +33,9 @@ class ResponseCodeEnum extends BaseResponseCodeEnum
     // 服务端操作错误码：500 ~ 599 开头，后拼接 3 位
     const SYSTEM_ERROR = 500001;
     const SYSTEM_UNAVAILABLE = 500002;
-    const SYSTEM_CACHE_CONFIG_ERROR = 5000003;
-    const SYSTEM_CACHE_MISSED_ERROR = 5000004;
-    const SYSTEM_CONFIG_ERROR = 5000005;
+    const SYSTEM_CACHE_CONFIG_ERROR = 500003;
+    const SYSTEM_CACHE_MISSED_ERROR = 500004;
+    const SYSTEM_CONFIG_ERROR = 500005;
 
     // 业务操作错误码（外部服务或内部服务调用...）
     const SERVICE_REGISTER_ERROR = 500101;

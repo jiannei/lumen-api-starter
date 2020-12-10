@@ -31,7 +31,11 @@ class UsersController extends Controller
 
     public function index(Request $request)
     {
-        $users = $this->userService->handleList($request);
+        if ($request->get('type') === 'simple') {
+            $users = $this->userService->handleSimpleList($request);
+        } else {
+            $users = $this->userService->handleList($request);
+        }
 
         return $this->response->success($users);
     }

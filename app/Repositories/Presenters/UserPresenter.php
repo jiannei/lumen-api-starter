@@ -12,9 +12,8 @@
 namespace App\Repositories\Presenters;
 
 use App\Repositories\Transformers\UserTransformer;
-use Prettus\Repository\Presenter\FractalPresenter;
 
-class UserPresenter extends FractalPresenter
+class UserPresenter extends Presenter
 {
     /**
      * Prepare data to present.

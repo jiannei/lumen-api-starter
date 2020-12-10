@@ -53,7 +53,8 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
 
     public function searchPage()
     {
-        $posts = $this->model->published()->paginate(10);
+        // 使用预加载，避免 N+1
+        $posts = $this->model->with('author')->published()->paginate(10);
 
         return $this->parserResult($posts);
     }

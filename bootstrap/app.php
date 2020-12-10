@@ -79,7 +79,7 @@ $app->configure('filesystems');
 $app->configure('logging');
 $app->configure('queue');
 $app->configure('services');
-$app->configure('views');
+$app->configure('view');
 $app->configure('repository');
 $app->configure('enum');
 $app->configure('permission');

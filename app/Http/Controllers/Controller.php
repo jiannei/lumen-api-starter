@@ -14,7 +14,7 @@ namespace App\Http\Controllers;
 use Jiannei\Response\Laravel\ResponseTrait;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+abstract class Controller extends BaseController
 {
     use ResponseTrait;
 }

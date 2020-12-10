@@ -15,7 +15,7 @@ use Carbon\Carbon;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 
-class Model extends EloquentModel
+abstract class Model extends EloquentModel
 {
     /**
      * 为数组 / JSON 序列化准备日期。(Laravel 7).
