@@ -36,7 +36,7 @@ class UserService
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchPage();
+        return $this->repository->searchPage($request->get('limit'));
     }
 
     public function handleSimpleList(Request $request)
@@ -44,7 +44,15 @@ class UserService
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchSimplePage();
+        return $this->repository->searchSimplePage($request->get('limit'));
+    }
+
+    public function handleCursorList(Request $request)
+    {
+        $this->repository->pushCriteria(new UserCriteria($request));
+        $this->repository->setPresenter(UserPresenter::class);
+
+        return $this->repository->searchCursorPage($request->get('limit'));
     }
 
     public function handleProfile($id)

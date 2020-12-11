@@ -12,12 +12,11 @@
 namespace App\Repositories\Eloquent;
 
 use App\Contracts\Repositories\PostRepository;
+use App\Repositories\Criteria\RequestCriteria;
 use App\Repositories\Enums\PermissionEnum;
 use App\Repositories\Models\Post;
 use App\Repositories\Presenters\PostPresenter;
 use Illuminate\Support\Arr;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Prettus\Repository\Eloquent\BaseRepository;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
 /**

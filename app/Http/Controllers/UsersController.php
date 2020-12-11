@@ -31,11 +31,26 @@ class UsersController extends Controller
 
     public function index(Request $request)
     {
-        if ($request->get('type') === 'simple') {
-            $users = $this->userService->handleSimpleList($request);
-        } else {
-            $users = $this->userService->handleList($request);
-        }
+        $users = $this->userService->handleList($request);
+
+        return $this->response->success($users);
+    }
+
+    public function simple(Request $request)
+    {
+        $users = $this->userService->handleSimpleList($request);
+
+        return $this->response->success($users);
+    }
+
+    public function cursor(Request $request)
+    {
+        $this->validate($request,[
+            'cursor' => 'required|integer',
+            'prev' => 'sometimes|integer'
+        ]);
+
+        $users = $this->userService->handleCursorList($request);
 
         return $this->response->success($users);
     }

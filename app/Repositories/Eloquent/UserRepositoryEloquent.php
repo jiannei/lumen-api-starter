@@ -12,11 +12,10 @@
 namespace App\Repositories\Eloquent;
 
 use App\Contracts\Repositories\UserRepository;
+use App\Repositories\Criteria\RequestCriteria;
 use App\Repositories\Models\User;
 use App\Repositories\Validators\UserValidator;
 use Illuminate\Support\Facades\Hash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class UserRepositoryEloquent.
@@ -58,14 +57,19 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function searchPage()
+    public function searchPage($limit = null)
     {
-        return $this->paginate(5);
+        return $this->paginate($limit);
     }
 
-    public function searchSimplePage()
+    public function searchSimplePage($limit = null)
     {
-        return $this->simplePaginate(5);
+        return $this->simplePaginate($limit);
+    }
+
+    public function searchCursorPage($limit = null)
+    {
+        return $this->cursorPaginate($limit);
     }
 
     public function searchUserBy($id)

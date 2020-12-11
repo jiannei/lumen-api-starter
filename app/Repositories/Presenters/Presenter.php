@@ -4,16 +4,66 @@
 namespace App\Repositories\Presenters;
 
 
+use Exception;
 use Illuminate\Container\Container;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use League\Fractal\Pagination\Cursor;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 abstract class Presenter extends FractalPresenter
 {
+    protected $cursor = null;
+
+    public function makeCursor($current, $previous, $next, $count)
+    {
+        $this->cursor = new Cursor(...func_get_args());
+    }
+
+    /**
+     * Prepare data to present
+     *
+     * @param $data
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function present($data)
+    {
+        if (!class_exists('League\Fractal\Manager')) {
+            throw new Exception(trans('repository::packages.league_fractal_required'));
+        }
+
+        if ($data instanceof EloquentCollection) {
+            $this->resource = $this->transformCollection($data);
+        } elseif ($data instanceof AbstractPaginator) {
+            $this->resource = $this->transformPaginator($data);
+        } else {
+            $this->resource = $this->transformItem($data);
+        }
+
+        return $this->fractal->createData($this->resource)->toArray();
+    }
+
+    /**
+     * @param $data
+     *
+     * @return \League\Fractal\Resource\Collection
+     */
+    protected function transformCollection($data)
+    {
+        $resource = new Collection($data, $this->getTransformer(), $this->resourceKeyCollection);
+        if ($this->cursor) {
+            $resource->setCursor($this->cursor);
+        }
+
+        return $resource;
+    }
+
     /**
      * @param  AbstractPaginator|LengthAwarePaginator|Paginator  $paginator
      *

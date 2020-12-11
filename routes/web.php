@@ -48,6 +48,8 @@ Route::group(['prefix' => 'test'], function () {
 Route::post('users', 'UsersController@store');
 Route::get('users/{id}', 'UsersController@show');
 Route::get('users', 'UsersController@index');
+Route::get('users/pagination/simple', 'UsersController@simple');
+Route::get('users/pagination/cursor', 'UsersController@cursor');
 
 // 授权管理
 Route::post('authorization', 'AuthorizationController@store');

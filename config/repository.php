@@ -219,6 +219,7 @@ return [
             'with' => 'with',
             'searchJoin' => 'searchJoin',
             'withCount' => 'withCount',
+            'cursor' => 'cursor',
         ],
     ],
     /*
