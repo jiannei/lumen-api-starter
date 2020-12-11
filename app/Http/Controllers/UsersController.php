@@ -45,9 +45,9 @@ class UsersController extends Controller
 
     public function cursor(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'cursor' => 'required|integer',
-            'prev' => 'sometimes|integer'
+            'prev' => 'sometimes|integer',
         ]);
 
         $users = $this->userService->handleCursorList($request);

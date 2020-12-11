@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Support\Serializers;
-
 
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Serializer\ArraySerializer as FractalArraySerializer;
@@ -28,7 +35,7 @@ class ArraySerializer extends FractalArraySerializer
             'per_page' => (int) $paginator->getPerPage(),
             'current_page' => $currentPage,
             'total_pages' => $lastPage,
-            'links' => []
+            'links' => [],
         ];
 
         if ($currentPage > 1) {

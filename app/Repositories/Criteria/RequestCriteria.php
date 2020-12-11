@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Repositories\Criteria;
-
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +19,7 @@ use Prettus\Repository\Criteria\RequestCriteria as BaseRequestCriteria;
 class RequestCriteria extends BaseRequestCriteria
 {
     /**
-     * Apply criteria in query repository
+     * Apply criteria in query repository.
      *
      * @param  Builder|Model  $model
      * @param  RepositoryInterface  $repository
