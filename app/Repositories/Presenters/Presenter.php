@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Repositories\Presenters;
-
 
 use Exception;
 use Illuminate\Container\Container;
@@ -25,7 +32,7 @@ abstract class Presenter extends FractalPresenter
     }
 
     /**
-     * Prepare data to present
+     * Prepare data to present.
      *
      * @param $data
      *
@@ -34,7 +41,7 @@ abstract class Presenter extends FractalPresenter
      */
     public function present($data)
     {
-        if (!class_exists('League\Fractal\Manager')) {
+        if (! class_exists('League\Fractal\Manager')) {
             throw new Exception(trans('repository::packages.league_fractal_required'));
         }
 
