@@ -2712,16 +2712,16 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jiannei/laravel-response.git",
-                "reference": "e5ac642eea25bb020a19e415bd98c41ad2ff69e2"
+                "reference": "f2147f25cda809e068e9cff39b4477e61db6eb1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/e5ac642eea25bb020a19e415bd98c41ad2ff69e2",
-                "reference": "e5ac642eea25bb020a19e415bd98c41ad2ff69e2",
+                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/f2147f25cda809e068e9cff39b4477e61db6eb1c",
+                "reference": "f2147f25cda809e068e9cff39b4477e61db6eb1c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2766,9 +2766,9 @@
             "description": "Laravel api response data format.",
             "support": {
                 "issues": "https://github.com/Jiannei/laravel-response/issues",
-                "source": "https://github.com/Jiannei/laravel-response/tree/1.0.0"
+                "source": "https://github.com/Jiannei/laravel-response/tree/1.1.0"
             },
-            "time": "2020-12-01T06:12:49+00:00"
+            "time": "2020-12-12T08:01:53+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -6908,16 +6908,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.1",
+            "version": "v1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6962,10 +6962,10 @@
             ],
             "support": {
                 "issues": "https://github.com/fzaninotto/Faker/issues",
-                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.1"
+                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
             },
             "abandoned": true,
-            "time": "2019-12-12T13:22:17+00:00"
+            "time": "2020-12-11T09:56:16+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",

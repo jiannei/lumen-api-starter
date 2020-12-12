@@ -14,12 +14,6 @@ use App\Repositories\Enums\ResponseCodeEnum;
 use App\Repositories\Enums\RoleEnum;
 
 return [
-    'validations' => [
-        'enum' => 'The value you have provided is not a valid enum instance.',
-        'enum_value' => 'The value you have entered is invalid.',
-        'enum_key' => 'The key you have entered is invalid.',
-    ],
-
     // 响应状态码
     ResponseCodeEnum::class => [
         // 成功
@@ -34,6 +28,7 @@ return [
         ResponseCodeEnum::CLIENT_PARAMETER_ERROR => '参数错误',
         ResponseCodeEnum::CLIENT_CREATED_ERROR => '数据已存在',
         ResponseCodeEnum::CLIENT_DELETED_ERROR => '数据不存在',
+        ResponseCodeEnum::CLIENT_VALIDATION_ERROR => '表单验证错误',
 
         // 服务端错误
         ResponseCodeEnum::SYSTEM_ERROR => '服务器错误',

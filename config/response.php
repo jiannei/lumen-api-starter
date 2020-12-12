@@ -13,4 +13,6 @@ use App\Repositories\Enums\ResponseCodeEnum;
 
 return [
     'enum' => ResponseCodeEnum::class,
+
+    'validation_error_code' => ResponseCodeEnum::CLIENT_VALIDATION_ERROR
 ];
