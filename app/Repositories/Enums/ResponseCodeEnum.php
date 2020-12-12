@@ -26,7 +26,7 @@ class ResponseCodeEnum extends BaseResponseCodeEnum
     const CLIENT_CREATED_ERROR = 400002;
     const CLIENT_DELETED_ERROR = 400003;
 
-    const CLIENT_VALIDATION_ERROR = 422001;// 表单验证错误
+    const CLIENT_VALIDATION_ERROR = 422001; // 表单验证错误
 
     // 服务端操作错误码：500 ~ 599 开头，后拼接 3 位
     const SYSTEM_ERROR = 500001;
