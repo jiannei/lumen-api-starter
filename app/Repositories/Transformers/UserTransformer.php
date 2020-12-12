@@ -20,6 +20,7 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $user)
     {
         $data = [
+            'id' => $user->id,
             'nickname' => $user->name,
             'email' => $user->email,
         ];

@@ -48,7 +48,8 @@ abstract class BaseRepository extends BaseRepositoryEloquent
     {
         $this->applyCriteria();
         $this->applyScope();
-        $limit = is_null($limit) ? config('repository.pagination.limit', 15) : $limit;
+
+        $limit = is_null($limit) ? config('repository.pagination.limit', 15) : (int) $limit;
 
         if ($method === 'cursor') {
             $results = $this->model->select($columns)->limit($limit)->get();
@@ -59,8 +60,11 @@ abstract class BaseRepository extends BaseRepositoryEloquent
                 $primaryKey = $this->model->getKeyName();
             }
 
+            $count = $results->count();
+            $next = $count === $limit ? optional($results->last())->{$primaryKey} : null;
+
             $prev = request('prev');
-            $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : null, optional($results->last())->{$primaryKey}, $results->count());
+            $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : null, $next, $count);
         } else {
             $results = $this->model->{$method}($limit, $columns);
             $results->appends(app('request')->query());
