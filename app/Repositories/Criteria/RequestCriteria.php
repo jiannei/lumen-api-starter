@@ -32,7 +32,7 @@ class RequestCriteria extends BaseRequestCriteria
     {
         $sortedBy = $this->request->get(config('repository.criteria.params.sortedBy', 'sortedBy'), 'asc');
         $cursor = $this->request->get(config('repository.criteria.params.cursor', 'cursor'), null);
-        $sortedBy = !empty($sortedBy) ? Str::lower($sortedBy) : 'asc';
+        $sortedBy = ! empty($sortedBy) ? Str::lower($sortedBy) : 'asc';
 
         if ($cursor) {
             $keyType = $model->getKeyType();
