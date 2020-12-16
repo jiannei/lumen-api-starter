@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Models\Post;
 use App\Services\PostService;
+use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class PostsController extends Controller
 {
@@ -31,6 +32,6 @@ class PostsController extends Controller
 
         $posts = $this->service->handleList();
 
-        return $this->response->success($posts);
+        return Response::success($posts);
     }
 }

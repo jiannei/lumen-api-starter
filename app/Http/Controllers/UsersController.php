@@ -14,6 +14,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class UsersController extends Controller
 {
@@ -33,14 +34,14 @@ class UsersController extends Controller
     {
         $users = $this->userService->handleList($request);
 
-        return $this->response->success($users);
+        return Response::success($users);
     }
 
     public function simple(Request $request)
     {
         $users = $this->userService->handleSimpleList($request);
 
-        return $this->response->success($users);
+        return Response::success($users);
     }
 
     public function cursor(Request $request)
@@ -52,14 +53,14 @@ class UsersController extends Controller
 
         $users = $this->userService->handleCursorList($request);
 
-        return $this->response->success($users);
+        return Response::success($users);
     }
 
     public function show($id)
     {
         $user = $this->userService->handleProfile($id);
 
-        return $this->response->success($user);
+        return Response::success($user);
     }
 
     public function store(Request $request)
@@ -72,6 +73,6 @@ class UsersController extends Controller
 
         $user = $this->userService->handleRegistration($request);
 
-        return $this->response->created(new UserResource($user));
+        return Response::created(new UserResource($user));
     }
 }

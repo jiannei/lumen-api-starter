@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Models\Log;
 use Illuminate\Http\Request;
+use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class ExampleController extends Controller
 {
@@ -27,7 +28,7 @@ class ExampleController extends Controller
 
     public function configurations(Request $request)
     {
-        return $this->response->success([
+        return Response::success([
             'app' => config('app'),
             'auth' => config('auth'),
             'broadcasting' => config('broadcasting'),
@@ -42,7 +43,7 @@ class ExampleController extends Controller
 
     public function logs()
     {
-        return $this->response->success(Log::all());
+        return Response::success(Log::all());
     }
 
     public function syncRoles(Request $request)
@@ -55,7 +56,7 @@ class ExampleController extends Controller
 
         $request->user()->syncRoles($roles);
 
-        return $this->response->success($roles, '角色更新成功');
+        return Response::success($roles, '角色更新成功');
     }
 
     public function syncPermissions(Request $request)
@@ -67,6 +68,6 @@ class ExampleController extends Controller
         $permissions = $request->input('permissions');
         $request->user()->syncPermissions($permissions);
 
-        return $this->response->success($permissions, '权限更新成功');
+        return Response::success($permissions, '权限更新成功');
     }
 }

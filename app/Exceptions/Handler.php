@@ -19,14 +19,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
-use Jiannei\Response\Laravel\ResponseTrait;
+use Jiannei\Response\Laravel\Support\Traits\ExceptionTrait;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    use ResponseTrait;
+    use ExceptionTrait;
 
     /**
      * A list of the exception types that should not be reported.

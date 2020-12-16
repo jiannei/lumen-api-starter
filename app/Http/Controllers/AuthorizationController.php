@@ -14,6 +14,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use App\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Request;
+use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class AuthorizationController extends Controller
 {
@@ -29,14 +30,14 @@ class AuthorizationController extends Controller
     {
         auth()->logout();
 
-        return $this->response->noContent();
+        return Response::noContent();
     }
 
     public function show()
     {
         $user = auth()->userOrFail();
 
-        return $this->response->success(new UserResource($user));
+        return Response::success(new UserResource($user));
     }
 
     public function store(Request $request)
@@ -49,7 +50,7 @@ class AuthorizationController extends Controller
 
         $credentials = request(['name', 'email', 'password']);
         if (! $token = auth()->attempt($credentials)) {
-            $this->response->errorUnauthorized();
+            Response::errorUnauthorized();
         }
 
         return $this->respondWithToken($token);
@@ -62,7 +63,7 @@ class AuthorizationController extends Controller
 
     protected function respondWithToken($token)
     {
-        return $this->response->success(
+        return Response::success(
             [
                 'access_token' => $token,
                 'token_type' => 'bearer',
