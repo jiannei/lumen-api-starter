@@ -139,7 +139,7 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\Illuminate\Redis\RedisServiceProvider::class);
 $app->register(\Spatie\Permission\PermissionServiceProvider::class);
-$app->register(\Jiannei\Enum\Laravel\Providers\ServiceProvider::class);
+$app->register(\Jiannei\Enum\Laravel\Providers\LumenServiceProvider::class);
 $app->register(\Jiannei\Response\Laravel\Providers\LumenServiceProvider::class);
 $app->register(\Jiannei\Logger\Laravel\Providers\ServiceProvider::class);
 

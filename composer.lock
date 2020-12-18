@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4565e894195ca508d9ddc518c3457261",
+    "content-hash": "87604dbe2873e661abeb40299514d499",
     "packages": [
         {
             "name": "brick/math",
@@ -2650,16 +2650,16 @@
         },
         {
             "name": "jiannei/laravel-logger",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jiannei/laravel-logger.git",
-                "reference": "9e2766153ac62a046f03016dee640d1716fe23cc"
+                "reference": "ac8e8d7e4e1b8c76c8117bb69cf0672773e60971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-logger/zipball/9e2766153ac62a046f03016dee640d1716fe23cc",
-                "reference": "9e2766153ac62a046f03016dee640d1716fe23cc",
+                "url": "https://api.github.com/repos/Jiannei/laravel-logger/zipball/ac8e8d7e4e1b8c76c8117bb69cf0672773e60971",
+                "reference": "ac8e8d7e4e1b8c76c8117bb69cf0672773e60971",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2670,7 +2670,6 @@
             },
             "require": {
                 "ext-json": "*",
-                "jenssegers/mongodb": "3.8.x",
                 "jiannei/laravel-enum": "^1.0"
             },
             "require-dev": {
@@ -2706,9 +2705,9 @@
             "description": "Laravel logger.",
             "support": {
                 "issues": "https://github.com/Jiannei/laravel-logger/issues",
-                "source": "https://github.com/Jiannei/laravel-logger/tree/1.0.0"
+                "source": "https://github.com/Jiannei/laravel-logger/tree/1.0.2"
             },
-            "time": "2020-11-30T07:40:34+00:00"
+            "time": "2020-12-18T03:35:10+00:00"
         },
         {
             "name": "jiannei/laravel-response",
