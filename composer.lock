@@ -2593,16 +2593,16 @@
         },
         {
             "name": "jiannei/laravel-enum",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jiannei/laravel-enum.git",
-                "reference": "a4a6ee3a34263709095ed521787b9ffba0e2ba98"
+                "reference": "b8c910ac9f2e735d1e99b58cdddf603039955123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-enum/zipball/a4a6ee3a34263709095ed521787b9ffba0e2ba98",
-                "reference": "a4a6ee3a34263709095ed521787b9ffba0e2ba98",
+                "url": "https://api.github.com/repos/Jiannei/laravel-enum/zipball/b8c910ac9f2e735d1e99b58cdddf603039955123",
+                "reference": "b8c910ac9f2e735d1e99b58cdddf603039955123",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2622,7 +2622,7 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Jiannei\\Enum\\Laravel\\Providers\\ServiceProvider"
+                        "Jiannei\\Enum\\Laravel\\Providers\\LaravelServiceProvider"
                     ]
                 }
             },
@@ -2644,9 +2644,9 @@
             "description": "Laravel Enum support",
             "support": {
                 "issues": "https://github.com/Jiannei/laravel-enum/issues",
-                "source": "https://github.com/Jiannei/laravel-enum/tree/1.0.0"
+                "source": "https://github.com/Jiannei/laravel-enum/tree/1.1.0"
             },
-            "time": "2020-11-30T01:08:15+00:00"
+            "time": "2020-12-17T11:02:20+00:00"
         },
         {
             "name": "jiannei/laravel-logger",
