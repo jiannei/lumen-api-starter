@@ -11,7 +11,7 @@
 
 namespace App\Repositories\Enums;
 
-use Jiannei\Response\Laravel\Repositories\Enums\ResponseCodeEnum as BaseResponseCodeEnum;
+use Jiannei\Enum\Laravel\Repositories\Enums\ResponseCodeEnum as BaseResponseCodeEnum;
 
 class ResponseCodeEnum extends BaseResponseCodeEnum
 {
