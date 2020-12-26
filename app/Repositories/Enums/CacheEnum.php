@@ -18,7 +18,7 @@ class CacheEnum extends BaseCacheEnum
 {
     const AUTHORIZATION_USER = 'authorizationUser';
 
-    protected function authorizationUser($options)
+    protected static function authorizationUser($options)
     {
         $exp = auth('api')->payload()->get('exp'); // token 剩余有效时间
 

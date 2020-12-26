@@ -8,7 +8,12 @@
 
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
-社区讨论传送：[是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+### 社区讨论传送
+
+- [是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
+- [一篇 RESTful API 路由设计的最佳实践](https://learnku.com/articles/45526)
+- [教你更优雅地写 API 之「规范响应数据」](https://learnku.com/articles/52784)
+- [教你更优雅地写 API 之「枚举使用」](https://learnku.com/articles/53015)
 
 Lumen学习交流群：1105120693（QQ）
 
@@ -45,59 +50,47 @@ Lumen学习交流群：1105120693（QQ）
 ├── app
 │   ├── Console
 │   │   ├── Commands
-│   │   └── Kernel.php
+│   │   └── Kernel.php                            // Schedule 调度
 │   ├── Contracts                                       // 定义 interface
-│   │   ├── Enums
 │   │   └── Repositories
 │   ├── Events
 │   │   ├── Event.php
 │   │   └── ExampleEvent.php
-│   ├── Exceptions                                     // 异常处理
-│   │   ├── Handler.php
-│   │   ├── InvalidEnumKeyException.php
-│   │   └── InvalidEnumValueException.php
+│   ├── Exceptions                                      // 异常处理
+│   │   └── Handler.php
 │   ├── Http
-│   │   ├── Controllers                         // Controller 任务分发，返回响应
+│   │   ├── Controllers                           // Controller 任务分发给不同 Service 处理，返回响应给客户端
 │   │   ├── Middleware
-│   │   └── Resources                           // Api Resource 数据转换
-│   ├── Jobs
+│   │   └── Resources                             // Api Resource 数据转换
+│   ├── Jobs                                            // 异步任务
 │   │   ├── ExampleJob.php
 │   │   └── Job.php
 │   ├── Listeners
 │   │   └── ExampleListener.php
+│   ├── Policies                                        // 权限校验
+│   │   └── PostPolicy.php
 │   ├── Providers
 │   │   ├── AppServiceProvider.php
 │   │   ├── AuthServiceProvider.php
-│   │   ├── EloquentUserProvider.php
-│   │   ├── EnumServiceProvider.php
+│   │   ├── EloquentUserProvider.php              // 定制的 EloquentUserProvider，缓存授权用户信息
 │   │   ├── EventServiceProvider.php
-│   │   ├── QueryLoggerServiceProvider.php
-│   │   └── RepositoryServiceProvider.php
-│   ├── Repositories
-│   │   ├── Criteria                            // 数据查询条件的组装拼接
-│   │   ├── Eloquent                            // 处理无关业务的数据维护逻辑（传说中的 Repository）
-│   │   ├── Enums                               // 系统中的枚举/常量定义
-│   │   ├── Models                              // 定义数据实体，以及实体之间的关系（Laravel 原始的 Eloquent Model）
-│   │   ├── Presenters                          // 数据显示前的处理，需要引入 transformer（配合 Repository 使用）
-│   │   ├── Transformers                        // 数据转换
-│   │   └── Validators                          // 数据维护前的参数校验（配合 Repository 使用）
-│   ├── Services
-│   │   └── UserService.php                     // 具体的业务需求处理逻辑
-│   └── Support                                       // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能（你或许会发现，这里 Support 中的实现其实放到 Laravel 项目中也能用）
-│       ├── Enum                                      // 扩展常量/枚举的定义和使用
-│       ├── Logger                                    // 扩展 Lumen 的日志支持记录到 Mongodb
-│       ├── Response.php                              // 统一 API 响应格式（data、code、status、message），同时支持 Api Resource 与 Transformer
-│       ├── Traits                                    // class 中常用到的方法
-│       └── helpers.php                               // 全局会用到的函数
+│   │   └── RepositoryServiceProvider.php         // repository 模式架构中，将 interface 与 repository 进行对象绑定
+│   ├── Repositories                                    // Repository 层：数据仓库层
+│   │   ├── Criteria                              // 数据查询条件的组装拼接；（可以将公共的或者复杂的查询条件放在这个地方）
+│   │   ├── Eloquent                              // 定义针对某个数据表（或存在关联关系的数据表）的数据维护逻辑；不处理业务（动态数据；实质的 Repository；基于 Eloquent\Model 的封装 ）
+│   │   ├── Enums                                 // 枚举集合（静态数据）
+│   │   ├── Models                                // Laravel 原始的 Eloquent\Model：定义数据表特性、数据表之间的关联关系等；不处理业务
+│   │   ├── Presenters                            // 配合 Transformer 使用
+│   │   ├── Transformers                          // 响应前的数据转换，作用与 Api Resource 类似，但是功能更丰富
+│   │   └── Validators                            // Eloquent 数据维护前的校验，与表单验证功能类似
+│   ├── Services                                        // Service 层：处理实际业务；可以调用 Repository
+│   │   ├── PostService.php
+│   │   └── UserService.php
+│   └── Support                                         // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能集
+│       ├── Serializers                                 // league/fratcal 的 ArraySerializer 扩展，支持简单分页数据格式转换
+│       ├── Traits                                      // Class 中常用的辅助功能集
+│       └── helpers.php                                 // 全局会用到的辅助函数
 ```
-
-## RESTful 方式的路由设计简单准则
-
-[一篇 RESTful API 路由设计的最佳实践](https://learnku.com/articles/45526)
-
-## 规范的响应结构
-
-[教你更优雅地写 API 之「规范响应数据」](https://learnku.com/articles/52784)
 
 ## Repository & Service 模式架构
 
