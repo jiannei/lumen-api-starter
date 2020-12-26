@@ -1,10 +1,13 @@
 # Lumen Api Starter Designed With ❤️
 
-翻阅了网上很多的API 开发规范文档，参考了不少大佬们总结的经验，决定尝试使用最新版本的 Lumen（当下最新版本是 Lumen 8.x)来构建一个**基础功能**完备，**规范统一**，能够**快速**应用于实际的 API 项目开发启动模板。同时，也希望通过**合理的**应用架构设计为中大型应用保驾护航。
+查找了网上很多的API 相关的开发规范文档，参考了不少大佬们总结的经验，决定尝试使用最新版本的 Lumen（当下最新版本是 Lumen 8.x)来构建一个**基础功能**完备，**规范统一**，能够**快速**应用于实际的 API 项目开发启动模板。同时，也希望通过**合理的**架构设计使其适用于中大型项目。
 
 少许的依赖安装，遵循 Laravel 的思维进行扩展，不额外增加「负担」。
 
 开箱即用，加速 Api 开发。
+
+![StyleCI build status](https://github.styleci.io/repos/267924989/shield)
+![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
 
 [中文文档](https://github.com/Jiannei/lumen-api-starter/blob/master/README.md)
 
@@ -16,11 +19,6 @@
 - [教你更优雅地写 API 之「枚举使用」](https://learnku.com/articles/53015)
 
 Lumen学习交流群：1105120693（QQ）
-
-![StyleCI build status](https://github.styleci.io/repos/267924989/shield) 
-![Test](https://github.com/Jiannei/lumen-api-starter/workflows/Test/badge.svg?branch=master)
-
-[TOC]
 
 ## 概览
 
@@ -38,7 +36,7 @@ Lumen学习交流群：1105120693（QQ）
     - 请求日志包含单次请求执行时间记录
     - 支持以每日、每月以及每年按表进行拆分
 - 使用 laravel-permission 管理权限：支持根据定义好的 PermissionEnum 生成权限（包含权限校验案例）
-- 合理有效地『Repository & Service』架构设计 😏
+- 合理有效地「Repository & Service」架构设计 😏
 
 ### 计划支持
 
