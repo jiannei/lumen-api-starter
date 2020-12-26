@@ -27,7 +27,7 @@ class EloquentUserProvider extends BaseEloquentUserProvider
      */
     public function retrieveById($identifier)
     {
-        $cacheKey = CacheEnum::getCacheKey(CacheEnum::AUTHORIZATION_USER,$identifier);
+        $cacheKey = CacheEnum::getCacheKey(CacheEnum::AUTHORIZATION_USER, $identifier);
         $cacheExpireTime = CacheEnum::getCacheExpireTime(CacheEnum::AUTHORIZATION_USER);
 
         return Cache::remember($cacheKey, $cacheExpireTime, function () use ($identifier) {
