@@ -48,24 +48,24 @@ Lumen学习交流群：1105120693（QQ）
 ├── app
 │   ├── Console
 │   │   ├── Commands
-│   │   └── Kernel.php                            // Schedule 调度
-│   ├── Contracts                                       // 定义 interface
+│   │   └── Kernel.php                             // Schedule 调度
+│   ├── Contracts                                  // 定义 interface
 │   │   └── Repositories
 │   ├── Events
 │   │   ├── Event.php
 │   │   └── ExampleEvent.php
-│   ├── Exceptions                                      // 异常处理
+│   ├── Exceptions                                 // 异常处理
 │   │   └── Handler.php
 │   ├── Http
-│   │   ├── Controllers                           // Controller 任务分发给不同 Service 处理，返回响应给客户端
+│   │   ├── Controllers                            // Controller 任务分发给不同 Service 处理，返回响应给客户端
 │   │   ├── Middleware
-│   │   └── Resources                             // Api Resource 数据转换
-│   ├── Jobs                                            // 异步任务
+│   │   └── Resources                              // Api Resource 数据转换
+│   ├── Jobs                                       // 异步任务
 │   │   ├── ExampleJob.php
 │   │   └── Job.php
 │   ├── Listeners
 │   │   └── ExampleListener.php
-│   ├── Policies                                        // 权限校验
+│   ├── Policies                                   // 权限校验
 │   │   └── PostPolicy.php
 │   ├── Providers
 │   │   ├── AppServiceProvider.php
@@ -73,7 +73,7 @@ Lumen学习交流群：1105120693（QQ）
 │   │   ├── EloquentUserProvider.php              // 定制的 EloquentUserProvider，缓存授权用户信息
 │   │   ├── EventServiceProvider.php
 │   │   └── RepositoryServiceProvider.php         // repository 模式架构中，将 interface 与 repository 进行对象绑定
-│   ├── Repositories                                    // Repository 层：数据仓库层
+│   ├── Repositories                              // Repository 层：数据仓库层
 │   │   ├── Criteria                              // 数据查询条件的组装拼接；（可以将公共的或者复杂的查询条件放在这个地方）
 │   │   ├── Eloquent                              // 定义针对某个数据表（或存在关联关系的数据表）的数据维护逻辑；不处理业务（动态数据；实质的 Repository；基于 Eloquent\Model 的封装 ）
 │   │   ├── Enums                                 // 枚举集合（静态数据）
@@ -81,13 +81,13 @@ Lumen学习交流群：1105120693（QQ）
 │   │   ├── Presenters                            // 配合 Transformer 使用
 │   │   ├── Transformers                          // 响应前的数据转换，作用与 Api Resource 类似，但是功能更丰富
 │   │   └── Validators                            // Eloquent 数据维护前的校验，与表单验证功能类似
-│   ├── Services                                        // Service 层：处理实际业务；可以调用 Repository
+│   ├── Services                                  // Service 层：处理实际业务；可以调用 Repository
 │   │   ├── PostService.php
 │   │   └── UserService.php
-│   └── Support                                         // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能集
-│       ├── Serializers                                 // league/fratcal 的 ArraySerializer 扩展，支持简单分页数据格式转换
-│       ├── Traits                                      // Class 中常用的辅助功能集
-│       └── helpers.php                                 // 全局会用到的辅助函数
+│   └── Support                                   // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能集
+│       ├── Serializers                           // league/fratcal 的 ArraySerializer 扩展，支持简单分页数据格式转换
+│       ├── Traits                                // Class 中常用的辅助功能集
+│       └── helpers.php                           // 全局会用到的辅助函数
 ```
 
 ## Repository & Service 模式架构
