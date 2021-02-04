@@ -36,7 +36,7 @@ return [
         'params' => [
             'include' => 'include',
         ],
-        'serializer' => App\Support\Serializers\ArraySerializer::class,
+        'serializer' => \Jiannei\Response\Laravel\Support\Serializers\ArraySerializer::class,
     ],
 
     /*

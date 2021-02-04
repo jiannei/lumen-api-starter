@@ -15,4 +15,10 @@ return [
     'enum' => ResponseCodeEnum::class,
 
     'validation_error_code' => ResponseCodeEnum::CLIENT_VALIDATION_ERROR,
+
+    'format' => [
+        'paginated_resource' => [
+            'data_field' => 'list'
+        ],
+    ],
 ];
