@@ -22,7 +22,7 @@ class PostService
         $this->repository = $repository;
     }
 
-    public function handleList()
+    public function handleSearchList()
     {
         return $this->repository->searchPage();
     }

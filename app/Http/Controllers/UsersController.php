@@ -32,14 +32,14 @@ class UsersController extends Controller
 
     public function index(Request $request)
     {
-        $users = $this->userService->handleList($request);
+        $users = $this->userService->handleSearchList($request);
 
         return Response::success($users);
     }
 
     public function simple(Request $request)
     {
-        $users = $this->userService->handleSimpleList($request);
+        $users = $this->userService->handleSearchSimpleList($request);
 
         return Response::success($users);
     }
@@ -51,14 +51,14 @@ class UsersController extends Controller
             'prev' => 'sometimes|integer',
         ]);
 
-        $users = $this->userService->handleCursorList($request);
+        $users = $this->userService->handleSearchCursorList($request);
 
         return Response::success($users);
     }
 
     public function show($id)
     {
-        $user = $this->userService->handleProfile($id);
+        $user = $this->userService->handleSearchItem($id);
 
         return Response::success($user);
     }
@@ -71,7 +71,7 @@ class UsersController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = $this->userService->handleRegistration($request);
+        $user = $this->userService->handleCreateItem($request);
 
         return Response::created(new UserResource($user));
     }

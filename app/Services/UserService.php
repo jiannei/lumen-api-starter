@@ -31,38 +31,38 @@ class UserService
         $this->repository = $repository;
     }
 
-    public function handleList(Request $request)
+    public function handleSearchList(Request $request)
     {
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchPage($request->get('limit'));
+        return $this->repository->paginate($request->get('limit'));
     }
 
-    public function handleSimpleList(Request $request)
+    public function handleSearchSimpleList(Request $request)
     {
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchSimplePage($request->get('limit'));
+        return $this->repository->simplePaginate($request->get('limit'));
     }
 
-    public function handleCursorList(Request $request)
+    public function handleSearchCursorList(Request $request)
     {
         $this->repository->pushCriteria(new UserCriteria($request));
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchCursorPage($request->get('limit'));
+        return $this->repository->cursorPaginate($request->get('limit'));
     }
 
-    public function handleProfile($id)
+    public function handleSearchItem($id)
     {
         $this->repository->setPresenter(UserPresenter::class);
 
-        return $this->repository->searchUserBy($id);
+        return $this->repository->find($id);
     }
 
-    public function handleRegistration(Request $request)
+    public function handleCreateItem(Request $request)
     {
         return $this->repository->insertUser($request->all());
     }

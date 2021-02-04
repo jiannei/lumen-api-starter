@@ -57,26 +57,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function searchPage($limit = null)
-    {
-        return $this->paginate($limit);
-    }
-
-    public function searchSimplePage($limit = null)
-    {
-        return $this->simplePaginate($limit);
-    }
-
-    public function searchCursorPage($limit = null)
-    {
-        return $this->cursorPaginate($limit);
-    }
-
-    public function searchUserBy($id)
-    {
-        return $this->find($id);
-    }
-
     public function insertUser($attributes)
     {
         $this->model->name = $attributes['name'];

@@ -30,7 +30,7 @@ class PostsController extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        $posts = $this->service->handleList();
+        $posts = $this->service->handleSearchList();
 
         return Response::success($posts);
     }
