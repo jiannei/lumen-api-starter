@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Jiannei/lumen-api-starter.
+ *
+ * (c) Jiannei <longjian.huang@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Repositories\Criteria;
-
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -25,7 +32,6 @@ abstract class Criteria implements CriteriaInterface
     {
         $model = $model->where(function ($query) {
             /** @var Builder $query */
-
             $this->defaultCondition($query);
 
             $this->condition($query);
@@ -37,7 +43,7 @@ abstract class Criteria implements CriteriaInterface
     protected function defaultCondition(Builder $query, $nullValue = 0): void
     {
         // 默认的筛选条件，防止返回数据过多（没有传任何参数时返回空数据）
-        if (!$this->request->all()) {
+        if (! $this->request->all()) {
             $query->where($query->getModel()->getKeyName(), $nullValue);
         }
     }
