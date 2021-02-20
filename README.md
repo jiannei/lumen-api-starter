@@ -17,6 +17,7 @@
 - [一篇 RESTful API 路由设计的最佳实践](https://learnku.com/articles/45526)
 - [教你更优雅地写 API 之「规范响应数据」](https://learnku.com/articles/52784)
 - [教你更优雅地写 API 之「枚举使用」](https://learnku.com/articles/53015)
+- [教你更优雅地写 API 之「记录日志」](https://learnku.com/articles/53669)
 
 Lumen学习交流群：1105120693（QQ）
 
@@ -35,7 +36,7 @@ Lumen学习交流群：1105120693（QQ）
     - 每次请求关联了 UNIQUE_ID，可以通过 UNIQUE_ID 查询出单次请求产生的全部日志
     - 请求日志包含单次请求执行时间记录
     - 支持以每日、每月以及每年按表进行拆分
-- 使用 laravel-permission 管理权限：支持根据定义好的 PermissionEnum 生成权限（包含权限校验案例）
+- 扩展 l5-repository，支持 cursor 方式分页
 - 合理有效地「Repository & Service」架构设计 😏
 
 ### 计划支持
@@ -81,7 +82,7 @@ Lumen学习交流群：1105120693（QQ）
 │   │   ├── Presenters                            // 配合 Transformer 使用
 │   │   ├── Transformers                          // 响应前的数据转换，作用与 Api Resource 类似，但是功能更丰富
 │   │   └── Validators                            // Eloquent 数据维护前的校验，与表单验证功能类似
-│   ├── Services                                  // Service 层：处理实际业务；可以调用 Repository
+│   ├── Services                                  // Service 层：处理实际业务；调用 Repository
 │   │   ├── PostService.php
 │   │   └── UserService.php
 │   └── Support                                   // 对框架的扩展，或者实际项目中需要封装一些与业务无关的通用功能集
@@ -100,6 +101,12 @@ Service => action，具体的业务实现
 Repository => state、mutation、getter，具体的数据维护
 ```
 
+### 实际案例
+
+为了更好地理解 Repository & Service 模式，对 Laravel 中文社区的教程 2 中的 Larabbs 项目使用该模式进行了重构，实际开发过程可以参考其中的分层设计。
+
+[larabbs](https://github.com/Jiannei/larabbs)
+
 ### 职责说明
 
 **Controller 岗位职责**：
@@ -108,7 +115,7 @@ Repository => state、mutation、getter，具体的数据维护
 2. 将校验后的参数或 Request 传入 Service 中具体的方法，安排 Service 实现具体的功能业务逻辑
 3. Controller 中可以通过`__construct()`依赖注入多个 Service。比如 `UserController` 中可能会注入 `UserService`（用户相关的功能业务）和 `EmailService`（邮件相关的功能业务）
 4. 使用统一的 `$this->response`调用`sucess`或`fail`方法来返回统一的数据格式
-5. （可选）使用 Laravel Api Resource 的同学可能在 Controller 中还会有转换数据的逻辑。比如，`return $this->response->success(new UserCollection($resource));`或`return $this->response->success(new UserResource($user));`
+5. （可选）使用 Laravel Api Resource 的同学可能在 Controller 中还会有转换数据的逻辑。比如，`return Response::success(new UserCollection($resource));`或`return Response::success(new UserResource($user));`
     
 **Service 岗位职责**：
 
@@ -136,7 +143,7 @@ Repository => state、mutation、getter，具体的数据维护
 
 完整的执行顺序：`Criteria -> Validator -> Presenter`
 
-**Constants**:
+**Enums**:
 
 这个是 lumen-api-starter 新增的部分，用来定义应用系统中常量的数据。
 
@@ -151,47 +158,6 @@ public function boot()
 {
     $this->pushCriteria(app(RequestCriteria::class));
 }
-```
-
-```php
-http://prettus.local/users?search=age:17;email:john@gmail.com&searchJoin=and
-
-Filtering fields
-
-http://prettus.local/users?filter=id;name
-
-[
-    {
-        "id": 1,
-        "name": "John Doe"
-    },
-    {
-        "id": 2,
-        "name": "Lorem Ipsum"
-    },
-    {
-        "id": 3,
-        "name": "Laravel"
-    }
-]
-Sorting the results
-
-http://prettus.local/users?filter=id;name&orderBy=id&sortedBy=desc
-
-[
-    {
-        "id": 3,
-        "name": "Laravel"
-    },
-    {
-        "id": 2,
-        "name": "Lorem Ipsum"
-    },
-    {
-        "id": 1,
-        "name": "John Doe"
-    }
-]
 ```
 
 **Presenter**：[L5-repository presenters](https://github.com/andersao/l5-repository#presenters)
@@ -220,7 +186,7 @@ return $this->item($user, new UserTransformer, ['key' => 'user']);
 在 Controller 中调用 Resource 或者 ResourceCollection 转换数据
 
 ```php
- //return $this->response->success(new UserResource($user));// 使用 lumen-api-starter 统一 code\status\message\data
+ //return Response::success(new UserResource($user));// 使用 lumen-api-starter 统一 code\status\message\data
 return new UserResource($user);// 未统一响应结构
 ```
 
