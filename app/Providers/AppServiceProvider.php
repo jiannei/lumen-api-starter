@@ -11,6 +11,8 @@
 
 namespace App\Providers;
 
+use App\Observers\UserObserver;
+use App\Repositories\Models\User;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerObservers();// 注册观察者
+    }
+
+    protected function registerObservers(): void
+    {
+        User::observe(UserObserver::class);
     }
 }
