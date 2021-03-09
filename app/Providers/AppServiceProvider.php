@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerObservers();// 注册观察者
+        $this->registerObservers(); // 注册观察者
     }
 
     protected function registerObservers(): void
