@@ -12,7 +12,7 @@
         "jenssegers/mongodb": "^3.8",
         "jiannei/laravel-enum": "^1.3",
         "jiannei/laravel-logger": "^1.1",
-        "jiannei/laravel-response": "^1.4",
+        "jiannei/laravel-response": "^1.6",
         "laravel/lumen-framework": "^8.0",
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.7",
