@@ -62,5 +62,5 @@ return [
     // https://github.com/Jiannei/laravel-enum
     // https://github.com/BenSampo/laravel-enum
 
-     'enum' => ResponseCodeEnum::class,
+    'enum' => ResponseCodeEnum::class,
 ];

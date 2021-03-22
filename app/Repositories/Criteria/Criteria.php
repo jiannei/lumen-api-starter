@@ -41,13 +41,12 @@ abstract class Criteria implements CriteriaInterface
     }
 
     /**
-     * Splice the query according to the parameters in the request
+     * Splice the query according to the parameters in the request.
      *
      * @param  Builder  $query
      */
     protected function condition(Builder $query): void
     {
-
     }
 
     protected function before($model)
