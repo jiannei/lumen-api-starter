@@ -18,6 +18,7 @@ return [
     ResponseCodeEnum::class => [
         // 成功
         ResponseCodeEnum::HTTP_OK => '操作成功', // 自定义 HTTP 状态码返回消息
+        ResponseCodeEnum::HTTP_NOT_FOUND => '数据未找到', // 自定义 HTTP 状态码返回消息
         ResponseCodeEnum::HTTP_UNAUTHORIZED => '授权失败',
 
         // 业务操作成功
