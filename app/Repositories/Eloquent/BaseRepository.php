@@ -64,7 +64,7 @@ abstract class BaseRepository extends BaseRepositoryEloquent
             $next = $count === $limit ? optional($results->last())->{$primaryKey} : null;
 
             $prev = request('prev');
-            $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : null, $next, $count);
+            $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : '', $next, $count);
         } else {
             $results = $this->model->{$method}($limit, $columns);
             $results->appends(app('request')->query());
