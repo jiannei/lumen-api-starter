@@ -60,7 +60,6 @@ class Handler extends ExceptionHandler
      *
      * @param  Request  $request
      * @param  Throwable  $exception
-     *
      * @return Response|JsonResponse
      *
      * @throws Throwable
