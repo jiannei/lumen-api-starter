@@ -27,7 +27,6 @@ abstract class BaseRepository extends BaseRepositoryEloquent
      *
      * @param  null|int  $limit
      * @param  array  $columns
-     *
      * @return mixed
      */
     public function cursorPaginate($limit = null, $columns = ['*'])
@@ -41,7 +40,6 @@ abstract class BaseRepository extends BaseRepositoryEloquent
      * @param  null|int  $limit
      * @param  array  $columns
      * @param  string  $method
-     *
      * @return mixed
      */
     public function paginate($limit = null, $columns = ['*'], $method = 'paginate')
