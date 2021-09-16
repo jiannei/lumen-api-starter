@@ -1776,23 +1776,17 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.54.0",
+            "version": "v8.61.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
-                "reference": "8c4acca0e65b6a7eaaff1ecf9b6d8267b09004e2"
+                "reference": "1e853a26d755f46addda2b1d617f246fb29d0612"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/redis/zipball/8c4acca0e65b6a7eaaff1ecf9b6d8267b09004e2",
-                "reference": "8c4acca0e65b6a7eaaff1ecf9b6d8267b09004e2",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/illuminate/redis/zipball/1e853a26d755f46addda2b1d617f246fb29d0612",
+                "reference": "1e853a26d755f46addda2b1d617f246fb29d0612",
+                "shasum": ""
             },
             "require": {
                 "illuminate/collections": "^8.0",
@@ -1832,7 +1826,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-26T15:23:04+00:00"
+            "time": "2021-09-13T19:02:46+00:00"
         },
         {
             "name": "illuminate/session",
