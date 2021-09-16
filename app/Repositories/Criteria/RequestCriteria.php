@@ -24,8 +24,8 @@ class RequestCriteria extends BaseRequestCriteria
      *
      * @param  Builder|Model  $model
      * @param  RepositoryInterface  $repository
-     *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function apply($model, RepositoryInterface $repository)
