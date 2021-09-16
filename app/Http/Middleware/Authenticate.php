@@ -42,7 +42,6 @@ class Authenticate
      * @param  Request  $request
      * @param  Closure  $next
      * @param  string|null  $guard
-     *
      * @return mixed
      *
      * @throws AuthorizationException
