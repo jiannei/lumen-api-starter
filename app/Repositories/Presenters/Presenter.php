@@ -35,8 +35,8 @@ abstract class Presenter extends FractalPresenter
      * Prepare data to present.
      *
      * @param $data
-     *
      * @return mixed
+     *
      * @throws Exception
      */
     public function present($data)
@@ -58,7 +58,6 @@ abstract class Presenter extends FractalPresenter
 
     /**
      * @param $data
-     *
      * @return \League\Fractal\Resource\Collection
      */
     protected function transformCollection($data)
@@ -73,7 +72,6 @@ abstract class Presenter extends FractalPresenter
 
     /**
      * @param  AbstractPaginator|LengthAwarePaginator|Paginator  $paginator
-     *
      * @return \League\Fractal\Resource\Collection
      */
     protected function transformPaginator($paginator)
