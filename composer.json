@@ -16,7 +16,7 @@
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.7",
         "spatie/laravel-permission": "^5.1",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "1.0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",
