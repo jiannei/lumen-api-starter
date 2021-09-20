@@ -9,50 +9,20 @@
  * with this source code in the file LICENSE.
  */
 
-use App\Repositories\Enums\ResponseCodeEnum;
-
 return [
     /*
-   |--------------------------------------------------------------------------
-   | Set the http status code when the response fails
-   |--------------------------------------------------------------------------
-   |
-   | the reference options are false, 200, 500
-   |
-   | false, stricter http status codes such as 404, 401, 403, 500, etc. will be returned
-   | 200, All failed responses will also return a 200 status code
-   | 500, All failed responses return a 500 status code
-   */
+    |--------------------------------------------------------------------------
+    | Set the http status code when the response fails
+    |--------------------------------------------------------------------------
+    |
+    | the reference options are false, 200, 500
+    |
+    | false, stricter http status codes such as 404, 401, 403, 500, etc. will be returned
+    | 200, All failed responses will also return a 200 status code
+    | 500, All failed responses return a 500 status code
+    */
 
     'error_code' => false,
-
-    // Set the http status code returned when the form validation fails.
-    //  When the error_code is set to 200 or 500, it will not work
-
-    'validation_error_code' => ResponseCodeEnum::CLIENT_VALIDATION_ERROR,
-
-    // Set the structure of the paging data return,the following structure will be returned by default,
-    // You can modify the name of the inner data field through the following configuration items, such as rows or list
-    //{
-    //    "status": "success",
-    //    "code": 200,
-    //    "message": "Success.",
-    //    "data": {
-    //    "data": [
-    //        // ...
-    //    ],
-    //        "meta": {
-    //        // ...
-    //    }
-    //    },
-    //    "error": {}
-    //}
-
-    'format' => [
-        'paginated_resource' => [
-            'data_field' => 'list',
-        ],
-    ],
 
     // You can use enumerations to define the code when the response is returned,
     // and set the response message according to the locale
@@ -62,5 +32,69 @@ return [
     // https://github.com/Jiannei/laravel-enum
     // https://github.com/BenSampo/laravel-enum
 
-    'enum' => ResponseCodeEnum::class,
+    'enum' => \App\Repositories\Enums\ResponseCodeEnum::class, // \Jiannei\Enum\Laravel\Repositories\Enums\HttpStatusCodeEnum::class
+
+    //  You can set some attributes (eg:code/message/header/options) for the exception, and it will override the default attributes of the exception
+    'exception' => [
+        \Illuminate\Validation\ValidationException::class => [
+            'code' => \App\Repositories\Enums\ResponseCodeEnum::HTTP_UNPROCESSABLE_ENTITY,
+        ],
+        \Illuminate\Auth\AuthenticationException::class => [
+
+        ],
+        \Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class =>[
+            'message' => '',
+        ],
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class => [
+            'message' => '',
+        ],
+    ],
+
+    // Set the structure of the response data
+    'format' => [
+        'fields' => [
+            'status' => ['alias' => 'status', 'show' => true],
+            'code' => ['alias' => 'code', 'show' => true],
+            'message' => ['alias' => 'message', 'show' => true],
+            'error' => ['alias' => 'error', 'show' => true],
+            'data' => [
+                'alias' => 'data',
+                'show' => true,
+
+                'fields' => [
+                    // When data is nested with data, such as returning paged data, you can also set an alias for the inner data
+                    'data' => ['alias' => 'list', 'show' => true], // data/rows/list
+
+                    'meta' => [
+                        'alia' => 'meta',
+                        'show' => true,
+
+                        'fields' => [
+                            'pagination' => [
+                                'alias' => 'pagination',
+                                'show' => true,
+
+                                'fields' => [
+                                    'total' => ['alias' => 'total', 'show' => true],
+                                    'count' => ['alias' => 'count', 'show' => true],
+                                    'per_page' => ['alias' => 'per_page', 'show' => true],
+                                    'current_page' => ['alias' => 'current_page', 'show' => true],
+                                    'total_pages' => ['alias' => 'total_pages', 'show' => true],
+                                    'links' => [
+                                        'alias' => 'links',
+                                        'show' => true,
+
+                                        'fields' => [
+                                            'previous' => ['alias' => 'previous', 'show' => true],
+                                            'next' => ['alias' => 'next', 'show' => true],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
