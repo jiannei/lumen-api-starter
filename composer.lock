@@ -982,7 +982,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.66.0",
+            "version": "v8.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -1195,7 +1195,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.66.0",
+            "version": "v8.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1634,7 +1634,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.66.0",
+            "version": "v8.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1844,16 +1844,16 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.66.0",
+            "version": "v8.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
-                "reference": "1e853a26d755f46addda2b1d617f246fb29d0612"
+                "reference": "99b7120bcaaa2c71f5edb081f2d8b1ba35f2b3b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/redis/zipball/1e853a26d755f46addda2b1d617f246fb29d0612",
-                "reference": "1e853a26d755f46addda2b1d617f246fb29d0612",
+                "url": "https://api.github.com/repos/illuminate/redis/zipball/99b7120bcaaa2c71f5edb081f2d8b1ba35f2b3b9",
+                "reference": "99b7120bcaaa2c71f5edb081f2d8b1ba35f2b3b9",
                 "shasum": ""
             },
             "require": {
@@ -1865,7 +1865,7 @@
             },
             "suggest": {
                 "ext-redis": "Required to use the phpredis connector (^4.0|^5.0).",
-                "predis/predis": "Required to use the predis connector (^1.1.2)."
+                "predis/predis": "Required to use the predis connector (^1.1.9)."
             },
             "type": "library",
             "extra": {
@@ -1894,7 +1894,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-09-13T19:02:46+00:00"
+            "time": "2021-10-22T13:20:42+00:00"
         },
         {
             "name": "illuminate/session",
@@ -1954,16 +1954,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.66.0",
+            "version": "v8.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "43780c16c4721b45886796a2ae6aece40e45a535"
+                "reference": "85b6513696d407280b54014865dca4e3fcdccce3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/43780c16c4721b45886796a2ae6aece40e45a535",
-                "reference": "43780c16c4721b45886796a2ae6aece40e45a535",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/85b6513696d407280b54014865dca4e3fcdccce3",
+                "reference": "85b6513696d407280b54014865dca4e3fcdccce3",
                 "shasum": ""
             },
             "require": {
@@ -1973,7 +1973,7 @@
                 "illuminate/collections": "^8.0",
                 "illuminate/contracts": "^8.0",
                 "illuminate/macroable": "^8.0",
-                "nesbot/carbon": "^2.31",
+                "nesbot/carbon": "^2.53.1",
                 "php": "^7.3|^8.0",
                 "voku/portable-ascii": "^1.4.8"
             },
@@ -2018,7 +2018,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-10-21T14:09:25+00:00"
+            "time": "2021-10-22T13:20:42+00:00"
         },
         {
             "name": "illuminate/testing",
