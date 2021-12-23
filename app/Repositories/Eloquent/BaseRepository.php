@@ -31,42 +31,23 @@ abstract class BaseRepository extends BaseRepositoryEloquent
      */
     public function cursorPaginate($limit = null, $columns = ['*'])
     {
-        return $this->paginate($limit, $columns, 'cursor');
-    }
-
-    /**
-     * Retrieve all data of repository, paginated.
-     *
-     * @param  null|int  $limit
-     * @param  array  $columns
-     * @param  string  $method
-     * @return mixed
-     */
-    public function paginate($limit = null, $columns = ['*'], $method = 'paginate')
-    {
         $this->applyCriteria();
         $this->applyScope();
-
         $limit = is_null($limit) ? config('repository.pagination.limit', 15) : (int) $limit;
 
-        if ($method === 'cursor') {
-            $results = $this->model->select($columns)->limit($limit)->get();
+        $results = $this->model->select($columns)->limit($limit)->get();
 
-            if ($this->model instanceof Builder) {
-                $primaryKey = $this->model->getModel()->getKeyName();
-            } else {
-                $primaryKey = $this->model->getKeyName();
-            }
-
-            $count = $results->count();
-            $next = $count === $limit ? optional($results->last())->{$primaryKey} : null;
-
-            $prev = request('prev');
-            $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : '', $next, $count);
+        if ($this->model instanceof Builder) {
+            $primaryKey = $this->model->getModel()->getKeyName();
         } else {
-            $results = $this->model->{$method}($limit, $columns);
-            $results->appends(app('request')->query());
+            $primaryKey = $this->model->getKeyName();
         }
+
+        $count = $results->count();
+        $next = $count === $limit ? optional($results->last())->{$primaryKey} : null;
+
+        $prev = request('prev');
+        $this->presenter->makeCursor((int) request('cursor'), $prev ? (int) $prev : '', $next, $count);
 
         $this->resetModel();
 
