@@ -1039,16 +1039,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.77.1",
+            "version": "v8.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "bafdbd033a717aed94e4d023512f2c9eb3e8cd77"
+                "reference": "7cb18ab1acf3802917bda8c840c72d8d15a37f1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/bafdbd033a717aed94e4d023512f2c9eb3e8cd77",
-                "reference": "bafdbd033a717aed94e4d023512f2c9eb3e8cd77",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/7cb18ab1acf3802917bda8c840c72d8d15a37f1c",
+                "reference": "7cb18ab1acf3802917bda8c840c72d8d15a37f1c",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-12-16T15:00:27+00:00"
+            "time": "2021-12-30T20:34:52+00:00"
         },
         {
             "name": "illuminate/config",
@@ -1258,7 +1258,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.77.1",
+            "version": "v8.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1721,7 +1721,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.77.1",
+            "version": "v8.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1937,7 +1937,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.77.1",
+            "version": "v8.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1947,13 +1947,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/redis/zipball/513618b78fb42f440f7717ba05b28350f7edd284",
                 "reference": "513618b78fb42f440f7717ba05b28350f7edd284",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "illuminate/collections": "^8.0",
@@ -2053,16 +2047,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.77.1",
+            "version": "v8.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "789b5c9a28884bc6b07841574cc86abdec7c5f68"
+                "reference": "0c2a4db0c60b33d30af0ae6bc2b31159d6c49361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/789b5c9a28884bc6b07841574cc86abdec7c5f68",
-                "reference": "789b5c9a28884bc6b07841574cc86abdec7c5f68",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/0c2a4db0c60b33d30af0ae6bc2b31159d6c49361",
+                "reference": "0c2a4db0c60b33d30af0ae6bc2b31159d6c49361",
                 "shasum": ""
             },
             "require": {
@@ -2117,7 +2111,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-12-21T14:59:41+00:00"
+            "time": "2022-01-04T16:02:54+00:00"
         },
         {
             "name": "illuminate/testing",
