@@ -1039,16 +1039,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.77.1",
+            "version": "v8.78.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "bafdbd033a717aed94e4d023512f2c9eb3e8cd77"
+                "reference": "e8c1cbd7a4cc8fb0e6a8978a55ef6d49c90bea59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/bafdbd033a717aed94e4d023512f2c9eb3e8cd77",
-                "reference": "bafdbd033a717aed94e4d023512f2c9eb3e8cd77",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/e8c1cbd7a4cc8fb0e6a8978a55ef6d49c90bea59",
+                "reference": "e8c1cbd7a4cc8fb0e6a8978a55ef6d49c90bea59",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-12-16T15:00:27+00:00"
+            "time": "2022-01-04T18:54:15+00:00"
         },
         {
             "name": "illuminate/config",
@@ -1258,7 +1258,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.77.1",
+            "version": "v8.78.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1721,7 +1721,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.77.1",
+            "version": "v8.78.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1937,7 +1937,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.77.1",
+            "version": "v8.78.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1947,13 +1947,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/redis/zipball/513618b78fb42f440f7717ba05b28350f7edd284",
                 "reference": "513618b78fb42f440f7717ba05b28350f7edd284",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "illuminate/collections": "^8.0",
@@ -2053,16 +2047,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.77.1",
+            "version": "v8.78.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "789b5c9a28884bc6b07841574cc86abdec7c5f68"
+                "reference": "0c2a4db0c60b33d30af0ae6bc2b31159d6c49361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/789b5c9a28884bc6b07841574cc86abdec7c5f68",
-                "reference": "789b5c9a28884bc6b07841574cc86abdec7c5f68",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/0c2a4db0c60b33d30af0ae6bc2b31159d6c49361",
+                "reference": "0c2a4db0c60b33d30af0ae6bc2b31159d6c49361",
                 "shasum": ""
             },
             "require": {
@@ -2117,7 +2111,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-12-21T14:59:41+00:00"
+            "time": "2022-01-04T16:02:54+00:00"
         },
         {
             "name": "illuminate/testing",
@@ -5256,20 +5250,23 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-mbstring": "*"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -5316,7 +5313,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5332,7 +5329,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T12:26:48+00:00"
+            "time": "2021-11-30T18:21:41+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -5559,16 +5556,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be"
+                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/1100343ed1a92e3a38f9ae122fc0eb21602547be",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/57b712b08eddb97c762a8caa32c84e037892d2e9",
+                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9",
                 "shasum": ""
             },
             "require": {
@@ -5622,7 +5619,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5638,7 +5635,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T13:41:28+00:00"
+            "time": "2021-09-13T13:58:33+00:00"
         },
         {
             "name": "symfony/polyfill-php81",
