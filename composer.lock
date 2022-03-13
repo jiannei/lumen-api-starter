@@ -2522,34 +2522,25 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "v4.1.0",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Jiannei/laravel-response.git",
-                "reference": "5193800903dd677a02bb43b586bbdf2f6f342eea"
+                "url": "https://github.com/jiannei/laravel-response.git",
+                "reference": "012d611a26c190302da3820bbbfd09e5adef1d3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jiannei/laravel-response/zipball/5193800903dd677a02bb43b586bbdf2f6f342eea",
-                "reference": "5193800903dd677a02bb43b586bbdf2f6f342eea",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/012d611a26c190302da3820bbbfd09e5adef1d3a",
+                "reference": "012d611a26c190302da3820bbbfd09e5adef1d3a",
+                "shasum": ""
             },
             "require": {
                 "php": "^7.2.5|^8.0"
             },
             "require-dev": {
                 "jiannei/laravel-enum": "^3.0",
-                "laravel/legacy-factories": "^1.1",
-                "league/fractal": "^0.19.2",
-                "orchestra/database": "^6.0",
-                "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.3.3"
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.5.10"
             },
             "type": "library",
             "extra": {
@@ -2579,10 +2570,10 @@
             ],
             "description": "Laravel api response data format.",
             "support": {
-                "issues": "https://github.com/Jiannei/laravel-response/issues",
-                "source": "https://github.com/Jiannei/laravel-response/tree/v4.1.0"
+                "issues": "https://github.com/jiannei/laravel-response/issues",
+                "source": "https://github.com/jiannei/laravel-response/tree/v4.2.0"
             },
-            "time": "2021-12-24T08:17:43+00:00"
+            "time": "2022-03-10T02:53:53+00:00"
         },
         {
             "name": "laravel/lumen-framework",
