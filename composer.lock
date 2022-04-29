@@ -2504,16 +2504,16 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "v4.2.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jiannei/laravel-response.git",
-                "reference": "012d611a26c190302da3820bbbfd09e5adef1d3a"
+                "reference": "16b00215f8380420fae6193e6ea89415e0b16d6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/012d611a26c190302da3820bbbfd09e5adef1d3a",
-                "reference": "012d611a26c190302da3820bbbfd09e5adef1d3a",
+                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/16b00215f8380420fae6193e6ea89415e0b16d6e",
+                "reference": "16b00215f8380420fae6193e6ea89415e0b16d6e",
                 "shasum": ""
             },
             "require": {
@@ -2553,9 +2553,9 @@
             "description": "Laravel api response data format.",
             "support": {
                 "issues": "https://github.com/jiannei/laravel-response/issues",
-                "source": "https://github.com/jiannei/laravel-response/tree/v4.2.0"
+                "source": "https://github.com/jiannei/laravel-response/tree/v4.3.1"
             },
-            "time": "2022-03-10T02:53:53+00:00"
+            "time": "2022-04-29T17:00:25+00:00"
         },
         {
             "name": "laravel/lumen-framework",
