@@ -1916,7 +1916,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v8.83.11",
+            "version": "v8.83.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1926,13 +1926,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/redis/zipball/0fee121324054226823a59623fab3d98ad88fbd5",
                 "reference": "0fee121324054226823a59623fab3d98ad88fbd5",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "illuminate/collections": "^8.0",
