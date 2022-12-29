@@ -11,7 +11,7 @@
         "illuminate/redis": "^8.34",
         "jiannei/laravel-enum": "^3.0",
         "jiannei/laravel-logger": "^1.2",
-        "jiannei/laravel-response": "^4.0",
+        "jiannei/laravel-response": "^5.0",
         "laravel/lumen-framework": "^8.0",
         "league/fractal": "^0.20",
         "prettus/l5-repository": "^2.7",
