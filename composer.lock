@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "445714aa5ef5d84b308a8a6118fa7cdf",
+    "content-hash": "4418bf41446e8b7b8816577e2ad31146",
     "packages": [
         {
             "name": "brick/math",
@@ -2512,19 +2512,20 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "v4.4.0",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jiannei/laravel-response.git",
-                "reference": "79e74fc770702aaf3cfdb3a8745c8f9f320c6427"
+                "reference": "ee51185064be0d3c441ad8c3a41b1b96c3eb3be3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/79e74fc770702aaf3cfdb3a8745c8f9f320c6427",
-                "reference": "79e74fc770702aaf3cfdb3a8745c8f9f320c6427",
+                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/ee51185064be0d3c441ad8c3a41b1b96c3eb3be3",
+                "reference": "ee51185064be0d3c441ad8c3a41b1b96c3eb3be3",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": "^7.2.5|^8.0"
             },
             "require-dev": {
@@ -2561,9 +2562,9 @@
             "description": "Laravel api response data format.",
             "support": {
                 "issues": "https://github.com/jiannei/laravel-response/issues",
-                "source": "https://github.com/jiannei/laravel-response/tree/v4.4.0"
+                "source": "https://github.com/jiannei/laravel-response/tree/v5.1.0"
             },
-            "time": "2022-05-31T15:03:27+00:00"
+            "time": "2022-12-30T09:19:38+00:00"
         },
         {
             "name": "laravel/lumen-framework",
