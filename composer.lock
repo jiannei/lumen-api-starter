@@ -1900,11 +1900,16 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "v5.1.0",
+            "version": "v5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jiannei/laravel-response.git",
+                "reference": "827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.cloud.tencent.com/repository/composer/jiannei/laravel-response/v5.1.0/jiannei-laravel-response-v5.1.0.zip",
-                "reference": "ee51185064be0d3c441ad8c3a41b1b96c3eb3be3",
+                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c",
+                "reference": "827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c",
                 "shasum": ""
             },
             "require": {
@@ -1932,6 +1937,7 @@
                     "Jiannei\\Response\\Laravel\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1942,7 +1948,11 @@
                 }
             ],
             "description": "Laravel api response data format.",
-            "time": "2022-12-30T09:19:38+00:00"
+            "support": {
+                "issues": "https://github.com/jiannei/laravel-response/issues",
+                "source": "https://github.com/jiannei/laravel-response/tree/v5.1.1"
+            },
+            "time": "2023-01-03T03:44:08+00:00"
         },
         {
             "name": "laravel/lumen-framework",
