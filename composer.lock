@@ -2392,16 +2392,16 @@
         },
         {
             "name": "jiannei/laravel-response",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jiannei/laravel-response.git",
-                "reference": "827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c"
+                "reference": "24f6b7b4795d0f1ca7b05478375f25bf857c3ad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c",
-                "reference": "827b19e22c1eaa07b5234e5927b7bab8e8a3fd9c",
+                "url": "https://api.github.com/repos/jiannei/laravel-response/zipball/24f6b7b4795d0f1ca7b05478375f25bf857c3ad4",
+                "reference": "24f6b7b4795d0f1ca7b05478375f25bf857c3ad4",
                 "shasum": ""
             },
             "require": {
@@ -2410,6 +2410,7 @@
             },
             "require-dev": {
                 "jiannei/laravel-enum": "^3.0",
+                "league/fractal": "^0.20.1",
                 "orchestra/testbench": "^7.0",
                 "phpunit/phpunit": "^9.5.10"
             },
@@ -2442,9 +2443,9 @@
             "description": "Laravel api response data format.",
             "support": {
                 "issues": "https://github.com/jiannei/laravel-response/issues",
-                "source": "https://github.com/jiannei/laravel-response/tree/v5.1.1"
+                "source": "https://github.com/jiannei/laravel-response/tree/v5.1.2"
             },
-            "time": "2023-01-03T03:44:08+00:00"
+            "time": "2023-02-06T02:08:42+00:00"
         },
         {
             "name": "laravel/lumen-framework",
