@@ -67,7 +67,7 @@ return [
                     'data' => ['alias' => 'list', 'show' => true], // data/rows/list
 
                     'meta' => [
-                        'alia' => 'meta',
+                        'alias' => 'meta',
                         'show' => true,
 
                         'fields' => [
