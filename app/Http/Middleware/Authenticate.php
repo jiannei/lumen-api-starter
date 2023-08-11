@@ -13,23 +13,22 @@ namespace App\Http\Middleware;
 
 use App\Repositories\Enums\ResponseCodeEnum;
 use Closure;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Factory as Auth;
-use Illuminate\Http\Request;
 
 class Authenticate
 {
     /**
      * The authentication guard factory instance.
      *
-     * @var Auth
+     * @var \Illuminate\Contracts\Auth\Factory
      */
     protected $auth;
 
     /**
      * Create a new middleware instance.
      *
-     * @param  Auth  $auth
+     * @param  \Illuminate\Contracts\Auth\Factory  $auth
+     * @return void
      */
     public function __construct(Auth $auth)
     {
@@ -39,12 +38,10 @@ class Authenticate
     /**
      * Handle an incoming request.
      *
-     * @param  Request  $request
-     * @param  Closure  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @param  string|null  $guard
      * @return mixed
-     *
-     * @throws AuthorizationException
      */
     public function handle($request, Closure $next, $guard = null)
     {
