@@ -18,7 +18,6 @@ use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class UsersController extends Controller
 {
-
     public function __construct(private UserService $service)
     {
         $this->middleware('auth:api', ['except' => ['store', 'show']]);
