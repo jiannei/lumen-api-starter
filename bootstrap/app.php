@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Jiannei/lumen-api-starter.
- *
- * (c) Jiannei <longjian.huang@foxmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -32,11 +23,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->withFacades();
+// $app->withFacades();
 
-//$app->register(Jenssegers\Mongodb\MongodbServiceProvider::class);
-
-$app->withEloquent();
+// $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -71,21 +60,6 @@ $app->singleton(
 */
 
 $app->configure('app');
-$app->configure('auth');
-$app->configure('broadcasting');
-$app->configure('cache');
-$app->configure('database');
-$app->configure('filesystems');
-$app->configure('logging');
-$app->configure('queue');
-$app->configure('services');
-$app->configure('view');
-$app->configure('repository');
-$app->configure('enum');
-$app->configure('permission');
-$app->configure('response');
-
-$app->alias('cache', \Illuminate\Cache\CacheManager::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -102,18 +76,9 @@ $app->alias('cache', \Illuminate\Cache\CacheManager::class);
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-$app->middleware([
-    \Jiannei\Logger\Laravel\Http\Middleware\RequestLog::class,
-    \Jiannei\Response\Laravel\Http\Middleware\Etag::class,
-]);
-
-$app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
-    'enum' => \Jiannei\Enum\Laravel\Http\Middleware\TransformEnums::class,
-    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-    'throttle' => \Jiannei\Response\Laravel\Http\Middleware\ThrottleRequests::class,
-]);
+// $app->routeMiddleware([
+//     'auth' => App\Http\Middleware\Authenticate::class,
+// ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -126,27 +91,9 @@ $app->routeMiddleware([
 |
 */
 
-/*
-* Application Service Providers...
-*/
-$app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\AuthServiceProvider::class);
-$app->register(App\Providers\EventServiceProvider::class);
-
-/*
- * Package Service Providers...
- */
-//$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-//$app->register(\Illuminate\Redis\RedisServiceProvider::class);
-$app->register(\Spatie\Permission\PermissionServiceProvider::class);
-$app->register(\Jiannei\Enum\Laravel\Providers\LumenServiceProvider::class);
-$app->register(\Jiannei\Response\Laravel\Providers\LumenServiceProvider::class);
-$app->register(\Jiannei\Logger\Laravel\Providers\ServiceProvider::class);
-
-/*
- * Custom Service Providers.
- */
-$app->register(App\Providers\RepositoryServiceProvider::class);
+// $app->register(App\Providers\AppServiceProvider::class);
+// $app->register(App\Providers\AuthServiceProvider::class);
+// $app->register(App\Providers\EventServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

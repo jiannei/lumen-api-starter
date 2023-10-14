@@ -1,17 +1,7 @@
 <?php
 
-/*
- * This file is part of the Jiannei/lumen-api-starter.
- *
- * (c) Jiannei <longjian.huang@foxmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace App\Http\Middleware;
 
-use App\Repositories\Enums\ResponseCodeEnum;
 use Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
@@ -46,7 +36,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            abort(ResponseCodeEnum::HTTP_UNAUTHORIZED);
+            return response('Unauthorized.', 401);
         }
 
         return $next($request);

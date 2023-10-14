@@ -1,19 +1,9 @@
 <?php
 
-/*
- * This file is part of the Jiannei/lumen-api-starter.
- *
- * (c) Jiannei <longjian.huang@foxmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace Database\Factories;
 
-use App\Repositories\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -34,7 +24,6 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => Hash::make('password'),
         ];
     }
 }
