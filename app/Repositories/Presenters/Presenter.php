@@ -34,7 +34,7 @@ abstract class Presenter extends FractalPresenter
     /**
      * Prepare data to present.
      *
-     * @param $data
+     * @param  $data
      * @return mixed
      *
      * @throws Exception
@@ -57,7 +57,7 @@ abstract class Presenter extends FractalPresenter
     }
 
     /**
-     * @param $data
+     * @param  $data
      * @return \League\Fractal\Resource\Collection
      */
     protected function transformCollection($data)
