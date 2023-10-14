@@ -18,47 +18,26 @@ use Jiannei\Response\Laravel\Support\Facades\Response;
 
 class UsersController extends Controller
 {
-    /**
-     * @var UserService
-     */
-    private $userService;
 
-    public function __construct(UserService $userService)
+    public function __construct(private UserService $service)
     {
-        $this->userService = $userService;
-
-        $this->middleware('auth:api', ['except' => ['store', 'show']]);
+//        $this->middleware('auth:api', ['except' => ['store', 'show']]);
     }
 
-    public function index(Request $request)
+    public function index(string $paginate = 'paginate')
     {
-        $users = $this->userService->handleSearchList($request);
+        $users = match ($paginate) {
+            'simple' => $this->service->handleSearchSimpleList(),
+            'cursor' => $this->service->handleSearchCursorList(),
+            default => $this->service->handleSearchList(),
+        };
 
-        return Response::success($users);
-    }
-
-    public function simple(Request $request)
-    {
-        $users = $this->userService->handleSearchSimpleList($request);
-
-        return Response::success($users);
-    }
-
-    public function cursor(Request $request)
-    {
-        $this->validate($request, [
-            'cursor' => 'sometimes|integer',
-            'prev' => 'sometimes|integer',
-        ]);
-
-        $users = $this->userService->handleSearchCursorList($request);
-
-        return Response::success($users);
+        return Response::success(UserResource::collection($users));
     }
 
     public function show($id)
     {
-        $user = $this->userService->handleSearchItem($id);
+        $user = $this->service->handleSearchItem($id);
 
         return Response::success($user);
     }
@@ -71,7 +50,7 @@ class UsersController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = $this->userService->handleCreateItem($request);
+        $user = $this->service->handleCreateItem($request->all());
 
         return Response::created(new UserResource($user));
     }

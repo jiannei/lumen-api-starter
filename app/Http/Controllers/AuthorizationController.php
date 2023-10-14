@@ -55,22 +55,4 @@ class AuthorizationController extends Controller
 
         return $this->respondWithToken($token);
     }
-
-    public function update()
-    {
-        return $this->respondWithToken(auth()->refresh());
-    }
-
-    protected function respondWithToken($token)
-    {
-        return Response::success(
-            [
-                'access_token' => $token,
-                'token_type' => 'bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60,
-            ],
-            '',
-            ResponseCodeEnum::SERVICE_LOGIN_SUCCESS
-        );
-    }
 }

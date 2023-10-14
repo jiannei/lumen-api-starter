@@ -9,14 +9,15 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Contracts\Repositories;
+namespace Database\Seeders;
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use Database\Factories\UserFactory;
+use Illuminate\Database\Seeder;
 
-/**
- * Interface PostRepository.
- */
-interface PostRepository extends RepositoryInterface
+class UsersSeeder extends Seeder
 {
-    //
+    public function run()
+    {
+        UserFactory::new()->count(30)->create();
+    }
 }

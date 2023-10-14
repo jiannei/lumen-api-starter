@@ -14,12 +14,15 @@ namespace App\Exceptions;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
+use Jiannei\Response\Laravel\Support\Traits\ExceptionTrait;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    use ExceptionTrait;
+
     /**
      * A list of the exception types that should not be reported.
      *
