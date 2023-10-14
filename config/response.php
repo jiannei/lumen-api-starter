@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the jiannei/laravel-response.
+ * This file is part of the Jiannei/lumen-api-starter.
  *
  * (c) Jiannei <longjian.huang@foxmail.com>
  *
