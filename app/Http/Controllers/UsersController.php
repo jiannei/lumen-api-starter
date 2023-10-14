@@ -21,7 +21,7 @@ class UsersController extends Controller
 
     public function __construct(private UserService $service)
     {
-//        $this->middleware('auth:api', ['except' => ['store', 'show']]);
+        $this->middleware('auth:api', ['except' => ['store', 'show']]);
     }
 
     public function index(string $paginate = 'paginate')

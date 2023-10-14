@@ -69,6 +69,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('response');
 $app->configure('jwt');
 
 /*
