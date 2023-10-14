@@ -12,7 +12,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
-use App\Repositories\Enums\ResponseCodeEnum;
 use Illuminate\Http\Request;
 use Jiannei\Response\Laravel\Support\Facades\Response;
 
