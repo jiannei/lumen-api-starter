@@ -27,3 +27,10 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('users[/{paginate}]', 'UsersController@index');
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('login', 'AuthController@login');
+    $router->delete('logout', 'AuthController@logout');
+    $router->put('refresh', 'AuthController@refresh');
+    $router->get('me', 'AuthController@me');
+});

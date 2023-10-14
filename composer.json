@@ -8,7 +8,8 @@
         "php": "^8.1",
         "jiannei/laravel-enum": "dev-main",
         "jiannei/laravel-response": "dev-main",
-        "laravel/lumen-framework": "^10.0"
+        "laravel/lumen-framework": "^10.0",
+        "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
