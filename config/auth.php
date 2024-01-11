@@ -3,14 +3,13 @@
 /*
  * This file is part of the Jiannei/lumen-api-starter.
  *
- * (c) Jiannei <longjian.huang@foxmail.com>
+ * (c) Jiannei <jiannei@sinan.fun>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -94,7 +93,5 @@ return [
     */
 
     'passwords' => [
-        //
     ],
-
 ];

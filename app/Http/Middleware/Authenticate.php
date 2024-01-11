@@ -3,7 +3,7 @@
 /*
  * This file is part of the Jiannei/lumen-api-starter.
  *
- * (c) Jiannei <longjian.huang@foxmail.com>
+ * (c) Jiannei <jiannei@sinan.fun>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -27,7 +27,6 @@ class Authenticate
     /**
      * Create a new middleware instance.
      *
-     * @param  \Illuminate\Contracts\Auth\Factory  $auth
      * @return void
      */
     public function __construct(Auth $auth)
@@ -38,9 +37,9 @@ class Authenticate
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param \Illuminate\Http\Request $request
+     * @param string|null              $guard
+     *
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
