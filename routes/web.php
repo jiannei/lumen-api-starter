@@ -3,7 +3,7 @@
 /*
  * This file is part of the Jiannei/lumen-api-starter.
  *
- * (c) Jiannei <longjian.huang@foxmail.com>
+ * (c) Jiannei <jiannei@sinan.fun>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -20,7 +20,7 @@
 |
 */
 
-/** @var \Laravel\Lumen\Routing\Router $router */
+/* @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
